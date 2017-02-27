@@ -1,0 +1,42 @@
+﻿<UserControl x:Class="RDS.Views.MaintenanceView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+               xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+           d:DesignHeight="1000" d:DesignWidth="1900">
+    <Viewbox Stretch="Fill" >
+        <Grid Width="900" Height="400">
+            <DockPanel LastChildFill="True">
+                <StackPanel x:Name="StackPanel_Wizard" Height="30"  Orientation="Horizontal" DockPanel.Dock="Bottom">
+                    <DockPanel LastChildFill="True">
+                        <Button x:Name="Button_WizardPrevious" Content="上一步" Width="100" Margin="50,0,0,0"  DockPanel.Dock="Left" Click="Button_WizardPrevious_Click" />
+                        <Button x:Name="Button_ExitView" Content="返回" Width="100" Height="30" Margin="250,0,0,0" Click="Button_ExitView_Click" />
+                        <Button x:Name="Button_WizardNext" Content="下一步" Width="100" Margin="0,0,50,0" DockPanel.Dock="Right" Click="Button_WizardNext_Click_1"/>
+                        <Canvas Width="250"/>
+                    </DockPanel>
+                </StackPanel>
+                <TabControl x:Name="TabControl_MaintenanceWizard">
+                    <TabItem Height="1" Width="0">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="1.擦拭试剂架" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="2.擦拭样本架" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="3.擦拭耗材放置区" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="4.擦拭65℃温浴模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="5.擦拭振荡模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="6.擦拭吸磁模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="7.擦拭荧光读数模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel HorizontalAlignment="Center">
+                            <TextBlock Text="1.请关闭仪器仓门" FontSize="80" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                            <TextBlock Text="2.请打开紫外线灯" FontSize="80" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                         </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0"/>
+                </TabControl>
+            </DockPanel>
+        </Grid>
+    </Viewbox>
+</UserControl>

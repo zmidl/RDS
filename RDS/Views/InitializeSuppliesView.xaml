@@ -1,0 +1,76 @@
+﻿<UserControl x:Class="RDS.Views.InitializeSuppliesView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+           d:DesignHeight="850" d:DesignWidth="1900">
+    <Viewbox Stretch="Fill" >
+        <Grid Width="800" Height="400">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <StackPanel Width="500" Orientation="Vertical" >
+                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
+                        <TextBlock Text="第一步：放入石蜡、TIP以及六联排" FontSize="20"/>
+                        <CheckBox x:Name="CheckBox_First" DockPanel.Dock="Right" Click="CheckBox_Click" >
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                        <Label/>
+                    </DockPanel>
+
+                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
+                        <TextBlock Text="第二步：将试剂从冰箱中拿出"  FontSize="20"/>
+                        <CheckBox x:Name="CheckBox_Second" DockPanel.Dock="Right" Click="CheckBox_Click">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                        <Label/>
+                    </DockPanel>
+
+                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
+                        <TextBlock Text="第三步：选择4种不同类型的试剂"  FontSize="20"/>
+                        <CheckBox x:Name="CheckBox_Third" DockPanel.Dock="Right" Click="CheckBox_Click">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                        <Label/>
+                    </DockPanel>
+
+                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
+                        <TextBlock DockPanel.Dock="Left" Text="第四步：确保试剂已近解冻并离心"  FontSize="20"/>
+                        <CheckBox x:Name="CheckBox_Fourth" DockPanel.Dock="Right" Click="CheckBox_Click">
+                            <CheckBox.RenderTransform>
+                                <TransformGroup>
+                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
+                                    <SkewTransform/>
+                                    <RotateTransform/>
+                                    <TranslateTransform/>
+                                </TransformGroup>
+                            </CheckBox.RenderTransform>
+                        </CheckBox>
+                        <Label/>
+                    </DockPanel>
+                </StackPanel>
+            </StackPanel>
+
+        </Grid>
+    </Viewbox>
+</UserControl>

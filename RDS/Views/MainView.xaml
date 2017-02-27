@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="RDS.Views.MainView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1900">
+    <Viewbox Stretch="Fill" >
+        <Grid Width="1900" Height="850" Background="White">
+            <DockPanel LastChildFill="True">
+                <DockPanel 
+                    x:Name="StackPanel_Head" 
+                    Height="80" LastChildFill="True"
+                    DockPanel.Dock="Top" Background="#FF2B90F9">
+                    <TextBlock Text="Logo" DockPanel.Dock="Left" Width="150" FontSize="62"/>
+                    <Button 
+                        x:Name="Button_Help" 
+                        DockPanel.Dock="Right" 
+                        Margin="5" Width="150" 
+                        Content="{DynamicResource TabButton_HelpDocument}" 
+                        FontSize="20" 
+                        Click="Button_Help_Click"/>
+                    <Button x:Name="Button_HistroyData" DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_HistroyData}" FontSize="20" Click="Button_HistroyData_Click" />
+                    <Button x:Name="Button_CurrentTask" DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_CurrentTask}" FontSize="20" Click="Button_CurrentTask_Click"/>
+                    <TextBlock Text="上海仁度生物科技有限公司" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE4FF00"/>
+                </DockPanel>
+                
+                <StackPanel DockPanel.Dock="Bottom" Height="50" Background="#FFE8E8E8">
+                    
+                </StackPanel>
+                <ContentControl x:Name="ContentControl_CurrentContent"/>
+            </DockPanel>
+        </Grid>
+    </Viewbox>
+</UserControl>

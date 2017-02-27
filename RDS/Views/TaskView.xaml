@@ -1,0 +1,14 @@
+﻿<UserControl x:Class="RDS.Views.TaskView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+            d:DesignHeight="850" d:DesignWidth="1900">
+    <Viewbox Stretch="Fill" >
+        <Canvas Width="1000" Height="450" Background="White">
+            <Button x:Name="Button_NewExperiment" Content="开始试验" FontSize="30" Width="200" Height="60" Canvas.Left="420" Canvas.Top="160" Click="Button_NewExperiment_Click"/>
+            <Button x:Name="Button_Maintenance" Content="开始维保" FontSize="30" Width="200" Height="60" Canvas.Left="420" Canvas.Top="240" Click="Button_Maintenance_Click"/>
+        </Canvas>
+    </Viewbox>
+</UserControl>

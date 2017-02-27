@@ -1,0 +1,11 @@
+C:\ZhaoMin\SourceCode\RDS\RDSCL\bin\Debug\RDSCL.dll
+C:\ZhaoMin\SourceCode\RDS\RDSCL\bin\Debug\RDSCL.pdb
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.csprojResolveAssemblyReference.cache
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SingleTube.baml
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SingleTube.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.cache
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.g.resources
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.Properties.Resources.resources
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.csproj.GenerateResource.Cache
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.dll
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.pdb
