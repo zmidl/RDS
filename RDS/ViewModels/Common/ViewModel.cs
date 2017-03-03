@@ -2,10 +2,17 @@
 using System.ComponentModel;
 using System.Linq.Expressions;
 
-namespace RDS.ViewModels
+namespace RDS.ViewModels.Common
 {
     public abstract class ViewModel : INotifyPropertyChanged
     {
+		public event EventHandler<object> ViewChanged;
+
+		protected virtual void OnViewChanged(object obj)
+		{
+			this.ViewChanged?.Invoke(this, obj);
+		}
+
         /// <summary>
         /// Occurs when a property value changes.
         /// </summary>

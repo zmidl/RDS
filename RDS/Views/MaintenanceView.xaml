@@ -4,7 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-           d:DesignHeight="1000" d:DesignWidth="1900">
+           d:DesignHeight="850" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Grid Width="900" Height="400">
             <DockPanel LastChildFill="True">
@@ -18,21 +18,22 @@
                 </StackPanel>
                 <TabControl x:Name="TabControl_MaintenanceWizard">
                     <TabItem Height="1" Width="0">
-                        <StackPanel HorizontalAlignment="Center">
-                            <TextBlock Text="1.擦拭试剂架" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="2.擦拭样本架" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="3.擦拭耗材放置区" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="4.擦拭65℃温浴模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="5.擦拭振荡模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="6.擦拭吸磁模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="7.擦拭荧光读数模块" FontSize="40" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="户配置符合要求的 84 溶液。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel HorizontalAlignment="Center">
-                            <TextBlock Text="1.请关闭仪器仓门" FontSize="80" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                            <TextBlock Text="2.请打开紫外线灯" FontSize="80" HorizontalAlignment="Left" VerticalAlignment="Center" TextWrapping="WrapWithOverflow"/>
-                         </StackPanel>
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="40" Text="用 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="474" Margin="0,-169"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="40" Text="需用清水擦拭试剂架、擦拭样本架、擦拭 耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸磁 模块、擦拭荧光读数模块。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="474" Margin="0,-169"/>
+                        </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0"/>
                 </TabControl>

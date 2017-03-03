@@ -13,13 +13,12 @@
                         <Viewbox Stretch="Fill">
                             <Grid>
                                 <Ellipse x:Name="OutEllipse" Width="100" Height="100" StrokeThickness="6" Stroke="{Binding ExcircleColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}" Panel.ZIndex="1" />
-                                <Ellipse Width="96" Height="96"  Fill="#FF7F7F7F" Panel.ZIndex="0"/>
-                                <Ellipse Width="88.5" Height="82" Margin="0,7,0,0" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                                <Ellipse  Width="96" Height="96" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
                             </Grid>
                         </Viewbox>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <Setter TargetName="OutEllipse" Property="Stroke" Value="#FF7474FF"/>
+                                <!--<Setter TargetName="OutEllipse" Property="Stroke" Value="#FFAB74FF"/>-->
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

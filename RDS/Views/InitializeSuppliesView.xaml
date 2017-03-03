@@ -3,74 +3,63 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:zmcl="clr-namespace:ZMCL.MyControl.WhiteGold;assembly=ZMCL"
              mc:Ignorable="d" 
            d:DesignHeight="850" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="800" Height="400">
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <StackPanel Width="500" Orientation="Vertical" >
-                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="第一步：放入石蜡、TIP以及六联排" FontSize="20"/>
-                        <CheckBox x:Name="CheckBox_First" DockPanel.Dock="Right" Click="CheckBox_Click" >
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                        <Label/>
-                    </DockPanel>
-
-                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="第二步：将试剂从冰箱中拿出"  FontSize="20"/>
-                        <CheckBox x:Name="CheckBox_Second" DockPanel.Dock="Right" Click="CheckBox_Click">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                        <Label/>
-                    </DockPanel>
-
-                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="第三步：选择4种不同类型的试剂"  FontSize="20"/>
-                        <CheckBox x:Name="CheckBox_Third" DockPanel.Dock="Right" Click="CheckBox_Click">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                        <Label/>
-                    </DockPanel>
-
-                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock DockPanel.Dock="Left" Text="第四步：确保试剂已近解冻并离心"  FontSize="20"/>
-                        <CheckBox x:Name="CheckBox_Fourth" DockPanel.Dock="Right" Click="CheckBox_Click">
-                            <CheckBox.RenderTransform>
-                                <TransformGroup>
-                                    <ScaleTransform ScaleX="3" ScaleY="3"/>
-                                    <SkewTransform/>
-                                    <RotateTransform/>
-                                    <TranslateTransform/>
-                                </TransformGroup>
-                            </CheckBox.RenderTransform>
-                        </CheckBox>
-                        <Label/>
-                    </DockPanel>
-                </StackPanel>
-            </StackPanel>
-
+        <Grid Width="800" Height="400" Background="WhiteSmoke">
+            <DockPanel LastChildFill="True">
+                <DockPanel LastChildFill="True" DockPanel.Dock="Bottom" Height="50" Width="800">
+                    <Button x:Name="Button_Home" Command="{Binding TurnHomeView}" Content="{DynamicResource InitializeSuppliesView_Home}" DockPanel.Dock="Left" Width="100"/>
+                    <Button x:Name="Button_Next" Command="{Binding TurnNextView}" Content="{DynamicResource InitializeSuppliesView_Next}" DockPanel.Dock="Right" Width="100" Click="Button_Next_Click" />
+                    <StackPanel Orientation="Horizontal">
+                        <!--<zmcl:WG_RoundCheckBox Width="40" Height="40" Margin="150,0,0,0"/>
+                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
+                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
+                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
+                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
+                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>-->
+                    </StackPanel>
+                </DockPanel>
+                <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}">
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="先将试剂从冰箱中拿出。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="放入石蜡、放入 TIP、放入六连排。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="以放入 4 种不同类型试剂。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="放入各类别试剂。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="40" Text="放入试剂的顺序：磁珠、生理盐水、尿保、洗涤液、酶、扩增检测液、阴性对 照、内标、阳性对照。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="380"/>
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Horizontal">
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <TextBlock FontSize="50" Text="确保试剂已经解冻并离心。 " HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        </StackPanel>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
         </Grid>
     </Viewbox>
 </UserControl>

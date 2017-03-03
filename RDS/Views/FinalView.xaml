@@ -7,8 +7,8 @@
              d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Grid Width="900" Height="400">
-            <TextBlock Text="请离开设备，系统将自动关机。" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60"/>
-            <Button x:Name="Button_ExitApp" Width="100" Height="30" Content="退出系统" Margin="400,360,400,10" Click="Button_ExitApp_Click"/>
+            <TextBlock x:Name="TextBlock_message" Text="请关闭仪器仓门。" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60"/>
+            <Button x:Name="Button_ExitApp" Width="100" Height="30" Content="确认" Margin="400,360,400,10" Click="Button_ExitApp_Click"/>
         </Grid>
     </Viewbox>
 </UserControl>

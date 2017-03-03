@@ -12,9 +12,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using RDS.Apps.Common;
+using RDS.ViewModels.Common;
 using System.Timers;
 using System.Threading;
+using RDS.ViewModels;
 
 namespace RDS.Views.Monitor
 {
@@ -23,17 +24,67 @@ namespace RDS.Views.Monitor
     /// </summary>
     public partial class MonitorView : UserControl
     {
-        private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
+
+		private SampleView sampleView = new SampleView();
+
+		private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
         private object currentContent;
+
+		public MonitorViewModel ViewModel = new MonitorViewModel();
 
         public MonitorView()
         {
             InitializeComponent();
-            this.currentContent = this.Content;
+			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
+			this.DataContext = this.ViewModel;
+
+			this.currentContent = this.Content;
+			MainWindow.GlobalNotify += MainWindow_GlobalNotify;
         }
 
-        private void Button_Emergency_Click(object sender, RoutedEventArgs e)
+		private void ViewModel_ViewChanged(object sender, object e)
+		{
+			this.ViewModel.SampleViewModel.SetAllSampleEmergency();
+			sampleView.DataContext = this.ViewModel.SampleViewModel;
+			General.ExitView(this.currentContent, this, (IExitView)sampleView);
+		}
+
+		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
+		{
+			if (e.Index == 10) this.ViewModel.TempelateValue -= 1;
+			else if (e.Index == -10) this.ViewModel.TempelateValue += 1;
+			else if (e.Index == 5)
+			{
+				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Leaving;
+				this.SixTube_Warm1.CurrentState = RDSCL.SixTubeState.Existence;
+				this.SixTube_Warm1.NumberValue = "1";
+			}
+			else if (e.Index == 6)
+			{
+				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Existence;
+				this.SixTube_Warm1.CurrentState = RDSCL.SixTubeState.Inexistence;
+				this.SixTube_Warm1.NumberValue = "0";
+			}
+			else if (e.Index == 7)
+			{
+				this.SixTube_1.test = true;
+			}
+			else if (e.Index == 8)
+			{
+				this.SixTube_1.test = false;
+			}
+			else
+			{
+				for (int i = 0; i < 80; i++)
+				{
+					this.ViewModel.SampleViewModel.SamplingStates[i] = (Sampling)e.Index;
+				}
+			}
+			this.ViewModel.RaiseTempelateColor();
+		}
+
+		private void Button_Emergency_Click(object sender, RoutedEventArgs e)
         {
           
 
@@ -42,8 +93,9 @@ namespace RDS.Views.Monitor
 
         private void Button_OnAndOff_Click_1(object sender, RoutedEventArgs e)
         {
-            if (this.Button_OnAndOff.Content.ToString() == "启动") { cancellationTokenSource = new CancellationTokenSource(); this.Button_End.IsEnabled = false; }
-            else cancellationTokenSource.Cancel();
+			bool isBroken=false;
+			if (this.Button_OnAndOff.Content.ToString() == "启动") { cancellationTokenSource = new CancellationTokenSource(); this.Button_End.IsEnabled = false; }
+			else { isBroken = true; cancellationTokenSource.Cancel(); }
 
             Task t = Task.Factory.StartNew(() =>
            {
@@ -55,6 +107,7 @@ namespace RDS.Views.Monitor
                    }
                    else
                    {
+
                        break;
                    }
                    this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.TextBlock_RemainingTime.Text = i.ToString(); }));
@@ -66,16 +119,15 @@ namespace RDS.Views.Monitor
                  
                    this.Button_End.IsEnabled = true;
                    this.Button_OnAndOff.Content = "启动";
-                   MessageBoxResult taskFinishedResult = MessageBox.Show("是否继续试实验任务?", "任务结束提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
-                   if (taskFinishedResult == MessageBoxResult.Yes)
-                   {
-                       
-                   }
-                   else
-                   {
-                       MessageBox.Show("请关闭设备");
-                       General.ExitView(this.currentContent, this, ((IExitView)new MaintenanceView()));
-                   }
+                  if(isBroken==false)
+				   {
+					   MessageBoxResult taskFinishedResult = MessageBox.Show("是否结束实验?", "任务结束提示", MessageBoxButton.YesNo, MessageBoxImage.Question);
+					   if (taskFinishedResult == MessageBoxResult.Yes)
+					   {
+						   MessageBox.Show("请关闭设备");
+						   General.ExitView(this.currentContent, this, ((IExitView)new MaintenanceView()));
+					   }
+				   }
                }));
            });
 
@@ -89,17 +141,19 @@ namespace RDS.Views.Monitor
 
         private void Canvas_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            General.ExitView(this.currentContent, this, (IExitView)new Monitor.SampleView());
-        }
-
-        private void Rectangle_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)
-        {
-            General.ExitView(this.currentContent, this, (IExitView)new ReagentView());
+			
+			sampleView.DataContext = this.ViewModel.SampleViewModel;
+            General.ExitView(this.currentContent, this, (IExitView)sampleView);
         }
 
         private void Rectangle_PreviewMouseUp_2(object sender, MouseButtonEventArgs e)
         {
             General.ExitView(this.currentContent, this, (IExitView)new Monitor.ReportView());
         }
-    }
+
+		private void Canvas_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)
+		{
+			General.ExitView(this.currentContent, this, (IExitView)new ReagentView());
+		}
+	}
 }

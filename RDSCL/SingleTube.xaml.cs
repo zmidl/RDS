@@ -21,16 +21,13 @@ namespace RDSCL
     public partial class SingleTube : UserControl
     {
 
-        
         public SolidColorBrush ExcircleColor
         {
             get { return (SolidColorBrush)GetValue(ExcircleColorProperty); }
             set { SetValue(ExcircleColorProperty, value); }
         }
         public static readonly DependencyProperty ExcircleColorProperty =
-            DependencyProperty.Register("ExcircleColor", typeof(SolidColorBrush), typeof(SingleTube), new PropertyMetadata(new SolidColorBrush(Colors.White)));
-
-
+            DependencyProperty.Register(nameof(ExcircleColor), typeof(SolidColorBrush), typeof(SingleTube), new PropertyMetadata(new SolidColorBrush(Colors.White)));
 
         public SolidColorBrush ContentColor
         {
@@ -39,26 +36,26 @@ namespace RDSCL
         }
         public static readonly DependencyProperty ContentColorProperty =
             DependencyProperty.Register
-            ("ContentColor", typeof(SolidColorBrush), typeof(SingleTube), 
-            new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFD0D0D0"))));
+            (nameof(ContentColor), typeof(SolidColorBrush), typeof(SingleTube), 
+            new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2AD0D0D0"))));
 
-        public bool IsSelected
-        {
-            get { return (bool)GetValue(IsSelectedProperty); }
-            set { SetValue(IsSelectedProperty, value); }
-        }
-        public static readonly DependencyProperty IsSelectedProperty =
-            DependencyProperty.Register("IsSelected", typeof(bool), typeof(SingleTube), new PropertyMetadata(false, new PropertyChangedCallback(Callback)));
-        private static void Callback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-        {
-            SingleTube singleTube = d as SingleTube;
-            var isSelected = (bool)e.NewValue;
-            if (isSelected) singleTube.ExcircleColor = new SolidColorBrush(Colors.Red);
-            else singleTube.ExcircleColor = new SolidColorBrush(Colors.White);
-        }
+		public bool IsSelected
+		{
+			get { return (bool)GetValue(IsSelectedProperty); }
+			set { SetValue(IsSelectedProperty, value); }
+		}
+		public static readonly DependencyProperty IsSelectedProperty =
+			DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(SingleTube), new PropertyMetadata(false, new PropertyChangedCallback(Callback)));
+		private static void Callback(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			SingleTube singleTube = d as SingleTube;
+			var isSelected = (bool)e.NewValue;
+			if (isSelected) singleTube.ExcircleColor = new SolidColorBrush(Colors.DarkGoldenrod);
+			else singleTube.ExcircleColor = new SolidColorBrush(Colors.White);
+		}
 
 
-        public SingleTube()
+		public SingleTube()
         {
             InitializeComponent();
         }

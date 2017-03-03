@@ -57,10 +57,14 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Apps\Common\General.cs" />
+    <Compile Include="Models\TubeDescription.cs" />
+    <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
-    <Compile Include="ViewModels\Converters.cs" />
+    <Compile Include="ViewModels\Common\Converters.cs" />
+    <Compile Include="ViewModels\Common\Enumeration.cs" />
+    <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="ViewModels\MonitorViewModel.cs" />
     <Compile Include="ViewModels\SampleViewModel.cs" />
     <Compile Include="Views\FinalView.xaml.cs">
       <DependentUpon>FinalView.xaml</DependentUpon>
@@ -80,7 +84,7 @@
     <Compile Include="Views\HelpView.xaml.cs">
       <DependentUpon>HelpView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Apps\Common\IExitView.cs" />
+    <Compile Include="ViewModels\Common\IExitView.cs" />
     <Compile Include="Views\Monitor\MonitorView.xaml.cs">
       <DependentUpon>MonitorView.xaml</DependentUpon>
     </Compile>
@@ -98,6 +102,9 @@
     </Compile>
     <Compile Include="Views\PrecheckView.xaml.cs">
       <DependentUpon>PrecheckView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\RdsMessageBox.xaml.cs">
+      <DependentUpon>RdsMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaskView.xaml.cs">
       <DependentUpon>TaskView.xaml</DependentUpon>
@@ -163,13 +170,17 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ViewModels\RelayCommand.cs" />
-    <Compile Include="ViewModels\ViewModel.cs" />
+    <Compile Include="ViewModels\Common\RelayCommand.cs" />
+    <Compile Include="ViewModels\Common\ViewModel.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PrecheckView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\RdsMessageBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -215,45 +226,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Apps\Images\reagent.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\name2.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\postion.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\man.jpg" />
-    <Resource Include="Apps\Images\woman.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\Emergency.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\age.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\date.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\type.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\Emergency2.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\barcode.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\sample.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\shiji.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\shiji2.png" />
-    <Resource Include="Apps\Images\shiji3.png" />
+    <Resource Include="Apps\Images\image.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

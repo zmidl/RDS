@@ -18,4 +18,7 @@
     <system:String x:Key="SampleView_DateTime">采样日期</system:String>
     <system:String x:Key="SampleView_Reagent">试剂</system:String>
     <system:String x:Key="SampleView_Emergency">急诊</system:String>
+    <system:String x:Key="PrecheckView_SelfTest">仪器自检</system:String>
+    <system:String x:Key="InitializeSuppliesView_Home">第一步</system:String>
+    <system:String x:Key="InitializeSuppliesView_Next">下一步</system:String>
 </ResourceDictionary>

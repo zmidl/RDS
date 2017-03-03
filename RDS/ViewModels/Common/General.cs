@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows.Controls;
 using System.Windows;
 
-namespace RDS.Apps.Common
+namespace RDS.ViewModels.Common
 {
     static class General
     {

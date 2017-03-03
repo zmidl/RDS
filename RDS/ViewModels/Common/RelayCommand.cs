@@ -1,17 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace RDS.ViewModels
+namespace RDS.ViewModels.Common
 {
-    /// <summary>
-    /// Provides an <see cref="ICommand"/> implementation which relays the <see cref="Execute"/> and <see cref="CanExecute"/> 
-    /// method to the specified delegates.
-    /// </summary>
-    public class RelayCommand : ICommand
+	/// <summary>
+	/// Provides an <see cref="ICommand"/> implementation which relays the <see cref="Execute"/> and <see cref="CanExecute"/> 
+	/// method to the specified delegates.
+	/// </summary>
+	public class RelayCommand : ICommand
     {
         private readonly Action<object> execute;
         private readonly Func<object, bool> canExecute;

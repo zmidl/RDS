@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Threading;
-using RDS.Apps.Common;
+using RDS.ViewModels.Common;
 
 namespace RDS.Views
 {
@@ -52,7 +52,7 @@ namespace RDS.Views
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
             if (this.CheckBox_First.IsChecked == true &&
-                this.CheckBox_Second.IsChecked == true &&
+         
                 this.CheckBox_Third.IsChecked == true &&
                 this.CheckBox_Fourth.IsChecked == true &&
                 this.CheckBox_Fifth.IsChecked == true) General.ExitView(this.PreviousContent, this, ((IExitView)new InitializeSuppliesView()));

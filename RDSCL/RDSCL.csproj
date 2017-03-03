@@ -53,6 +53,9 @@
     <Compile Include="Cuvette.xaml.cs">
       <DependentUpon>Cuvette.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SampleTube.xaml.cs">
+      <DependentUpon>SampleTube.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SixTube.xaml.cs">
       <DependentUpon>SixTube.xaml</DependentUpon>
     </Compile>
@@ -61,6 +64,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Cuvette.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SampleTube.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -9,3 +9,13 @@ C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.Properties.Resources.resources
 C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.csproj.GenerateResource.Cache
 C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.dll
 C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL.pdb
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\Border.baml
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\Cuvette.baml
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\Border.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\Cuvette.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SixTube.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\GeneratedInternalTypeHelper.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.lref
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SixTube.baml
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SampleTube.g.cs
+C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\SampleTube.baml

@@ -8,23 +8,17 @@
              xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
              d:DesignHeight="850" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="500">
+        <Grid Width="900" Height="500" Background="WhiteSmoke">
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                 <StackPanel Width="500"  Orientation="Vertical" >
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="温度检测" FontSize="20"/>
+                        <TextBlock Text="{StaticResource PrecheckView_SelfTest}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <zmcl3:WG_CheckBox x:Name="CheckBox_First" Width="50" Height="50" DockPanel.Dock="Right" />
                         <ProgressBar x:Name="ProgressBar_CheckTemperature" Width="300" Margin="10,0,0,0" SmallChange="1" Maximum="100"/>
                     </DockPanel>
 
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="耗材检测：耗材是否准备妥当" FontSize="20"/>
-                        <zmcl3:WG_CheckBox x:Name="CheckBox_Second" Width="50" DockPanel.Dock="Right" Click="CheckBox_Click"/>
-                        <Label/>
-                    </DockPanel>
-
-                    <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <TextBlock Text="废液框检测：废液框是否清空"  FontSize="20"/>
+                        <TextBlock Text="废液框检测：废液框是否清空"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         <zmcl3:WG_CheckBox x:Name="CheckBox_Third" Width="50" DockPanel.Dock="Right" Click="CheckBox_Click"/>
                         <Label/>
                     </DockPanel>

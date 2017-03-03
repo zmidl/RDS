@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\ZhaoMin\SourceCode\RDS\RDS\Apps\App.xaml
-91897292236
+171979286598
 
-222007425121
-132048486966
-Views\InitializeSuppliesView.xaml;Views\Monitor\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;
+351733637812
+141606616004
+Apps\Languages\en-US.xaml;Apps\Languages\zh-CN.xaml;Views\FinalView.xaml;Views\HistroyView.xaml;Views\InitializeSuppliesView.xaml;Views\MainView.xaml;Views\Monitor\DiagramView.xaml;Views\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;Views\RdsMessageBox.xaml;Views\TaskView.xaml;
 
 False
 

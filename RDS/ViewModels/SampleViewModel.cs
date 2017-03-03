@@ -1,103 +1,85 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using RDS.Models;
+using System.Linq;
+using RDS.ViewModels.Common;
 
 namespace RDS.ViewModels
 {
-   public class SampleViewModel:ViewModel
+    public class SampleViewModel : ViewModel
     {
-        private ObservableCollection<SampleInformatin>  sampleInformations;
+        private ObservableCollection<SampleInformatin> sampleInformations;
         public ObservableCollection<SampleInformatin> SampleInformations
         {
-            get { return  sampleInformations; }
+            get { return sampleInformations; }
             set { sampleInformations = value; }
         }
 
-        private ObservableCollection<bool> isTubeSelected;
-        public ObservableCollection<bool> IsTubeSelected
-        {
-            get { return isTubeSelected; }
-            set { isTubeSelected = value; }
-        }
+		private ObservableCollection<Sampling> samplingStates = new ObservableCollection<Sampling>();
+		public ObservableCollection<Sampling> SamplingStates
+		{
+			get { return samplingStates; }
+			set { samplingStates = value; this.RaisePropertyChanged(nameof(SamplingStates)); }
+		}
 
-        private ObservableCollection<bool> _isTubeSelected;
-        public ObservableCollection<bool> _IsTubeSelected
-        {
-            get { return _isTubeSelected; }
-            set 
-            { 
-                _isTubeSelected = value; 
-            }
-        }
+		private ObservableCollection<bool> sampleSelectionStates=new ObservableCollection<bool>();
+		public ObservableCollection<bool> SampleSelectionStates
+		{
+			get { return sampleSelectionStates; }
+			set { sampleSelectionStates = value; }
+		}
 
-        public bool A1
-        {
-            get { return this._isTubeSelected[0]; }
-            set { this._isTubeSelected[0] = value; this.RaisePropertyChanged("A1"); }
-        }
-
-        public bool A2
-        {
-            get { return this._isTubeSelected[1]; }
-            set { this._isTubeSelected[1] = value; this.RaisePropertyChanged("A2"); }
-        }
-
-        public bool A3
-        {
-            get { return this._isTubeSelected[2]; }
-            set { this._isTubeSelected[2] = value; this.RaisePropertyChanged("A3"); }
-        }
-
-        public bool A4
-        {
-            get { return this._isTubeSelected[3]; }
-            set { this._isTubeSelected[3] = value; this.RaisePropertyChanged("A4"); }
-        }
-
-        public bool A5
-        {
-            get { return this._isTubeSelected[4]; }
-            set { this._isTubeSelected[4] = value; this.RaisePropertyChanged("A5"); }
-        }
-
-        public bool A6
-        {
-            get { return this._isTubeSelected[5]; }
-            set { this._isTubeSelected[5] = value; this.RaisePropertyChanged("A6"); }
-        }
-
-        public bool A7
-        {
-            get { return this._isTubeSelected[6]; }
-            set { this._isTubeSelected[5] = value; this.RaisePropertyChanged("A7"); }
-        }
-        public bool A8
-        {
-            get { return this._isTubeSelected[7]; }
-            set { this._isTubeSelected[5] = value; this.RaisePropertyChanged("A8"); }
-        }
-        public bool A9
-        {
-            get { return this._isTubeSelected[8]; }
-            set { this._isTubeSelected[5] = value; this.RaisePropertyChanged("A9"); }
-        }
-        public bool A10
-        {
-            get { return this._isTubeSelected[9]; }
-            set { this._isTubeSelected[5] = value; this.RaisePropertyChanged("A10"); }
-        }
         public SampleViewModel()
         {
             this.TestData();
-            this._IsTubeSelected = new ObservableCollection<bool>();
-            for (int i = 0; i < 20; i++)
+         
+            for (int i = 0; i < 80; i++)
             {
-                this._IsTubeSelected.Add(false);
+				this.sampleSelectionStates.Add(false);
+				this.samplingStates.Add(Sampling.NoSample);
             }
+        }
+
+		public void SetAllSampleEmergency()
+		{
+			for (int i = 0; i < 80; i++)
+			{
+				this.SamplingStates[i] = Sampling.EmergencySampling;
+			}
+		}
+
+        private void SetColumnHole(int startHole, int endHole)
+        {
+            var hasSelected = false;
+
+            var resultRange = this.SampleSelectionStates?.Skip(startHole).Take(endHole-startHole+1).ToList();
+
+            var selectedCount = resultRange.Where(o => o == true).Count();
+
+            if (selectedCount > 0) hasSelected = true;
+
+            for (int i = startHole; i <= endHole; i++) this.SampleSelectionStates[i] = !hasSelected;
+
+        }
+
+        public void SetAHole()
+        {
+            this.SetColumnHole(0, 19);
+        }
+
+        public void SetBHole()
+        {
+            this.SetColumnHole(20, 39);
+        }
+
+        public void SetCHole()
+        {
+            this.SetColumnHole(40, 59);
+        }
+
+        public void SetDHole()
+        {
+            this.SetColumnHole(60, 79);
         }
 
         private void TestData()
@@ -118,7 +100,7 @@ namespace RDS.ViewModels
             this.SampleInformations.Add(si);
             si = new SampleInformatin
             {
-               Age = "20",
+                Age = "20",
                 DateTime = System.DateTime.Now.ToString(),
                 HoleSite = "A2",
                 Name = "赵四姐",

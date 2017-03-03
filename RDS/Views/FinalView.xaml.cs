@@ -1,25 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RDS.Views
 {
-    /// <summary>
-    /// FinalView.xaml 的交互逻辑
-    /// </summary>
-    public partial class FinalView : UserControl
+	/// <summary>
+	/// FinalView.xaml 的交互逻辑
+	/// </summary>
+	public partial class FinalView : UserControl
     {
+		private bool test = false;
         public FinalView()
         {
             InitializeComponent();
@@ -27,7 +16,21 @@ namespace RDS.Views
 
         private void Button_ExitApp_Click(object sender, RoutedEventArgs e)
         {
-            Application.Current.Shutdown();
+			if (test==false)
+			{
+				if (MessageBox.Show("请打开紫外线。", "维护提示", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+				{
+					this.test = true;
+					this.TextBlock_message.Text = $"请关闭计算机";
+					this.Button_ExitApp.Content = $"关闭计算机";
+				}
+			}
+			else
+			{
+				this.test = false;
+				Application.Current.Shutdown();
+			}
+            //Application.Current.Shutdown();
             //System.Environment.Exit(0); 
         }
     }
