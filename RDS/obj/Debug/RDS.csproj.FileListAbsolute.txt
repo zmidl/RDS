@@ -49,3 +49,4 @@ C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\RDS_MarkupCompile.lref
 C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\GeneratedInternalTypeHelper.g.cs
 C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\Views\RdsMessageBox.g.cs
 C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\Views\RdsMessageBox.baml
+C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\Apps\Styles\TextBlockStyle.baml

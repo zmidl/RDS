@@ -21,4 +21,7 @@
     <system:String x:Key="PrecheckView_SelfTest">仪器自检</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">第一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">下一步</system:String>
+
+    <system:String x:Key="MessageTitle_Information">提示</system:String>
+    <system:String x:Key="MessageContent_CloseBingate">关闭仓门</system:String>
 </ResourceDictionary>

@@ -8,6 +8,7 @@ namespace RDS.Views
 	/// </summary>
 	public partial class FinalView : UserControl
     {
+		
 		private bool test = false;
         public FinalView()
         {
@@ -16,9 +17,11 @@ namespace RDS.Views
 
         private void Button_ExitApp_Click(object sender, RoutedEventArgs e)
         {
+			
+			
 			if (test==false)
 			{
-				if (MessageBox.Show("请打开紫外线。", "维护提示", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
+				if (MessageBox.Show($"打开紫外灯。", "维护提示", MessageBoxButton.OK, MessageBoxImage.Information) == MessageBoxResult.OK)
 				{
 					this.test = true;
 					this.TextBlock_message.Text = $"请关闭计算机";

@@ -68,66 +68,6 @@
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
 
-        <Style x:Key="TextBlockStyle1"  TargetType="{x:Type TextBlock}">
-            <Setter Property="TextAlignment" Value="Center"/>
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFD7C9A7"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="FontSize" Value="30"/>
-            <Setter Property="FontWeight" Value="Bold"/>
-            <Setter Property="RenderTransform">
-                <Setter.Value>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="0.7" ScaleY="0.8"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="VerticalAlignment" Value="Center"/>
-            <Setter Property="Effect">
-                <Setter.Value>
-                    <DropShadowEffect Color="Black" Direction="1" ShadowDepth="1" Opacity="10" />
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="TextBlockStyle2" BasedOn="{StaticResource TextBlockStyle1}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFE7FFCE" Offset="0.017"/>
-                        <GradientStop Color="#FF81BF37" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
-        <Style x:Key="TextBlockStyle3" BasedOn="{StaticResource TextBlockStyle1}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFFFF0CC" Offset="0"/>
-                        <GradientStop Color="#FF985C00" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-            <Setter Property="FontSize" Value="11"/>
-        </Style>
-        <Style x:Key="TextBlockStyle4" BasedOn="{StaticResource TextBlockStyle1}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground">
-                <Setter.Value>
-                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                        <GradientStop Color="#FFA7A9D7"/>
-                        <GradientStop Color="White" Offset="1"/>
-                    </LinearGradientBrush>
-                </Setter.Value>
-            </Setter>
-        </Style>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="900" Height="400" Background="White">
@@ -229,27 +169,27 @@
                         <Ellipse Width="6" Height="6" Fill="#FF1EA800" Margin="0,5,0,0" />
                     </StackPanel>
                     <StackPanel Canvas.Left="7" Canvas.Top="25">
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="2" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="3" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="4" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="5" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="6" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="7" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="8" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="9" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="10" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="1" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="2" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="3" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="4" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="5" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="6" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="7" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="8" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="9" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="10" Margin="0,-3,0,0"/>
 
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="11" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="12" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="13" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="14" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="15" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="16" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="17" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="18" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="19" Margin="0,-3,0,0"/>
-                        <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="20" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="11" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="12" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="13" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="14" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="15" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="16" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="17" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="18" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="19" Margin="0,-3,0,0"/>
+                        <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="20" Margin="0,-3,0,0"/>
                     </StackPanel>
                 </Canvas>
                 <zmlc:UcGlassButton
@@ -301,10 +241,10 @@
                     PreviewMouseMove="Canvas_PreviewMouseMove"
                     PreviewMouseUp="Canvas_PreviewMouseUp" 
                   >
-                    <zmlc:UcTextBlock x:Name="UcTextBlock_Acolumn" Panel.ZIndex="1" Style="{StaticResource TextBlockStyle4}" FontSize="70" Text="A" Canvas.Left="64" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Acolumn_PreviewMouseUp"/>
-                    <zmlc:UcTextBlock x:Name="UcTextBlock_Bcolumn" Panel.ZIndex="1" Style="{StaticResource TextBlockStyle4}" FontSize="70" Text="B" Canvas.Left="126" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Bcolumn_PreviewMouseUp"/>
-                    <zmlc:UcTextBlock x:Name="UcTextBlock_Ccolumn" Panel.ZIndex="1" Style="{StaticResource TextBlockStyle4}" FontSize="70" Text="C" Canvas.Left="186" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Ccolumn_PreviewMouseUp"/>
-                    <zmlc:UcTextBlock x:Name="UcTextBlock_Dcolumn" Panel.ZIndex="1" Style="{StaticResource TextBlockStyle4}" FontSize="70" Text="D" Canvas.Left="246" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Dcolumn_PreviewMouseUp"/>
+                    <zmlc:UcTextBlock  Style="{DynamicResource TextBlockStyle4}"  x:Name="UcTextBlock_Acolumn" Panel.ZIndex="1" FontSize="70" Text="A" Canvas.Left="64" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Acolumn_PreviewMouseUp"/>
+                    <zmlc:UcTextBlock x:Name="UcTextBlock_Bcolumn" Panel.ZIndex="1" Style="{DynamicResource TextBlockStyle4}" FontSize="70" Text="B" Canvas.Left="126" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Bcolumn_PreviewMouseUp"/>
+                    <zmlc:UcTextBlock x:Name="UcTextBlock_Ccolumn" Panel.ZIndex="1" Style="{DynamicResource TextBlockStyle4}" FontSize="70" Text="C" Canvas.Left="186" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Ccolumn_PreviewMouseUp"/>
+                    <zmlc:UcTextBlock x:Name="UcTextBlock_Dcolumn" Panel.ZIndex="1" Style="{DynamicResource TextBlockStyle4}" FontSize="70" Text="D" Canvas.Left="246" Canvas.Top="4" PreviewMouseUp="UcTextBlock_Dcolumn_PreviewMouseUp"/>
 
                     <Rectangle Width="310" Height="380" Stroke="#FF9E9E9E" Fill="#FFFEF0B6" RadiusX="10" RadiusY="10" StrokeThickness="2" Panel.ZIndex="0"/>
                     <TabControl x:Name="TabControl_SampleView" Width="300" Height="310" Canvas.Bottom="0" Background="{x:Null}" BorderBrush="{x:Null}">
@@ -405,11 +345,11 @@
                                         ContentColor="{Binding SamplingStates[64],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Canvas.Left="15">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="60" Margin="0,-3,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="2" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="3" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="4" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="5" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="1" FontSize="60" Margin="0,-3,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="2" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="3" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="4" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="5" FontSize="60" Margin="0,-22,0,0"/>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>
@@ -511,11 +451,11 @@
                                         ContentColor="{Binding SamplingStates[69],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Canvas.Left="3">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="6" FontSize="60" Margin="0,-3,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="7" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="8" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="9" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="10" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="6" FontSize="60" Margin="0,-3,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="7" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="8" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="9" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="10" FontSize="60" Margin="0,-22,0,0"/>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>
@@ -618,11 +558,11 @@
                                         ContentColor="{Binding SamplingStates[74],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Canvas.Left="3">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="11" FontSize="60" Margin="0,-3,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="12" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="13" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="14" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="15" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="11" FontSize="60" Margin="0,-3,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="12" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="13" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="14" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="15" FontSize="60" Margin="0,-22,0,0"/>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>
@@ -720,11 +660,11 @@
                                         ContentColor="{Binding SamplingStates[79],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                                 </StackPanel>
                                 <StackPanel Orientation="Vertical" Canvas.Left="3">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="16" FontSize="60" Margin="0,-3,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="17" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="18" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="19" FontSize="60" Margin="0,-22,0,0"/>
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="20" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="16" FontSize="60" Margin="0,-3,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="17" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="18" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="19" FontSize="60" Margin="0,-22,0,0"/>
+                                    <zmlc:UcTextBlock Style="{DynamicResource TextBlockStyle3}" Text="20" FontSize="60" Margin="0,-22,0,0"/>
                                 </StackPanel>
                             </Canvas>
                         </TabItem>

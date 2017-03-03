@@ -10,4 +10,6 @@
     <system:String x:Key="PrecheckView_SelfTest">Instrument self-test</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">Home</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">Next</system:String>
+
+    <system:String x:Key="MessageContent_CloseBingate">Close the bin gate</system:String>
 </ResourceDictionary>

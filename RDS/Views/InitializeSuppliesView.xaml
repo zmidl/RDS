@@ -29,16 +29,63 @@
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="放入石蜡、放入 TIP、放入六连排。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Canvas Height="190" Width="300">
+                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
+                                    <Rectangle Fill="#FFFB0000" Width="4.5" Height="24" Canvas.Left="217" Canvas.Top="121" />
+                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
+                                               " Width="11" Height="40" Canvas.Left="214" Canvas.Top="114" StrokeThickness="2" />
+                                </Canvas>
+                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
+                            </StackPanel>
+                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入石蜡" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="以放入 4 种不同类型试剂。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Canvas Height="190" Width="300">
+                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
+                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
+                                               " Width="125" Height="91" Canvas.Left="61" Canvas.Top="23" StrokeThickness="2" />
+                                </Canvas>
+                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
+                            </StackPanel>
+                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入TIP头" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                         </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <StackPanel Orientation="Vertical">
+                            <StackPanel Orientation="Horizontal">
+                                <Canvas Height="190" Width="300">
+                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
+                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
+                                               " Width="127" Height="53" Canvas.Left="60" Canvas.Top="108" StrokeThickness="2" />
+                                </Canvas>
+                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
+                            </StackPanel>
+                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入六联排" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                        </StackPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="281" Canvas.Top="6" />
+                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="2"/>
+
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UT" Canvas.Left="281" Canvas.Top="76" />
+                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="72"/>
+
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MG" Canvas.Left="281" Canvas.Top="146" />
+                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="142"/>
+
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="281" Canvas.Top="216" />
+                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="212"/>
+
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MP" Canvas.Left="281" Canvas.Top="286" />
+                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="282"/>
+
+                        </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
                         <StackPanel Orientation="Horizontal">

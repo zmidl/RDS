@@ -11,7 +11,7 @@ namespace RDS.ViewModels
 			set
 			{
 				if (value < 0) value = 0;
-				else if (value > 5) value = 5;
+				else if (value > 7) value = 7;
 				wizardIndex = value;
 				this.RaisePropertyChanged(nameof(WizardIndex));
 			}
