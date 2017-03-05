@@ -1,28 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using RDS.ViewModels.Common;
-using System.Timers;
 using System.Threading;
 using RDS.ViewModels;
 
 namespace RDS.Views.Monitor
 {
-    /// <summary>
-    /// MonitorView.xaml 的交互逻辑
-    /// </summary>
-    public partial class MonitorView : UserControl
+	/// <summary>
+	/// MonitorView.xaml 的交互逻辑
+	/// </summary>
+	public partial class MonitorView : UserControl
     {
 
 		private SampleView sampleView = new SampleView();
@@ -78,7 +68,8 @@ namespace RDS.Views.Monitor
 			{
 				for (int i = 0; i < 80; i++)
 				{
-					this.ViewModel.SampleViewModel.SamplingStates[i] = (Sampling)e.Index;
+				
+					this.ViewModel.SampleViewModel.SampleDescritions[i].State = (Sampling)e.Index;
 				}
 			}
 			this.ViewModel.RaiseTempelateColor();
@@ -148,7 +139,7 @@ namespace RDS.Views.Monitor
 
         private void Rectangle_PreviewMouseUp_2(object sender, MouseButtonEventArgs e)
         {
-            General.ExitView(this.currentContent, this, (IExitView)new Monitor.ReportView());
+            General.ExitView(this.currentContent, this, (IExitView)new ReportView());
         }
 
 		private void Canvas_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)

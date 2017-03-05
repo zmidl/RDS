@@ -21,5 +21,5 @@ namespace RDS.ViewModels.Common
             iExitView.ExitView = new Action(() => { newContent.Content = oldContent; });
             newContent.Content = iExitView;
         }
-    }
+    }  
 }

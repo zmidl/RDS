@@ -130,7 +130,7 @@ namespace RDS.Views.Monitor
                 this.selectionRectangle.Height = height;
 				for (int i = 0; i < 80; i++)
 				{
-					this.ViewModel.SampleSelectionStates[i] = false;
+					this.ViewModel.SampleDescritions[i].IsSelected = false;
 				}
 				VisualTreeHelper.HitTest(this.Canvas_SampleViewOne, null, f =>
                 {

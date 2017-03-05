@@ -4,16 +4,16 @@
 winexe
 C#
 .cs
-C:\ZhaoMin\SourceCode\RDS\RDS\obj\Debug\
+D:\Develop\MyProject\RDS\RDS\obj\Debug\
 RDS
 none
 false
 DEBUG;TRACE
-C:\ZhaoMin\SourceCode\RDS\RDS\Apps\App.xaml
+D:\Develop\MyProject\RDS\RDS\Apps\App.xaml
 181172605019
 
-311718321
-141606616004
+33-1357941705
+15-1645228980
 Apps\Languages\en-US.xaml;Apps\Languages\zh-CN.xaml;Apps\Styles\TextBlockStyle.xaml;Views\FinalView.xaml;Views\HistroyView.xaml;Views\InitializeSuppliesView.xaml;Views\MainView.xaml;Views\Monitor\DiagramView.xaml;Views\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;Views\RdsMessageBox.xaml;Views\TaskView.xaml;
 
 False

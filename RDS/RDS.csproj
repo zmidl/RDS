@@ -36,6 +36,10 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -58,10 +62,12 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\TubeDescription.cs" />
+    <Compile Include="ViewModels\Behaviors\SampleViewMouseUp.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />
     <Compile Include="ViewModels\Common\Enumeration.cs" />
+    <Compile Include="ViewModels\Descriptions\SampleDescription.cs" />
     <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MonitorViewModel.cs" />

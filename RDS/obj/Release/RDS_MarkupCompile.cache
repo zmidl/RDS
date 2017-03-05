@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\ZhaoMin\SourceCode\RDS\RDS\obj\Release\
+D:\Develop\MyProject\RDS\RDS\obj\Release\
 RDS
 none
 false
 TRACE
-C:\ZhaoMin\SourceCode\RDS\RDS\Apps\App.xaml
-16835648886
+D:\Develop\MyProject\RDS\RDS\Apps\App.xaml
+181172605019
 
-26-2014827932
-141052515500
-Apps\Languages\en-US.xaml;Apps\Languages\zh-CN.xaml;Views\FinalView.xaml;Views\HistroyView.xaml;Views\InitializeSuppliesView.xaml;Views\MainView.xaml;Views\Monitor\DiagramView.xaml;Views\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;Views\TaskView.xaml;
+321945678265
+14-2060265656
+Apps\Languages\en-US.xaml;Apps\Languages\zh-CN.xaml;Apps\Styles\TextBlockStyle.xaml;Views\FinalView.xaml;Views\HistroyView.xaml;Views\InitializeSuppliesView.xaml;Views\MainView.xaml;Views\Monitor\DiagramView.xaml;Views\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;Views\RdsMessageBox.xaml;Views\TaskView.xaml;
 
 False
 

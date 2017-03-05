@@ -6,7 +6,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <!--<ResourceDictionary Source="Styles/TextBlockStyle.xaml" />-->
+                <!--<ResourceDictionary Source="Styles/TextBlockStyle.xaml"/>-->
                 <ResourceDictionary Source="Languages/zh-CN.xaml"/>
                 <ResourceDictionary Source="Languages/en-US.xaml"/>
                

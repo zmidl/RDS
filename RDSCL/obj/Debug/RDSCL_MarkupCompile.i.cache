@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Debug\
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\
 RDSCL
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 51562143195
 
-12-1047653012
+12-1617082825
 12-1401562060
 Border.xaml;Cuvette.xaml;SampleTube.xaml;SingleTube.xaml;SixTube.xaml;
 
-True
+False
 

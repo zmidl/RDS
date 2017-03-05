@@ -4,17 +4,17 @@
 library
 C#
 .cs
-C:\ZhaoMin\SourceCode\RDS\RDSCL\obj\Release\
+D:\Develop\MyProject\RDS\RDSCL\obj\Release\
 RDSCL
 none
 false
 TRACE
 
-4-1030634197
+51562143195
 
-11-398145459
+12-726600310
 12-1401562060
-Border.xaml;Cuvette.xaml;SingleTube.xaml;SixTube.xaml;
+Border.xaml;Cuvette.xaml;SampleTube.xaml;SingleTube.xaml;SixTube.xaml;
 
-False
+True
 
