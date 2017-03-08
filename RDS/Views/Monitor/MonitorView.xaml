@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:zmcl="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
              xmlns:common="clr-namespace:RDS.ViewModels.Common"
              xmlns:rdsc="clr-namespace:RDSCL;assembly=RDSCL"
              d:DesignHeight="1000" d:DesignWidth="1900">
@@ -11,7 +12,7 @@
         <Style x:Key="TipStyle" TargetType="Ellipse">
             <Setter Property="Width" Value="5"/>
             <Setter Property="Height" Value="5"/>
-            
+
             <Setter Property="Margin" Value="1.5,0,0,0"/>
         </Style>
         <common:SamplingToSolidColorBrush x:Key="SamplingToSolidColorBrush"/>
@@ -23,58 +24,58 @@
                 <Canvas Canvas.Left="35" Width="17" Height="350">
                     <Rectangle Width="17" Height="350" StrokeThickness="1" RadiusX="8" RadiusY="10" Stroke="Black" Fill="#FF404040" />
                     <StackPanel Canvas.Left="4" Canvas.Top="30" Orientation="Vertical">
-                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SamplingStates[0],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[1],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[2],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[3],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[4],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[5],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[6],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[7],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[8],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[9],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[10],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[11],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[12],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[13],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[14],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[15],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[16],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[17],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[18],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[19],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SampleDescritions[0].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[1].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[2].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[3].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[4].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[5].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[6].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[7].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[8].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[9].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[10].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[11].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[12].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[13].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[14].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[15].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[16].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[17].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[18].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[19].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                     </StackPanel>
                 </Canvas>
                 <Canvas Canvas.Left="52" Width="17" Height="350">
                     <Rectangle Width="17" Height="350" StrokeThickness="1" RadiusX="8" RadiusY="10" Stroke="Black" Fill="#FF404040" />
                     <StackPanel Canvas.Left="4" Canvas.Top="30" Orientation="Vertical">
-                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SamplingStates[20],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[21],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[22],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[23],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[24],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[25],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[26],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[27],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[28],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[29],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[30],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[31],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[32],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[33],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[34],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[35],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[36],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[37],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[38],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[39],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SampleDescritions[20].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[21].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[22].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[23].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[24].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[25].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[26].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[27].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[28].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[29].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[30].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[31].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[32].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[33].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[34].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[35].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[36].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[37].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[38].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[39].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                     </StackPanel>
                 </Canvas>
                 <Canvas Canvas.Left="69" Width="17" Height="350">
                     <Rectangle Width="17" Height="350" StrokeThickness="1" RadiusX="8" RadiusY="10" Stroke="Black" Fill="#FF404040" />
                     <StackPanel Canvas.Left="4" Canvas.Top="30" Orientation="Vertical">
-                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SamplingStates[40],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
-                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SamplingStates[40],Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" ContentColor="{Binding SampleViewModel.SampleDescritions[40].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
+                        <rdsc:SingleTube Width="9" Margin="0,5,0,0" ContentColor="{Binding SampleViewModel.SampleDescritions[41].State,Mode=OneWay,UpdateSourceTrigger=PropertyChanged, Converter={StaticResource SamplingToSolidColorBrush}}"/>
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
@@ -98,7 +99,7 @@
                 <Canvas Canvas.Left="86" Width="17" Height="350">
                     <Rectangle Width="17" Height="350" StrokeThickness="1" RadiusX="8" RadiusY="10" Stroke="Black" Fill="#FF404040" />
                     <StackPanel Canvas.Left="4" Canvas.Top="30" Orientation="Vertical">
-                        <rdsc:SingleTube Width="9" ContentColor="{Binding Sampling[0],Mode=OneWay}"/>
+                        <rdsc:SingleTube Width="9" />
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
                         <rdsc:SingleTube Width="9" Margin="0,5,0,0"/>
@@ -121,23 +122,24 @@
                     </StackPanel>
                 </Canvas>
                 <rdsc:Border Width="106" Canvas.Top="350"/>
-               
+
                 <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" PreviewMouseUp="Canvas_PreviewMouseUp_1" >
                     <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FF580099" Stroke="Black" />
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FF580099" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="Gray" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="Gray" Stroke="Black" />
 
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FF580099" Stroke="Black" />
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FF580099" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="Gray" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="Gray" Stroke="Black" />
 
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FF580099" Stroke="Black" />
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FF580099" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="Gray" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="Gray" Stroke="Black" />
 
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FF580099" Stroke="Black" />
-                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FF580099" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="Gray" Stroke="Black" />
+                    <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="Gray" Stroke="Black" />
 
-                    <Ellipse Width="20" Height="20" Fill="#FF00A91A" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="8" />
-                    
+                    <Ellipse Width="20" Height="20" Fill="Gray" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="4" />
+                    <Ellipse Width="20" Height="20" Fill="Gray" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="4" />
+
                     <Ellipse Width="13" Height="13" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
                     <Ellipse Width="13" Height="13" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
                     <Ellipse Width="13" Height="13" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
@@ -511,15 +513,15 @@
                     </StackPanel>
                 </Canvas>
                 <Canvas Width="95" Height="100"  Canvas.Left="5"  Canvas.Top="217">
-            
-                  
+
+
                     <rdsc:SixTube x:Name="SixTube_1" Width="15" NumberValue="1" CurrentState="Existence"/>
                     <rdsc:SixTube Width="15"  Canvas.Left="16" NumberValue="2"  />
                     <rdsc:SixTube Width="15"  Canvas.Left="32"  NumberValue="3"/>
                     <rdsc:SixTube Width="15" Canvas.Left="48" NumberValue="4"/>
                     <rdsc:SixTube Width="15"  Canvas.Left="64" NumberValue="5"/>
                     <rdsc:SixTube Width="15"  Canvas.Left="80" NumberValue="6" />
-                    <rdsc:Border Width="106" Canvas.Top="350"/>
+
                 </Canvas>
             </Canvas>
             <Canvas Canvas.Left="324" Canvas.Top="120"  Width="105" Height="385" Background="#FF7199FF">
@@ -1282,56 +1284,22 @@
             </Border>
 
             <StackPanel Width="610" Orientation="Horizontal" Canvas.Left="62">
-                <TextBlock Text="剩余时间"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" Foreground="#FF293CF7"/>
-                <TextBlock x:Name="TextBlock_RemainingTime" Text="12"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
-                <Button x:Name="Button_OnAndOff" Content="启动" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_OnAndOff_Click_1"/>
-                <Button x:Name="Button_Emergency" Command="{Binding Emergency}" Content="{DynamicResource Button_Emergency}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_Emergency_Click"/>
-                <Button x:Name="Button_End" Content="{DynamicResource Button_FinishTask}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" IsEnabled="False" Click="Button_End_Click_1" />
+                <TextBlock Style="{DynamicResource TextBlockStyle1}" Text="剩余时间"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" />
+                <TextBlock Style="{DynamicResource TextBlockStyle2}" x:Name="TextBlock_RemainingTime" Text="12"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
+                <zmcl:UcButton x:Name="Button_OnAndOff" Content="启动" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_OnAndOff_Click_1"/>
+                <zmcl:UcButton x:Name="Button_Emergency" Command="{Binding Emergency}" Content="{DynamicResource Button_Emergency}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_Emergency_Click"/>
+                <zmcl:UcButton x:Name="Button_End" Content="{DynamicResource Button_FinishTask}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" IsEnabled="False" Click="Button_End_Click_1" />
             </StackPanel>
-            <!--<StackPanel Orientation="Horizontal" Margin="30">
-                <StackPanel x:Name="StackPanel_Reagent" Orientation="Vertical" Width="70" Background="#FFD6A6A6" PreviewMouseUp="StackPanel_Reagent_PreviewMouseUp">
-                    <TextBlock Text="试" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="剂" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="架" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </StackPanel>
 
+            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="温浴模块正常" Canvas.Left="855" Canvas.Top="118"/>
+            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="振荡模块正常" Canvas.Left="855" Canvas.Top="168"/>
+            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="读数模块正常" Canvas.Left="855" Canvas.Top="218"/>
+            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="仪器内部正常" Canvas.Left="855" Canvas.Top="268"/>
+            <TextBlock Style="{DynamicResource TextBlockStyle3}" Text="仪器外部异常" Canvas.Left="855" Canvas.Top="318"/>
+            <!--<Canvas Width="150" Height="300" Canvas.Left="840" Canvas.Top="10">
+                <Rectangle Width="150" Height="300" StrokeThickness="2" RadiusX="10" RadiusY="10" Fill="White" Stroke="#FFAC6D00" Canvas.Left="-4"/>
                 
-                <StackPanel x:Name="StackPanel_Sample" Orientation="Vertical" Width="100" Background="#FFDCD787" PreviewMouseUp="StackPanel_Sample_PreviewMouseUp">
-                    <TextBlock Text="样" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="品" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    <TextBlock Text="架" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                </StackPanel>
-                
-                
-                
-                
-                
-                <DockPanel Width="300">
-                    <DockPanel x:Name="DockPanel_Report" Height="220" DockPanel.Dock="Top" Background="#FF7A19E8" PreviewMouseUp="DockPanel_Report_PreviewMouseUp">
-                        <TextBlock Text="读数" FontSize="72" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                    </DockPanel>
-                    
-                    <StackPanel Height="180" Orientation="Horizontal" DockPanel.Dock="Bottom">
-                        <StackPanel Width="100" Orientation="Vertical" Background="#FFFF0800">
-                            <TextBlock Text="加" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock Text="热"  FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </StackPanel>
-
-                        <StackPanel Width="100" Orientation="Vertical" Background="#FFFFCB00">
-                            <TextBlock Text="振" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock Text="荡"  FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </StackPanel>
-
-                        <StackPanel Width="100" Orientation="Vertical" Background="#FFB2D400">
-                            <TextBlock Text="吸" FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                            <TextBlock Text="磁"  FontSize="48" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </StackPanel>
-                    </StackPanel>
-                    
-                </DockPanel>
-                
-             
-            </StackPanel>-->
+            </Canvas>-->
         </Canvas>
     </Viewbox>
 </UserControl>

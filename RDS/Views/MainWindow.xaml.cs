@@ -13,8 +13,6 @@ namespace RDS.Views
 	{
 		private object CurrentContent;
 
-		
-
 		public static event EventHandler<GlobalNotifyArgs> GlobalNotify;
 
 		public virtual void OnGlobalNotify(GlobalNotifyArgs myArgs)

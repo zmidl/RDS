@@ -22,7 +22,7 @@ namespace RDS.Views
 
 		private void Button_Next_Click(object sender, System.Windows.RoutedEventArgs e)
         {
-            if (this.ViewModel.WizardIndex == 7) this.Content = new Monitor.MonitorView();
+            if (this.ViewModel.WizardIndex == 13) this.Content = new Monitor.MonitorView();
         }
     }
 }

@@ -4,14 +4,15 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:zmcl="clr-namespace:ZMCL.MyControl.WhiteGold;assembly=ZMCL"
+             xmlns:zmcl2="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
              mc:Ignorable="d" 
            d:DesignHeight="850" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="800" Height="400" Background="WhiteSmoke">
+        <Grid Width="900" Height="400" Background="WhiteSmoke">
             <DockPanel LastChildFill="True">
                 <DockPanel LastChildFill="True" DockPanel.Dock="Bottom" Height="50" Width="800">
-                    <Button x:Name="Button_Home" Command="{Binding TurnHomeView}" Content="{DynamicResource InitializeSuppliesView_Home}" DockPanel.Dock="Left" Width="100"/>
-                    <Button x:Name="Button_Next" Command="{Binding TurnNextView}" Content="{DynamicResource InitializeSuppliesView_Next}" DockPanel.Dock="Right" Width="100" Click="Button_Next_Click" />
+                    <zmcl2:UcButton x:Name="Button_Home" Command="{Binding TurnHomeView}" Content="{DynamicResource InitializeSuppliesView_Home}" DockPanel.Dock="Left" Width="100" Height="45"/>
+                    <Button x:Name="Button_Next" Command="{Binding TurnNextView}" Content="{DynamicResource InitializeSuppliesView_Next}" DockPanel.Dock="Right" Width="100" Height="45" Click="Button_Next_Click" />
                     <StackPanel Orientation="Horizontal">
                         <!--<zmcl:WG_RoundCheckBox Width="40" Height="40" Margin="150,0,0,0"/>
                         <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
@@ -25,7 +26,7 @@
                     <TabItem Height="1" Width="0">
                         <StackPanel Orientation="Horizontal">
                             <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="先将试剂从冰箱中拿出。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
+                            <zmcl2:UcTextBlock Style="{DynamicResource ResourceKey=TextBlockStyle2}" FontSize="65" Text="先将试剂从冰箱中拿出。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="720" Margin="0,88"/>
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
@@ -34,12 +35,11 @@
                                 <Canvas Height="190" Width="300">
                                     <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
                                     <Rectangle Fill="#FFFB0000" Width="4.5" Height="24" Canvas.Left="217" Canvas.Top="121" />
-                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
-                                               " Width="11" Height="40" Canvas.Left="214" Canvas.Top="114" StrokeThickness="2" />
+                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1                                                " Width="11" Height="40" Canvas.Left="214" Canvas.Top="114" StrokeThickness="2" />
                                 </Canvas>
                                 <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
                             </StackPanel>
-                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入石蜡" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}" Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入石蜡" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
@@ -52,7 +52,7 @@
                                 </Canvas>
                                 <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
                             </StackPanel>
-                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入TIP头" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}"  Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入TIP头" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
@@ -65,46 +65,928 @@
                                 </Canvas>
                                 <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
                             </StackPanel>
-                            <TextBlock Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入六联排" HorizontalAlignment="Center" VerticalAlignment="Center"  />
+                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}" Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入六联排" HorizontalAlignment="Center" VerticalAlignment="Center"  />
                         </StackPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
                         <Canvas>
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="281" Canvas.Top="6" />
-                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="2"/>
+                            <TextBlock Text="请选择试剂       至少1项最多4项" TextWrapping="Wrap" Style="{DynamicResource TextBlockStyle2}" FontSize="70" Canvas.Left="315" Canvas.Top="80" Width="521" Height="264"/>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="137" Canvas.Top="6" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsUuSelected}" Width="50" Canvas.Left="222" Canvas.Top="2"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UT" Canvas.Left="281" Canvas.Top="76" />
-                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="72"/>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UT" Canvas.Left="137" Canvas.Top="76" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsCtSelected}" Width="50" Canvas.Left="222" Canvas.Top="72"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MG" Canvas.Left="281" Canvas.Top="146" />
-                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="142"/>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MG" Canvas.Left="137" Canvas.Top="146" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsMgSelected}" Width="50" Canvas.Left="222" Canvas.Top="142"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="281" Canvas.Top="216" />
-                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="212"/>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="137" Canvas.Top="216" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsNgSelected}" Width="50" Canvas.Left="222" Canvas.Top="212"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MP" Canvas.Left="281" Canvas.Top="286" />
-                            <zmcl:WG_CheckBox Width="50" Canvas.Left="366" Canvas.Top="282"/>
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MP" Canvas.Left="137" Canvas.Top="286" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsMpSelected}" Width="50" Canvas.Left="222" Canvas.Top="282"/>
 
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="放入各类别试剂。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
-                        </StackPanel>
+
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFFFC937" Stroke="{Binding LeftColor}" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFFFC937" Stroke="{Binding RightColor}" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A">
+
+                                    </Canvas>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择一个放磁珠的大瓶" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" Text="左边" Canvas.Left="681" Canvas.Top="134" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsLeft,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="47" Width="46" Canvas.Left="751" Canvas.Top="125"/>
+
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" Text="右边" Canvas.Left="681" Canvas.Top="200" />
+                            <zmcl:WG_CheckBox IsChecked="{Binding IsRight,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="47" Width="46" Canvas.Left="751" Canvas.Top="193"/>
+
+                        </Canvas>
+
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="40" Text="放入试剂的顺序：磁珠、生理盐水、尿保、洗涤液、酶、扩增检测液、阴性对 照、内标、阳性对照。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="380"/>
-                        </StackPanel>
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A">
+                                        <Rectangle Width="145" Height="135" RadiusX="10" RadiusY="10" Fill="#FFC7C7C7" Stroke="Black" Canvas.Left="47" Canvas.Top="67"  />
+                                        <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="90" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="104" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="118" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="132" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="146" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="160" />
+                                    </Canvas>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择扩增检测液的试剂" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
+                            <zmcl2:UcComboBox Canvas.Left="688" Canvas.Top="168">
+                                <ComboBoxItem Content="UU"/>
+                                <ComboBoxItem Content="CT"/>
+                                <ComboBoxItem Content="MG"/>
+                                <ComboBoxItem Content="NG"/>
+                            </zmcl2:UcComboBox>
+                        </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="确保试剂已经解冻并离心。 " HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
-                        </StackPanel>
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A">
+                                        <Rectangle Width="145" Height="135" RadiusX="10" RadiusY="10" Fill="#FFC7C7C7" Stroke="Black" Canvas.Left="47" Canvas.Top="67"  />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="90" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="104" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="118" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="132" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="146" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="160" />
+                                    </Canvas>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择阳性对照的试剂" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
+                            <zmcl2:UcComboBox Canvas.Left="688" Canvas.Top="168">
+                                <ComboBoxItem Content="CT"/>
+                                <ComboBoxItem Content="MG"/>
+                                <ComboBoxItem Content="NG"/>
+                            </zmcl2:UcComboBox>
+                        </Canvas>
                     </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A">
+                                        <Rectangle Width="145" Height="135" RadiusX="10" RadiusY="10" Fill="#FFC7C7C7" Stroke="Black" Canvas.Left="47" Canvas.Top="67"  />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="90" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="104" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="118" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="132" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="146" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="160" />
+                                    </Canvas>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择内标的试剂" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
+                            <zmcl2:UcComboBox Canvas.Left="688" Canvas.Top="168">
+
+                                <ComboBoxItem Content="MG"/>
+                                <ComboBoxItem Content="NG"/>
+                            </zmcl2:UcComboBox>
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A">
+                                        <Rectangle Width="145" Height="135" RadiusX="10" RadiusY="10" Fill="#FFC7C7C7" Stroke="Black" Canvas.Left="47" Canvas.Top="67"  />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="90" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="104" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="118" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFFFC937" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="132" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="146" />
+                                        <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="60" Canvas.Top="160" />
+                                    </Canvas>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择阴性对照的试剂" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
+                            <zmcl2:UcComboBox Canvas.Left="688" Canvas.Top="168">
+                                <ComboBoxItem Content="NG"/>
+                            </zmcl2:UcComboBox>
+                        </Canvas>
+                    </TabItem >
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFFFC937" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A"/>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="此处默认放置生理盐水" FontSize="30" Canvas.Left="600" Canvas.Top="165" Width="376" />
+                        </Canvas>
+                    </TabItem >
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFFFC937" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A"/>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="此处默认放置尿保" FontSize="30" Canvas.Left="600" Canvas.Top="165" Width="376" />
+                        </Canvas>
+                    </TabItem >
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFFFC937" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A"/>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="此处默认放置矿物油" FontSize="30" Canvas.Left="600" Canvas.Top="165" Width="376" />
+                        </Canvas>
+                    </TabItem >
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Viewbox Stretch="Fill" Width="577" Height="330">
+                                <Canvas Width="780" Height="400"  Background="#FF7199FF">
+                                    <Canvas Canvas.Left="62" Canvas.Top="50" Width="105" Height="350" >
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="58" Height="310" Canvas.Left="-24"  Canvas.Top="8" >
+                                            <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="58" Height="310" Stroke="Black"/>
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="24" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="90" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="156" Fill="#FFC7C7C7" Stroke="Black" />
+
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="38" Canvas.Top="222" Fill="#FFFFC937" Stroke="Black" />
+                                            <Rectangle StrokeThickness="2" Width="17" Height="62" Canvas.Left="19" Canvas.Top="222" Fill="#FFFFC937" Stroke="Black" />
+
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="5" />
+                                            <Ellipse Width="20" Height="20" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="25" Canvas.Top="5" />
+
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="35" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="50" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="65" />
+                                            <Ellipse Width="13" Height="13" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="80" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="100" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="115" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="130" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="145" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="165" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="180" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="195" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="210" />
+
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="230" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="245" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="260" />
+                                            <Ellipse Width="10" Height="10" Fill="#FFC7C7C7" Stroke="Black" StrokeThickness="2" Canvas.Left="-1" Canvas.Top="275" />
+                                        </Canvas>
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="168" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Stroke="#FF121212" Fill="#FF7199FF"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="274" Canvas.Top="50"  Width="105" Height="350" Background="#FF7199FF">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="380" Canvas.Top="50" Width="105" Height="385">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="105" Height="350" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Ellipse Width="15" Height="15" Canvas.Top="326" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Ellipse Width="15" Height="15" Canvas.Top="8" Canvas.Left="46" Fill="#FF7199FF" Stroke="#FF121212"/>
+                                        <Rectangle Canvas.Top="12" Canvas.Left="8" Fill="#FF5A5A5A" Width="90" Height="60"   RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="78"  Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                        <Rectangle Canvas.Left="8" Canvas.Top="144" Fill="#FF5A5A5A" Width="90" Height="60" RadiusX="5" RadiusY="5" StrokeThickness="3" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
+                                        <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
+                                        <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
+                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
+                                        </Canvas>
+
+                                        <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
+                                            <Rectangle Width="70" Height="120" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                                            <Rectangle Width="60" Height="110" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                                        </Canvas>
+                                        <Rectangle Canvas.Left="180" Canvas.Top="15" Width="75" Height="108" Stroke="Black" RadiusX="5" RadiusY="5"/>
+                                        <Rectangle Width="20" Height="70" Canvas.Left="262" Canvas.Top="15" Stroke="Black" />
+                                    </Canvas>
+
+                                    <Canvas Canvas.Left="520" Canvas.Top="5" Width="220" Height="235" Background="#FF5A5A5A"/>
+                                </Canvas>
+                            </Viewbox>
+                            <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="此处默认放置洗涤液" FontSize="30" Canvas.Left="600" Canvas.Top="165" Width="376" />
+                        </Canvas>
+                    </TabItem >
+                    <TabItem Height="1" Width="0"/>
                 </TabControl>
             </DockPanel>
         </Grid>

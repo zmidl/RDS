@@ -46,7 +46,7 @@ namespace RDS.Views.Monitor
 			else if (e.Index == -10) this.ViewModel.TempelateValue += 1;
 			else if (e.Index == 5)
 			{
-				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Leaving;
+				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Inexistence;
 				this.SixTube_Warm1.CurrentState = RDSCL.SixTubeState.Existence;
 				this.SixTube_Warm1.NumberValue = "1";
 			}

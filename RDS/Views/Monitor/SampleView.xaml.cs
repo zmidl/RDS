@@ -10,7 +10,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
+
 using System.Windows.Shapes;
 using RDS.ViewModels.Common;
 using RDS.ViewModels;
@@ -24,9 +24,7 @@ namespace RDS.Views.Monitor
     public partial class SampleView : UserControl, IExitView
     {
         Action IExitView.ExitView { get; set; }
-        private bool isMouseButtonDown = false;
-        private Point StartPoint;
-
+      
         private Point startSelectionPoint;
         private Point endSelectionPoint;
 
@@ -63,23 +61,23 @@ namespace RDS.Views.Monitor
 
 
 
-        private void Canvas_Thumbnail_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
-        {
-            this.StartPoint = e.GetPosition((IInputElement)sender);
-        }
+        //private void Canvas_Thumbnail_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
+        //{
+        //    this.StartPoint = e.GetPosition((IInputElement)sender);
+        //}
 
-        private void Canvas_Thumbnail_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)
-        {
-            var endPoint = e.GetPosition((IInputElement)sender);
-            if (Keyboard.IsKeyDown(Key.LeftCtrl) == false)
-            {
-                if (this.StartPoint.Y < endPoint.Y) { this.SampleViewSelectedIndex--; e.Handled = true; }
-                else if (this.StartPoint.Y > endPoint.Y) { this.SampleViewSelectedIndex++; e.Handled = true; }
-                else e.Handled = false;
-                this.TabControl_SampleView.SelectedIndex = this.SampleViewSelectedIndex;
+        //private void Canvas_Thumbnail_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)
+        //{
+        //    var endPoint = e.GetPosition((IInputElement)sender);
+        //    if (Keyboard.IsKeyDown(Key.LeftCtrl) == false)
+        //    {
+        //        if (this.StartPoint.Y < endPoint.Y) { this.SampleViewSelectedIndex--; e.Handled = true; }
+        //        else if (this.StartPoint.Y > endPoint.Y) { this.SampleViewSelectedIndex++; e.Handled = true; }
+        //        else e.Handled = false;
+        //        this.TabControl_SampleView.SelectedIndex = this.SampleViewSelectedIndex;
                
-            }
-        }
+        //    }
+        //}
 
        
 
@@ -88,8 +86,6 @@ namespace RDS.Views.Monitor
             var currentTube = (SingleTube)sender;
             currentTube.IsSelected = !currentTube.IsSelected;
         }
-
-
 
         private void Canvas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
@@ -173,10 +169,6 @@ namespace RDS.Views.Monitor
             }
         }
 
-     
-
-     
-
         private void UcTextBlock_Acolumn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
             this.ViewModel.SetAHole();
@@ -196,5 +188,17 @@ namespace RDS.Views.Monitor
         {
             this.ViewModel.SetDHole();
         }
-    }
+
+		private void Button_Import_Click(object sender, RoutedEventArgs e)
+		{
+			System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+			ofd.ShowDialog();
+		}
+
+		private void Button_Layout_Click(object sender, RoutedEventArgs e)
+		{
+			RDS.Views.LayoutSetting LS = new LayoutSetting();
+			LS.ShowDialog();
+		}
+	}
 }

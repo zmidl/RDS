@@ -4,11 +4,12 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:zmcl="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
             d:DesignHeight="850" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Grid Width="900" Height="400" Background="White">
             <DockPanel LastChildFill="True">
-                <Button DockPanel.Dock="Bottom" Width="60" Height="30" Content="返回" Margin="10,0,0,0" Click="Button_Click" />
+                <zmcl:UcButton DockPanel.Dock="Bottom" Width="60" Height="40" Content="返回" Margin="10,0,0,0" Click="Button_Click" />
                 <TextBlock Text="读数" FontSize="72"/>
             </DockPanel>
         </Grid>
