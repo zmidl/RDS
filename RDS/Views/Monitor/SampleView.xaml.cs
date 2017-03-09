@@ -1,16 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
-using System.Windows.Media.Imaging;
-
 using System.Windows.Shapes;
 using RDS.ViewModels.Common;
 using RDS.ViewModels;
@@ -18,10 +11,10 @@ using RDSCL;
 
 namespace RDS.Views.Monitor
 {
-    /// <summary>
-    /// SampleView.xaml 的交互逻辑
-    /// </summary>
-    public partial class SampleView : UserControl, IExitView
+	/// <summary>
+	/// SampleView.xaml 的交互逻辑
+	/// </summary>
+	public partial class SampleView : UserControl, IExitView
     {
         Action IExitView.ExitView { get; set; }
       
@@ -30,35 +23,20 @@ namespace RDS.Views.Monitor
 
         private Rectangle selectionRectangle = new Rectangle();
 
-        private bool isSelectionMode = false;
-
-        private int sampleViewSelectedIndex;
-        public int SampleViewSelectedIndex
-        {
-            get { return sampleViewSelectedIndex; }
-            set
-            {
-                if (value < 0) value = 0;
-                else if (value > 3) value = 3;
-                else sampleViewSelectedIndex = value;
-            }
-        }
+        private bool isMultiselecting = false;
+		private bool isSelectSingle = false;
 
         public SampleViewModel ViewModel { get { return this.DataContext as SampleViewModel; } }
 
         public SampleView()
         {
             InitializeComponent();
-            //this.DataContext = new SampleViewModel();
         }
 
         private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             ((IExitView)this).ExitView();
         }
-
-
-
 
 
         //private void Canvas_Thumbnail_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
@@ -79,17 +57,20 @@ namespace RDS.Views.Monitor
         //    }
         //}
 
-       
-
         private void SingleTube_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
-            var currentTube = (SingleTube)sender;
-            currentTube.IsSelected = !currentTube.IsSelected;
-        }
+			var currentTube = (SingleTube)sender;
+			if (this.isSelectSingle == true)
+			{
+				currentTube.IsSelected = !currentTube.IsSelected;
+				this.ViewModel.SynchronizeSampleSelectionState();
+			}
+		}
 
         private void Canvas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
-            if (this.isSelectionMode == false) this.isSelectionMode = true;
+			this.isSelectSingle = true;
+            if (this.isMultiselecting == false) this.isMultiselecting = true;
 
             this.startSelectionPoint = e.GetPosition((IInputElement)sender);
 
@@ -115,19 +96,20 @@ namespace RDS.Views.Monitor
 
         private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e)
         {
-           
             this.endSelectionPoint = e.GetPosition((IInputElement)sender);
             var width = this.endSelectionPoint.X - this.startSelectionPoint.X;
             var height = this.endSelectionPoint.Y - this.startSelectionPoint.Y;
 			
-            if (width > 5 && height > 5 && this.isSelectionMode)
+            if (width > 5 && height > 5 && this.isMultiselecting)
             {
+				this.isSelectSingle = false;
                 this.selectionRectangle.Width = width;
                 this.selectionRectangle.Height = height;
-				for (int i = 0; i < 80; i++)
-				{
-					this.ViewModel.SampleDescritions[i].IsSelected = false;
-				}
+				//for (int i = 0; i < 80; i++)
+				//{
+				//	this.ViewModel.SampleDescritions[i].IsSelected = false;
+				//}
+				this.ViewModel.ResetSampleSelection();
 				VisualTreeHelper.HitTest(this.Canvas_SampleViewOne, null, f =>
                 {
                     var o = f.VisualHit as Ellipse;
@@ -161,33 +143,15 @@ namespace RDS.Views.Monitor
         private void Canvas_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
           
-            if (this.isSelectionMode)
+            if (this.isMultiselecting)
             {
                 this.Canvas_SampleViewOne.Children.Remove(this.selectionRectangle);
-                this.isSelectionMode = false;
+                this.isMultiselecting = false;
+				this.ViewModel.SynchronizeSampleSelectionState();
                 //e.Handled = false;
             }
         }
-
-        private void UcTextBlock_Acolumn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            this.ViewModel.SetAHole();
-        }
-
-        private void UcTextBlock_Bcolumn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            this.ViewModel.SetBHole();
-        }
-
-        private void UcTextBlock_Ccolumn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            this.ViewModel.SetCHole();
-        }
-
-        private void UcTextBlock_Dcolumn_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            this.ViewModel.SetDHole();
-        }
+       
 
 		private void Button_Import_Click(object sender, RoutedEventArgs e)
 		{
@@ -199,6 +163,11 @@ namespace RDS.Views.Monitor
 		{
 			RDS.Views.LayoutSetting LS = new LayoutSetting();
 			LS.ShowDialog();
+		}
+
+		private void Button_On_Click(object sender, RoutedEventArgs e)
+		{
+			this.Button_On.Content = this.ViewModel.SampleDescritions.Where(o => o.IsSelected == true).Count().ToString();
 		}
 	}
 }

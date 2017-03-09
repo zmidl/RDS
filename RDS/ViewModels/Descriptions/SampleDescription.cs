@@ -5,12 +5,15 @@ namespace RDS.ViewModels.Descriptions
 {
 	public class SampleDescription:ViewModel
 	{
-		private bool isSelected;
-		public bool IsSelected
+		public bool IsSelected { get; set; } = false;
+
+		private bool selectionState;
+		public bool SelectionState
 		{
-			get { return isSelected; }
-			set { isSelected = value; this.RaisePropertyChanged(nameof(IsSelected)); }
+			get { return selectionState; }
+			set { selectionState = value; this.RaisePropertyChanged(nameof(SelectionState)); }
 		}
+
 
 		private Sampling state;
 		public Sampling State
@@ -23,7 +26,7 @@ namespace RDS.ViewModels.Descriptions
 
 		public SampleDescription(bool isSelected,Sampling state,SampleInformatin information)
 		{
-			this.IsSelected = isSelected;
+			this.SelectionState = isSelected;
 			this.State = state;
 			this.Information = information;
 		}

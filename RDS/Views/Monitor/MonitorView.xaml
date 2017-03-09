@@ -1246,7 +1246,7 @@
             </Canvas>
 
             <Canvas Canvas.Left="536" Canvas.Top="315"  Width="283" Height="155">
-                <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FFFCF9C4" Stroke="Black" />
+                <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FFC7C7C7" Stroke="Black" />
                 <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
                     <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                     <rdsc:SixTube x:Name="SixTube_Warm1" Width="15"  Canvas.Left="6" Canvas.Top="5" CurrentState="Inexistence" />
@@ -1257,8 +1257,8 @@
                 </Canvas>
 
                 <Canvas Width="70" Height="120" Canvas.Left="105" Canvas.Top="5">
-                    <Rectangle Width="70" Height="120" Fill="#FF264D61" RadiusX="5" RadiusY="5" Stroke="Black"/>
-                    <Rectangle Width="60" Height="110" Fill="#FF264D61" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
+                    <Rectangle Width="70" Height="120" Fill="Gray" RadiusX="5" RadiusY="5" Stroke="Black"/>
+                    <Rectangle Width="60" Height="110" Fill="#FF4D4D4D" RadiusX="5" RadiusY="5" Stroke="Black" Canvas.Left="5" Canvas.Top="5"/>
                     <rdsc:SixTube Width="15"  Canvas.Left="10" Canvas.Top="10" CurrentState="Inexistence" />
                     <rdsc:SixTube Width="15"  Canvas.Left="28" Canvas.Top="10" CurrentState="Inexistence" />
                     <rdsc:SixTube Width="15"  Canvas.Left="47" Canvas.Top="10" CurrentState="Inexistence" />
@@ -1277,15 +1277,30 @@
 
             </Canvas>
 
-            <Border Canvas.Left="570" Canvas.Top="75" 
-                    Width="220" Height="235" 
-                    Background="#FF8B8B8B" BorderBrush="Black" BorderThickness="1" CornerRadius="1">
-                <Rectangle RadiusX="10" RadiusY="10" Fill="#FF793C00" Stroke="Black" Margin="46.667,66.667,29.333,39.333" PreviewMouseUp="Rectangle_PreviewMouseUp_2" />
-            </Border>
+            <Canvas Canvas.Left="570" Canvas.Top="75" Width="220" Height="235" Background="#FF8B8B8B"  >
 
+                <Rectangle Width="140" Height="140" RadiusX="10" RadiusY="10" Fill="#FF793C00" Stroke="Black"  PreviewMouseUp="Rectangle_PreviewMouseUp_2" Canvas.Top="58" Canvas.Left="56" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="85" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="100" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="115" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="130" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="145" />
+                <Ellipse Width="10" Height="10" Fill="#FF999595" Stroke="Black" StrokeThickness="2" Canvas.Left="75" Canvas.Top="160" />
+
+
+                <rdsc:SixTube Width="15"  Canvas.Left="90" Canvas.Top="77"  CurrentState="Inexistence" />
+                <rdsc:SixTube Width="15"  Canvas.Left="110" Canvas.Top="77"  CurrentState="Inexistence" />
+                <rdsc:SixTube Width="15"  Canvas.Left="130" Canvas.Top="77"  CurrentState="Inexistence" />
+                <rdsc:SixTube Width="15"  Canvas.Left="150" Canvas.Top="77"  CurrentState="Inexistence" />
+                <rdsc:SixTube Width="15"  Canvas.Left="170" Canvas.Top="77"  CurrentState="Inexistence" />
+                <rdsc:SixTube Width="15"  Canvas.Left="203" Canvas.Top="77"  CurrentState="Inexistence" />
+
+            </Canvas>
+            
             <StackPanel Width="610" Orientation="Horizontal" Canvas.Left="62">
                 <TextBlock Style="{DynamicResource TextBlockStyle1}" Text="剩余时间"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" />
                 <TextBlock Style="{DynamicResource TextBlockStyle2}" x:Name="TextBlock_RemainingTime" Text="12"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
+            
                 <zmcl:UcButton x:Name="Button_OnAndOff" Content="启动" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_OnAndOff_Click_1"/>
                 <zmcl:UcButton x:Name="Button_Emergency" Command="{Binding Emergency}" Content="{DynamicResource Button_Emergency}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_Emergency_Click"/>
                 <zmcl:UcButton x:Name="Button_End" Content="{DynamicResource Button_FinishTask}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" IsEnabled="False" Click="Button_End_Click_1" />

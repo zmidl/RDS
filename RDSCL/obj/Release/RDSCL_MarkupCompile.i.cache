@@ -4,7 +4,7 @@
 library
 C#
 .cs
-D:\Develop\MyProject\RDS\RDSCL\obj\Release\
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\
 RDSCL
 none
 false
@@ -12,7 +12,7 @@ TRACE
 
 51562143195
 
-12-726600310
+12-157170497
 12-1401562060
 Border.xaml;Cuvette.xaml;SampleTube.xaml;SingleTube.xaml;SixTube.xaml;
 

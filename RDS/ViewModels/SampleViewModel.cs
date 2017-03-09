@@ -11,8 +11,6 @@ namespace RDS.ViewModels
 	{
 		public ObservableCollection<SampleDescription> SampleDescritions { get; set; } = new ObservableCollection<SampleDescription>();
 
-		//public ObservableCollection<SampleInformatin> SampleInformations { get; set; } = new ObservableCollection<SampleInformatin>();
-
 		private int sampleTabIndex;
 		public int SampleTabIndex
 		{
@@ -26,6 +24,17 @@ namespace RDS.ViewModels
 			}
 		}
 
+		public bool IsFirstTabIndex
+		{
+			get { return this.sampleTabIndex == 0 ? true : false; }
+			set
+			{
+				if (this.sampleTabIndex == 1 && value) this.SampleTabIndex = 0;
+				this.RaisePropertyChanged(nameof(IsFirstTabIndex));
+				this.RaisePropertyChanged(nameof(IsSecondTabIndex));
+			}
+		}
+
 		public bool IsSecondTabIndex
 		{
 			get { return this.sampleTabIndex == 1 ? true : false; }
@@ -36,20 +45,30 @@ namespace RDS.ViewModels
 				this.RaisePropertyChanged(nameof(IsSecondTabIndex));
 			}
 		}
-		                                                                                                                                                                                                                                                                                                                                                                                                                   
-		public bool IsFirstTabIndex
+
+		public void ResetSampleSelection()
 		{
-			get { return this.sampleTabIndex == 0 ? true : false; }
-			set
-			{ 
-				if(this.sampleTabIndex==1 && value) this.SampleTabIndex = 0;
-				this.RaisePropertyChanged(nameof(IsFirstTabIndex));
-				this.RaisePropertyChanged(nameof(IsSecondTabIndex));
+			for (int i = 0; i < this.SampleDescritions.Count; i++)
+			{
+				if (this.SampleDescritions[i].IsSelected == false) this.SampleDescritions[i].SelectionState = false;
 			}
 		}
 
+		public void SynchronizeSampleSelectionState()
+		{
+			for (int i = 0; i < this.SampleDescritions.Count; i++)
+			{
+				this.SampleDescritions[i].IsSelected = this.SampleDescritions[i].SelectionState;
+			}
+		}
 
-
+		public void MultipeSetSampleStateToEmergency()
+		{
+			for (int i = 40; i < 60; i++)
+			{
+				this.SampleDescritions[i].State = Sampling.EmergencySampling;
+			}
+		}
 
 		public SampleViewModel()
 		{
@@ -71,45 +90,45 @@ namespace RDS.ViewModels
 			}
 		}
 
-		public void SetAllSampleEmergency()
-		{
-			for (int i = 40; i < 60; i++)
-			{
-				this.SampleDescritions[i].State = Sampling.EmergencySampling;
-			}
-		}
-
-		private void SetColumnHole(int startHole, int endHole)
+		private void MultipleSetSampleSelectionState(List<SampleDescription> sampleDescriptions)
 		{
 			var hasSelected = false;
 
-			var resultRange = this.SampleDescritions?.Skip(startHole).Take(endHole - startHole + 1).ToList();
-
-			var selectedCount = resultRange.Where(o => o.IsSelected == true).Count();
+			var selectedCount = sampleDescriptions.Where(o => o.SelectionState == true).Count();
 
 			if (selectedCount > 0) hasSelected = true;
 
-			for (int i = startHole; i <= endHole; i++) this.SampleDescritions[i].IsSelected = !hasSelected;
+			for (int i = 0; i < sampleDescriptions.Count; i++) sampleDescriptions[i].SelectionState = !hasSelected;
+
+			this.SynchronizeSampleSelectionState();
 		}
 
-		public void SetAHole()
+		private List<SampleDescription> GetSampleDescriptionsByRange(int startIndex, int endIndex)
 		{
-			this.SetColumnHole(0, 19);
+			return this.SampleDescritions?.Skip(startIndex).Take(endIndex - startIndex + 1).ToList();
 		}
 
-		public void SetBHole()
+		private List<SampleDescription> GetSampleDescriptionsByRowNumber(int rowIndex)
 		{
-			this.SetColumnHole(20, 39);
+			
+			var resultRange = new List<SampleDescription>(4);
+			for (int i = 0; i < 4; i++)
+			{
+				resultRange.Add(this.SampleDescritions[rowIndex + (i * 20)]);
+			}
+			return resultRange;
 		}
 
-		public void SetCHole()
+		public void MultipleSetSampleSelectionState(MultipeSelection multipeSelection)
 		{
-			this.SetColumnHole(40, 59);
-		}
-
-		public void SetDHole()
-		{
-			this.SetColumnHole(60, 79);
+			switch (multipeSelection)
+			{
+				case MultipeSelection.ColumnA: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(0, 19)); break; }
+				case MultipeSelection.ColumnB: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(20, 39)); break; }
+				case MultipeSelection.ColumnC: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(40, 59)); break; }
+				case MultipeSelection.ColumnD: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(60, 79)); break; }
+				default: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRowNumber((int)multipeSelection)); break; }
+			}
 		}
 	}
 }

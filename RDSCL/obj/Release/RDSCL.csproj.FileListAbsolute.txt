@@ -38,3 +38,5 @@ D:\Develop\MyProject\RDS\RDSCL\obj\Release\RDSCL.Properties.Resources.resources
 D:\Develop\MyProject\RDS\RDSCL\obj\Release\RDSCL.csproj.GenerateResource.Cache
 D:\Develop\MyProject\RDS\RDSCL\obj\Release\RDSCL.dll
 D:\Develop\MyProject\RDS\RDSCL\obj\Release\RDSCL.pdb
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\SampleTube.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\SampleTube.baml

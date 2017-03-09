@@ -24,7 +24,6 @@
                         </LinearGradientBrush>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="FontSize" Value="30"/>
                 <Setter Property="FontWeight" Value="Bold"/>
                 <Setter Property="RenderTransform">
                     <Setter.Value>
@@ -62,7 +61,7 @@
                         </LinearGradientBrush>
                     </Setter.Value>
                 </Setter>
-                <Setter Property="FontSize" Value="30"/>
+               
             </Style>
             <Style x:Key="TextBlockStyle4" BasedOn="{StaticResource TextBlockStyle1}" TargetType="{x:Type TextBlock}">
                 <Setter Property="Foreground">
