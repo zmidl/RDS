@@ -35,9 +35,21 @@ namespace RDS.Views.Monitor
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
-			this.ViewModel.SampleViewModel.MultipeSetSampleStateToEmergency();
-			sampleView.DataContext = this.ViewModel.SampleViewModel;
-			General.ExitView(this.currentContent, this, (IExitView)sampleView);
+			var showView = (ShowView)e;
+			switch(showView)
+			{
+				case ShowView.ShowSampleView:
+				{
+					this.ViewModel.SampleViewModel.MultipeSetSampleStateToEmergency();
+					sampleView.DataContext = this.ViewModel.SampleViewModel;
+					General.ExitView(this.currentContent, this, (IExitView)sampleView);
+					break;
+				}
+				default:
+				{
+					break;
+				}
+			}
 		}
 
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)

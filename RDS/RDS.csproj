@@ -62,12 +62,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Models\Lis\Barcode.cs" />
+    <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\TubeDescription.cs" />
     <Compile Include="ViewModels\Behaviors\SampleBehavior.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />
     <Compile Include="ViewModels\Common\Enumeration.cs" />
+    <Compile Include="ViewModels\Common\XmlOperation.cs" />
     <Compile Include="ViewModels\Descriptions\SampleDescription.cs" />
     <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />

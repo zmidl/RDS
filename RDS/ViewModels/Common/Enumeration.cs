@@ -17,10 +17,10 @@
 
 	public enum MultipeSelection
 	{
-		ColumnA=20,
-		ColumnB=21,
-		ColumnC=22,
-		ColumnD=23,
+		ColumnA = 20,
+		ColumnB = 21,
+		ColumnC = 22,
+		ColumnD = 23,
 		Row1 = 0,
 		Row2 = 1,
 		Row3 = 2,
@@ -41,5 +41,12 @@
 		Row18 = 17,
 		Row19 = 18,
 		Row20 = 19
+	}
+
+	public enum ShowView
+	{
+		ShowSampleView = 0,
+		ShowReagentView = 1,
+		ShowReportView = 2
 	}
 }

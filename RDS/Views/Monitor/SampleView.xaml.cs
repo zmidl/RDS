@@ -156,7 +156,16 @@ namespace RDS.Views.Monitor
 		private void Button_Import_Click(object sender, RoutedEventArgs e)
 		{
 			System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-			ofd.ShowDialog();
+			ofd.Filter = "Xm;文件(*.xml;)|*.xml;|所有文件|*.*";
+			ofd.ValidateNames = true;
+			ofd.CheckPathExists = true;
+			ofd.CheckFileExists = true;
+			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+			{
+				var a =  ViewModels.Common.XmlOperation.ReadXmlFile(ofd.FileName);
+				var b = a.Tables[2];
+				this.ViewModel.DatatableToEntity(b);
+			}
 		}
 
 		private void Button_Layout_Click(object sender, RoutedEventArgs e)
@@ -167,7 +176,14 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			this.Button_On.Content = this.ViewModel.SampleDescritions.Where(o => o.IsSelected == true).Count().ToString();
+			
+			//this.Button_On.Content = this.ViewModel.SampleDescritions.Where(o => o.IsSelected == true).Count().ToString();
+		}
+
+	
+		private void ucDataGrid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
+		{
+		
 		}
 	}
 }

@@ -22,13 +22,13 @@ namespace RDS.ViewModels.Descriptions
 			set { state = value; this.RaisePropertyChanged(nameof(State)); }
 		}
 
-		public SampleInformatin Information { get; set; }
+		//public SampleInformatin Information { get; set; }
 
-		public SampleDescription(bool isSelected,Sampling state,SampleInformatin information)
+		public SampleDescription(bool isSelected,Sampling state/*,SampleInformatin information*/)
 		{
 			this.SelectionState = isSelected;
 			this.State = state;
-			this.Information = information;
+			//this.Information = information;
 		}
 	}
 }

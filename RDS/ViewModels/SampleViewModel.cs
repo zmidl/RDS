@@ -4,6 +4,7 @@ using RDS.Models;
 using System.Linq;
 using RDS.ViewModels.Common;
 using RDS.ViewModels.Descriptions;
+using System.Data;
 
 namespace RDS.ViewModels
 {
@@ -11,7 +12,10 @@ namespace RDS.ViewModels
 	{
 		public ObservableCollection<SampleDescription> SampleDescritions { get; set; } = new ObservableCollection<SampleDescription>();
 
+		public ObservableCollection<SampleInformatin> SampleInformatins { get; set; } = new ObservableCollection<SampleInformatin>();
+
 		private int sampleTabIndex;
+
 		public int SampleTabIndex
 		{
 			get { return sampleTabIndex; }
@@ -72,21 +76,9 @@ namespace RDS.ViewModels
 
 		public SampleViewModel()
 		{
-
 			for (int i = 0; i < 80; i++)
 			{
-				SampleDescritions.Add(new SampleDescription(true, Sampling.EmergencySampling, new SampleInformatin
-				{
-					Age = "20",
-					DateTime = System.DateTime.Now.ToString(),
-					HoleSite = $"A{i}",
-					Name = "王二妞",
-					Reagent = "CC",
-					Barcode = "12345671",
-					SampleId = "AE123",
-					Sex = "女",
-					Type = "不明"
-				}));
+				SampleDescritions.Add(new SampleDescription(false, Sampling.EmergencySampling/*, new SampleInformatin()*/));
 			}
 		}
 
@@ -110,7 +102,7 @@ namespace RDS.ViewModels
 
 		private List<SampleDescription> GetSampleDescriptionsByRowNumber(int rowIndex)
 		{
-			
+
 			var resultRange = new List<SampleDescription>(4);
 			for (int i = 0; i < 4; i++)
 			{
@@ -128,6 +120,31 @@ namespace RDS.ViewModels
 				case MultipeSelection.ColumnC: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(40, 59)); break; }
 				case MultipeSelection.ColumnD: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(60, 79)); break; }
 				default: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRowNumber((int)multipeSelection)); break; }
+			}
+		}
+
+		public void DatatableToEntity(DataTable table)
+		{
+			//table.Columns[nameof(a)].ToString();
+
+			//strAge="28岁" strDateTime="2016/5/5 9:33:35" strSampleType="阴道分泌物" strSex="女" strName="周晓燕" strSampleID="701" strItem="CT" strBarcode="1"/
+			
+			for (int i = 0; i < table.Rows.Count; i++)
+			{
+				var sampleInformation = new SampleInformatin()
+				{
+					Age = table.Rows[i]["strAge"].ToString(),
+					Barcode = table.Rows[i]["strBarcode"].ToString(),
+					Birthday = table.Rows[i]["strBirthday"].ToString(),
+					DateTime = table.Rows[i]["strDateTime"].ToString(),
+					HoleSite = "0",
+					Name = table.Rows[i]["strName"].ToString(),
+					Reagent = table.Rows[i]["strItem"].ToString(),
+					SampleId = table.Rows[i]["strSampleID"].ToString(),
+					Sex = table.Rows[i]["strSex"].ToString(),
+					Type = table.Rows[i]["strSampleType"].ToString()
+				};
+				this.SampleInformatins.Add(sampleInformation);
 			}
 		}
 	}

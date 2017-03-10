@@ -56,8 +56,6 @@
                 <TextBlock Width="Auto"  Text="{Binding DataContext.OOB, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
             </StackPanel>
         </DataTemplate>
-
-   
         
         <Style x:Key="Sample_TextBlockStyle1" BasedOn="{StaticResource TextBlockStyle4}" TargetType="{x:Type TextBlock}">
             <Setter Property="Canvas.Top" Value="4"/>
@@ -120,24 +118,24 @@
                 <Canvas Canvas.Left="10" Canvas.Top="10" Width="560" Height="380">
                     <zmlc:UcDataGrid 
 						x:Name="ucDataGrid" 
-						ItemsSource="{Binding SampleDescritions}"
+						ItemsSource="{Binding SampleInformatins}"
 						SelectionMode="Extended"
 						AutoGenerateColumns="False"
 						Width="560" 
 						Height="380" 
 						Canvas.Left="0" 
-						Canvas.Top="0">
+						Canvas.Top="0" PreviewMouseDown="ucDataGrid_PreviewMouseDown">
                         <zmlc:UcDataGrid.Columns>
-                            <DataGridTextColumn Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding Information.HoleSite}"/>
-                            <DataGridTextColumn Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Barcode}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_SampleNumber}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.SampleId}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Name}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Name}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Sex}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Age}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Type}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Type}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Reagent}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Reagent}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_DateTime}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.DateTime}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Information.Emergency}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleSite}"/>
+                            <DataGridTextColumn Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_SampleNumber}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding SampleId}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Name}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Name}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Sex}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Age}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Type}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Type}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Reagent}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Reagent}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_DateTime}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding DateTime}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Emergency}" />
                         </zmlc:UcDataGrid.Columns>
                         <zmlc:UcDataGrid.Effect>
                             <DropShadowEffect ShadowDepth="1" Color="#FFA4A4A4"/>
