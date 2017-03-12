@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace RDS.Models
 {
-   public class SampleInformatin
+   public class SampleInformation
 	{
-		public SampleInformatin() { }
+		public SampleInformation() { }
 
         public string SampleId { get; set; }//strSampleID="20141225CEH001"
 

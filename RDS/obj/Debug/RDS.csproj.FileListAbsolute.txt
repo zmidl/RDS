@@ -125,3 +125,5 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\zh-Hans\System.Windows.Interactivity.res
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\LayoutSetting.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\LayoutSetting.baml
+D:\Develop\MyProject\RDS\RDS\obj\Debug\Views\LayoutSetting.g.cs
+D:\Develop\MyProject\RDS\RDS\obj\Debug\Views\LayoutSetting.baml

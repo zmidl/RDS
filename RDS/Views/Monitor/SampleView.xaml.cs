@@ -176,14 +176,23 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			
-			//this.Button_On.Content = this.ViewModel.SampleDescritions.Where(o => o.IsSelected == true).Count().ToString();
+
+			var c = this.ucDataGrid.SelectedItems;
 		}
 
-	
-		private void ucDataGrid_PreviewMouseDown(object sender, MouseButtonEventArgs e)
-		{
-		
-		}
+		//private void ucDataGrid_PreviewMouseMove(object sender, MouseEventArgs e)
+		//{
+		//	if(e.RightButton==MouseButtonState.Pressed)
+		//	{
+		//		var property = typeof(DataGrid).GetField(
+		//											  "_isDraggingSelection",
+		//											  System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.IgnoreCase);
+		//		if (property != null)
+		//		{
+		//			property.SetValue(this.ucDataGrid, false);
+		//		}
+		//		DragDrop.DoDragDrop(this.ucDataGrid, this.ucDataGrid.SelectedItems, DragDropEffects.Copy);
+		//	}
+		//}
 	}
 }

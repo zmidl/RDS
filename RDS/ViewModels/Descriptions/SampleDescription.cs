@@ -14,7 +14,6 @@ namespace RDS.ViewModels.Descriptions
 			set { selectionState = value; this.RaisePropertyChanged(nameof(SelectionState)); }
 		}
 
-
 		private Sampling state;
 		public Sampling State
 		{

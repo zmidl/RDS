@@ -118,13 +118,15 @@
                 <Canvas Canvas.Left="10" Canvas.Top="10" Width="560" Height="380">
                     <zmlc:UcDataGrid 
 						x:Name="ucDataGrid" 
+                        AllowDrop="True"
+                        
 						ItemsSource="{Binding SampleInformatins}"
 						SelectionMode="Extended"
 						AutoGenerateColumns="False"
 						Width="560" 
 						Height="380" 
 						Canvas.Left="0" 
-						Canvas.Top="0" PreviewMouseDown="ucDataGrid_PreviewMouseDown">
+						Canvas.Top="0" >
                         <zmlc:UcDataGrid.Columns>
                             <DataGridTextColumn Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleSite}"/>
                             <DataGridTextColumn Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
@@ -135,11 +137,14 @@
                             <DataGridTextColumn Header="{DynamicResource SampleView_Type}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Type}" />
                             <DataGridTextColumn Header="{DynamicResource SampleView_Reagent}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Reagent}" />
                             <DataGridTextColumn Header="{DynamicResource SampleView_DateTime}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding DateTime}" />
-                            <DataGridTextColumn Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Emergency}" />
+                            <DataGridTextColumn Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" />
                         </zmlc:UcDataGrid.Columns>
                         <zmlc:UcDataGrid.Effect>
                             <DropShadowEffect ShadowDepth="1" Color="#FFA4A4A4"/>
                         </zmlc:UcDataGrid.Effect>
+                        <i:Interaction.Behaviors>
+                            <behavior:SampleInformationDragDrop DraggedData="{Binding ElementName=ucDataGrid,Path=SelectedItems}"/>
+                        </i:Interaction.Behaviors>
                     </zmlc:UcDataGrid>
                 </Canvas>
                 <Canvas 
@@ -151,22 +156,22 @@
 					PreviewMouseUp="Canvas_PreviewMouseUp">
                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="56">
                         <i:Interaction.Behaviors>
-                            <behavior:SampleBehavior MultipSelection="ColumnA" ViewModel="{Binding Mode=OneWay}"/>
+                            <behavior:SetSampleSelectionState MultipSelection="ColumnA" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
                     <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="100" >
                         <i:Interaction.Behaviors>
-                            <behavior:SampleBehavior MultipSelection="ColumnB" ViewModel="{Binding Mode=OneWay}"/>
+                            <behavior:SetSampleSelectionState MultipSelection="ColumnB" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
                     <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="139">
                         <i:Interaction.Behaviors>
-                            <behavior:SampleBehavior MultipSelection="ColumnC" ViewModel="{Binding Mode=OneWay}"/>
+                            <behavior:SetSampleSelectionState MultipSelection="ColumnC" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
                     <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="177" >
                         <i:Interaction.Behaviors>
-                            <behavior:SampleBehavior MultipSelection="ColumnD" ViewModel="{Binding Mode=OneWay}"/>
+                            <behavior:SetSampleSelectionState MultipSelection="ColumnD" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
 
@@ -367,52 +372,52 @@
                                 <StackPanel Orientation="Vertical" Canvas.Left="10">
                                     <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="35">
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row1" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row1" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row2" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row2" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="3">
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row3" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row3" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="4">
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row4" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row4" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="5" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row5" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row5" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="6" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row6" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row6" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="7" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row7" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row7" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="8" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row8" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row8" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="9" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row9" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row9" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="10" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                 </StackPanel>
@@ -609,52 +614,52 @@
                                 <StackPanel Orientation="Vertical" Canvas.Left="10">
                                     <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="11" FontSize="35">
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row11" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row11" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="12" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row12" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row12" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="13" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row13" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row13" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="14" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row14" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row14" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="15" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row15" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row15" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="16" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row16" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row16" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="17" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row17" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row17" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="18" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row18" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row18" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="19" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row19" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row19" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="20" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SampleBehavior MultipSelection="Row20" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row20" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                 </StackPanel>

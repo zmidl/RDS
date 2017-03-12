@@ -12,7 +12,7 @@ namespace RDS.ViewModels
 	{
 		public ObservableCollection<SampleDescription> SampleDescritions { get; set; } = new ObservableCollection<SampleDescription>();
 
-		public ObservableCollection<SampleInformatin> SampleInformatins { get; set; } = new ObservableCollection<SampleInformatin>();
+		public ObservableCollection<SampleInformation> SampleInformatins { get; set; } = new ObservableCollection<SampleInformation>();
 
 		private int sampleTabIndex;
 
@@ -78,7 +78,21 @@ namespace RDS.ViewModels
 		{
 			for (int i = 0; i < 80; i++)
 			{
-				SampleDescritions.Add(new SampleDescription(false, Sampling.EmergencySampling/*, new SampleInformatin()*/));
+				SampleDescritions.Add(new SampleDescription(false, Sampling.NoSample/*, new SampleInformatin()*/));
+
+				this.SampleInformatins.Add(new SampleInformation()
+				{
+					Age = "25",
+					Barcode = "1234567",
+					Birthday = "20010321",
+					DateTime = "20170101",
+					HoleSite = "",
+					Name = "王秀娟",
+					Reagent = "UU",
+					SampleId = "123",
+					Sex = "女",
+					Type = "未知"
+				});
 			}
 		}
 
@@ -128,10 +142,10 @@ namespace RDS.ViewModels
 			//table.Columns[nameof(a)].ToString();
 
 			//strAge="28岁" strDateTime="2016/5/5 9:33:35" strSampleType="阴道分泌物" strSex="女" strName="周晓燕" strSampleID="701" strItem="CT" strBarcode="1"/
-			
+
 			for (int i = 0; i < table.Rows.Count; i++)
 			{
-				var sampleInformation = new SampleInformatin()
+				var sampleInformation = new SampleInformation()
 				{
 					Age = table.Rows[i]["strAge"].ToString(),
 					Barcode = table.Rows[i]["strBarcode"].ToString(),

@@ -164,7 +164,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -266,7 +266,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -373,7 +373,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108"  RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -479,7 +479,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -585,7 +585,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -689,7 +689,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -782,7 +782,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -875,7 +875,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 
@@ -968,7 +968,7 @@
                                     <Canvas Canvas.Left="486" Canvas.Top="245"  Width="283" Height="155">
                                         <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FF5A5A5A" Stroke="Black" />
                                         <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                                            <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                                            <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                                             <Rectangle Stroke="Black" StrokeThickness="1" Width="14" Height="60" Canvas.Left="72" Canvas.Top="24"/>
                                         </Canvas>
 

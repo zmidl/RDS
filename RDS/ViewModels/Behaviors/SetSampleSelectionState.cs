@@ -5,7 +5,7 @@ using System.Windows.Interactivity;
 
 namespace RDS.ViewModels.Behaviors
 {
-	class SampleBehavior:Behavior<UIElement>
+	class SetSampleSelectionState:Behavior<UIElement>
 	{
 		public MultipeSelection MultipSelection
 		{
@@ -13,7 +13,7 @@ namespace RDS.ViewModels.Behaviors
 			set { SetValue(MultipSelectionProperty, value); }
 		}
 		public static readonly DependencyProperty MultipSelectionProperty =
-			DependencyProperty.Register(nameof(MultipSelection), typeof(MultipeSelection), typeof(SampleBehavior), new PropertyMetadata(MultipeSelection.ColumnA));
+			DependencyProperty.Register(nameof(MultipSelection), typeof(MultipeSelection), typeof(SetSampleSelectionState), new PropertyMetadata(MultipeSelection.ColumnA));
 
 		public SampleViewModel ViewModel
 		{
@@ -21,7 +21,7 @@ namespace RDS.ViewModels.Behaviors
 			set { SetValue(TestProperty, value); }
 		}
 		public static readonly DependencyProperty TestProperty =
-			DependencyProperty.Register(nameof(ViewModel), typeof(SampleViewModel), typeof(SampleBehavior), new PropertyMetadata(default(SampleViewModel)));
+			DependencyProperty.Register(nameof(ViewModel), typeof(SampleViewModel), typeof(SetSampleSelectionState), new PropertyMetadata(default(SampleViewModel)));
 
 		protected override void OnAttached()
 		{

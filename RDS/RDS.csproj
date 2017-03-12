@@ -54,7 +54,7 @@
     <Reference Include="PresentationFramework" />
     <Reference Include="ZMCL, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\我的控件\ZMCL\bin\Release\ZMCL.dll</HintPath>
+      <HintPath>..\..\ZMCL\bin\Debug\ZMCL.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -65,7 +65,8 @@
     <Compile Include="Models\Lis\Barcode.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\TubeDescription.cs" />
-    <Compile Include="ViewModels\Behaviors\SampleBehavior.cs" />
+    <Compile Include="ViewModels\Behaviors\SampleInformationDragDrop.cs" />
+    <Compile Include="ViewModels\Behaviors\SetSampleSelectionState.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />

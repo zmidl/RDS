@@ -1248,7 +1248,7 @@
             <Canvas Canvas.Left="536" Canvas.Top="315"  Width="283" Height="155">
                 <Rectangle RadiusX="5" RadiusY="5" Width="283" Height="155" Fill="#FFC7C7C7" Stroke="Black" />
                 <Canvas Width="95" Height="108" Canvas.Left="6" Canvas.Top="12">
-                    <Rectangle Width="95" Height="108" Fill="{Binding TempelateColor}" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
+                    <Rectangle Width="95" Height="108" RadiusX="5" RadiusY="5" StrokeThickness="1" Stroke="Black"/>
                     <rdsc:SixTube x:Name="SixTube_Warm1" Width="15"  Canvas.Left="6" Canvas.Top="5" CurrentState="Inexistence" />
                     <rdsc:SixTube Width="15"  Canvas.Left="22" Canvas.Top="5" CurrentState="Inexistence" />
                     <rdsc:SixTube Width="15"  Canvas.Left="38" Canvas.Top="5" CurrentState="Inexistence" />
