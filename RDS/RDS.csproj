@@ -65,7 +65,8 @@
     <Compile Include="Models\Lis\Barcode.cs" />
     <Compile Include="Models\TestModel.cs" />
     <Compile Include="Models\TubeDescription.cs" />
-    <Compile Include="ViewModels\Behaviors\SampleInformationDragDrop.cs" />
+    <Compile Include="ViewModels\Behaviors\SampleInformationDrag.cs" />
+    <Compile Include="ViewModels\Behaviors\SampleInformationDrop.cs" />
     <Compile Include="ViewModels\Behaviors\SetSampleSelectionState.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />

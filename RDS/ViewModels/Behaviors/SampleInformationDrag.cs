@@ -6,7 +6,7 @@ using System.Windows.Interactivity;
 
 namespace RDS.ViewModels.Behaviors
 {
-	class SampleInformationDragDrop : Behavior<UIElement>
+	class SampleInformationDrag : Behavior<UIElement>
 	{
 
 		public object DraggedData
@@ -15,17 +15,13 @@ namespace RDS.ViewModels.Behaviors
 			set { SetValue(DragedDataProperty, value); }
 		}
 		public static readonly DependencyProperty DragedDataProperty =
-			DependencyProperty.Register(nameof(DraggedData), typeof(object), typeof(SampleInformationDragDrop), new PropertyMetadata(null));
-
+			DependencyProperty.Register(nameof(DraggedData), typeof(object), typeof(SampleInformationDrag), new PropertyMetadata(null));
 
 		protected override void OnAttached()
 		{
 			base.OnAttached();
-			
 			this.AssociatedObject.MouseMove += AssociatedObject_MouseMove;
 		}
-
-	
 
 		private void AssociatedObject_MouseMove(object sender, System.Windows.Input.MouseEventArgs e)
 		{
@@ -44,7 +40,6 @@ namespace RDS.ViewModels.Behaviors
 		{
 			base.OnDetaching();
 			this.AssociatedObject.MouseMove -= AssociatedObject_MouseMove;
-			
 		}
 	}
 }

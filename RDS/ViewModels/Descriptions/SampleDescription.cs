@@ -6,6 +6,7 @@ namespace RDS.ViewModels.Descriptions
 	public class SampleDescription:ViewModel
 	{
 		public bool IsSelected { get; set; } = false;
+		public string HoleName { get; private set; }
 
 		private bool selectionState;
 		public bool SelectionState
@@ -23,8 +24,9 @@ namespace RDS.ViewModels.Descriptions
 
 		//public SampleInformatin Information { get; set; }
 
-		public SampleDescription(bool isSelected,Sampling state/*,SampleInformatin information*/)
+		public SampleDescription(string holeName ,bool isSelected,Sampling state/*,SampleInformatin information*/)
 		{
+			this.HoleName = holeName;
 			this.SelectionState = isSelected;
 			this.State = state;
 			//this.Information = information;

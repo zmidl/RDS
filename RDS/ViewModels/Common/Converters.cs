@@ -17,7 +17,7 @@ namespace RDS.ViewModels.Common
 			Sampling inputted = (Sampling)value;
 			switch (inputted)
 			{
-				case Sampling.NoSample: { resultColor = new SolidColorBrush(Colors.White); break; }
+				case Sampling.NoSample: { resultColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
 				case Sampling.NormalSampling: { resultColor = new SolidColorBrush(Colors.Yellow); break; }
 				case Sampling.EmergencySampling: { resultColor = new SolidColorBrush(Colors.Green); break; }
 				case Sampling.Sampled: { resultColor = new SolidColorBrush(Colors.Gray); break; }

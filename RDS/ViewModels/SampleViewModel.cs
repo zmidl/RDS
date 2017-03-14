@@ -10,9 +10,9 @@ namespace RDS.ViewModels
 {
 	public class SampleViewModel : ViewModel
 	{
-		public ObservableCollection<SampleDescription> SampleDescritions { get; set; } = new ObservableCollection<SampleDescription>();
+		public ObservableCollection<SampleDescription> SampleDescriptions { get; set; } = new ObservableCollection<SampleDescription>();
 
-		public ObservableCollection<SampleInformation> SampleInformatins { get; set; } = new ObservableCollection<SampleInformation>();
+		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
 		private int sampleTabIndex;
 
@@ -52,17 +52,17 @@ namespace RDS.ViewModels
 
 		public void ResetSampleSelection()
 		{
-			for (int i = 0; i < this.SampleDescritions.Count; i++)
+			for (int i = 0; i < this.SampleDescriptions.Count; i++)
 			{
-				if (this.SampleDescritions[i].IsSelected == false) this.SampleDescritions[i].SelectionState = false;
+				if (this.SampleDescriptions[i].IsSelected == false) this.SampleDescriptions[i].SelectionState = false;
 			}
 		}
 
 		public void SynchronizeSampleSelectionState()
 		{
-			for (int i = 0; i < this.SampleDescritions.Count; i++)
+			for (int i = 0; i < this.SampleDescriptions.Count; i++)
 			{
-				this.SampleDescritions[i].IsSelected = this.SampleDescritions[i].SelectionState;
+				this.SampleDescriptions[i].IsSelected = this.SampleDescriptions[i].SelectionState;
 			}
 		}
 
@@ -70,23 +70,26 @@ namespace RDS.ViewModels
 		{
 			for (int i = 40; i < 60; i++)
 			{
-				this.SampleDescritions[i].State = Sampling.EmergencySampling;
+				this.SampleDescriptions[i].State = Sampling.EmergencySampling;
 			}
 		}
 
 		public SampleViewModel()
 		{
-			for (int i = 0; i < 80; i++)
+			for (int i = 1; i <= 80; i++)
 			{
-				SampleDescritions.Add(new SampleDescription(false, Sampling.NoSample/*, new SampleInformatin()*/));
+				//var holeName = string.Empty;
+				//if (i % 2 == 0) 
+				var holeName = this.GetHoleNameByNumber(i);
+				SampleDescriptions.Add(new SampleDescription(this.GetHoleNameByNumber(i),false, Sampling.NormalSampling/*, new SampleInformatin()*/));
 
-				this.SampleInformatins.Add(new SampleInformation()
+				this.SampleInformations.Add(new SampleInformation()
 				{
 					Age = "25",
 					Barcode = "1234567",
 					Birthday = "20010321",
 					DateTime = "20170101",
-					HoleSite = "",
+					HoleName = holeName,
 					Name = "王秀娟",
 					Reagent = "UU",
 					SampleId = "123",
@@ -94,6 +97,36 @@ namespace RDS.ViewModels
 					Type = "未知"
 				});
 			}
+			this.SampleDescriptions[0].State = Sampling.NormalSampling;
+			this.SampleDescriptions[1].State = Sampling.EmergencySampling;
+			this.SampleDescriptions[2].State = Sampling.Sampled;
+
+			this.SampleInformations[0].HoleName = string.Empty;
+			this.SampleInformations[1].HoleName = string.Empty;
+			this.SampleInformations[2].HoleName = string.Empty;
+			this.SampleInformations[3].HoleName = string.Empty;
+		}
+
+		private string GetHoleNameByNumber(int number)
+		{
+			var result = string.Empty;
+			var quotient = number / 20;
+			var remainder = number % 20;
+
+			if (remainder == 0)
+			{
+				remainder = 20;
+				quotient -= 1;
+			}
+			switch (quotient)
+			{
+				case 0: { result = $"A{remainder}"; break; }
+				case 1: { result = $"B{remainder}"; break; }
+				case 2: { result = $"C{remainder}"; break; }
+				case 3: { result = $"D{remainder}"; break; }
+				default: break;
+			}
+			return result;
 		}
 
 		private void MultipleSetSampleSelectionState(List<SampleDescription> sampleDescriptions)
@@ -111,7 +144,7 @@ namespace RDS.ViewModels
 
 		private List<SampleDescription> GetSampleDescriptionsByRange(int startIndex, int endIndex)
 		{
-			return this.SampleDescritions?.Skip(startIndex).Take(endIndex - startIndex + 1).ToList();
+			return this.SampleDescriptions?.Skip(startIndex).Take(endIndex - startIndex + 1).ToList();
 		}
 
 		private List<SampleDescription> GetSampleDescriptionsByRowNumber(int rowIndex)
@@ -120,7 +153,7 @@ namespace RDS.ViewModels
 			var resultRange = new List<SampleDescription>(4);
 			for (int i = 0; i < 4; i++)
 			{
-				resultRange.Add(this.SampleDescritions[rowIndex + (i * 20)]);
+				resultRange.Add(this.SampleDescriptions[rowIndex + (i * 20)]);
 			}
 			return resultRange;
 		}
@@ -151,14 +184,14 @@ namespace RDS.ViewModels
 					Barcode = table.Rows[i]["strBarcode"].ToString(),
 					Birthday = table.Rows[i]["strBirthday"].ToString(),
 					DateTime = table.Rows[i]["strDateTime"].ToString(),
-					HoleSite = "0",
+					HoleName = "0",
 					Name = table.Rows[i]["strName"].ToString(),
 					Reagent = table.Rows[i]["strItem"].ToString(),
 					SampleId = table.Rows[i]["strSampleID"].ToString(),
 					Sex = table.Rows[i]["strSex"].ToString(),
 					Type = table.Rows[i]["strSampleType"].ToString()
 				};
-				this.SampleInformatins.Add(sampleInformation);
+				this.SampleInformations.Add(sampleInformation);
 			}
 		}
 	}

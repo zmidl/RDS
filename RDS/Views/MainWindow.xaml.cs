@@ -3,6 +3,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Input;
 using RDS.ViewModels.Common;
+using System.Threading;
 
 namespace RDS.Views
 {
@@ -31,10 +32,10 @@ namespace RDS.Views
 		{
 			Task task2 = new Task(() =>
 			{
-				//for (int i = 12; i >0; i--)
+				//for (int i = 12; i > 0; i--)
 				//{
-				//    Thread.Sleep(300);
-				//    this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.TextBlock_count.Text=i.ToString(); }));
+				//	Thread.Sleep(300);
+				//	this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.TextBlock_count.Text = i.ToString(); }));
 				//}
 			});
 			task2.ContinueWith(t =>

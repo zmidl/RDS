@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RDS.Models
 {
-   public class SampleInformation
+   public class SampleInformation: ViewModels.Common.ViewModel
 	{
 		public SampleInformation() { }
 
@@ -22,7 +22,18 @@ namespace RDS.Models
 
 		public string Type { get; set; }//strSampleType="尿液"
 
-		public string HoleSite { get; set; }
+		private string holeName;
+		public string HoleName
+		{
+			get { return holeName; }
+			set
+			{
+				holeName = value;
+				this.RaisePropertyChanged(nameof(HoleName));
+			}
+		}
+
+
 
 		public string Birthday { get; set; }// strBirthday="19801126"
 

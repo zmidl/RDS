@@ -18,7 +18,7 @@
                         </Viewbox>
                         <ControlTemplate.Triggers>
                             <Trigger Property="IsMouseOver" Value="True">
-                                <!--<Setter TargetName="OutEllipse" Property="Stroke" Value="#FFAB74FF"/>-->
+                                <!--<Setter TargetName="OutEllipse" Property="StrokeThickness" Value="10"/>-->
                             </Trigger>
                         </ControlTemplate.Triggers>
                     </ControlTemplate>

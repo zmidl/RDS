@@ -1306,11 +1306,11 @@
                 <zmcl:UcButton x:Name="Button_End" Content="{DynamicResource Button_FinishTask}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" IsEnabled="False" Click="Button_End_Click_1" />
             </StackPanel>
 
-            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="温浴模块正常" Canvas.Left="855" Canvas.Top="118"/>
-            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="振荡模块正常" Canvas.Left="855" Canvas.Top="168"/>
-            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="读数模块正常" Canvas.Left="855" Canvas.Top="218"/>
-            <TextBlock Style="{DynamicResource TextBlockStyle2}" Text="仪器内部正常" Canvas.Left="855" Canvas.Top="268"/>
-            <TextBlock Style="{DynamicResource TextBlockStyle3}" Text="仪器外部异常" Canvas.Left="855" Canvas.Top="318"/>
+            <TextBlock FontSize="30" Style="{DynamicResource TextBlockStyle2}" Text="温浴模块正常" Canvas.Left="855" Canvas.Top="118"/>
+            <TextBlock FontSize="30" Style="{DynamicResource TextBlockStyle2}" Text="振荡模块正常" Canvas.Left="855" Canvas.Top="168"/>
+            <TextBlock FontSize="30" Style="{DynamicResource TextBlockStyle2}" Text="读数模块正常" Canvas.Left="855" Canvas.Top="218"/>
+            <TextBlock FontSize="30" Style="{DynamicResource TextBlockStyle2}" Text="仪器内部正常" Canvas.Left="855" Canvas.Top="268"/>
+            <TextBlock FontSize="30" Style="{DynamicResource TextBlockStyle3}" Text="仪器外部异常" Canvas.Left="855" Canvas.Top="318"/>
             <!--<Canvas Width="150" Height="300" Canvas.Left="840" Canvas.Top="10">
                 <Rectangle Width="150" Height="300" StrokeThickness="2" RadiusX="10" RadiusY="10" Fill="White" Stroke="#FFAC6D00" Canvas.Left="-4"/>
                 

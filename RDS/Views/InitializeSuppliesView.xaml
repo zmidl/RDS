@@ -182,10 +182,10 @@
                                 </Canvas>
                             </Viewbox>
                             <TextBlock Style="{DynamicResource TextBlockStyle2}"  Text="请选择一个放磁珠的大瓶" FontSize="30" Canvas.Left="609" Canvas.Top="75" Width="376" />
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" Text="左边" Canvas.Left="681" Canvas.Top="134" />
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="左边" Canvas.Left="636" Canvas.Top="121" />
                             <zmcl:WG_CheckBox IsChecked="{Binding IsLeft,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="47" Width="46" Canvas.Left="751" Canvas.Top="125"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" Text="右边" Canvas.Left="681" Canvas.Top="200" />
+                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="右边" Canvas.Left="635" Canvas.Top="188" />
                             <zmcl:WG_CheckBox IsChecked="{Binding IsRight,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Height="47" Width="46" Canvas.Left="751" Canvas.Top="193"/>
 
                         </Canvas>

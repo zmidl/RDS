@@ -81,7 +81,7 @@ namespace RDS.Views.Monitor
 				for (int i = 0; i < 80; i++)
 				{
 				
-					this.ViewModel.SampleViewModel.SampleDescritions[i].State = (Sampling)e.Index;
+					this.ViewModel.SampleViewModel.SampleDescriptions[i].State = (Sampling)e.Index;
 				}
 			}
 			this.ViewModel.RaiseTempelateColor();

@@ -176,8 +176,8 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-
-			var c = this.ucDataGrid.SelectedItems;
+			this.ViewModel.SampleInformations[0].HoleName = "aaa";
+			
 		}
 
 		//private void ucDataGrid_PreviewMouseMove(object sender, MouseEventArgs e)
