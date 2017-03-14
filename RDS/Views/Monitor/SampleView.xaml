@@ -22,50 +22,30 @@
             <zmlc:UcButton Content="试剂" Width="50" Height="20" FontSize="10"/>
         </DataTemplate>
         <DataTemplate x:Key="Column1Header">
-            <StackPanel Orientation="Horizontal">
-                <zmlc2:WG_CheckBox Width="15" Height="15" IsChecked="{Binding DataContext.IsNeedToExportTempIPM, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <Label Width="2"/>
-                <TextBlock Width="Auto"  Text="{Binding DataContext.TempIPM, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-            </StackPanel>
+
         </DataTemplate>
         <DataTemplate x:Key="Column2Header">
-            <StackPanel Orientation="Horizontal">
-                <zmlc2:WG_CheckBox Width="15" Height="15" IsChecked="{Binding DataContext.IsNeedToExportFaultCode, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <Label Width="2"/>
-                <TextBlock Width="Auto"  Text="{Binding DataContext.FaultCode, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-            </StackPanel>
+
         </DataTemplate>
         <DataTemplate x:Key="Column3Header">
-            <StackPanel Orientation="Horizontal">
-                <zmlc2:WG_CheckBox Width="15" Height="15" IsChecked="{Binding DataContext.IsNeedToExportDrumSpeed, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <Label Width="2"/>
-                <TextBlock Width="Auto"  Text="{Binding DataContext.DrumSpeed, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-            </StackPanel>
+
         </DataTemplate>
         <DataTemplate x:Key="Column4Header">
-            <StackPanel Orientation="Horizontal">
-                <zmlc2:WG_CheckBox Width="15" Height="15" IsChecked="{Binding DataContext.IsNeedToExportLoad, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <Label Width="2"/>
-                <TextBlock Width="Auto"  Text="{Binding DataContext.Load, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-            </StackPanel>
+
         </DataTemplate>
         <DataTemplate x:Key="Column5Header">
-            <StackPanel Orientation="Horizontal">
-                <zmlc2:WG_CheckBox Width="15" Height="15" IsChecked="{Binding DataContext.IsNeedToExportOOB, Mode=TwoWay, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-                <Label Width="2"/>
-                <TextBlock Width="Auto"  Text="{Binding DataContext.OOB, RelativeSource={RelativeSource AncestorType={x:Type Window}}}" />
-            </StackPanel>
+
         </DataTemplate>
-        
+
         <Style x:Key="Sample_TextBlockStyle1" BasedOn="{StaticResource TextBlockStyle4}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Canvas.Top" Value="4"/>
-            <Setter Property="FontSize" Value="40"/>
+            <Setter Property="Canvas.Top" Value="2"/>
+            <Setter Property="FontSize" Value="18"/>
             <Setter Property="Panel.ZIndex" Value="1"/>
         </Style>
 
         <Style x:Key="Sample_TextBlockStyle2" BasedOn="{StaticResource TextBlockStyle3}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Margin" Value="0,-12.5,0,0"/>
-            <Setter Property="FontSize" Value="35"/>
+            <Setter Property="Margin" Value="0,-4.8,0,0"/>
+            <Setter Property="FontSize" Value="18"/>
         </Style>
 
         <Style x:Key="SingleTubeStyle" TargetType="{x:Type UserControl}">
@@ -115,17 +95,16 @@
 					Width="50" Height="50" 
 					Click="Button_Exit_Click" Canvas.Left="830" Canvas.Top="270"/>
 
-                <Canvas Canvas.Left="10" Canvas.Top="10" Width="560" Height="380">
+              
                     <zmlc:UcDataGrid 
 						x:Name="ucDataGrid" 
                         AllowDrop="True"
 						ItemsSource="{Binding SampleInformations}"
 						SelectionMode="Extended"
 						AutoGenerateColumns="False"
-						Width="560" 
+						Width="655" 
 						Height="380" 
-						Canvas.Left="0" 
-						Canvas.Top="0">
+						Canvas.Left="10" Canvas.Top="10">
                         <zmlc:UcDataGrid.Columns>
                             <DataGridTextColumn Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
                             <DataGridTextColumn Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
@@ -145,312 +124,496 @@
                             <behavior:SampleInformationDrag DraggedData="{Binding ElementName=ucDataGrid,Path=SelectedItems}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcDataGrid>
-                </Canvas>
+
                 <Canvas 
 					x:Name="Canvas_SampleViewOne"
-					Canvas.Left="580" Canvas.Top="10" 
-					Width="235" Height="380" 
+					Canvas.Right="90" Canvas.Top="10" 
+					Width="125" Height="383" 
                    AllowDrop="True"
 					PreviewMouseDown="Canvas_PreviewMouseDown" 
 					PreviewMouseMove="Canvas_PreviewMouseMove"
 					PreviewMouseUp="Canvas_PreviewMouseUp">
-                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="56">
+                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35">
                         <i:Interaction.Behaviors>
                             <behavior:SetSampleSelectionState MultipSelection="ColumnA" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="100" >
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="58" >
                         <i:Interaction.Behaviors>
                             <behavior:SetSampleSelectionState MultipSelection="ColumnB" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="139">
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="80">
                         <i:Interaction.Behaviors>
                             <behavior:SetSampleSelectionState MultipSelection="ColumnC" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="177" >
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="102" >
                         <i:Interaction.Behaviors>
                             <behavior:SetSampleSelectionState MultipSelection="ColumnD" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
 
-                    <Rectangle Width="235" Height="380" Stroke="#FF9E9E9E" Fill="#FFFEF0B6" RadiusX="10" RadiusY="10" StrokeThickness="2" Panel.ZIndex="0"/>
-                    <zmlc2:WG_RoundCheckBox IsChecked="{Binding IsFirstTabIndex}" Canvas.Left="212" Canvas.Top="175" />
-                    <zmlc2:WG_RoundCheckBox IsChecked="{Binding IsSecondTabIndex}" Canvas.Left="212" Canvas.Top="205" />
-                    <TabControl x:Name="TabControl_SampleView" SelectedIndex="{Binding SampleTabIndex}" Width="205" Height="340" Canvas.Bottom="0" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <Rectangle Width="125" Height="383" Stroke="#FF9E9E9E" Fill="#FFFEF0B6" RadiusX="10" RadiusY="10" StrokeThickness="2" Panel.ZIndex="0"/>
+                    <TabControl x:Name="TabControl_SampleView" SelectedIndex="{Binding SampleTabIndex}" Width="120" Height="366" Canvas.Bottom="0" Background="{x:Null}" BorderBrush="{x:Null}">
                         <TabItem Height="1" Width="0">
-                            <Canvas>
-                                <StackPanel x:Name="StackPanel_sp1" Orientation="Horizontal" Canvas.Left="40" Canvas.Top="0">
-                                    <rdscl:SingleTube 
-										x:Name="A1" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"  
+                            <Canvas Margin="0,-5,0,0">
+                                <StackPanel Orientation="Vertical" Canvas.Left="25">
+                                    <StackPanel x:Name="StackPanel_sp1" Orientation="Horizontal">
+                                        <rdscl:SingleTube 
+										x:Name="A1" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"  
 										IsSelected="{Binding SampleDescriptions[0].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[0].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
 
-                                    <rdscl:SingleTube 
-										x:Name="B1"  Margin="10,0,0,0"  Width="30" Height="30" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B1"  Margin="4,0,0,0"  Width="18" Height="16" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[20].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[20].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
 
-                                    <rdscl:SingleTube 
-										x:Name="C1"  Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C1"  Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[40].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[40].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube
-										x:Name="D1"  Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube
+										x:Name="D1"  Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[60].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[60].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                          <i:Interaction.Behaviors>
-                        <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                    </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="32">
-                                    <rdscl:SingleTube 
-										x:Name="A2" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A2" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[1].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[1].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="B2" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="B2" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[21].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[21].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="C2" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="C2" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[41].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[41].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="D2" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="D2" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[61].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[61].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="64">
-                                    <rdscl:SingleTube
-										x:Name="A3" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube
+										x:Name="A3" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[2].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[2].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="B3" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="B3" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[22].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[22].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="C3" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="C3" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[42].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[42].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="D3" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="D3" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[62].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[62].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="96">
-                                    <rdscl:SingleTube 
-										x:Name="A4" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A4" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[3].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[3].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="B4" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="B4" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[23].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[23].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="C4" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="C4" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[43].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[43].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="D4" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="D4" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[63].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[63].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="128">
-                                    <rdscl:SingleTube 
-										x:Name="A5" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A5" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[4].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[4].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="B5" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="B5" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[24].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[24].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="C5" Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="C5" Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[44].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[44].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                    <rdscl:SingleTube 
-										x:Name="D5" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                        <rdscl:SingleTube 
+										x:Name="D5" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[64].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[64].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
-                                        <i:Interaction.Behaviors>
-                                            <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
-                                        </i:Interaction.Behaviors>
-                                    </rdscl:SingleTube>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="160" >
-                                    <rdscl:SingleTube 
-										x:Name="A6" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                            <i:Interaction.Behaviors>
+                                                <behavior:SampleInformationDrop ViewModel="{Binding Mode=OneWay}"/>
+                                            </i:Interaction.Behaviors>
+                                        </rdscl:SingleTube>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A6" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[5].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[5].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B6" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B6" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[25].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[25].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                    <rdscl:SingleTube 
-										x:Name="C61" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C61" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[45].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[45].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D6" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="D6" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[65].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[65].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="192">
-                                    <rdscl:SingleTube 
-										x:Name="A7" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A7" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[6].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[6].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B7" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B7" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[26].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[26].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                    <rdscl:SingleTube 
-										x:Name="C7" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C7" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[46].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[46].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D7" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="D7" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[66].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[66].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="224">
-                                    <rdscl:SingleTube 
-										x:Name="A8" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A8" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[7].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[7].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B8" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B8" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[27].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[27].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                    <rdscl:SingleTube 
-										x:Name="C8" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C8" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[47].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[47].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D8" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="D8" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[67].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[67].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="256">
-                                    <rdscl:SingleTube 
-										x:Name="A9" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A9" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[8].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[8].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B9" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B9" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[28].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[28].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                    <rdscl:SingleTube 
-										x:Name="C9" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C9" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[48].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[48].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D9" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="D9" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[68].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[68].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="288">
-                                    <rdscl:SingleTube 
-										x:Name="A10" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A10" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[9].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[9].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B10" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="B10" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[29].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[29].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
 
-                                    <rdscl:SingleTube 
-										x:Name="C10" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="C10" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[49].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[49].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D10" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+                                        <rdscl:SingleTube 
+										x:Name="D10" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
 										IsSelected="{Binding SampleDescriptions[69].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
 										ContentColor="{Binding SampleDescriptions[69].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube
+										x:Name="A11" Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[10].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[10].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <rdscl:SingleTube 
+										x:Name="B11"  Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[30].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[30].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <rdscl:SingleTube 
+										x:Name="C11" Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[50].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[50].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D11" Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[70].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[70].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A12" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[11].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[11].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B12" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[31].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[31].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <rdscl:SingleTube 
+										x:Name="C12" Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[51].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[51].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D12" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[71].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[71].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A13"  Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[12].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[12].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B13" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[32].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[32].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <rdscl:SingleTube 
+										x:Name="C13" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[52].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[52].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D13" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[72].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[72].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube
+										x:Name="A14" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[13].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[13].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B14"  Width="18" Height="16"  Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[33].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[33].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+
+                                        <rdscl:SingleTube 
+										x:Name="C14" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[53].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[53].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D14" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[73].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[73].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A15" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[14].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[14].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B15"  Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[34].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[34].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="C15" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[54].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[54].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D15" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[74].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[74].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A16" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[15].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[15].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B16" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[35].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[35].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube
+										x:Name="C16"  Width="18" Height="16" Margin="4,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[55].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[55].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D16" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[75].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[75].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A17" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[16].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[16].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube
+										x:Name="B17" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[36].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[36].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="C17" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[56].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[56].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D17" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[76].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[76].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube
+										x:Name="A18" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[17].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[17].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube
+										x:Name="B18" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[37].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[37].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="C18" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[57].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[57].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube
+										x:Name="D18" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[77].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[77].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A19" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[18].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[18].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B19" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[38].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[38].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="C19" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[58].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[58].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D19" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[78].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[78].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Margin="0,2,0,0">
+                                        <rdscl:SingleTube 
+										x:Name="A20" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[19].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[19].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="B20" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[39].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[39].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="C20" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[59].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[59].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                        <rdscl:SingleTube 
+										x:Name="D20" Width="18" Height="16" Margin="4,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
+										IsSelected="{Binding SampleDescriptions[79].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+										ContentColor="{Binding SampleDescriptions[79].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                                    </StackPanel>
                                 </StackPanel>
-                                <StackPanel Orientation="Vertical" Canvas.Left="10">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="35">
+                                <StackPanel Orientation="Vertical" Canvas.Left="6">
+                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="18">
                                         <i:Interaction.Behaviors>
                                             <behavior:SetSampleSelectionState MultipSelection="Row1" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
@@ -500,250 +663,60 @@
                                             <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
-                                </StackPanel>
-                            </Canvas>
-                        </TabItem>
-                        <TabItem Height="1" Width="0">
-                            <Canvas >
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" >
-                                    <rdscl:SingleTube
-										x:Name="A11" Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[10].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[10].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                                    <rdscl:SingleTube 
-										x:Name="B11"  Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[30].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[30].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                                    <rdscl:SingleTube 
-										x:Name="C11" Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[50].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[50].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D11" Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[70].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[70].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="32">
-                                    <rdscl:SingleTube 
-										x:Name="A12" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[11].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[11].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B12" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[31].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[31].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                                    <rdscl:SingleTube 
-										x:Name="C12" Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[51].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[51].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D12" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[71].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[71].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="64">
-                                    <rdscl:SingleTube 
-										x:Name="A13"  Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[12].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[12].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B13" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[32].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[32].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                                    <rdscl:SingleTube 
-										x:Name="C13" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[52].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[52].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D13" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[72].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[72].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="96">
-                                    <rdscl:SingleTube
-										x:Name="A14" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[13].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[13].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B14"  Width="30" Height="30"  Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[33].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[33].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-
-                                    <rdscl:SingleTube 
-										x:Name="C14" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[53].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[53].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D14" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[73].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[73].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="128">
-                                    <rdscl:SingleTube 
-										x:Name="A15" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[14].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[14].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B15"  Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[34].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[34].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="C15" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[54].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[54].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D15" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[74].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[74].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="160">
-                                    <rdscl:SingleTube 
-										x:Name="A16" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[15].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[15].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B16" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[35].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[35].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube
-										x:Name="C16"  Width="30" Height="30" Margin="10,0,0,0"  PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[55].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[55].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D16" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[75].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[75].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="192">
-                                    <rdscl:SingleTube 
-										x:Name="A17" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[16].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[16].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube
-										x:Name="B17" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[36].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[36].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="C17" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[56].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[56].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D17" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[76].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[76].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="224">
-                                    <rdscl:SingleTube
-										x:Name="A18" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[17].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[17].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube
-										x:Name="B18" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[37].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[37].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="C18" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[57].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[57].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube
-										x:Name="D18" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[77].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[77].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="256">
-                                    <rdscl:SingleTube 
-										x:Name="A19" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[18].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[18].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B19" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[38].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[38].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="C19" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[58].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[58].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D19" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[78].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[78].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Horizontal" Canvas.Left="40" Canvas.Top="288">
-                                    <rdscl:SingleTube 
-										x:Name="A20" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[19].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[19].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="B20" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[39].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[39].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="C20" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[59].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[59].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                    <rdscl:SingleTube 
-										x:Name="D20" Width="30" Height="30" Margin="10,0,0,0" PreviewMouseUp="SingleTube_PreviewMouseUp"
-										IsSelected="{Binding SampleDescriptions[79].SelectionState, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
-										ContentColor="{Binding SampleDescriptions[79].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
-                                </StackPanel>
-                                <StackPanel Orientation="Vertical" Canvas.Left="10">
-                                    <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="11" FontSize="35">
+                                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="11" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row11" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="12" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row12" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="13" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row13" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="14" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row14" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="15" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row15" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="16" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row16" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="17" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row17" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="18" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row18" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="19" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row19" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                     <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="20" >
                                         <i:Interaction.Behaviors>
-                                            <behavior:SetSampleSelectionState MultipSelection="Row20" ViewModel="{Binding Mode=OneWay}"/>
+                                            <behavior:SetSampleSelectionState MultipSelection="Row10" ViewModel="{Binding Mode=OneWay}"/>
                                         </i:Interaction.Behaviors>
                                     </zmlc:UcTextBlock>
                                 </StackPanel>
                             </Canvas>
+                        </TabItem>
+                        <TabItem Height="1" Width="0">
                         </TabItem>
                     </TabControl>
 

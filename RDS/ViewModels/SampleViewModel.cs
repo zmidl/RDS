@@ -14,42 +14,6 @@ namespace RDS.ViewModels
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
-		private int sampleTabIndex;
-
-		public int SampleTabIndex
-		{
-			get { return sampleTabIndex; }
-			set
-			{
-				if (value < 0) value = 0;
-				else if (value > 1) value = 1;
-				sampleTabIndex = value;
-				this.RaisePropertyChanged(nameof(SampleTabIndex));
-			}
-		}
-
-		public bool IsFirstTabIndex
-		{
-			get { return this.sampleTabIndex == 0 ? true : false; }
-			set
-			{
-				if (this.sampleTabIndex == 1 && value) this.SampleTabIndex = 0;
-				this.RaisePropertyChanged(nameof(IsFirstTabIndex));
-				this.RaisePropertyChanged(nameof(IsSecondTabIndex));
-			}
-		}
-
-		public bool IsSecondTabIndex
-		{
-			get { return this.sampleTabIndex == 1 ? true : false; }
-			set
-			{
-				if (this.sampleTabIndex == 0 && value) this.SampleTabIndex = 1;
-				this.RaisePropertyChanged(nameof(IsFirstTabIndex));
-				this.RaisePropertyChanged(nameof(IsSecondTabIndex));
-			}
-		}
-
 		public void ResetSampleSelection()
 		{
 			for (int i = 0; i < this.SampleDescriptions.Count; i++)
