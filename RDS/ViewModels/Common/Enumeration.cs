@@ -49,4 +49,17 @@
 		ShowReagentView = 1,
 		ShowReportView = 2
 	}
+
+	public enum TipVolume
+	{
+		ThreeHundredMicroliter = 300,
+		OneMilliliter = 1000,
+	}
+
+	public enum SampleViewChangedName
+	{
+		MultiSelectMouseDown,
+		MultiSelectMouseMove,
+		MultiSelectMouseUp
+	}
 }

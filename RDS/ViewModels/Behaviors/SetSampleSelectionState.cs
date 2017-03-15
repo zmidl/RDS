@@ -1,5 +1,4 @@
 ﻿using RDS.ViewModels.Common;
-using System.Collections.ObjectModel;
 using System.Windows;
 using System.Windows.Interactivity;
 
@@ -26,10 +25,11 @@ namespace RDS.ViewModels.Behaviors
 		protected override void OnAttached()
 		{
 			base.OnAttached();
-			this.AssociatedObject.PreviewMouseUp += AssociatedObject_PreviewMouseUp;
+
+			this.AssociatedObject.MouseUp += AssociatedObject_MouseUp;
 		}
 
-		private void AssociatedObject_PreviewMouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
+		private void AssociatedObject_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
 			this.ViewModel.MultipleSetSampleSelectionState(this.MultipSelection);
 		}
@@ -37,7 +37,7 @@ namespace RDS.ViewModels.Behaviors
 		protected override void OnDetaching()
 		{
 			base.OnDetaching();
-			this.AssociatedObject.PreviewMouseUp -= AssociatedObject_PreviewMouseUp;
+			this.AssociatedObject.MouseUp -= AssociatedObject_MouseUp;
 		}
 	}
 }

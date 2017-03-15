@@ -26,36 +26,33 @@ namespace RDS.Views.Monitor
         private bool isMultiselecting = false;
 		private bool isSelectSingle = false;
 
-        public SampleViewModel ViewModel { get { return this.DataContext as SampleViewModel; } }
+		public SampleViewModel ViewModel = new SampleViewModel();
 
         public SampleView()
         {
             InitializeComponent();
-        }
+			this.DataContext = new SampleViewModel();
+			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
+		}
 
-        private void Button_Exit_Click(object sender, RoutedEventArgs e)
+		private void ViewModel_ViewChanged(object sender, object e)
+		{
+			var args = (SampleViewChangedArgs)e;
+			switch (args.SampleViewChangedName)
+			{
+				case SampleViewChangedName.MultiSelectMouseDown:
+				{
+					var v = (Tuple<object, MouseButtonEventArgs>)args.Args;
+					this.SampleMultiSelectMouseDown(v.Item1, v.Item2);
+					break;
+				}
+			}
+		}
+
+		private void Button_Exit_Click(object sender, RoutedEventArgs e)
         {
             ((IExitView)this).ExitView();
         }
-
-
-        //private void Canvas_Thumbnail_PreviewMouseDown_1(object sender, MouseButtonEventArgs e)
-        //{
-        //    this.StartPoint = e.GetPosition((IInputElement)sender);
-        //}
-
-        //private void Canvas_Thumbnail_PreviewMouseUp_1(object sender, MouseButtonEventArgs e)
-        //{
-        //    var endPoint = e.GetPosition((IInputElement)sender);
-        //    if (Keyboard.IsKeyDown(Key.LeftCtrl) == false)
-        //    {
-        //        if (this.StartPoint.Y < endPoint.Y) { this.SampleViewSelectedIndex--; e.Handled = true; }
-        //        else if (this.StartPoint.Y > endPoint.Y) { this.SampleViewSelectedIndex++; e.Handled = true; }
-        //        else e.Handled = false;
-        //        this.TabControl_SampleView.SelectedIndex = this.SampleViewSelectedIndex;
-               
-        //    }
-        //}
 
         private void SingleTube_PreviewMouseUp(object sender, MouseButtonEventArgs e)
         {
@@ -69,52 +66,50 @@ namespace RDS.Views.Monitor
 
         private void Canvas_PreviewMouseDown(object sender, MouseButtonEventArgs e)
         {
+			
+        }
+
+		private void SampleMultiSelectMouseDown(object sender, MouseButtonEventArgs e)
+		{
 			this.isSelectSingle = true;
-            if (this.isMultiselecting == false) this.isMultiselecting = true;
+			if (this.isMultiselecting == false) this.isMultiselecting = true;
 
-            this.startSelectionPoint = e.GetPosition((IInputElement)sender);
+			this.startSelectionPoint = e.GetPosition((IInputElement)sender);
 
-            this.selectionRectangle.Margin = new Thickness
-                (this.startSelectionPoint.X, this.startSelectionPoint.Y, this.startSelectionPoint.X, this.startSelectionPoint.Y);
+			this.selectionRectangle.Margin = new Thickness
+				(this.startSelectionPoint.X, this.startSelectionPoint.Y, this.startSelectionPoint.X, this.startSelectionPoint.Y);
 
-            this.selectionRectangle.Width = 0;
+			this.selectionRectangle.Width = 0;
 
-            this.selectionRectangle.Height = 0;
+			this.selectionRectangle.Height = 0;
 
-            this.selectionRectangle.Stroke = Brushes.Goldenrod;
+			this.selectionRectangle.Stroke = Brushes.Goldenrod;
 
 			this.selectionRectangle.StrokeDashArray = new DoubleCollection() { 2 };
 
-            this.selectionRectangle.StrokeThickness = 3;
+			this.selectionRectangle.StrokeThickness = 2;
 
-            //this.isSelectionMode = true;
-
-
-            if (this.Canvas_SampleViewOne.Children.Contains(this.selectionRectangle) == false) this.Canvas_SampleViewOne.Children.Add(this.selectionRectangle);
-            e.Handled = false;
-        }
+			if (this.Canvas_SampleViewOne.Children.Contains(this.selectionRectangle) == false) this.Canvas_SampleViewOne.Children.Add(this.selectionRectangle);
+			e.Handled = false;
+		}
 
         private void Canvas_PreviewMouseMove(object sender, MouseEventArgs e)
         {
             this.endSelectionPoint = e.GetPosition((IInputElement)sender);
             var width = this.endSelectionPoint.X - this.startSelectionPoint.X;
             var height = this.endSelectionPoint.Y - this.startSelectionPoint.Y;
-			
-            if (width > 5 && height > 5 && this.isMultiselecting)
-            {
+
+			if (width > 5 && height > 5 && this.isMultiselecting)
+			{
 				this.isSelectSingle = false;
-                this.selectionRectangle.Width = width;
-                this.selectionRectangle.Height = height;
-				//for (int i = 0; i < 80; i++)
-				//{
-				//	this.ViewModel.SampleDescritions[i].IsSelected = false;
-				//}
+				this.selectionRectangle.Width = width;
+				this.selectionRectangle.Height = height;
 				this.ViewModel.ResetSampleSelection();
 				VisualTreeHelper.HitTest(this.Canvas_SampleViewOne, null, f =>
-                {
-                    var o = f.VisualHit as Ellipse;
-                    if (o != null)
-                    {
+				{
+					var o = f.VisualHit as Ellipse;
+					if (o != null)
+					{
 						DependencyObject parent = VisualTreeHelper.GetParent(o);
 						while (parent != null)
 						{
@@ -128,16 +123,12 @@ namespace RDS.Views.Monitor
 								parent = VisualTreeHelper.GetParent(parent);
 							}
 						}
-
-
-						//o.Stroke = new SolidColorBrush(Colors.Black);
 					}
 
-                    return HitTestResultBehavior.Continue;
+					return HitTestResultBehavior.Continue;
 
-                }, new GeometryHitTestParameters(new RectangleGeometry(new Rect(this.startSelectionPoint, this.endSelectionPoint))));
-            }
-            //else this.isSelectionMode = false;
+				}, new GeometryHitTestParameters(new RectangleGeometry(new Rect(this.startSelectionPoint, this.endSelectionPoint))));
+			}
         }
 
         private void Canvas_PreviewMouseUp(object sender, MouseButtonEventArgs e)
@@ -176,8 +167,9 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			this.ViewModel.SampleInformations[0].HoleName = "aaa";
-			
+			//var a=this.FindResource("Uid").ToString();
+			//MessageBox.Show(a);
+			this.ViewModel.RaiseSampleViewChanged(new SampleViewChangedArgs(SampleViewChangedName.MultiSelectMouseDown, 1));
 		}
 
 		//private void ucDataGrid_PreviewMouseMove(object sender, MouseEventArgs e)

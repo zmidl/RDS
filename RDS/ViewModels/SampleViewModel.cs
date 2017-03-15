@@ -5,6 +5,8 @@ using System.Linq;
 using RDS.ViewModels.Common;
 using RDS.ViewModels.Descriptions;
 using System.Data;
+using System;
+using System.Windows.Controls;
 
 namespace RDS.ViewModels
 {
@@ -47,28 +49,28 @@ namespace RDS.ViewModels
 				var holeName = this.GetHoleNameByNumber(i);
 				SampleDescriptions.Add(new SampleDescription(this.GetHoleNameByNumber(i),false, Sampling.NormalSampling/*, new SampleInformatin()*/));
 
-				this.SampleInformations.Add(new SampleInformation()
-				{
-					Age = "25",
-					Barcode = "1234567",
-					Birthday = "20010321",
-					DateTime = "20170101",
-					HoleName = holeName,
-					Name = "王秀娟",
-					Reagent = "UU",
-					SampleId = "123",
-					Sex = "女",
-					Type = "未知"
-				});
+				//this.SampleInformations.Add(new SampleInformation()
+				//{
+				//	Age = "25",
+				//	Barcode = "1234567",
+				//	Birthday = "20010321",
+				//	DateTime = "20170101",
+				//	HoleName = holeName,
+				//	Name = "王秀娟",
+				//	Reagent = "UU",
+				//	SampleId = "123",
+				//	Sex = "女",
+				//	Type = "未知"
+				//});
 			}
-			this.SampleDescriptions[0].State = Sampling.NormalSampling;
-			this.SampleDescriptions[1].State = Sampling.EmergencySampling;
-			this.SampleDescriptions[2].State = Sampling.Sampled;
+			//this.SampleDescriptions[0].State = Sampling.NormalSampling;
+			//this.SampleDescriptions[1].State = Sampling.EmergencySampling;
+			//this.SampleDescriptions[2].State = Sampling.Sampled;
 
-			this.SampleInformations[0].HoleName = string.Empty;
-			this.SampleInformations[1].HoleName = string.Empty;
-			this.SampleInformations[2].HoleName = string.Empty;
-			this.SampleInformations[3].HoleName = string.Empty;
+			//this.SampleInformations[0].HoleName = string.Empty;
+			//this.SampleInformations[1].HoleName = string.Empty;
+			//this.SampleInformations[2].HoleName = string.Empty;
+			//this.SampleInformations[3].HoleName = string.Empty;
 		}
 
 		private string GetHoleNameByNumber(int number)
@@ -157,6 +159,25 @@ namespace RDS.ViewModels
 				};
 				this.SampleInformations.Add(sampleInformation);
 			}
+		}
+
+		public void RaiseSampleViewChanged(SampleViewChangedArgs args)
+		{
+			this.OnViewChanged(args);
+		}
+	}
+
+	public class SampleViewChangedArgs:EventArgs
+	{
+		public SampleViewChangedName SampleViewChangedName { get; set; }
+
+		public object Args { get; set; }
+
+		public SampleViewChangedArgs(SampleViewChangedName sampleViewChangedName,object args)
+		{
+			this.SampleViewChangedName = sampleViewChangedName;
+
+			this.Args = args;
 		}
 	}
 }
