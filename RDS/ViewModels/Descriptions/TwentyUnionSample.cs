@@ -23,8 +23,6 @@ namespace RDS.ViewModels.Descriptions
 
 		public ObservableCollection<Sample> Samples { get; set; } = new ObservableCollection<Sample>();
 
-		public ICollection<SolidColorBrush> Test { get {return Samples.Select(o=> o.Test).ToList(); } }
-
 		public ICollection<SampleState> SamplesState { get { return this.Samples.Select(o=> o.SampleState).ToList(); } }
 		
 		public TwentyUnionSample(int columnIndex)
@@ -41,9 +39,7 @@ namespace RDS.ViewModels.Descriptions
 				var sample = new Sample(this.GetHoleNameByNumber(columnIndex + i));
 				sample.NotifyRaiseProperty = new Action(() => { this.RaisePropertyChanged(nameof(SamplesState)); });
 				this.Samples.Add(sample);
-				
 			}
-			this.Samples[1].Test = new SolidColorBrush(Colors.YellowGreen);
 		}
 
 		private string GetHoleNameByNumber(int number)

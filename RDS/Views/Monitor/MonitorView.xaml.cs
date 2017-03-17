@@ -55,11 +55,11 @@ namespace RDS.Views.Monitor
 
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
 		{
-			 if (e.Index == $"MixtureState1")
+			if (e.Index == $"MixtureState1")
 			{
-				
+
 				this.ViewModel.Mixtures[0] = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
-				this.ViewModel.Mixtures[1]  = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
+				this.ViewModel.Mixtures[1] = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
 				//this.ViewModel.MyCustomVar[2] = true;
 				//this.ViewModel.MyCustomVar[3] = true;
 				//this.ViewModel.MyCustomVar[4] = true;
@@ -69,32 +69,22 @@ namespace RDS.Views.Monitor
 			{
 				this.ViewModel.Mixtures[0] = new SolidColorBrush(Colors.Green);
 				this.ViewModel.Mixtures[1] = new SolidColorBrush(Colors.Blue);
-				//this.ViewModel.MyCustomVar[2] = false;
-				//this.ViewModel.MyCustomVar[3] = false;
-				//this.ViewModel.MyCustomVar[4] = false;
-				//this.ViewModel.MyCustomVar[5] = false;
 			}
-			else if(e.Index == $"SampleState1")
+			else if (e.Index == $"SampleState1")
 			{
-				this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SetSampleState(SampleState.NoSample);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].Test = new SolidColorBrush(Colors.Red);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Test[0] = new SolidColorBrush(Colors.Red);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].aaa();
+				this.ViewModel.SetSampleState(0, 0, SampleState.Sampled);
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SetSampleState(SampleState.Normal);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].Test= new SolidColorBrush(Colors.Brown);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Test[0] = new SolidColorBrush(Colors.Brown);
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].aaa();
+				this.ViewModel.SetSampleState(3, 0, SampleState.Normal);
 			}
 			else if (e.Index == $"SampleState3")
 			{
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].SamplesState[0] = SampleState.Emergency;
+				this.ViewModel.SetSampleState(1, 1, SampleState.Emergency);
 			}
 			else if (e.Index == $"SampleState4")
 			{
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].SamplesState[0] = SampleState.Sampling;
+				this.ViewModel.SetSampleState(2, 1, SampleState.Sampling);
 			}
 		}
 

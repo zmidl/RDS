@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Windows.Media;
 using System.Linq;
+using System.Windows;
 
 namespace RDS.ViewModels
 {
@@ -35,6 +36,16 @@ namespace RDS.ViewModels
 		public MonitorViewModel()
 		{
 			this.Emergency = new RelayCommand(this.ShowSampleView);
+		}
+
+		public void SetSampleState(int twentyUnionSampleIndex,int sampleIndex,SampleState sampleState)
+		{
+			this.SampleViewModel.TwentyUnionSampleHoles[twentyUnionSampleIndex].Samples[sampleIndex].SetSampleState(sampleState);
+		}
+
+		public void SetSampleVisibility(int twentyUnionSampleIndex,Visibility visibility)
+		{
+			this.SampleViewModel.TwentyUnionSampleHoles[twentyUnionSampleIndex].Visibility = visibility;
 		}
 
 	}
