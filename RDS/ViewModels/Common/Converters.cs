@@ -6,23 +6,41 @@ using System.Threading.Tasks;
 using System.Windows.Data;
 using System.Globalization;
 using System.Windows.Media;
+using System.Collections.ObjectModel;
 
 namespace RDS.ViewModels.Common
 {
-	class SamplingToSolidColorBrush : IValueConverter
+	class SampleStateToSolidColorBrush : IValueConverter
 	{
 		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			SolidColorBrush resultColor = default(SolidColorBrush);
-			Sampling inputted = (Sampling)value;
-			switch (inputted)
+			var inputted = new ObservableCollection<SampleState>((ICollection<SampleState>)value);
+			ObservableCollection<SolidColorBrush> resultColor = new ObservableCollection<SolidColorBrush>();
+			for (int i = 0; i < inputted.Count; i++)
 			{
-				case Sampling.NoSample: { resultColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
-				case Sampling.NormalSampling: { resultColor = new SolidColorBrush(Colors.Yellow); break; }
-				case Sampling.EmergencySampling: { resultColor = new SolidColorBrush(Colors.Green); break; }
-				case Sampling.Sampled: { resultColor = new SolidColorBrush(Colors.Gray); break; }
-				default: break;
+				SolidColorBrush color = default(SolidColorBrush);
+				switch(inputted[i])
+				{
+					case SampleState.NoSample: { color = new SolidColorBrush(Colors.WhiteSmoke); break; }
+					case SampleState.Normal: { color = new SolidColorBrush(Colors.Brown); break; }
+					case SampleState.Emergency: { color = new SolidColorBrush(Colors.Blue); break; }
+					case SampleState.Sampling: { color = new SolidColorBrush(Colors.Green); break; }
+					case SampleState.Sampled: { color = new SolidColorBrush(Colors.Gray); break; }
+					default: break;
+				}
+				resultColor.Add(color);
 			}
+			//ObservableCollection<SampleState> inputted = (ObservableCollection<SampleState>)value;
+			//for (int i = 0; i < inputted.Count; i++)
+			//{
+			//	var color = default(SolidColorBrush); 
+			//	switch (inputted[i])
+			//	{
+		
+			//	}
+			//	resultColor.Add(color);
+			//}
+			//return resultColor;
 			return resultColor;
 		}
 

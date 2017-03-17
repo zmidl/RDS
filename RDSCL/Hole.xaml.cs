@@ -18,7 +18,7 @@ namespace RDSCL
     /// <summary>
     /// UserControl1.xaml 的交互逻辑
     /// </summary>
-    public partial class SingleTube : UserControl
+    public partial class Hole : UserControl
     {
 
         public SolidColorBrush ExcircleColor
@@ -27,7 +27,7 @@ namespace RDSCL
             set { SetValue(ExcircleColorProperty, value); }
         }
         public static readonly DependencyProperty ExcircleColorProperty =
-            DependencyProperty.Register(nameof(ExcircleColor), typeof(SolidColorBrush), typeof(SingleTube), new PropertyMetadata(new SolidColorBrush(Colors.White)));
+            DependencyProperty.Register(nameof(ExcircleColor), typeof(SolidColorBrush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.White)));
 
         public SolidColorBrush ContentColor
         {
@@ -36,26 +36,10 @@ namespace RDSCL
         }
         public static readonly DependencyProperty ContentColorProperty =
             DependencyProperty.Register
-            (nameof(ContentColor), typeof(SolidColorBrush), typeof(SingleTube), 
+            (nameof(ContentColor), typeof(SolidColorBrush), typeof(Hole), 
             new PropertyMetadata(new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2AD0D0D0"))));
 
-		public bool IsSelected
-		{
-			get { return (bool)GetValue(IsSelectedProperty); }
-			set { SetValue(IsSelectedProperty, value); }
-		}
-		public static readonly DependencyProperty IsSelectedProperty =
-			DependencyProperty.Register(nameof(IsSelected), typeof(bool), typeof(SingleTube), new PropertyMetadata(false, new PropertyChangedCallback(Callback)));
-		private static void Callback(DependencyObject d, DependencyPropertyChangedEventArgs e)
-		{
-			SingleTube singleTube = d as SingleTube;
-			var isSelected = (bool)e.NewValue;
-			if (isSelected) singleTube.ExcircleColor = new SolidColorBrush(Colors.DarkGoldenrod);
-			else singleTube.ExcircleColor = new SolidColorBrush(Colors.White);
-		}
-
-
-		public SingleTube()
+		public Hole()
         {
             InitializeComponent();
         }

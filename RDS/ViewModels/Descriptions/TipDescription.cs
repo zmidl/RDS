@@ -1,11 +1,14 @@
 ﻿using RDS.ViewModels.Common;
+using Sias.Core.Attributes;
 
 namespace RDS.ViewModels.Descriptions
 {
 	public class TipDescription:ViewModel
 	{
-		private TipVolume tipVolume;
-		public TipVolume TipVolume
+		private TipType tipVolume;
+
+		[SStreamableAttribute]
+		public TipType TipVolume
 		{
 			get { return tipVolume; }
 			set

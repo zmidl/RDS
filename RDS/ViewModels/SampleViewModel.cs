@@ -7,70 +7,48 @@ using RDS.ViewModels.Descriptions;
 using System.Data;
 using System;
 using System.Windows.Controls;
+using System.Windows.Media;
 
 namespace RDS.ViewModels
 {
 	public class SampleViewModel : ViewModel
 	{
-		public ObservableCollection<SampleDescription> SampleDescriptions { get; set; } = new ObservableCollection<SampleDescription>();
+		
+		public ObservableCollection<TwentyUnionSample> TwentyUnionSampleHoles { get; set; } = new ObservableCollection<TwentyUnionSample>();
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
-		public void ResetSampleSelection()
-		{
-			for (int i = 0; i < this.SampleDescriptions.Count; i++)
-			{
-				if (this.SampleDescriptions[i].IsSelected == false) this.SampleDescriptions[i].SelectionState = false;
-			}
-		}
-
-		public void SynchronizeSampleSelectionState()
-		{
-			for (int i = 0; i < this.SampleDescriptions.Count; i++)
-			{
-				this.SampleDescriptions[i].IsSelected = this.SampleDescriptions[i].SelectionState;
-			}
-		}
-
 		public void MultipeSetSampleStateToEmergency()
 		{
-			for (int i = 40; i < 60; i++)
-			{
-				this.SampleDescriptions[i].State = Sampling.EmergencySampling;
-			}
+		
 		}
+
+		public RelayCommand Test { get; private set; }
 
 		public SampleViewModel()
 		{
-			for (int i = 1; i <= 80; i++)
+			for (int i = 0; i < 4; i++)
 			{
-				//var holeName = string.Empty;
-				//if (i % 2 == 0) 
-				var holeName = this.GetHoleNameByNumber(i);
-				SampleDescriptions.Add(new SampleDescription(this.GetHoleNameByNumber(i),false, Sampling.NormalSampling/*, new SampleInformatin()*/));
-
-				//this.SampleInformations.Add(new SampleInformation()
-				//{
-				//	Age = "25",
-				//	Barcode = "1234567",
-				//	Birthday = "20010321",
-				//	DateTime = "20170101",
-				//	HoleName = holeName,
-				//	Name = "王秀娟",
-				//	Reagent = "UU",
-				//	SampleId = "123",
-				//	Sex = "女",
-				//	Type = "未知"
-				//});
+				this.TwentyUnionSampleHoles.Add(new TwentyUnionSample(i));
 			}
-			//this.SampleDescriptions[0].State = Sampling.NormalSampling;
-			//this.SampleDescriptions[1].State = Sampling.EmergencySampling;
-			//this.SampleDescriptions[2].State = Sampling.Sampled;
 
-			//this.SampleInformations[0].HoleName = string.Empty;
-			//this.SampleInformations[1].HoleName = string.Empty;
-			//this.SampleInformations[2].HoleName = string.Empty;
-			//this.SampleInformations[3].HoleName = string.Empty;
+			this.Test = new RelayCommand
+				(() =>
+				{
+					this.SampleInformations.Add(new SampleInformation()
+					{
+						Age = "25",
+						Barcode = "1234567",
+						Birthday = "20010321",
+						DateTime = "20170101",
+						HoleName = "",
+						Name = "王秀娟",
+						Reagent = "UU",
+						SampleId = "123",
+						Sex = "女",
+						Type = "未知"
+					});
+				});
 		}
 
 		private string GetHoleNameByNumber(int number)
@@ -95,89 +73,61 @@ namespace RDS.ViewModels
 			return result;
 		}
 
-		private void MultipleSetSampleSelectionState(List<SampleDescription> sampleDescriptions)
-		{
-			var hasSelected = false;
-
-			var selectedCount = sampleDescriptions.Where(o => o.SelectionState == true).Count();
-
-			if (selectedCount > 0) hasSelected = true;
-
-			for (int i = 0; i < sampleDescriptions.Count; i++) sampleDescriptions[i].SelectionState = !hasSelected;
-
-			this.SynchronizeSampleSelectionState();
-		}
-
-		private List<SampleDescription> GetSampleDescriptionsByRange(int startIndex, int endIndex)
-		{
-			return this.SampleDescriptions?.Skip(startIndex).Take(endIndex - startIndex + 1).ToList();
-		}
-
-		private List<SampleDescription> GetSampleDescriptionsByRowNumber(int rowIndex)
-		{
-
-			var resultRange = new List<SampleDescription>(4);
-			for (int i = 0; i < 4; i++)
-			{
-				resultRange.Add(this.SampleDescriptions[rowIndex + (i * 20)]);
-			}
-			return resultRange;
-		}
-
-		public void MultipleSetSampleSelectionState(MultipeSelection multipeSelection)
-		{
-			switch (multipeSelection)
-			{
-				case MultipeSelection.ColumnA: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(0, 19)); break; }
-				case MultipeSelection.ColumnB: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(20, 39)); break; }
-				case MultipeSelection.ColumnC: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(40, 59)); break; }
-				case MultipeSelection.ColumnD: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRange(60, 79)); break; }
-				default: { this.MultipleSetSampleSelectionState(this.GetSampleDescriptionsByRowNumber((int)multipeSelection)); break; }
-			}
-		}
-
+		
 		public void DatatableToEntity(DataTable table)
 		{
-			//table.Columns[nameof(a)].ToString();
 
-			//strAge="28岁" strDateTime="2016/5/5 9:33:35" strSampleType="阴道分泌物" strSex="女" strName="周晓燕" strSampleID="701" strItem="CT" strBarcode="1"/
+			//	for (int i = 0; i < table.Rows.Count; i++)
+			//	{
+			//		var sampleInformation = new SampleInformation()
+			//		{
+			//			Age = table.Rows[i]["strAge"].ToString(),
+			//			Barcode = table.Rows[i]["strBarcode"].ToString(),
+			//			Birthday = table.Rows[i]["strBirthday"].ToString(),
+			//			DateTime = table.Rows[i]["strDateTime"].ToString(),
+			//			HoleName = "0",
+			//			Name = table.Rows[i]["strName"].ToString(),
+			//			Reagent = table.Rows[i]["strItem"].ToString(),
+			//			SampleId = table.Rows[i]["strSampleID"].ToString(),
+			//			Sex = table.Rows[i]["strSex"].ToString(),
+			//			Type = table.Rows[i]["strSampleType"].ToString()
+			//		};
+			//		this.SampleInformations.Add(sampleInformation);
+			//	}
+			//}
 
-			for (int i = 0; i < table.Rows.Count; i++)
+
+
+			this.SampleInformations.Add(new SampleInformation()
 			{
-				var sampleInformation = new SampleInformation()
-				{
-					Age = table.Rows[i]["strAge"].ToString(),
-					Barcode = table.Rows[i]["strBarcode"].ToString(),
-					Birthday = table.Rows[i]["strBirthday"].ToString(),
-					DateTime = table.Rows[i]["strDateTime"].ToString(),
-					HoleName = "0",
-					Name = table.Rows[i]["strName"].ToString(),
-					Reagent = table.Rows[i]["strItem"].ToString(),
-					SampleId = table.Rows[i]["strSampleID"].ToString(),
-					Sex = table.Rows[i]["strSex"].ToString(),
-					Type = table.Rows[i]["strSampleType"].ToString()
-				};
-				this.SampleInformations.Add(sampleInformation);
-			}
+				Age = "25",
+				Barcode = "1234567",
+				Birthday = "20010321",
+				DateTime = "20170101",
+				HoleName = "A9",
+				Name = "王秀娟",
+				Reagent = "UU",
+				SampleId = "123",
+				Sex = "女",
+				Type = "未知"
+			});
 		}
 
-		public void RaiseSampleViewChanged(SampleViewChangedArgs args)
+
+		public string EntityToXmlString(object entity, bool isFormat = false)
 		{
-			this.OnViewChanged(args);
+			return Sias.Core.SXmlConverter.ToXMLString(entity, isFormat);
+		}
+
+		public object XmlStringToEntity(string xmlString)
+		{
+			return Sias.Core.SXmlConverter.CreateFromXMLString(xmlString);
+		}
+
+		public bool XmlStringToEntity2(object obj,string xmlString)
+		{
+			return Sias.Core.SXmlConverter.FromXMLString( obj, xmlString);
 		}
 	}
 
-	public class SampleViewChangedArgs:EventArgs
-	{
-		public SampleViewChangedName SampleViewChangedName { get; set; }
-
-		public object Args { get; set; }
-
-		public SampleViewChangedArgs(SampleViewChangedName sampleViewChangedName,object args)
-		{
-			this.SampleViewChangedName = sampleViewChangedName;
-
-			this.Args = args;
-		}
-	}
 }

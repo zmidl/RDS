@@ -6,6 +6,7 @@ using System.Windows.Input;
 using RDS.ViewModels.Common;
 using System.Threading;
 using RDS.ViewModels;
+using System.Windows.Media;
 
 namespace RDS.Views.Monitor
 {
@@ -54,37 +55,47 @@ namespace RDS.Views.Monitor
 
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
 		{
-			if (e.Index == 10) this.ViewModel.TempelateValue -= 1;
-			else if (e.Index == -10) this.ViewModel.TempelateValue += 1;
-			else if (e.Index == 5)
+			 if (e.Index == $"MixtureState1")
 			{
-				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Inexistence;
-				this.SixTube_Warm1.CurrentState = RDSCL.SixTubeState.Existence;
-				this.SixTube_Warm1.NumberValue = "1";
-			}
-			else if (e.Index == 6)
-			{
-				this.SixTube_1.CurrentState = RDSCL.SixTubeState.Existence;
-				this.SixTube_Warm1.CurrentState = RDSCL.SixTubeState.Inexistence;
-				this.SixTube_Warm1.NumberValue = "0";
-			}
-			else if (e.Index == 7)
-			{
-				this.SixTube_1.test = true;
-			}
-			else if (e.Index == 8)
-			{
-				this.SixTube_1.test = false;
-			}
-			else
-			{
-				for (int i = 0; i < 80; i++)
-				{
 				
-					this.ViewModel.SampleViewModel.SampleDescriptions[i].State = (Sampling)e.Index;
-				}
+				this.ViewModel.Mixtures[0] = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
+				this.ViewModel.Mixtures[1]  = new System.Windows.Media.SolidColorBrush(System.Windows.Media.Colors.Red);
+				//this.ViewModel.MyCustomVar[2] = true;
+				//this.ViewModel.MyCustomVar[3] = true;
+				//this.ViewModel.MyCustomVar[4] = true;
+				//this.ViewModel.MyCustomVar[5] = true;
 			}
-			this.ViewModel.RaiseTempelateColor();
+			else if (e.Index == $"MixtureState2")
+			{
+				this.ViewModel.Mixtures[0] = new SolidColorBrush(Colors.Green);
+				this.ViewModel.Mixtures[1] = new SolidColorBrush(Colors.Blue);
+				//this.ViewModel.MyCustomVar[2] = false;
+				//this.ViewModel.MyCustomVar[3] = false;
+				//this.ViewModel.MyCustomVar[4] = false;
+				//this.ViewModel.MyCustomVar[5] = false;
+			}
+			else if(e.Index == $"SampleState1")
+			{
+				this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SetSampleState(SampleState.NoSample);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].Test = new SolidColorBrush(Colors.Red);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Test[0] = new SolidColorBrush(Colors.Red);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].aaa();
+			}
+			else if (e.Index == $"SampleState2")
+			{
+				this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SetSampleState(SampleState.Normal);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].Test= new SolidColorBrush(Colors.Brown);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Test[0] = new SolidColorBrush(Colors.Brown);
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].aaa();
+			}
+			else if (e.Index == $"SampleState3")
+			{
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].SamplesState[0] = SampleState.Emergency;
+			}
+			else if (e.Index == $"SampleState4")
+			{
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].SamplesState[0] = SampleState.Sampling;
+			}
 		}
 
 		private void Button_Emergency_Click(object sender, RoutedEventArgs e)

@@ -128,3 +128,6 @@ C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\LayoutSetting.baml
 D:\Develop\MyProject\RDS\RDS\obj\Debug\Views\LayoutSetting.g.cs
 D:\Develop\MyProject\RDS\RDS\obj\Debug\Views\LayoutSetting.baml
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\ZMCL.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Core.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\SmartPropertyGrid.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Core.xml

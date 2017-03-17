@@ -53,11 +53,11 @@
     <Compile Include="Cuvette.xaml.cs">
       <DependentUpon>Cuvette.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleTube.xaml.cs">
-      <DependentUpon>SampleTube.xaml</DependentUpon>
+    <Compile Include="TwentyUnionSample.xaml.cs">
+      <DependentUpon>TwentyUnionSample.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SixTube.xaml.cs">
-      <DependentUpon>SixTube.xaml</DependentUpon>
+    <Compile Include="SixUnionMixture.xaml.cs">
+      <DependentUpon>SixUnionMixture.xaml</DependentUpon>
     </Compile>
     <Page Include="Border.xaml">
       <SubType>Designer</SubType>
@@ -67,19 +67,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SampleTube.xaml">
+    <Page Include="TwentyUnionSample.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SingleTube.xaml">
+    <Page Include="Hole.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="SingleTube.xaml.cs">
-      <DependentUpon>SingleTube.xaml</DependentUpon>
+    <Compile Include="Hole.xaml.cs">
+      <DependentUpon>Hole.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="SixTube.xaml">
+    <Page Include="SixUnionMixture.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

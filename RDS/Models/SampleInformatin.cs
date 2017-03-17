@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RDS.Models
+﻿namespace RDS.Models
 {
-   public class SampleInformation: ViewModels.Common.ViewModel
+	public class SampleInformation: ViewModels.Common.ViewModel
 	{
 		public SampleInformation() { }
 

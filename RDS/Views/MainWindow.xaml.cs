@@ -91,36 +91,33 @@ namespace RDS.Views
 						this.Resources.MergedDictionaries.Add(langRd);
 					}
 				}
-				else if (Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs(0));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs(1));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad3)) this.OnGlobalNotify(new GlobalNotifyArgs(2));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad4)) this.OnGlobalNotify(new GlobalNotifyArgs(3));
-
-				else if (Keyboard.IsKeyDown(Key.M)) new RdsMessageBox().ShowDialog();
-
-				else if(Keyboard.IsKeyDown(Key.Up)) this.OnGlobalNotify(new GlobalNotifyArgs(10));
-
-				else if (Keyboard.IsKeyDown(Key.Down)) this.OnGlobalNotify(new GlobalNotifyArgs(-10));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad5)) this.OnGlobalNotify(new GlobalNotifyArgs(5));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad6)) this.OnGlobalNotify(new GlobalNotifyArgs(6));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad7)) this.OnGlobalNotify(new GlobalNotifyArgs(7));
-
-				else if (Keyboard.IsKeyDown(Key.NumPad8)) this.OnGlobalNotify(new GlobalNotifyArgs(8));
+				else if(Keyboard.IsKeyDown(Key.S))
+				{
+					if (Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState1"));
+					else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState2"));
+					else if (Keyboard.IsKeyDown(Key.NumPad3)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState3"));
+					else if (Keyboard.IsKeyDown(Key.NumPad4)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState4"));
+				}
+				else if (Keyboard.IsKeyDown(Key.M))
+				{
+					if (Keyboard.IsKeyDown(Key.NumPad1))
+					{
+						this.OnGlobalNotify(new GlobalNotifyArgs($"MixtureState1"));
+					}
+					else if (Keyboard.IsKeyDown(Key.NumPad2))
+					{
+						this.OnGlobalNotify(new GlobalNotifyArgs($"MixtureState2"));
+					}
+				}
 			}
 		}
 	}
 
 	public class GlobalNotifyArgs : EventArgs
 	{
-		public int Index { get; set; }
+		public string Index { get; set; }
 
-		public GlobalNotifyArgs(int index)
+		public GlobalNotifyArgs(string index)
 		{
 			this.Index = index;
 		}
