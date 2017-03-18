@@ -131,3 +131,5 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\ZMCL.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Core.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\SmartPropertyGrid.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Core.xml
+D:\Develop\MyProject\RDS\RDS\bin\Debug\SmartPropertyGrid.dll
+D:\Develop\MyProject\RDS\RDS\bin\Debug\Core.xml

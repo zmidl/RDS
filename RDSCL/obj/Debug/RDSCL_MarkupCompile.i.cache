@@ -4,7 +4,7 @@
 library
 C#
 .cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\
 RDSCL
 none
 false
@@ -12,9 +12,9 @@ DEBUG;TRACE
 
 51099582900
 
-121010738105
+12441308292
 12-1401562060
 Border.xaml;Cuvette.xaml;TwentyUnionSample.xaml;Hole.xaml;SixUnionMixture.xaml;
 
-False
+True
 
