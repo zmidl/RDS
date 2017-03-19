@@ -58,7 +58,7 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			TipDescription tipDescription = new TipDescription() { IsLoaded = true, TipVolume = TipType._1000uL };
+			Tip tipDescription = new Tip() { IsLoaded = true, TipVolume = TipType._1000uL };
 			var a = this.ViewModel.EntityToXmlString(tipDescription);
 
 			var b=$"<TipDescription Type='RDS.ViewModels.Descriptions.TipDescription'><TipVolume>ThreeHundredMicroliter</TipVolume></TipDescription>";

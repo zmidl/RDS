@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Globalization;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
+using RDS.ViewModels.Descriptions;
 
 namespace RDS.ViewModels.Common
 {
@@ -14,12 +15,12 @@ namespace RDS.ViewModels.Common
 	{
 		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			var inputted = new ObservableCollection<SampleState>((ICollection<SampleState>)value);
+			var inputted = new ObservableCollection<Sample>((ICollection<Sample>)value);
 			ObservableCollection<SolidColorBrush> resultColor = new ObservableCollection<SolidColorBrush>();
 			for (int i = 0; i < inputted.Count; i++)
 			{
 				SolidColorBrush color = default(SolidColorBrush);
-				switch(inputted[i])
+				switch(inputted[i].SampleState)
 				{
 					case SampleState.NoSample: { color = new SolidColorBrush(Colors.WhiteSmoke); break; }
 					case SampleState.Normal: { color = new SolidColorBrush(Colors.Brown); break; }

@@ -72,11 +72,12 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"SampleState1")
 			{
+				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
 				this.ViewModel.SetSampleState(0, 0, SampleState.Sampled);
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				this.ViewModel.SetSampleState(3, 0, SampleState.Normal);
+				this.ViewModel.SetSampleState(0, 0, SampleState.Normal);
 			}
 			else if (e.Index == $"SampleState3")
 			{

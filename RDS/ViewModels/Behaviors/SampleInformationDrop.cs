@@ -1,12 +1,5 @@
 ﻿using System.Windows;
 using System.Windows.Interactivity;
-using System.Linq;
-using RDS.Models;
-using System.Collections.Generic;
-using System.Collections;
-using RDS.ViewModels.Descriptions;
-using RDS.ViewModels.Common;
-using System;
 
 namespace RDS.ViewModels.Behaviors
 {
