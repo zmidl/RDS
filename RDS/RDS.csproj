@@ -71,7 +71,6 @@
     <Compile Include="ViewModels\Behaviors\SampleDescriptionMultiSelect.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrag.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrop.cs" />
-    <Compile Include="ViewModels\Behaviors\SetSampleSelectionState.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />
@@ -79,8 +78,10 @@
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
     <Compile Include="ViewModels\Descriptions\Sample.cs" />
     <Compile Include="ViewModels\Descriptions\SixUnionMixture.cs" />
+    <Compile Include="ViewModels\Descriptions\SixUnionMixtureModule.cs" />
     <Compile Include="ViewModels\Descriptions\TwentyUnionSample.cs" />
-    <Compile Include="ViewModels\Descriptions\TipDescription.cs" />
+    <Compile Include="ViewModels\Descriptions\Tip.cs" />
+    <Compile Include="ViewModels\Descriptions\WarmUpModule.cs" />
     <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MonitorViewModel.cs" />

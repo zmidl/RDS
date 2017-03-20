@@ -23,7 +23,29 @@ namespace RDS.ViewModels.Descriptions
 
 		public SolidColorBrush Test { get; set; }
 
-		public SampleState SampleState { get; set; }
+		private SampleState sampleState;
+		public SampleState SampleState
+		{
+			get { return sampleState; }
+			set
+			{
+				sampleState = value;
+				this.RaisePropertyChanged(nameof(SampleState));
+				switch(value)
+				{
+					case SampleState.NoSample: { this.SampleContentColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
+					case SampleState.Normal: { this.SampleContentColor = new SolidColorBrush(Colors.Brown); break; }
+					case SampleState.Emergency: { this.SampleContentColor = new SolidColorBrush(Colors.Blue); break; }
+					case SampleState.Sampling: { this.SampleContentColor = new SolidColorBrush(Colors.Green); break; }
+					case SampleState.Sampled: { this.SampleContentColor = new SolidColorBrush(Colors.Gray); break; }
+					default: break;
+				}
+				this.RaisePropertyChanged(nameof(this.SampleContentColor));
+			}
+		}
+
+		public SolidColorBrush SampleContentColor { get; set; }
+
 
 		public Sample() { }
 

@@ -24,7 +24,6 @@ namespace RDSCL
 			get { return (IEnumerable<SolidColorBrush>)GetValue(HolesContentColorProperty); }
 			set { SetValue(HolesContentColorProperty, value); }
 		}
-
 		public static readonly DependencyProperty HolesContentColorProperty =
 			DependencyProperty.Register(nameof(HolesContentColor), typeof(IEnumerable<SolidColorBrush>), typeof(SixUnionMixture), new PropertyMetadata(null));
 

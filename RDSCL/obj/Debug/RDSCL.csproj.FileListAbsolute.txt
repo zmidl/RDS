@@ -17,17 +17,11 @@ D:\Develop\MyProject\RDS\RDSCL\bin\Debug\RDSCL.pdb
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL.csprojResolveAssemblyReference.cache
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Border.baml
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Cuvette.baml
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SingleTube.baml
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Border.g.cs
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Cuvette.g.cs
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SampleTube.g.cs
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SingleTube.g.cs
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SixTube.g.cs
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\GeneratedInternalTypeHelper.g.cs
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.cache
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.lref
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SampleTube.baml
-D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SixTube.baml
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL.g.resources
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL.Properties.Resources.resources
 D:\Develop\MyProject\RDS\RDSCL\obj\Debug\RDSCL.csproj.GenerateResource.Cache
@@ -39,3 +33,9 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\SixUnionMixture.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\SixUnionMixture.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TwentyUnionSample.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TwentyUnionSample.baml
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Hole.baml
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\TwentyUnionSample.g.cs
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\Hole.g.cs
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SixUnionMixture.g.cs
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\TwentyUnionSample.baml
+D:\Develop\MyProject\RDS\RDSCL\obj\Debug\SixUnionMixture.baml

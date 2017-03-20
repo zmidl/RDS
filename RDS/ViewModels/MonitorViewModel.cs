@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Windows.Media;
 using System.Linq;
 using System.Windows;
+using RDS.ViewModels.Descriptions;
 
 namespace RDS.ViewModels
 {
@@ -23,7 +24,10 @@ namespace RDS.ViewModels
 			new SolidColorBrush(Colors.Gray)
 		});
 
-	
+
+		//public ObservableCollection<SixUnionMixture> SixUnionMixture { get; set; } = new ObservableCollection<SixUnionMixture>();
+
+
 
 
 
@@ -40,7 +44,7 @@ namespace RDS.ViewModels
 
 		public void SetSampleState(int twentyUnionSampleIndex,int sampleIndex,SampleState sampleState)
 		{
-			this.SampleViewModel.TwentyUnionSampleHoles[twentyUnionSampleIndex].Samples[sampleIndex].SetSampleState(sampleState);
+			this.SampleViewModel.TwentyUnionSampleHoles[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
 		}
 
 		public void SetSampleVisibility(int twentyUnionSampleIndex,Visibility visibility)

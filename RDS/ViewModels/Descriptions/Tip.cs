@@ -3,7 +3,7 @@ using Sias.Core.Attributes;
 
 namespace RDS.ViewModels.Descriptions
 {
-	public class TipDescription:ViewModel
+	public class Tip:ViewModel
 	{
 		private TipType tipVolume;
 
@@ -30,7 +30,7 @@ namespace RDS.ViewModels.Descriptions
 		}
 
 
-		public TipDescription()
+		public Tip()
 		{
 
 		}
