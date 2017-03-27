@@ -8,7 +8,7 @@ using System.Windows.Shapes;
 using RDS.ViewModels.Common;
 using RDS.ViewModels;
 using RDSCL;
-using RDS.ViewModels.Descriptions;
+using RDS.ViewModels.ViewProperties;
 
 namespace RDS.Views.Monitor
 {
@@ -44,10 +44,9 @@ namespace RDS.Views.Monitor
 			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
 			{
 				this.ViewModel.Test.Execute(null);
-
 			}
 
-			this.ViewModel.DatatableToEntity(ViewModels.Common.XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
+			this.ViewModel.DatatableToEntity(XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
 		}
 
 		private void Button_Layout_Click(object sender, RoutedEventArgs e)
@@ -58,13 +57,13 @@ namespace RDS.Views.Monitor
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			Tip tipDescription = new Tip() { IsLoaded = true, TipVolume = TipType._1000uL };
+			Tip tipDescription = new Tip(TipState.NoExist);
 			var a = this.ViewModel.EntityToXmlString(tipDescription);
 
-			var b=$"<TipDescription Type='RDS.ViewModels.Descriptions.TipDescription'><TipVolume>ThreeHundredMicroliter</TipVolume></TipDescription>";
-			var c = this.ViewModel.XmlStringToEntity(b);
+			
+			var c = this.ViewModel.XmlStringToEntity(a);
 			var t1 = c.GetType();
-			var d = this.ViewModel.XmlStringToEntity2(tipDescription, b);
+			var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
 			var t2 = tipDescription.GetType();
 			
 			//this.ViewModel.Test.Execute(null);

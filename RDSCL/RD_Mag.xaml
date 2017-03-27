@@ -1,0 +1,30 @@
+﻿<UserControl x:Class="RDSCL.RD_Mag"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+              d:DesignHeight="780" d:DesignWidth="490">
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill">
+                            <Canvas Width="490" Height="780" >
+                                <Rectangle Width="490" Height="780" Stroke="Black" StrokeThickness="3" RadiusX="10" RadiusY="10" Fill="#FFD8D8D8"/>
+                                <StackPanel Canvas.Left="50" Canvas.Top="50" Height="680" Width="395" Orientation="Horizontal">
+                                    <local:Strip Width="90" Number="{Binding ItemsSource[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" HolesContentColor="{Binding ItemsSource[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}"/>
+                                    <local:Strip Width="90" Number="{Binding ItemsSource[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" HolesContentColor="{Binding ItemsSource[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                    <local:Strip Width="90" Number="{Binding ItemsSource[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" HolesContentColor="{Binding ItemsSource[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                    <local:Strip Width="90" Number="{Binding ItemsSource[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[3].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" HolesContentColor="{Binding ItemsSource[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                </StackPanel>
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

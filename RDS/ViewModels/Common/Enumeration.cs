@@ -1,17 +1,17 @@
 ﻿namespace RDS.ViewModels.Common
 {
-	public enum SampleState
+	public enum SampleTubeState
 	{
-		NoSample = 0,
+		NoSampleTube = 0,
 		Normal = 1,
 		Emergency = 2,
 		Sampling = 3,
 		Sampled = 4
 	}
 
-	public enum MixtureState
+	public enum CellState
 	{
-		NoMixture = 0,
+		NoCell = 0,
 		Empty = 1,
 		Full = 2
 	}
@@ -31,7 +31,7 @@
 
 	public enum TipState
 	{
-		Empty = 0,
+		NoExist = 0,
 		Exist = 1
 	}
 

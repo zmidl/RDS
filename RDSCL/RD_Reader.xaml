@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="RDSCL.RD_Reader"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+             xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
+             d:DesignHeight="1750" d:DesignWidth="1580">
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill">
+                            <Canvas Width="1460" Height="1550" Background="#FF767676">
+                                <Canvas Canvas.Right="150" Canvas.Bottom="220" Height="940" Width="950" Background="#FFF0CDA4">
+                                    <StackPanel Orientation="Horizontal" Canvas.Top="130" Canvas.Right="100">
+                                        <local:Strip Width="90" Number="{Binding Source.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" CurrentState="{Binding Source.Strips[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" HolesContentColor="{Binding Source.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}"/>
+                                        <local:Strip Width="90" Number="{Binding Source.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" CurrentState="{Binding Source.Strips[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" HolesContentColor="{Binding Source.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" Margin="30,0,0,0" />
+                                        <local:Strip Width="90" Number="{Binding Source.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" CurrentState="{Binding Source.Strips[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" HolesContentColor="{Binding Source.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" Margin="30,0,0,0" />
+                                        <local:Strip Width="90" Number="{Binding Source.Strips[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" CurrentState="{Binding Source.Strips[3].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" HolesContentColor="{Binding Source.Strips[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" Margin="30,0,0,0" />
+                                        <local:Strip Width="90" Number="{Binding Source.Strips[4].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" CurrentState="{Binding Source.Strips[4].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" HolesContentColor="{Binding Source.Strips[4].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_CupRack}}}" Margin="30,0,0,0" />
+                                    </StackPanel>
+
+                                    <StackPanel Canvas.Left="150" Canvas.Top="160" Orientation="Vertical">
+                                        <local:Hole Width="50" Height="50" ExcircleColor="Red" Value="25" ThicknessValue="50" ContentColor="White"/>
+                                        <local:Hole Width="50" Height="50" ExcircleColor="Red" Value="60" ThicknessValue="50" ContentColor="White" Margin="0,60,0,0"/>
+                                        <local:Hole Width="50" Height="50" ExcircleColor="Red" Value="80" ThicknessValue="50" ContentColor="White" Margin="0,60,0,0"/>
+                                        <local:Hole Width="50" Height="50" ExcircleColor="Red" Value="75" ThicknessValue="50" ContentColor="White" Margin="0,60,0,0"/>
+                                        <local:Hole2 Width="50" Height="50" Value="80" Margin="0,60,0,0"/>
+                                        <local:Hole2 Width="50" Height="50" Value="50" Margin="0,60,0,0"/>
+                                    </StackPanel>
+                                    
+                                </Canvas>
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

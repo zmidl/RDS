@@ -1,0 +1,25 @@
+﻿<UserControl x:Class="RDSCL.RD_ReagentBox"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="50">
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill">
+                            <Canvas Width="50" Height="200">
+                                <Rectangle Canvas.Bottom="0" Height="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"  Width="50" Fill="#FFE89D43" />
+                                <Rectangle Canvas.Bottom="0" Height="200"  Width="50" Stroke="#FF535353" StrokeThickness="5" />
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

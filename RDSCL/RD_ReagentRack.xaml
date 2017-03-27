@@ -1,0 +1,58 @@
+﻿<UserControl x:Class="RDSCL.RD_ReagentRack"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+             d:DesignHeight="550" d:DesignWidth="90">
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill">
+                            <Canvas Width="90" Height="550">
+                                <Rectangle Fill="#FFC7C7C7" RadiusX="5" RadiusY="5" Width="90" Height="550" Stroke="Black"/>
+                                <local:Hole2 Width="38" Canvas.Left="-4" Value="80" Canvas.Top="20"/>
+                                <local:Hole2 Width="38" Canvas.Left="40" Value="60" Canvas.Top="20"/>
+
+                                <local:Hole2 Width="25" Canvas.Left="-4" Value="70" Canvas.Top="72"/>
+                                <local:Hole2 Width="25" Canvas.Left="-4" Value="30" Canvas.Top="100"/>
+                                <local:Hole2 Width="25" Canvas.Left="-4" Value="20" Canvas.Top="128"/>
+                                <local:Hole2 Width="25" Canvas.Left="-4" Value="50" Canvas.Top="156"/>
+
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="70" Canvas.Top="195"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="30" Canvas.Top="220"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="20" Canvas.Top="245"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="50" Canvas.Top="270"/>
+
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="70" Canvas.Top="305"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="30" Canvas.Top="330"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="20" Canvas.Top="355"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="50" Canvas.Top="380"/>
+
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="70" Canvas.Top="420"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="30" Canvas.Top="445"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="20" Canvas.Top="470"/>
+                                <local:Hole2 Width="20" Canvas.Left="-4" Value="50" Canvas.Top="495"/>
+
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Value="120" Canvas.Top="64" />
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Value="110" Canvas.Top="64" />
+
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Value="40" Canvas.Top="180" />
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Value="120" Canvas.Top="180" />
+
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Value="180" Canvas.Top="296" />
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Value="60" Canvas.Top="296" />
+
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Value="50" Canvas.Top="412" />
+                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Value="20" Canvas.Top="412" />
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

@@ -37,7 +37,12 @@
     <Reference Include="Core">
       <HintPath>..\..\..\document\Install\NelsonSDK\Bin\Core.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\Microsoft.Expression.Drawing.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -76,12 +81,17 @@
     <Compile Include="ViewModels\Common\Converters.cs" />
     <Compile Include="ViewModels\Common\Enumeration.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
-    <Compile Include="ViewModels\Descriptions\Sample.cs" />
-    <Compile Include="ViewModels\Descriptions\SixUnionMixture.cs" />
-    <Compile Include="ViewModels\Descriptions\SixUnionMixtureModule.cs" />
-    <Compile Include="ViewModels\Descriptions\TwentyUnionSample.cs" />
-    <Compile Include="ViewModels\Descriptions\Tip.cs" />
-    <Compile Include="ViewModels\Descriptions\WarmUpModule.cs" />
+    <Compile Include="ViewModels\ViewProperties\Cell.cs" />
+    <Compile Include="ViewModels\ViewProperties\CupRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\Mag.cs" />
+    <Compile Include="ViewModels\ViewProperties\Reader.cs" />
+    <Compile Include="ViewModels\ViewProperties\SampleTube.cs" />
+    <Compile Include="ViewModels\ViewProperties\ShakerRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\Strip.cs" />
+    <Compile Include="ViewModels\ViewProperties\SampleRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\Tip.cs" />
+    <Compile Include="ViewModels\ViewProperties\TipRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\Heating.cs" />
     <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MonitorViewModel.cs" />
@@ -261,7 +271,18 @@
   <ItemGroup>
     <Resource Include="Apps\Images\image.jpg" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Apps\Dlls\mfc110d.dll" />
+    <Content Include="Apps\Dlls\mfc110ud.dll" />
+    <Content Include="Apps\Dlls\mfcm110d.dll" />
+    <Content Include="Apps\Dlls\mfcm110ud.dll" />
+    <Content Include="Apps\Dlls\msvcp110.dll" />
+    <Content Include="Apps\Dlls\msvcp110d.dll" />
+    <Content Include="Apps\Dlls\msvcr110.dll" />
+    <Content Include="Apps\Dlls\msvcr110d.dll" />
+    <Content Include="Apps\Dlls\ShareDll_d.dll" />
+    <Content Include="Apps\Dlls\vccorlib110d.dll" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

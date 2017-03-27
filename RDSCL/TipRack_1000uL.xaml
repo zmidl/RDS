@@ -1,0 +1,158 @@
+﻿<UserControl x:Class="RDSCL.TipRack_1000uL"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+             d:DesignHeight="200" d:DesignWidth="290">
+    <UserControl.Resources>
+        <Style x:Key="TipStyle_1000uL" TargetType="{x:Type Ellipse}">
+            <Setter Property="Width" Value="17"/>
+            <Setter Property="Height" Value="17"/>
+            <Setter Property="Margin" Value="5,3,0,0"/>
+        </Style>
+    </UserControl.Resources>
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill"  >
+                            <Canvas Width="290" Height="200">
+                                <Rectangle StrokeThickness="2" RadiusX="10" RadiusY="10" Stroke="#FF444444" Width="290" Height="200" Fill="#FF8B8B8B"/>
+                                <StackPanel Orientation="Vertical">
+                                    <StackPanel Orientation="Horizontal" Margin="12,12,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[0].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[1].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[2].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[3].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[4].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[5].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[6].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[7].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[8].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[9].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[10].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[11].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[12].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[13].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[14].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[15].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[16].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[17].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[18].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[19].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[20].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[21].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[22].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[23].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[24].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[25].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[26].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[27].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[28].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[29].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[30].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[31].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[32].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[33].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[34].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[35].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[36].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[37].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[38].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[39].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[40].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[41].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[42].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[43].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[44].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[45].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[46].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[47].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[48].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[49].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[50].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[51].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[52].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[53].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[54].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[55].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[56].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[57].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[58].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[59].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[60].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[61].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[62].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[63].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[64].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[65].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[66].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[67].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[68].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[69].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[70].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[71].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[72].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[73].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[74].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[75].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[76].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[77].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[78].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[79].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[80].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[81].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[82].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[83].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+
+                                    <StackPanel Orientation="Horizontal" Margin="12,2,0,0">
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[84].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[85].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[86].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[87].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[88].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[89].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[90].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[91].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[92].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[93].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[94].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                        <Ellipse Style="{StaticResource TipStyle_1000uL}" Fill="{Binding ItemsSource[95].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />
+                                    </StackPanel>
+                                </StackPanel>
+                            </Canvas>
+                        </Viewbox>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

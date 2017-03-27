@@ -45,7 +45,7 @@
 
         <Style x:Key="Sample_TextBlockStyle2" BasedOn="{StaticResource TextBlockStyle3}" TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="0,-4.8,0,0"/>
-            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="FontSize" Value="16.2"/>
         </Style>
 
         <Style x:Key="SingleTubeStyle" TargetType="{x:Type UserControl}">
@@ -103,7 +103,7 @@
 						AutoGenerateColumns="False"
 						Width="677" 
 						Height="380" 
-						Canvas.Left="10" Canvas.Top="10">
+						Canvas.Left="138" Canvas.Top="10">
                     <zmlc:UcDataGrid.Columns>
                         <DataGridTextColumn MinWidth="30" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
@@ -122,11 +122,11 @@
                 </zmlc:UcDataGrid>
                 <Canvas 
 					x:Name="Canvas_SampleViewOne"
-					Canvas.Right="80" Canvas.Top="10" 
+					Canvas.Left="6" Canvas.Top="10" 
 					Width="128" Height="383" 
                    AllowDrop="True">
 
-                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35">
+                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35" Canvas.Top="8">
                       
                     </zmlc:UcTextBlock>
                     <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="58" >
@@ -139,11 +139,10 @@
                      
                     </zmlc:UcTextBlock>
 
-                    <Rectangle Width="128" Height="383" Stroke="#FF9E9E9E" Fill="#FFFEF0B6" RadiusX="10" RadiusY="10" StrokeThickness="2" Panel.ZIndex="0"/>
                     <Canvas Margin="2,19,0,0">
-
-                        <StackPanel Orientation="Vertical" Canvas.Left="6">
-                            <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="18"/>
+                        <rdscl:SampleRack SamplesContentColor="{Binding TwentyUnionSampleHoles[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
+                        <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="15">
+                            <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="16.2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="3"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="4"/>
@@ -165,7 +164,14 @@
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="20"/>
                         </StackPanel>
                     </Canvas>
-                    <StackPanel Orientation="Vertical" Height="358" Width="23" Canvas.Left="29" Canvas.Top="20" >
+                  
+                </Canvas>
+            </Canvas>
+        </Grid>
+    </Viewbox>
+</UserControl>
+<!--
+      <StackPanel Orientation="Vertical" Height="358" Width="23" Canvas.Left="29" Canvas.Top="20" >
                         <rdscl:Hole x:Name="A1" Width="18" Height="16" ContentColor="{Binding SampleDescriptions[0].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
                         <rdscl:Hole x:Name="A2" Width="18" Height="16" ContentColor="{Binding SampleDescriptions[1].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,0" />
                         <rdscl:Hole x:Name="A3" Width="18" Height="16" ContentColor="{Binding SampleDescriptions[2].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,0" />
@@ -261,8 +267,4 @@
                         <rdscl:Hole x:Name="D20" Width="18" Height="16" ContentColor="{Binding SampleDescriptions[79].State, Converter={StaticResource SamplingToSolidColorBrush}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" Margin="0,2,0,0" />
 
                     </StackPanel>
-                </Canvas>
-            </Canvas>
-        </Grid>
-    </Viewbox>
-</UserControl>
+    -->

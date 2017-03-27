@@ -55,22 +55,7 @@
                                         </LinearGradientBrush>
                                     </Path.Stroke>
                                 </Path>
-                                <Path Canvas.Bottom="0" Width="50" Height="22" Data="M 1,0 A 23,25 0,0,0 25,22 A 21,21 1,0,1 9,0">
-                                    <Path.Fill>
-                                        <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                                            <GradientStop Color="#CC000000" Offset="1"/>
-                                            <GradientStop Color="#33FFFFFF"/>
-                                        </LinearGradientBrush>
-                                    </Path.Fill>
-                                </Path>
-                                <Path Canvas.Bottom="0" Width="50" Height="22" Data="M 23,0 A 23,23 0,0,0 25,20 A 21,21 1,0,1 9,0">
-                                    <Path.Fill>
-                                        <LinearGradientBrush EndPoint="0,0.5" MappingMode="RelativeToBoundingBox" StartPoint="1,0.5">
-                                            <GradientStop Color="#CC000000"/>
-                                            <GradientStop Color="White" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Path.Fill>
-                                </Path>
+                           
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

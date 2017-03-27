@@ -7,7 +7,7 @@ using System.Windows.Data;
 using System.Globalization;
 using System.Windows.Media;
 using System.Collections.ObjectModel;
-using RDS.ViewModels.Descriptions;
+using RDS.ViewModels.ViewProperties;
 
 namespace RDS.ViewModels.Common
 {
@@ -15,18 +15,18 @@ namespace RDS.ViewModels.Common
 	{
 		object IValueConverter.Convert(object value, Type targetType, object parameter, CultureInfo culture)
 		{
-			var inputted = new ObservableCollection<Sample>((ICollection<Sample>)value);
+			var inputted = new ObservableCollection<SampleTube>((ICollection<SampleTube>)value);
 			ObservableCollection<SolidColorBrush> resultColor = new ObservableCollection<SolidColorBrush>();
 			for (int i = 0; i < inputted.Count; i++)
 			{
 				SolidColorBrush color = default(SolidColorBrush);
 				switch(inputted[i].SampleState)
 				{
-					case SampleState.NoSample: { color = new SolidColorBrush(Colors.WhiteSmoke); break; }
-					case SampleState.Normal: { color = new SolidColorBrush(Colors.Brown); break; }
-					case SampleState.Emergency: { color = new SolidColorBrush(Colors.Blue); break; }
-					case SampleState.Sampling: { color = new SolidColorBrush(Colors.Green); break; }
-					case SampleState.Sampled: { color = new SolidColorBrush(Colors.Gray); break; }
+					case SampleTubeState.NoSampleTube: { color = new SolidColorBrush(Colors.WhiteSmoke); break; }
+					case SampleTubeState.Normal: { color = new SolidColorBrush(Colors.Brown); break; }
+					case SampleTubeState.Emergency: { color = new SolidColorBrush(Colors.Blue); break; }
+					case SampleTubeState.Sampling: { color = new SolidColorBrush(Colors.Green); break; }
+					case SampleTubeState.Sampled: { color = new SolidColorBrush(Colors.Gray); break; }
 					default: break;
 				}
 				resultColor.Add(color);

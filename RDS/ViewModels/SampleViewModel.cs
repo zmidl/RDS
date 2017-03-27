@@ -3,7 +3,7 @@ using System.Collections.ObjectModel;
 using RDS.Models;
 using System.Linq;
 using RDS.ViewModels.Common;
-using RDS.ViewModels.Descriptions;
+using RDS.ViewModels.ViewProperties;
 using System.Data;
 using System;
 using System.Windows.Controls;
@@ -14,7 +14,7 @@ namespace RDS.ViewModels
 	public class SampleViewModel : ViewModel
 	{
 		
-		public ObservableCollection<TwentyUnionSample> TwentyUnionSampleHoles { get; set; } = new ObservableCollection<TwentyUnionSample>();
+		public ObservableCollection<SampleRack> TwentyUnionSampleHoles { get; set; } = new ObservableCollection<SampleRack>();
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
@@ -29,7 +29,7 @@ namespace RDS.ViewModels
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				this.TwentyUnionSampleHoles.Add(new TwentyUnionSample(i));
+				this.TwentyUnionSampleHoles.Add(new SampleRack(i));
 			}
 
 			this.Test = new RelayCommand
