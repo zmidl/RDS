@@ -7,32 +7,32 @@
              d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Grid Width="1900" Height="850" Background="White">
-            <DockPanel LastChildFill="True">
-                <DockPanel 
+            <Canvas Width="1900" Height="850">
+                <DockPanel Width="1900" Height="850" LastChildFill="True">
+                    <DockPanel 
                     x:Name="StackPanel_Head" 
                     Panel.ZIndex="1"
                     Height="80" LastChildFill="True"
                     DockPanel.Dock="Top" Background="#FF2B90F9">
-                    <TextBlock Text="Logo" DockPanel.Dock="Left" Width="150" FontSize="62"/>
-                    <Button 
+                        <TextBlock Text="Logo" DockPanel.Dock="Left" Width="150" FontSize="62"/>
+                        <Button 
                         x:Name="Button_Help" 
                         DockPanel.Dock="Right" 
                         Margin="5" Width="150" 
                         Content="{DynamicResource TabButton_HelpDocument}" 
                         FontSize="20" 
                         Click="Button_Help_Click"/>
-                    <Button x:Name="Button_HistroyData"  DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_HistroyData}" FontSize="20" Click="Button_HistroyData_Click" />
-                    <Button x:Name="Button_CurrentTask" Background="SkyBlue" DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_CurrentTask}" FontSize="20" Click="Button_CurrentTask_Click"/>
-                    <TextBlock Text="上海仁度生物科技有限公司" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE4FF00"/>
+                        <Button x:Name="Button_HistroyData"  DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_HistroyData}" FontSize="20" Click="Button_HistroyData_Click" />
+                        <Button x:Name="Button_CurrentTask" Background="SkyBlue" DockPanel.Dock="Right" Margin="5" Width="150" Content="{DynamicResource TabButton_CurrentTask}" FontSize="20" Click="Button_CurrentTask_Click"/>
+                        <TextBlock Text="上海仁度生物科技有限公司" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE4FF00"/>
+                    </DockPanel>
+                    <StackPanel DockPanel.Dock="Bottom" Height="50" Background="#FFE8E8E8"></StackPanel>
+                    <ContentControl x:Name="ContentControl_CurrentContent"/>
                 </DockPanel>
-
-
-                <StackPanel DockPanel.Dock="Bottom" Height="50" Background="#FFE8E8E8">
-
-                </StackPanel>
-
-                <ContentControl x:Name="ContentControl_CurrentContent"/>
-            </DockPanel>
+                <Canvas x:Name="Canvas_Admin" Width="1900" Height="850" Background="#99000000" Visibility="Collapsed">
+                    <Button x:Name="Button_Admin" Width="100" Height="30" Content="Exit" Canvas.Left="960" Canvas.Top="731" Click="Button_Admin_Click"/>
+                </Canvas>
+            </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

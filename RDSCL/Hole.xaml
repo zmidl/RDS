@@ -17,9 +17,13 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Grid>
-                                <Ellipse  Width="96" Height="96" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                                <Ellipse Width="120" Height="120" StrokeThickness="10" Stroke="{Binding ExcircleColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hole}}}" />
+                                <Ellipse Width="112" Height="112" StrokeThickness="10" Stroke="{Binding ExcircleColor2, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hole}}}" />
+                                <Ellipse  Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
+                                <Ellipse  Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColor2, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
                                 <ed:Arc 
                                     x:Name="OutEllipse" ArcThicknessUnit="Percent" 
+                                    Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"
                                     StartAngle="0" EndAngle=
                                         "{Binding Value, 
                                         Converter={StaticResource EndAngleConverter}, 
@@ -31,7 +35,7 @@
                                         RelativeSource={RelativeSource FindAncestor, 
                                         AncestorType={x:Type local:Hole}}}" Stretch="None" 
                                     Stroke=
-                                        "{Binding ExcircleColor, 
+                                        "{Binding ValueColor, 
                                         RelativeSource={RelativeSource FindAncestor, 
                                         AncestorType={x:Type UserControl}}}"/>
                             </Grid>

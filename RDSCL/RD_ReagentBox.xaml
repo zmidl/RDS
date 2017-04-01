@@ -12,9 +12,9 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
-                            <Canvas Width="50" Height="200">
-                                <Rectangle Canvas.Bottom="0" Height="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"  Width="50" Fill="#FFE89D43" />
-                                <Rectangle Canvas.Bottom="0" Height="200"  Width="50" Stroke="#FF535353" StrokeThickness="5" />
+                            <Canvas Width="25" Height="100">
+                                <Rectangle Canvas.Bottom="0" Height="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"  Width="25" Fill="#FFE89D43" />
+                                <Rectangle Canvas.Bottom="0" Height="100"  Width="25" Stroke="#FF2B7EE2" StrokeThickness="2" />
                             </Canvas>
                         </Viewbox>
                     </ControlTemplate>

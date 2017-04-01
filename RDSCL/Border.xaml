@@ -21,7 +21,6 @@
                                         </LinearGradientBrush>
                                     </Path.Fill>
                                 </Path>
-
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

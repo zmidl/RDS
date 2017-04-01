@@ -100,7 +100,7 @@ namespace RDSCL
 				{
 					case StripState.Existence:
 					{
-						strip.BodyVisibility = Visibility.Visible;
+						strip.Visibility = Visibility.Visible;
 						strip.BackgroundColor = new SolidColorBrush(Colors.White);
 						strip.FrameStyle = default(DoubleCollection);
 						strip.Opacity = 1.0;
@@ -109,19 +109,20 @@ namespace RDSCL
 					}
 					case StripState.Inexistence:
 					{
-						strip.BodyVisibility = Visibility.Hidden;
-						strip.BackgroundColor = new SolidColorBrush(Colors.Transparent);
-						strip.FrameStyle = new DoubleCollection() { 2 };
-						strip.Opacity = 1.0;
-						strip.NumberColor = new SolidColorBrush(Colors.Transparent);
+						//strip.BodyVisibility = Visibility.Hidden;
+						//strip.BackgroundColor = new SolidColorBrush(Colors.Transparent);
+						//strip.FrameStyle = new DoubleCollection() { 2 };
+						//strip.Opacity = 1.0;
+						//strip.NumberColor = new SolidColorBrush(Colors.Transparent);
+						strip.Visibility = Visibility.Collapsed;
 						break;
 					}
 					case StripState.Leaving:
 					{
-						strip.BodyVisibility = Visibility.Visible;
+						strip.Visibility = Visibility.Visible;
 						strip.BackgroundColor = new SolidColorBrush(Colors.White);
 						strip.FrameStyle = default(DoubleCollection);
-						strip.Opacity = 0.5;
+						strip.Opacity = 0.4;
 						strip.NumberColor = new SolidColorBrush(Colors.Gray);
 						break;
 					}

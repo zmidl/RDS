@@ -10,11 +10,11 @@ none
 false
 TRACE
 
-51562143195
+19-286852973
 
-12-157170497
-12-1401562060
-Border.xaml;Cuvette.xaml;SampleTube.xaml;SingleTube.xaml;SixTube.xaml;
+25-1427776832
+184476777
+Border.xaml;Hole2.xaml;RD_CoolDown.xaml;RD_CupRack.xaml;Cuvette.xaml;Dictionaries.xaml;RD_EzBottleSlot.xaml;RD_Mag.xaml;RD_Reader.xaml;RD_ReagentBox.xaml;RD_ReagentRack.xaml;ReaderStripSlot.xaml;SampleRack.xaml;Hole.xaml;RD_ShakerRack.xaml;Strip.xaml;TipRack_1000uL.xaml;TipRack_300uL.xaml;RD_Heating.xaml;
 
-False
+True
 

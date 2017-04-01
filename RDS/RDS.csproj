@@ -41,9 +41,15 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\Microsoft.Expression.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>Apps\Dlls\System.Data.SQLite.dll</HintPath>
+    </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -80,9 +86,11 @@
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />
     <Compile Include="ViewModels\Common\Enumeration.cs" />
+    <Compile Include="ViewModels\Common\SQLiteHelper.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
     <Compile Include="ViewModels\ViewProperties\Cell.cs" />
     <Compile Include="ViewModels\ViewProperties\CupRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\Enzyme.cs" />
     <Compile Include="ViewModels\ViewProperties\Mag.cs" />
     <Compile Include="ViewModels\ViewProperties\Reader.cs" />
     <Compile Include="ViewModels\ViewProperties\SampleTube.cs" />
@@ -244,10 +252,16 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Apps\LisFiles\Barcode_20170329.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <Content Include="Apps\Database\Rds.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -281,8 +295,12 @@
     <Content Include="Apps\Dlls\msvcr110.dll" />
     <Content Include="Apps\Dlls\msvcr110d.dll" />
     <Content Include="Apps\Dlls\ShareDll_d.dll" />
+    <Content Include="Apps\Dlls\System.Data.SQLite%28.net2.0x64%29.dll" />
+    <Content Include="Apps\Dlls\System.Data.SQLite%282.0-3.5%29.dll" />
+    <Content Include="Apps\Dlls\System.Data.SQLite%284.0%29.dll" />
     <Content Include="Apps\Dlls\vccorlib110d.dll" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -5,9 +5,32 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
              xmlns:local="clr-namespace:RDSCL"
-             d:DesignHeight="670" d:DesignWidth="90" >
+             d:DesignHeight="650" d:DesignWidth="90" >
     <UserControl.Resources>
-        
+        <RadialGradientBrush x:Key="Content2">
+            <GradientStop Color="#FF575757" Offset="0.087"/>
+            <GradientStop Color="#33CFCFCF" Offset="1"/>
+            <GradientStop Color="#B9727272" Offset="0.344"/>
+        </RadialGradientBrush>
+
+        <LinearGradientBrush x:Key="Content" EndPoint="0.876,0.947" StartPoint="0.291,0.292">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Excircle2" EndPoint="0.945,0.962" StartPoint="-0.096,-0.018">
+            <GradientStop Color="#FFA0A0A0" Offset="0"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Excircle" EndPoint="1.097,1.116" StartPoint="0.312,0.211">
+            <GradientStop Color="Black" Offset="1"/>
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FF9C9B9B" Offset="0.312"/>
+            <GradientStop Color="#FFDEDEDE" Offset="0.267"/>
+        </LinearGradientBrush>
+
+        <DropShadowEffect x:Key="HoleEffect" BlurRadius="10" ShadowDepth="4"/>
     </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
@@ -15,25 +38,116 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
-                            <Canvas Width="90" Height="670">
-                                <Path x:Name="Path_Background" Data="M 2,2 L 20,2 A 10,10 0 1 0 70,2 L 88,2 88,668 70,668 A 15,15 0 1 0 20,668 L2,668z" StrokeDashArray="{Binding FrameStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" StrokeThickness="5" Width="90" Height="700" Fill="{Binding BackgroundColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" Stroke="Black" StrokeDashCap="Round" />
-                                <StackPanel x:Name="StackPanel_Body" Visibility="{Binding Path=BodyVisibility, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" Orientation="Vertical" Canvas.Left="15" Canvas.Top="30">
-                                    <local:Hole x:Name="SingleTube1" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding HolesContentColor[0].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
-                                    <local:Hole x:Name="SingleTube2" Width="60" Height="60" Margin="0,40,0,0" ContentColor="{Binding HolesContentColor[1].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
-                                    <local:Hole x:Name="SingleTube3" Width="60" Height="60" Margin="0,40,0,0" ContentColor="{Binding HolesContentColor[2].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
-                                    <local:Hole x:Name="SingleTube4" Width="60" Height="60" Margin="0,40,0,0" ContentColor="{Binding HolesContentColor[3].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
-                                    <local:Hole x:Name="SingleTube5" Width="60" Height="60" Margin="0,40,0,0" ContentColor="{Binding HolesContentColor[4].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
-                                    <local:Hole x:Name="SingleTube6" Width="60" Height="60" Margin="0,40,0,0" ContentColor="{Binding HolesContentColor[5].CellContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" ExcircleColor="#FFFFFFFF"/>
+                            <Canvas Width="90" Height="650">
+                                <Path x:Name="Path_Background" 
+                                          Data="M 2,2 
+                                          L 28,2 
+                                          28,12 
+                                          A 5,7 0 1 0 62,12 
+                                          L62,2 
+                                          88,2 
+                                          88,650 
+                                          62,650 
+                                          62,636
+                                          A 5,7 0 1 0 28,636 
+                                          L 28,650
+                                          L2,650z" 
+                                          StrokeDashArray="{Binding FrameStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
+                                          StrokeThickness="4" Width="90" Height="700" 
+                                          Fill="#FFC5C5C5" Stroke="{x:Null}" StrokeDashCap="Round" />
+                                <Canvas Width="90" Height="650">
+                                    <Path x:Name="Path_Frame" 
+                                          Data="M 2,2 
+                                          L 28,2 
+                                          28,12 
+                                          A 5,7 0 1 0 62,12 
+                                          L62,2 
+                                          88,2 
+                                          88,650 
+                                          62,650 
+                                          62,636
+                                          A 5,7 0 1 0 28,636 
+                                          L 28,650
+                                          L2,650z" 
+                                          StrokeDashArray="{Binding FrameStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
+                                          StrokeThickness="4" Width="90" Height="700" 
+                                          Fill="{x:Null}" Stroke="White" StrokeDashCap="Round" />
+
+
+
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="86" Stroke="White" StrokeThickness="2" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="180" Stroke="White" StrokeThickness="4" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="273" Stroke="White" StrokeThickness="4" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="320" Stroke="White" StrokeThickness="4" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="366" Stroke="White" StrokeThickness="4" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="458" Stroke="White" StrokeThickness="4" />
+                                    <Line X1="{Binding ElementName=Path_Background ,Path=Width}" Y1="0" Canvas.Top="552" Stroke="White" StrokeThickness="2" />
+                                    <Line X1="45" Y1="0" X2="45" Y2="578" Canvas.Top="35" Stroke="White" StrokeThickness="4" />
+
+                                    <Canvas.Effect>
+                                        <DropShadowEffect Color="#FFA2A2A2" BlurRadius="10"/>
+                                    </Canvas.Effect>
+                                </Canvas>
+                                <StackPanel x:Name="StackPanel_Body" Visibility="{Binding Path=BodyVisibility, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" Orientation="Vertical" Canvas.Left="11" Canvas.Top="33">
+                                    <local:Hole 
+                                        x:Name="SingleTube1" 
+                                        ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,20,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
+
+                                    <local:Hole x:Name="SingleTube2"  ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,25,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
+
+                                    <local:Hole x:Name="SingleTube3"  ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,25,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
+                                    
+                                    <local:Hole x:Name="SingleTube4"  ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,25,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
+
+                                    <local:Hole x:Name="SingleTube5"  ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,25,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
+
+                                    <local:Hole x:Name="SingleTube6"  ContentColor="{StaticResource ResourceKey = Content}" 
+                                        ContentColor2="{StaticResource ResourceKey = Content2}" 
+                                        ExcircleColor="{StaticResource ResourceKey = Excircle}"
+                                        ExcircleColor2="{StaticResource ResourceKey = Excircle2}"
+                                        Width="68" Height="68" Margin="0,25,0,0" 
+                                        Effect="{StaticResource ResourceKey = HoleEffect }"
+                                        ValueColor="{x:Null}"/>
                                 </StackPanel>
-                                
+
                                 <TextBox  
                                     x:Name="TextBlock_Number"  
                                     Width="90" 
                                     Text="{Binding Number, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
-                                    Canvas.Top="300" Background="Transparent"
+                                    Canvas.Top="-50" Background="Transparent"
                                     Foreground="{Binding NumberColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
                                     FontSize="50"  FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" />
-                                <Rectangle Width="90" Height="90"  Canvas.Top="300" Fill="#05000000" />
+                                <Rectangle Width="90" Height="90"  Canvas.Top="-50" Fill="#05000000" />
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

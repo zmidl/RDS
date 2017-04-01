@@ -19,13 +19,11 @@ namespace RDS.Views.Monitor
 	{
 		Action IExitView.ExitView { get; set; }
 
-		public SampleViewModel ViewModel = new SampleViewModel();
+		public SampleViewModel ViewModel { get { return this.DataContext as SampleViewModel; } }
 
 		public SampleView()
 		{
 			InitializeComponent();
-			this.DataContext = new SampleViewModel();
-
 		}
 
 		private void Button_Exit_Click(object sender, RoutedEventArgs e)
@@ -45,8 +43,9 @@ namespace RDS.Views.Monitor
 			{
 				this.ViewModel.Test.Execute(null);
 			}
-
-			this.ViewModel.DatatableToEntity(XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
+			var table = XmlOperation.ReadXmlFile(ofd.FileName).Tables[2];
+			var path = System.IO.Directory.GetCurrentDirectory();
+			//this.ViewModel.DatatableToEntity(XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
 		}
 
 		private void Button_Layout_Click(object sender, RoutedEventArgs e)
@@ -59,13 +58,10 @@ namespace RDS.Views.Monitor
 		{
 			Tip tipDescription = new Tip(TipState.NoExist);
 			var a = this.ViewModel.EntityToXmlString(tipDescription);
-
-			
 			var c = this.ViewModel.XmlStringToEntity(a);
 			var t1 = c.GetType();
 			var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
 			var t2 = tipDescription.GetType();
-			
 			//this.ViewModel.Test.Execute(null);
 			//var a=this.FindResource("Uid").ToString();
 			//MessageBox.Show(a);

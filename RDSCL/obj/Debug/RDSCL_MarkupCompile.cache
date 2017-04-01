@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 
-16-1255874963
+19-286852973
 
-18369012869
-151094000046
-Border.xaml;Hole2.xaml;RD_CupRack.xaml;Cuvette.xaml;Dictionaries.xaml;RD_Mag.xaml;RD_Reader.xaml;RD_ReagentBox.xaml;RD_ReagentRack.xaml;SampleRack.xaml;Hole.xaml;RD_ShakerRack.xaml;Strip.xaml;TipRack_1000uL.xaml;TipRack_300uL.xaml;RD_Heating.xaml;
+21244788458
+184476777
+Border.xaml;Hole2.xaml;RD_CoolDown.xaml;RD_CupRack.xaml;Cuvette.xaml;Dictionaries.xaml;RD_EzBottleSlot.xaml;RD_Mag.xaml;RD_Reader.xaml;RD_ReagentBox.xaml;RD_ReagentRack.xaml;ReaderStripSlot.xaml;SampleRack.xaml;Hole.xaml;RD_ShakerRack.xaml;Strip.xaml;TipRack_1000uL.xaml;TipRack_300uL.xaml;RD_Heating.xaml;
 
 False
 

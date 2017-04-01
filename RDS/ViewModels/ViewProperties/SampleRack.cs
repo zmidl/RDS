@@ -4,19 +4,20 @@ using System.Windows;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using RDSCL;
 
 namespace RDS.ViewModels.ViewProperties
 {
 	public class SampleRack:ViewModel
 	{
-		private Visibility visibility;
-		public Visibility Visibility
+		private SampleRackState sampleRackState=SampleRackState.NotSample;
+		public SampleRackState SampleRackState
 		{
-			get { return visibility; }
+			get { return sampleRackState; }
 			set
 			{
-				visibility = value;
-				this.RaisePropertyChanged(nameof(Visibility));
+				sampleRackState = value;
+				this.RaisePropertyChanged(nameof(SampleRackState));
 			}
 		}
 
@@ -27,6 +28,7 @@ namespace RDS.ViewModels.ViewProperties
 		public SampleRack(int columnIndex)
 		{
 			this.InitializeSampleHoles(columnIndex);
+			this.SampleRackState = SampleRackState.NotSample;
 		}
 		
 		private void InitializeSampleHoles(int columnIndex)

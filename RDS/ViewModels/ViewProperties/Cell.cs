@@ -10,8 +10,8 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Cell:ViewModel
 	{
-		private CellState cellState;
-		public CellState CellState
+		private HoleState cellState;
+		public HoleState CellState
 		{
 			get { return cellState; }
 			set
@@ -21,9 +21,9 @@ namespace RDS.ViewModels.ViewProperties
 
 				switch (value)
 				{
-					case CellState.NoCell: { this.CellContentColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
-					case CellState.Empty: { this.CellContentColor = new SolidColorBrush(Colors.Yellow); break; }
-					case CellState.Full: { this.CellContentColor = new SolidColorBrush(Colors.Brown); break; }
+					case HoleState.None: { this.CellContentColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
+					case HoleState.Empty: { this.CellContentColor = new SolidColorBrush(Colors.Yellow); break; }
+					case HoleState.Full: { this.CellContentColor = new SolidColorBrush(Colors.Brown); break; }
 					default: break;
 				}
 				this.RaisePropertyChanged(nameof(this.CellContentColor));
@@ -32,7 +32,7 @@ namespace RDS.ViewModels.ViewProperties
 
 		public SolidColorBrush CellContentColor { get; set; }
 
-		public Cell(CellState cellState)
+		public Cell(HoleState cellState)
 		{
 			this.CellState = cellState;
 		}

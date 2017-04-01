@@ -36,10 +36,13 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\Microsoft.Expression.Drawing.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -59,11 +62,17 @@
     <Compile Include="Hole2.xaml.cs">
       <DependentUpon>Hole2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RD_CoolDown.xaml.cs">
+      <DependentUpon>RD_CoolDown.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RD_CupRack.xaml.cs">
       <DependentUpon>RD_CupRack.xaml</DependentUpon>
     </Compile>
     <Compile Include="Cuvette.xaml.cs">
       <DependentUpon>Cuvette.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RD_EzBottleSlot.xaml.cs">
+      <DependentUpon>RD_EzBottleSlot.xaml</DependentUpon>
     </Compile>
     <Compile Include="RD_Mag.xaml.cs">
       <DependentUpon>RD_Mag.xaml</DependentUpon>
@@ -76,6 +85,9 @@
     </Compile>
     <Compile Include="RD_ReagentRack.xaml.cs">
       <DependentUpon>RD_ReagentRack.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ReaderStripSlot.xaml.cs">
+      <DependentUpon>ReaderStripSlot.xaml</DependentUpon>
     </Compile>
     <Compile Include="SampleRack.xaml.cs">
       <DependentUpon>SampleRack.xaml</DependentUpon>
@@ -103,6 +115,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="RD_CoolDown.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RD_CupRack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -112,6 +128,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Dictionaries.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RD_EzBottleSlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -128,6 +148,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="RD_ReagentRack.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ReaderStripSlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

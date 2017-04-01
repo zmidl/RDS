@@ -12,7 +12,14 @@ namespace RDS.Views
 	/// </summary>
 	public partial class MainWindow : Window
 	{
+
+		bool aa;
+
 		private object CurrentContent;
+
+		private PrecheckView currentTaskView;
+
+		private MainView mainView = new MainView();
 
 		public static event EventHandler<GlobalNotifyArgs> GlobalNotify;
 
@@ -24,6 +31,8 @@ namespace RDS.Views
 		public MainWindow()
 		{
 			InitializeComponent();
+
+			this.currentTaskView = new PrecheckView();
 			this.CurrentContent = this.Content;
 			this.DisplayTwoButton();
 		}
@@ -40,25 +49,10 @@ namespace RDS.Views
 			});
 			task2.ContinueWith(t =>
 			{
-				this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.Content = new MainView(); }));
+				this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.Content = this.mainView; }));
 			});
 
 			task2.Start();
-		}
-
-		private void Button_ShowPrecheckView_Click(object sender, RoutedEventArgs e)
-		{
-			this.Content = new PrecheckView();
-		}
-
-		private void Button_ShowReportView_Click(object sender, RoutedEventArgs e)
-		{
-			General.ExitView(this.CurrentContent, this, ((IExitView)new Monitor.ReportView()));
-		}
-
-		private void Button_ShowMaintenanceView_Click_1(object sender, RoutedEventArgs e)
-		{
-			General.ExitView(this.CurrentContent, this, ((IExitView)new MaintenanceView()));
 		}
 
 		private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -72,10 +66,13 @@ namespace RDS.Views
 			{
 				if (Keyboard.IsKeyDown(Key.L))
 				{
+					this.aa = !this.aa;
+
 					ResourceDictionary langRd = null;
 					try
 					{
-						langRd = Application.LoadComponent(new Uri("/RDS;component/Apps/Languages/" + "en-US" + ".xaml", UriKind.Relative)) as ResourceDictionary;
+						if(aa) langRd = Application.LoadComponent(new Uri(Properties.Resources.English, UriKind.Relative)) as ResourceDictionary;
+						else langRd = Application.LoadComponent(new Uri(Properties.Resources.Chinese, UriKind.Relative)) as ResourceDictionary;
 					}
 					catch
 					{
@@ -93,10 +90,16 @@ namespace RDS.Views
 				}
 				else if(Keyboard.IsKeyDown(Key.S))
 				{
+
 					if (Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState1"));
 					else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState2"));
 					else if (Keyboard.IsKeyDown(Key.NumPad3)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState3"));
 					else if (Keyboard.IsKeyDown(Key.NumPad4)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState4"));
+
+					else if (Keyboard.IsKeyDown(Key.N)) this.OnGlobalNotify(new GlobalNotifyArgs($"NotSample"));
+					else if (Keyboard.IsKeyDown(Key.P)) this.OnGlobalNotify(new GlobalNotifyArgs($"PrepareSample"));
+					else if (Keyboard.IsKeyDown(Key.A)) this.OnGlobalNotify(new GlobalNotifyArgs($"AlreadySample"));
+
 				}
 				else if (Keyboard.IsKeyDown(Key.M))
 				{
@@ -109,11 +112,26 @@ namespace RDS.Views
 						this.OnGlobalNotify(new GlobalNotifyArgs($"MixtureState2"));
 					}
 				}
+				else if(Keyboard.IsKeyDown(Key.R) && Keyboard.IsKeyDown(Key.D))
+				{
+					//if (Keyboard.IsKeyDown(Key.NumPad1))
+					//{
+					//	this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme+"));
+					//}
+					//else if (Keyboard.IsKeyDown(Key.NumPad2))
+					//{
+					//	this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme-"));
+					//}
+					//else if (Keyboard.IsKeyDown(Key.D))
+					//{
+					//	if (Keyboard.IsKeyDown(Key.S))
+					//	{
+							this.OnGlobalNotify(new GlobalNotifyArgs($"Admin"));
+					//	}
+					//}
+				}
 			}
 		}
-
-		//[DllImport("")] 
-		
 	}
 
 	public class GlobalNotifyArgs : EventArgs

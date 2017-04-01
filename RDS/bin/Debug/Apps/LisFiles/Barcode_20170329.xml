@@ -1,0 +1,20 @@
+﻿<Barcode CreateTime="20150113 14:10:24" ModifyTime="20150113 14:10:24">
+    <Records>
+        <Record strBarcode="2009161629" strItem="UU" strSampleID="20141225CEH001" strName="郑志营" strBirthday="19801126" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="34" />
+        <Record strBarcode="2009164077" strItem="CT,NG,UU" strSampleID="20141225CEH002" strName="常琦" strBirthday="19940825" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="20" />
+        <Record strBarcode="2009164073" strItem="CT,NG,UU" strSampleID="20141225CEH003" strName="丛威" strBirthday="19821205" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="32" />
+        <Record strBarcode="2009165955" strItem="CT,NG,UU" strSampleID="20141225CEH004" strName="张翠" strBirthday="19840105" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="30" />
+        <Record strBarcode="2009168869" strItem="CT,NG,UU" strSampleID="20141225CEH005" strName="韩文泽" strBirthday="19860214" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="28" />
+        <Record strBarcode="2009164404" strItem="NG" strSampleID="20141225CEH006" strName="尹英爱" strBirthday="19640707" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="50" />
+        <Record strBarcode="2009168691" strItem="UU" strSampleID="20141225CEH007" strName="李根兄" strBirthday="19620627" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="52" />
+        <Record strBarcode="2009170707" strItem="CT,NG,UU" strSampleID="20141225CEH008" strName="刘艳红" strBirthday="19830304" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="31" />
+        <Record strBarcode="2009169784" strItem="UU" strSampleID="20141225CEH009" strName="肖鸿超" strBirthday="19840603" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="30" />
+        <Record strBarcode="2009171668" strItem="CT,NG,UU" strSampleID="20141225CEH010" strName="杜红霞" strBirthday="19831225" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="31" />
+        <Record strBarcode="2009172238" strItem="CT,NG,UU" strSampleID="20141225CEH011" strName="郭风英" strBirthday="19730508" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="41" />
+        <Record strBarcode="2009178506" strItem="CT,UU" strSampleID="20141225CEH012" strName="刘义荣" strBirthday="19541011" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="60" />
+        <Record strBarcode="2009179845" strItem="CT,NG,UU" strSampleID="20141225CEH013" strName="梁超" strBirthday="19751128" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="39" />
+        <Record strBarcode="2009177455" strItem="CT,NG,UU" strSampleID="20141225CEH014" strName="高轶凡" strBirthday="19821006" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="32" />
+        <Record strBarcode="2009170170" strItem="CT,NG" strSampleID="20141225CEH015" strName="罗亚琴" strBirthday="19780717" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="36" />
+        <Record strBarcode="2009177997" strItem="CT,NG,UU" strSampleID="20141225CEH016" strName="梁玉柱" strBirthday="19680301" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="46" />
+    </Records>
+</Barcode>

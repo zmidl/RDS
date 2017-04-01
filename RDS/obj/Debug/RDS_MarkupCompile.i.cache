@@ -11,10 +11,10 @@ false
 DEBUG;TRACE
 C:\zhaomin\sourcecode\RDS\RDS\Apps\App.xaml
 1930685556
-102146036427
-53999444034
-191655471945
+15-2120853800
+55-568366810
+22-626196567
 Apps\Languages\en-US.xaml;Apps\Languages\zh-CN.xaml;Apps\Styles\TextBlockStyle.xaml;Views\FinalView.xaml;Views\HistroyView.xaml;Views\InitializeSuppliesView.xaml;Views\LayoutSetting.xaml;Views\MainView.xaml;Views\Monitor\DiagramView.xaml;Views\HelpView.xaml;Views\Monitor\MonitorView.xaml;Views\Monitor\ReagentView.xaml;Views\Monitor\ReportView.xaml;Views\Monitor\SampleView.xaml;Views\MaintenanceView.xaml;Views\MainWindow.xaml;Views\PrecheckView.xaml;Views\RdsMessageBox.xaml;Views\TaskView.xaml;
 
-True
+False
 

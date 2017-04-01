@@ -37,7 +37,7 @@ namespace RDS.ViewModels.ViewProperties
 
 			this.State = stripState;
 
-			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(CellState.NoCell)); }
+			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(HoleState.None)); }
 		}
 	}
 }

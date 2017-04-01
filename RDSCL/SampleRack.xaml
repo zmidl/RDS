@@ -15,9 +15,9 @@
                             <Canvas Width="120" Height="2400">
                                 <Rectangle Width="120" Height="2400" StrokeThickness="5" RadiusX="50" RadiusY="90" Stroke="Black" Fill="#FF404040" />
                                 <StackPanel Orientation="Vertical" Height="2400" Canvas.Left="30" Canvas.Top="0">
-                                    <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[0].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,180,0,0"/>
-                                    <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[1].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
-                                    <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[2].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
+                                    <local:Hole Width="60" Height="60" ContentColor2="{Binding SamplesContentColor[0].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,180,0,0"/>
+                                    <local:Hole Width="60" Height="60" ContentColor2="{Binding SamplesContentColor[1].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
+                                    <local:Hole Width="60" Height="60" ContentColor2="{Binding SamplesContentColor[2].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
                                     <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[3].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
                                     <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[4].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>
                                     <local:Hole Width="60" Height="60" ContentColor="{Binding SamplesContentColor[5].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleRack}}}" Margin="0,40,0,0"/>

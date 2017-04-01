@@ -4,6 +4,7 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:zmcl="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
+             xmlns:zmcl2="clr-namespace:ZMCL.MyControl.WhiteStyle;assembly=ZMCL"
              xmlns:common="clr-namespace:RDS.ViewModels.Common"
              xmlns:rdsc="clr-namespace:RDSCL;assembly=RDSCL"
              xmlns:local="clr-namespace:RDS.Views.Monitor" x:Class="RDS.Views.Monitor.MonitorView" 
@@ -20,16 +21,6 @@
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="1900" Height="850"  Background="#FF7199FF">
-            <Canvas Canvas.Left="150" Canvas.Top="120" Width="180" Height="620" PreviewMouseUp="Canvas_PreviewMouseUp">
-                <Rectangle RadiusX="5" RadiusY="5" Width="180" Height="620" Fill="#FF5A5A5A" Stroke="Black" />
-                <rdsc:SampleRack SamplesContentColor="{Binding SampleViewModel.TwentyUnionSampleHoles[0].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="90" />
-                <rdsc:SampleRack SamplesContentColor="{Binding SampleViewModel.TwentyUnionSampleHoles[1].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="60" />
-                <rdsc:SampleRack SamplesContentColor="{Binding SampleViewModel.TwentyUnionSampleHoles[2].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="30" />
-                <rdsc:SampleRack SamplesContentColor="{Binding SampleViewModel.TwentyUnionSampleHoles[3].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="0" />
-                <rdsc:Border Width="187" Canvas.Left="-3" Canvas.Bottom="-60"/>
-                <rdsc:RD_ReagentRack PreviewMouseUp="Canvas_PreviewMouseUp_1" Canvas.Top="20" Canvas.Left="-30" />
-            </Canvas>
-
             <Canvas Canvas.Left="330" Canvas.Top="120" Width="180" Height="620">
                 <Rectangle RadiusX="5" RadiusY="5" Width="180" Height="620" Fill="#FFC7C7C7" Stroke="Black" />
                 <Ellipse Width="36" Height="36" Canvas.Bottom="10" Canvas.Left="72" Fill="#FF7199FF" Stroke="#FF121212"/>
@@ -65,6 +56,16 @@
                 <rdsc:RD_CupRack ItemsSource="{Binding CupRacks[2].Strips}" Width="170" Height="160" Canvas.Left="5"  Canvas.Bottom="70"/>
             </Canvas>
 
+            <Canvas Canvas.Left="150" Canvas.Top="120" Width="180" Height="620">
+                <Rectangle RadiusX="5" RadiusY="5" Width="180" Height="620" Fill="#FF5A5A5A" Stroke="Black" />
+                <rdsc:SampleRack Visibility="{Binding SampleViewModel.SampleRacks[0].Visibility}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="90" MouseUp="SampleRack_MouseUp" />
+                <rdsc:SampleRack Visibility="{Binding SampleViewModel.SampleRacks[1].Visibility}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="60" MouseUp="SampleRack_MouseUp" />
+                <rdsc:SampleRack Visibility="{Binding SampleViewModel.SampleRacks[2].Visibility}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="30" MouseUp="SampleRack_MouseUp" />
+                <rdsc:SampleRack Visibility="{Binding SampleViewModel.SampleRacks[3].Visibility}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="30" Canvas.Bottom="0" Canvas.Right="0" MouseUp="SampleRack_MouseUp" />
+                <rdsc:Border Width="187" Canvas.Left="-3" Canvas.Bottom="-60"/>
+                <rdsc:RD_ReagentRack Panel.ZIndex="3"  Canvas.Top="20" Canvas.Left="-30" />
+            </Canvas>
+
             <Canvas Canvas.Left="870" Canvas.Top="480"  Width="540" Height="260">
                 <Rectangle RadiusX="5" RadiusY="5" Width="540" Height="260" Fill="#FFC7C7C7" Stroke="Black" />
                 <rdsc:RD_Heating x:Name="Heating_1" ItemsSource="{Binding Heating.Strips}" Width="170" Height="180" Canvas.Top="20" Canvas.Left="10" />
@@ -72,15 +73,28 @@
                 <rdsc:RD_Mag ItemsSource="{Binding Mag.Strips}" Width="125" Height="180" Canvas.Top="20" Canvas.Left="340"/>
             </Canvas>
 
-            <rdsc:RD_Reader x:Name="Reader_1" Source="{Binding Reader}" Width="410" Height="380" Canvas.Left="936" Canvas.Top="90"/>
-            <StackPanel Width="610" Orientation="Horizontal" Canvas.Left="62">
-                <TextBlock Style="{DynamicResource TextBlockStyle1}" Text="剩余时间"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center" />
-                <TextBlock Style="{DynamicResource TextBlockStyle2}" x:Name="TextBlock_RemainingTime" Text="12"  Width="100" Height="40" Margin="20,0,0,0" FontSize="24" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"/>
+            <rdsc:RD_Reader x:Name="Reader_1" Source="{Binding Reader}" Width="410" Height="250" Canvas.Left="915" Canvas.Top="225">
+                <rdsc:RD_Reader.Effect>
+                    <DropShadowEffect BlurRadius="30"/>
+                </rdsc:RD_Reader.Effect>
+            </rdsc:RD_Reader>
+            <Canvas Width="220" Height="800"  Canvas.Left="1643" Canvas.Top="100">
+                <TextBlock Style="{DynamicResource TextBlockStyle1}" Text="{DynamicResource Test}"  Width="258" Height="90"  FontSize="60" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="5"/>
+                <zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>
+                <zmcl2:MyCheckBox RenderTransformOrigin="0.5,0.5" Canvas.Left="-40" Canvas.Top="210" Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked" >
+                    <zmcl2:MyCheckBox.RenderTransform>
+                        <TransformGroup>
+                            <ScaleTransform ScaleX="2.2" ScaleY="2"/>
+                            <SkewTransform/>
+                            <RotateTransform/>
+                            <TranslateTransform/>
+                        </TransformGroup>
+                    </zmcl2:MyCheckBox.RenderTransform>
+                </zmcl2:MyCheckBox>
 
-                <zmcl:UcButton x:Name="Button_OnAndOff" Content="启动" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_OnAndOff_Click_1"/>
-                <zmcl:UcButton x:Name="Button_Emergency" Command="{Binding Emergency}" Content="{DynamicResource Button_Emergency}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" Click="Button_Emergency_Click"/>
-                <zmcl:UcButton x:Name="Button_End" Content="{DynamicResource Button_FinishTask}" Width="100" Height="45" Margin="20,0,0,0" FontSize="24" IsEnabled="False" Click="Button_End_Click_1" />
-            </StackPanel>
+
+
+            </Canvas>
         </Canvas>
     </Viewbox>
 </UserControl>

@@ -1,0 +1,97 @@
+﻿<UserControl
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+    xmlns:local="clr-namespace:RDSCL"
+    xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="RDSCL.RD_CoolDown"
+    mc:Ignorable="d"
+    xmlns:system="clr-namespace:System;assembly=mscorlib"
+    d:DesignHeight="480" d:DesignWidth="110">
+
+    <UserControl.Resources>
+        <PathGeometry 
+            x:Key="EdgePath"
+            Figures="M 0,12
+            A12,12 0,0,1 12,0
+            12,12 0,0,1 20,8
+            27,40 0,0,0 70,8
+            12,12 0,0,1 78,0
+            12,12 0,0,1 90,12
+            L90,460
+            A12,12 0,0,1 78,472
+            12,12 0,0,1 70,468
+            27,40 0,0,0 20,468
+            12,12 0,0,1 12,472
+            12,12 0,0,1 0,460z" />
+
+        <RadialGradientBrush x:Key="EllipseFill" GradientOrigin="0.575,0.619" RadiusY="0.436" RadiusX="0.436" Center="0.571,0.612">
+            <GradientStop Color="#FF211300" Offset="1"/>
+            <GradientStop Color="#FF593E16" Offset="0.885"/>
+        </RadialGradientBrush>
+
+        <LinearGradientBrush x:Key="EllipseStroke" EndPoint="0.834,0.899" StartPoint="0.462,0.449">
+            <GradientStop Color="#FF342400" Offset="0"/>
+            <GradientStop Color="#FFC3AB76" Offset="0.934"/>
+        </LinearGradientBrush>
+
+        <Style x:Key="S1" TargetType="{x:Type Ellipse}">
+            <Setter Property="Fill" Value="{StaticResource EllipseFill}"/>
+            <Setter Property="Stroke" Value="{StaticResource EllipseStroke}"/>
+            <Setter Property="Width" Value="68"/>
+            <Setter Property="Height" Value="68"/>
+            <Setter Property="StrokeThickness" Value="4"/>
+            <Setter Property="Canvas.Left" Value="23"/>
+        </Style>
+
+        <DropShadowEffect x:Key="HoleEffect" BlurRadius="10" ShadowDepth="4"/>
+    </UserControl.Resources>
+
+
+    <UserControl.Style>
+        <Style TargetType="{x:Type UserControl}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type UserControl}">
+                        <Viewbox Stretch="Fill">
+                            <Canvas x:Name="ParentCanvas" Width="110" Height="480">
+                                <Path x:Name="Path_Background" Data="{StaticResource EdgePath}" Canvas.Top="5" Canvas.Left="12" StrokeThickness="4" Fill="#7FFFFFFF">
+                                    <Path.Stroke>
+                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.5,0.5">
+                                            <GradientStop Color="#FF8B4600" Offset="0"/>
+                                            <GradientStop Color="#FF1B0E00" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Path.Stroke>
+                                    <Path.Effect>
+                                        <ee:EmbossedEffect Color="#FF763600" Height="0.00063" Amount="3.00000000003"/>
+                                    </Path.Effect>
+                                </Path>
+
+                                <Path Data="{StaticResource EdgePath}" Canvas.Top="5" Canvas.Left="12" StrokeThickness="4" Fill="{x:Null}">
+                                    <Path.Stroke>
+                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0.063,0.5">
+                                            <GradientStop Color="#008B4600" Offset="0"/>
+                                            <GradientStop Color="#FF3C352D" Offset="0.174"/>
+                                            <GradientStop Color="#33FFFFFF" Offset="0.677"/>
+                                            <GradientStop Color="#FF3C1F00" Offset="1"/>
+                                            <GradientStop Color="#75000000" Offset="0.938"/>
+                                            <GradientStop Color="#BD080706" Offset="0.361"/>
+                                            <GradientStop Color="#61F9F9F9" Offset="0.806"/>
+                                        </LinearGradientBrush>
+                                    </Path.Stroke>
+                                </Path>
+
+
+                                <Ellipse Style="{StaticResource ResourceKey=S1}" Canvas.Top="70"/>
+                                <Ellipse Style="{StaticResource ResourceKey=S1}" Canvas.Top="163"/>
+                                <Ellipse Style="{StaticResource ResourceKey=S1}" Canvas.Top="253" />
+                                <Ellipse Style="{StaticResource ResourceKey=S1}" Canvas.Top="346" />
+                            </Canvas>
+                        </Viewbox>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+
+</UserControl>

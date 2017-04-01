@@ -20,14 +20,7 @@
             <StackPanel x:Name="StackPanel_Animation" Orientation="Vertical"  DockPanel.Dock="Left">
                 <TextBlock Text="模拟动画" FontSize="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock x:Name="TextBlock_count" Text="12" FontSize="500" HorizontalAlignment="Center" VerticalAlignment="Center"/>
-
             </StackPanel>
-
-
         </Viewbox>
-
-        <Border x:Name="Page_1" Background="Red" Visibility="Hidden" Width="1892" Height="992"/>
     </Canvas>
-
-
 </Window>

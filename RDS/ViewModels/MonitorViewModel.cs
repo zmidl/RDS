@@ -1,6 +1,8 @@
 ﻿using RDS.ViewModels.Common;
 using System.Collections.ObjectModel;
 using RDS.ViewModels.ViewProperties;
+using System;
+using System.Windows;
 
 namespace RDS.ViewModels
 {
@@ -94,15 +96,15 @@ namespace RDS.ViewModels
 
 		public void SetSampleTubeState(int twentyUnionSampleIndex, int sampleIndex, SampleTubeState sampleState)
 		{
-			this.SampleViewModel.TwentyUnionSampleHoles[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
+			this.SampleViewModel.SampleRacks[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
 		}
 
-		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, CellState cellState)
+		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, HoleState cellState)
 		{
 			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
 		}
 
-		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, CellState cellState)
+		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, HoleState cellState)
 		{
 			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
 		}
@@ -110,6 +112,58 @@ namespace RDS.ViewModels
 		public void SetTipState(int tipRacksIndex, int tipsIndex, TipState tipState)
 		{
 			this.TipRacks[tipRacksIndex].Tips[tipsIndex].TipState = tipState;
+		}
+
+		public void SetReaderCellState(int stripsIndex, int cellsIndex, HoleState cellState)
+		{
+			this.Reader.Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
+		}
+
+		public void SetReaderEnzymeValue(int enzymeIndex, int value)
+		{
+			this.Reader.Enzymes[enzymeIndex].Value += value;
+		}
+
+		public void SetSampleRackVisibility(int sampleRackIndex,Visibility visibility)
+		{
+			//this.SampleViewModel.SampleRacks[sampleRackIndex].Visibility = visibility;
+		}
+
+		public string TimeCount
+		{
+			get { return $"{fiveM.Hour.ToString("00")}:{ fiveM.Minute.ToString("00") }:{ fiveM.Second.ToString("00")}"; }
+		}
+
+		private DateTime fiveM = DateTime.Parse("00:05:00");
+		private System.Timers.Timer timer;
+
+		public void A()
+		{
+			this.timer = new System.Timers.Timer(1000);
+
+			this.timer.Elapsed += Timer_Elapsed;
+
+			this.timer.AutoReset = true;
+		}
+
+		public void B()
+		{
+			this.timer.Enabled = true;
+			this.timer.Start();
+		}
+
+		public void C()
+		{
+			this.timer.Stop();
+		}
+
+		private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
+		{
+			if (fiveM != Convert.ToDateTime("00:00:00"))
+			{
+				fiveM = fiveM.AddSeconds(-1);
+				this.RaisePropertyChanged(nameof(TimeCount));
+			}
 		}
 	}
 }

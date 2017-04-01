@@ -15,24 +15,47 @@ namespace RDSCL
 	{
 		private static SolidColorBrush DefaultContentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2AD0D0D0"));
 
-
-		public SolidColorBrush ExcircleColor
+		public Brush ExcircleColor
 		{
 			get { return (SolidColorBrush)GetValue(ExcircleColorProperty); }
 			set { SetValue(ExcircleColorProperty, value); }
 		}
 		public static readonly DependencyProperty ExcircleColorProperty =
-			DependencyProperty.Register(nameof(ExcircleColor), typeof(SolidColorBrush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.White)));
+			DependencyProperty.Register(nameof(ExcircleColor), typeof(Brush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.White)));
 
-		public SolidColorBrush ContentColor
+		public Brush ExcircleColor2
 		{
-			get { return (SolidColorBrush)GetValue(ContentColorProperty); }
+			get { return (SolidColorBrush)GetValue(ExcircleColor2Property); }
+			set { SetValue(ExcircleColor2Property, value); }
+		}
+		public static readonly DependencyProperty ExcircleColor2Property =
+			DependencyProperty.Register(nameof(ExcircleColor2), typeof(Brush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.White)));
+
+
+		public Brush ContentColor
+		{
+			get { return (Brush)GetValue(ContentColorProperty); }
 			set { SetValue(ContentColorProperty, value); }
 		}
 		public static readonly DependencyProperty ContentColorProperty =
-			DependencyProperty.Register
-			(nameof(ContentColor), typeof(SolidColorBrush), typeof(Hole),
-			new PropertyMetadata(Hole.DefaultContentColor));
+			DependencyProperty.Register(nameof(ContentColor), typeof(Brush), typeof(Hole),new PropertyMetadata(new SolidColorBrush(Colors.LightGray)));
+
+		public Brush ContentColor2
+		{
+			get { return (Brush)GetValue(ContentColor2Property); }
+			set { SetValue(ContentColor2Property, value); }
+		}
+		public static readonly DependencyProperty ContentColor2Property =
+			DependencyProperty.Register(nameof(ContentColor2), typeof(Brush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.LightGray)));
+
+
+		public SolidColorBrush ValueColor
+		{
+			get { return (SolidColorBrush)GetValue(ValueColorProperty); }
+			set { SetValue(ValueColorProperty, value); }
+		}
+		public static readonly DependencyProperty ValueColorProperty =
+			DependencyProperty.Register(nameof(ValueColor), typeof(SolidColorBrush), typeof(Hole), new PropertyMetadata(new SolidColorBrush(Colors.LightGray)));
 
 		public double Value
 		{

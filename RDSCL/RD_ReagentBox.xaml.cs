@@ -22,11 +22,11 @@ namespace RDSCL
 	{
 		public double Value
 		{
-			get { return (double)GetValue(ValueProperty)*2; }
-			set { SetValue(ValueProperty, value*2); }
+			get { return (double)GetValue(ValueProperty); }
+			set { SetValue(ValueProperty, value); }
 		}
 		public static readonly DependencyProperty ValueProperty =
-			DependencyProperty.Register(nameof(Value), typeof(double), typeof(RD_ReagentBox), new PropertyMetadata(100d));
+			DependencyProperty.Register(nameof(Value), typeof(double), typeof(RD_ReagentBox), new PropertyMetadata(0d));
 
 
 		public RD_ReagentBox()

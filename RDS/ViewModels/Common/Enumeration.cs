@@ -9,9 +9,9 @@
 		Sampled = 4
 	}
 
-	public enum CellState
+	public enum HoleState
 	{
-		NoCell = 0,
+		None = 0,
 		Empty = 1,
 		Full = 2
 	}

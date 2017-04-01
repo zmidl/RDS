@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace RDS.Views
@@ -8,21 +9,39 @@ namespace RDS.Views
 	/// </summary>
 	public partial class MainView : UserControl
     {
-        private TaskView taskView;
+		public Action<int> NotifyParentView;  
 
-        private object PreviousContent;
+        private TaskView taskView = new TaskView();
+
+		private HistroyView histroyView = new HistroyView();
+
+		private HelpView helpView = new HelpView();
+
+		private object PreviousContent;
 
         public MainView()
         {
             InitializeComponent();
-            this.taskView = new TaskView();
+
+			MainWindow.GlobalNotify += MainWindow_GlobalNotify;
+
             this.ContentControl_CurrentContent.Content = this.taskView;
+
             this.PreviousContent = this.ContentControl_CurrentContent.Content;
         }
 
-        private void Button_HistroyData_Click(object sender, RoutedEventArgs e)
+		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
+		{
+			if(e.Index=="Admin")
+			{
+				this.Canvas_Admin.Visibility = Visibility.Visible;
+			}
+			//throw new System.NotImplementedException();
+		}
+
+		private void Button_HistroyData_Click(object sender, RoutedEventArgs e)
         {
-            this.ContentControl_CurrentContent.Content = new HistroyView();
+			this.ContentControl_CurrentContent.Content = this.histroyView;
         }
 
         private void Button_CurrentTask_Click(object sender, RoutedEventArgs e)
@@ -32,7 +51,12 @@ namespace RDS.Views
 
         private void Button_Help_Click(object sender, RoutedEventArgs e)
         {
-            this.ContentControl_CurrentContent.Content = new HelpView();
+			this.ContentControl_CurrentContent.Content = this.helpView;
         }
-    }
+
+		private void Button_Admin_Click(object sender, RoutedEventArgs e)
+		{
+			this.Canvas_Admin.Visibility = Visibility.Collapsed;
+		}
+	}
 }

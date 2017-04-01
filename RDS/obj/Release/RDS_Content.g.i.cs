@@ -8,7 +8,20 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/images/shiji2.png")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/images/shiji3.png")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/lisfiles/barcode_20170329.xml")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/database/rds.db")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110d.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110ud.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfcm110d.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfcm110ud.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcp110.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcp110d.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcr110.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcr110d.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/sharedll_d.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/system.data.sqlite(.net2.0x64).dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/system.data.sqlite(2.0-3.5).dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/system.data.sqlite(4.0).dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/vccorlib110d.dll")]
 
 

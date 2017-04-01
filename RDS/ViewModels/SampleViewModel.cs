@@ -14,7 +14,7 @@ namespace RDS.ViewModels
 	public class SampleViewModel : ViewModel
 	{
 		
-		public ObservableCollection<SampleRack> TwentyUnionSampleHoles { get; set; } = new ObservableCollection<SampleRack>();
+		public ObservableCollection<SampleRack> SampleRacks { get; set; } = new ObservableCollection<SampleRack>();
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
@@ -29,7 +29,7 @@ namespace RDS.ViewModels
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				this.TwentyUnionSampleHoles.Add(new SampleRack(i));
+				this.SampleRacks.Add(new SampleRack(i));
 			}
 
 			this.Test = new RelayCommand

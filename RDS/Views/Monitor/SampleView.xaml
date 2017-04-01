@@ -140,7 +140,7 @@
                     </zmlc:UcTextBlock>
 
                     <Canvas Margin="2,19,0,0">
-                        <rdscl:SampleRack SamplesContentColor="{Binding TwentyUnionSampleHoles[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
+                        <rdscl:SampleRack x:Name="SampleRack_1" SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
                         <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="15">
                             <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="16.2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2"/>
