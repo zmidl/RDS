@@ -16,11 +16,20 @@ using System.Windows.Shapes;
 namespace RDSCL
 {
 	/// <summary>
-	/// RD_CoolDown.xaml 的交互逻辑
+	/// RD_Reader.xaml 的交互逻辑
 	/// </summary>
-	public partial class RD_CoolDown : UserControl
+	public partial class TL_Reader : UserControl
 	{
-		public RD_CoolDown()
+
+		public object Source
+		{
+			get { return (object)GetValue(SourceProperty); }
+			set { SetValue(SourceProperty, value); }
+		}
+		public static readonly DependencyProperty SourceProperty =
+			DependencyProperty.Register(nameof(Source), typeof(object), typeof(TL_Reader), new PropertyMetadata(null));
+
+		public TL_Reader()
 		{
 			InitializeComponent();
 		}

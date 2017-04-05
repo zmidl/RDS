@@ -62,8 +62,8 @@
     <Compile Include="Hole2.xaml.cs">
       <DependentUpon>Hole2.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RD_CoolDown.xaml.cs">
-      <DependentUpon>RD_CoolDown.xaml</DependentUpon>
+    <Compile Include="TL_CoolDown.xaml.cs">
+      <DependentUpon>TL_CoolDown.xaml</DependentUpon>
     </Compile>
     <Compile Include="RD_CupRack.xaml.cs">
       <DependentUpon>RD_CupRack.xaml</DependentUpon>
@@ -71,8 +71,8 @@
     <Compile Include="Cuvette.xaml.cs">
       <DependentUpon>Cuvette.xaml</DependentUpon>
     </Compile>
-    <Compile Include="RD_EzBottleSlot.xaml.cs">
-      <DependentUpon>RD_EzBottleSlot.xaml</DependentUpon>
+    <Compile Include="TL_EzBottleSlot.xaml.cs">
+      <DependentUpon>TL_EzBottleSlot.xaml</DependentUpon>
     </Compile>
     <Compile Include="RD_Mag.xaml.cs">
       <DependentUpon>RD_Mag.xaml</DependentUpon>
@@ -80,14 +80,17 @@
     <Compile Include="RD_Reader.xaml.cs">
       <DependentUpon>RD_Reader.xaml</DependentUpon>
     </Compile>
+    <Compile Include="TL_Reader.xaml.cs">
+      <DependentUpon>TL_Reader.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RD_ReagentBox.xaml.cs">
       <DependentUpon>RD_ReagentBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="RD_ReagentRack.xaml.cs">
       <DependentUpon>RD_ReagentRack.xaml</DependentUpon>
     </Compile>
-    <Compile Include="ReaderStripSlot.xaml.cs">
-      <DependentUpon>ReaderStripSlot.xaml</DependentUpon>
+    <Compile Include="TL_ReaderStripSlot.xaml.cs">
+      <DependentUpon>TL_ReaderStripSlot.xaml</DependentUpon>
     </Compile>
     <Compile Include="SampleRack.xaml.cs">
       <DependentUpon>SampleRack.xaml</DependentUpon>
@@ -115,7 +118,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RD_CoolDown.xaml">
+    <Page Include="TL_CoolDown.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -131,7 +134,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="RD_EzBottleSlot.xaml">
+    <Page Include="TL_EzBottleSlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -143,6 +146,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="TL_Reader.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="RD_ReagentBox.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -151,7 +158,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="ReaderStripSlot.xaml">
+    <Page Include="TL_ReaderStripSlot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

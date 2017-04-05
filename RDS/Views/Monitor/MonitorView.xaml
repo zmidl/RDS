@@ -73,11 +73,11 @@
                 <rdsc:RD_Mag ItemsSource="{Binding Mag.Strips}" Width="125" Height="180" Canvas.Top="20" Canvas.Left="340"/>
             </Canvas>
 
-            <rdsc:RD_Reader x:Name="Reader_1" Source="{Binding Reader}" Width="410" Height="250" Canvas.Left="915" Canvas.Top="225">
-                <rdsc:RD_Reader.Effect>
+            <rdsc:TL_Reader x:Name="Reader_1" Source="{Binding Reader}" Width="410" Height="250" Canvas.Left="915" Canvas.Top="225">
+                <rdsc:TL_Reader.Effect>
                     <DropShadowEffect BlurRadius="30"/>
-                </rdsc:RD_Reader.Effect>
-            </rdsc:RD_Reader>
+                </rdsc:TL_Reader.Effect>
+            </rdsc:TL_Reader>
             <Canvas Width="220" Height="800"  Canvas.Left="1643" Canvas.Top="100">
                 <TextBlock Style="{DynamicResource TextBlockStyle1}" Text="{DynamicResource Test}"  Width="258" Height="90"  FontSize="60" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="5"/>
                 <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->

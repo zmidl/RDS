@@ -4,7 +4,7 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:local="clr-namespace:RDSCL"
-    xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="RDSCL.RD_CoolDown"
+    xmlns:ee="http://schemas.microsoft.com/expression/2010/effects" x:Class="RDSCL.TL_CoolDown"
     mc:Ignorable="d"
     xmlns:system="clr-namespace:System;assembly=mscorlib"
     d:DesignHeight="480" d:DesignWidth="110">

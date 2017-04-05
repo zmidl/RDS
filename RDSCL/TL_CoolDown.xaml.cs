@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace RDSCL
 {
 	/// <summary>
-	/// RD_EzBottleSlot.xaml 的交互逻辑
+	/// RD_CoolDown.xaml 的交互逻辑
 	/// </summary>
-	public partial class RD_EzBottleSlot : UserControl
+	public partial class TL_CoolDown : UserControl
 	{
-		public RD_EzBottleSlot()
+		public TL_CoolDown()
 		{
 			InitializeComponent();
 		}

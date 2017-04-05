@@ -62,8 +62,6 @@ C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\ko\Microsoft.Expression.Drawing.resour
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\ru\Microsoft.Expression.Drawing.resources.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\zh-Hans\Microsoft.Expression.Drawing.resources.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\zh-Hant\Microsoft.Expression.Drawing.resources.dll
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Reader.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Reader.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.csprojResolveAssemblyReference.cache
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Hole2.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Hole2.baml
@@ -71,10 +69,6 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_ReagentBox.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_ReagentBox.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_ReagentRack.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_ReagentRack.baml
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\ReaderStripSlot.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\ReaderStripSlot.baml
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_EzBottleSlot.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_EzBottleSlot.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\Microsoft.Expression.Effects.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\Microsoft.Expression.Interactions.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\System.Windows.Interactivity.dll
@@ -107,5 +101,13 @@ C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\ko\System.Windows.Interactivity.resour
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\ru\System.Windows.Interactivity.resources.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\bin\Debug\zh-Hant\System.Windows.Interactivity.resources.dll
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CoolDown.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CoolDown.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Reader.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Reader.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_CoolDown.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_ReaderStripSlot.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_CoolDown.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_ReaderStripSlot.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_Reader.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_Reader.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_EzBottleSlot.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_EzBottleSlot.baml
