@@ -13,14 +13,13 @@ namespace RDS.ViewModels
 {
 	public class SampleViewModel : ViewModel
 	{
-		
 		public ObservableCollection<SampleRack> SampleRacks { get; set; } = new ObservableCollection<SampleRack>();
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
 		public void MultipeSetSampleStateToEmergency()
 		{
-		
+
 		}
 
 		public RelayCommand Test { get; private set; }
@@ -73,7 +72,6 @@ namespace RDS.ViewModels
 			return result;
 		}
 
-		
 		public void DatatableToEntity(DataTable table)
 		{
 
@@ -113,7 +111,6 @@ namespace RDS.ViewModels
 			});
 		}
 
-
 		public string EntityToXmlString(object entity, bool isFormat = false)
 		{
 			return Sias.Core.SXmlConverter.ToXMLString(entity, isFormat);
@@ -124,10 +121,35 @@ namespace RDS.ViewModels
 			return Sias.Core.SXmlConverter.CreateFromXMLString(xmlString);
 		}
 
-		public bool XmlStringToEntity2(object obj,string xmlString)
+		public bool XmlStringToEntity2(object obj, string xmlString)
 		{
-			return Sias.Core.SXmlConverter.FromXMLString( obj, xmlString);
+			return Sias.Core.SXmlConverter.FromXMLString(obj, xmlString);
+		}
+
+		public void SetSampleRackState(SampleRackStateArgs args)
+		{
+			this.SampleRacks[args.SampleRackIndex].SampleRackState = args.SampleRackState;
+		}
+
+		public void RollBackAllSampleRacksState()
+		{
+			for (int i = 0; i < this.SampleRacks.Count; i++)
+			{
+				this.SampleRacks[i].RollbackState();
+			}
 		}
 	}
 
+
+	public class SampleRackStateArgs : EventArgs
+	{
+		public int SampleRackIndex { get; set; } = 0;
+		public RDSCL.SampleRackState SampleRackState { get; set; } = RDSCL.SampleRackState.NotSample;
+
+		public SampleRackStateArgs(int sampleRackIndex,RDSCL.SampleRackState sampleRackState)
+		{
+			this.SampleRackIndex = sampleRackIndex;
+			this.SampleRackState = sampleRackState;
+		}
+	}
 }

@@ -38,7 +38,6 @@
         </DataTemplate>
 
         <Style x:Key="Sample_TextBlockStyle1" BasedOn="{StaticResource TextBlockStyle4}" TargetType="{x:Type TextBlock}">
-            <Setter Property="Canvas.Top" Value="2"/>
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Panel.ZIndex" Value="1"/>
         </Style>
@@ -126,22 +125,31 @@
 					Width="128" Height="383" 
                    AllowDrop="True">
 
-                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35" Canvas.Top="8">
-                      
+                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35" Canvas.Bottom="8">
+                        <i:Interaction.Behaviors>
+                            <behavior:SampleRackMouseUp Index="0" ViewModel="{Binding Mode=OneWay}"/>
+                        </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="58" >
-                      
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="58" Canvas.Bottom="8" >
+                        <i:Interaction.Behaviors>
+                            <behavior:SampleRackMouseUp Index="1" ViewModel="{Binding Mode=OneWay}"/>
+                        </i:Interaction.Behaviors>
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="80">
-                      
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="81" Canvas.Bottom="8">
+
                     </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="102" >
-                     
+                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="104" Canvas.Bottom="8" >
+
                     </zmlc:UcTextBlock>
 
                     <Canvas Margin="2,19,0,0">
-                        <rdscl:SampleRack x:Name="SampleRack_1" SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
-                        <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="15">
+                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
+                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="19" Canvas.Left="51" Canvas.Top="-16"/>
+                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="19" Canvas.Left="74" Canvas.Top="-16"/>
+                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="19" Canvas.Left="97" Canvas.Top="-16"/>
+
+
+                        <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="10">
                             <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="16.2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="3"/>
@@ -164,7 +172,7 @@
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="20"/>
                         </StackPanel>
                     </Canvas>
-                  
+
                 </Canvas>
             </Canvas>
         </Grid>

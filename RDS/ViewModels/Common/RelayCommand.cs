@@ -127,7 +127,7 @@ namespace RDS.ViewModels.Common
             if (weakHandlers == null) { return; }
             WeakReference[] handlers = weakHandlers.ToArray();
             foreach (WeakReference reference in handlers)
-            {
+			{
                 EventHandler handler = reference.Target as EventHandler;
                 if (handler != null)
                 {

@@ -1,14 +1,8 @@
 ﻿using System;
-using System.Linq;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Shapes;
 using RDS.ViewModels.Common;
 using RDS.ViewModels;
-using RDSCL;
-using RDS.ViewModels.ViewProperties;
 
 namespace RDS.Views.Monitor
 {
@@ -50,24 +44,24 @@ namespace RDS.Views.Monitor
 
 		private void Button_Layout_Click(object sender, RoutedEventArgs e)
 		{
-			RDS.Views.LayoutSetting LS = new LayoutSetting();
+			LayoutSetting LS = new LayoutSetting();
 			LS.ShowDialog();
 		}
 
 		private void Button_On_Click(object sender, RoutedEventArgs e)
 		{
-			Tip tipDescription = new Tip(TipState.NoExist);
-			var a = this.ViewModel.EntityToXmlString(tipDescription);
-			var c = this.ViewModel.XmlStringToEntity(a);
-			var t1 = c.GetType();
-			var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
-			var t2 = tipDescription.GetType();
+			//Tip tipDescription = new Tip(TipState.NoExist);
+			//var a = this.ViewModel.EntityToXmlString(tipDescription);
+			//var c = this.ViewModel.XmlStringToEntity(a);
+			//var t1 = c.GetType();
+			//var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
+			//var t2 = tipDescription.GetType();
+
+
 			//this.ViewModel.Test.Execute(null);
 			//var a=this.FindResource("Uid").ToString();
 			//MessageBox.Show(a);
 			//this.ViewModel.RaiseSampleViewChanged(new SampleViewChangedArgs(SampleViewChangedName.MultiSelectMouseDown, 1));
 		}
-
-
 	}
 }

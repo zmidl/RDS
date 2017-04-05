@@ -82,6 +82,7 @@
     <Compile Include="ViewModels\Behaviors\SampleDescriptionMultiSelect.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrag.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrop.cs" />
+    <Compile Include="ViewModels\Behaviors\SampleRackMouseUp.cs" />
     <Compile Include="ViewModels\Common\General.cs" />
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />

@@ -16,5 +16,5 @@ DEBUG;TRACE
 184476777
 Border.xaml;Hole2.xaml;RD_CoolDown.xaml;RD_CupRack.xaml;Cuvette.xaml;Dictionaries.xaml;RD_EzBottleSlot.xaml;RD_Mag.xaml;RD_Reader.xaml;RD_ReagentBox.xaml;RD_ReagentRack.xaml;ReaderStripSlot.xaml;SampleRack.xaml;Hole.xaml;RD_ShakerRack.xaml;Strip.xaml;TipRack_1000uL.xaml;TipRack_300uL.xaml;RD_Heating.xaml;
 
-True
+False
 

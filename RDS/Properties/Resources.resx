@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="AlreadySample" xml:space="preserve">
+    <value>AlreadySample</value>
+  </data>
   <data name="Chinese" xml:space="preserve">
     <value>/RDS;component/Apps/Languages/zh-CN.xaml</value>
   </data>
@@ -131,6 +134,12 @@
   </data>
   <data name="LisFilesPath" xml:space="preserve">
     <value>LisFilesPath</value>
+  </data>
+  <data name="NotSample" xml:space="preserve">
+    <value>NotSample</value>
+  </data>
+  <data name="PrepareSample" xml:space="preserve">
+    <value>PrepareSample</value>
   </data>
   <data name="String1" xml:space="preserve">
     <value>我是一</value>

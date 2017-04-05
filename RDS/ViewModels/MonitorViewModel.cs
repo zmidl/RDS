@@ -124,9 +124,9 @@ namespace RDS.ViewModels
 			this.Reader.Enzymes[enzymeIndex].Value += value;
 		}
 
-		public void SetSampleRackVisibility(int sampleRackIndex,Visibility visibility)
+		public void SetSampleRackState(int sampleRackIndex,string stateDescription)
 		{
-			//this.SampleViewModel.SampleRacks[sampleRackIndex].Visibility = visibility;
+			this.SampleViewModel.SampleRacks[sampleRackIndex].SampleRackState = (RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
 		}
 
 		public string TimeCount

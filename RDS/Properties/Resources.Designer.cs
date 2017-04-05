@@ -61,6 +61,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 AlreadySample 的本地化字符串。
+        /// </summary>
+        internal static string AlreadySample {
+            get {
+                return ResourceManager.GetString("AlreadySample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 /RDS;component/Apps/Languages/zh-CN.xaml 的本地化字符串。
         /// </summary>
         internal static string Chinese {
@@ -102,6 +111,24 @@ namespace RDS.Properties {
         internal static string LisFilesPath {
             get {
                 return ResourceManager.GetString("LisFilesPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 NotSample 的本地化字符串。
+        /// </summary>
+        internal static string NotSample {
+            get {
+                return ResourceManager.GetString("NotSample", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PrepareSample 的本地化字符串。
+        /// </summary>
+        internal static string PrepareSample {
+            get {
+                return ResourceManager.GetString("PrepareSample", resourceCulture);
             }
         }
         

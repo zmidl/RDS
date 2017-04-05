@@ -99,7 +99,6 @@ namespace RDS.Views
 					else if (Keyboard.IsKeyDown(Key.N)) this.OnGlobalNotify(new GlobalNotifyArgs($"NotSample"));
 					else if (Keyboard.IsKeyDown(Key.P)) this.OnGlobalNotify(new GlobalNotifyArgs($"PrepareSample"));
 					else if (Keyboard.IsKeyDown(Key.A)) this.OnGlobalNotify(new GlobalNotifyArgs($"AlreadySample"));
-
 				}
 				else if (Keyboard.IsKeyDown(Key.M))
 				{
@@ -112,23 +111,13 @@ namespace RDS.Views
 						this.OnGlobalNotify(new GlobalNotifyArgs($"MixtureState2"));
 					}
 				}
-				else if(Keyboard.IsKeyDown(Key.R) && Keyboard.IsKeyDown(Key.D))
+				else if (Keyboard.IsKeyDown(Key.R))
 				{
-					//if (Keyboard.IsKeyDown(Key.NumPad1))
-					//{
-					//	this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme+"));
-					//}
-					//else if (Keyboard.IsKeyDown(Key.NumPad2))
-					//{
-					//	this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme-"));
-					//}
-					//else if (Keyboard.IsKeyDown(Key.D))
-					//{
-					//	if (Keyboard.IsKeyDown(Key.S))
-					//	{
-							this.OnGlobalNotify(new GlobalNotifyArgs($"Admin"));
-					//	}
-					//}
+					if (Keyboard.IsKeyDown(Key.R) && Keyboard.IsKeyDown(Key.D)) this.OnGlobalNotify(new GlobalNotifyArgs($"Admin"));
+					
+					else if(Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme+"));
+
+					else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme-"));
 				}
 			}
 		}

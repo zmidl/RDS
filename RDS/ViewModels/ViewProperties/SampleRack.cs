@@ -1,6 +1,5 @@
 ﻿using RDS.ViewModels.Common;
 using System.Collections.ObjectModel;
-using System.Windows;
 using System.Linq;
 using System.Collections.Generic;
 using System;
@@ -10,12 +9,19 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class SampleRack:ViewModel
 	{
-		private SampleRackState sampleRackState=SampleRackState.NotSample;
+		private SampleRackState PreviousState { get; set; }
+
+		private SampleRackState sampleRackState;
 		public SampleRackState SampleRackState
 		{
 			get { return sampleRackState; }
 			set
 			{
+				if (value != SampleRackState.PrepareSample && sampleRackState!=SampleRackState.PrepareSample)
+				{
+					this.PreviousState = sampleRackState;
+					this.RaisePropertyChanged(nameof(PreviousState));
+				}
 				sampleRackState = value;
 				this.RaisePropertyChanged(nameof(SampleRackState));
 			}
@@ -63,6 +69,11 @@ namespace RDS.ViewModels.ViewProperties
 				default: break;
 			}
 			return result;
+		}
+
+		public void RollbackState()
+		{
+			this.SampleRackState = this.PreviousState;
 		}
 	}
 }

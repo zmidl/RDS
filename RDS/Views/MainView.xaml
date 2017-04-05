@@ -10,7 +10,7 @@
             <Canvas Width="1900" Height="850">
                 <DockPanel Width="1900" Height="850" LastChildFill="True">
                     <DockPanel 
-                    x:Name="StackPanel_Head" 
+                        x:Name="StackPanel_Head" 
                     Panel.ZIndex="1"
                     Height="80" LastChildFill="True"
                     DockPanel.Dock="Top" Background="#FF2B90F9">
@@ -29,9 +29,15 @@
                     <StackPanel DockPanel.Dock="Bottom" Height="50" Background="#FFE8E8E8"></StackPanel>
                     <ContentControl x:Name="ContentControl_CurrentContent"/>
                 </DockPanel>
-                <Canvas x:Name="Canvas_Admin" Width="1900" Height="850" Background="#99000000" Visibility="Collapsed">
-                    <Button x:Name="Button_Admin" Width="100" Height="30" Content="Exit" Canvas.Left="960" Canvas.Top="731" Click="Button_Admin_Click"/>
-                </Canvas>
+                <Viewbox x:Name="Canvas_Admin" Width="1900" Height="850" Visibility="Collapsed">
+                    <Canvas Width="475" Height="212.5"  Background="#99000000" >
+                        <GroupBox Width="90" Header="语言选择"  Canvas.Left="10" Canvas.Top="28" Height="94"/>
+                        <CheckBox Width="50" Height="16" Content="中文" Canvas.Left="30" Canvas.Top="50"/>
+                        <CheckBox Width="50" Height="16" Content="英文" Canvas.Left="30" Canvas.Top="70"/>
+                        <CheckBox Width="50" Height="16" Content="日文" Canvas.Left="30" Canvas.Top="90"/>
+                        <Button x:Name="Button_Admin" Width="80" Height="20" Content="离开" Canvas.Left="217" Canvas.Top="182" Click="Button_Admin_Click"/>
+                    </Canvas>
+                </Viewbox>
             </Canvas>
         </Grid>
     </Viewbox>
