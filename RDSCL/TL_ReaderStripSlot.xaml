@@ -84,9 +84,9 @@
                                 <TextBox  
                                     x:Name="TextBlock_Number"  
                                     Width="90" 
-                                    Text="{Binding Number, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
+                                    Text="{Binding Number, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TL_Strip}}}" 
                                     Canvas.Top="-50" Background="Transparent"
-                                    Foreground="{Binding NumberColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Strip}}}" 
+                                    Foreground="{Binding NumberColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TL_Strip}}}" 
                                     FontSize="50"  FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" />
                                 <Rectangle Width="90" Height="90"  Canvas.Top="-50" Fill="#05000000" />
                             </Canvas>

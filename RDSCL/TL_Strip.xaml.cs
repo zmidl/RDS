@@ -13,11 +13,11 @@ namespace RDSCL
 	/// <summary>
 	/// SixTube.xaml 的交互逻辑
 	/// </summary>
-	public partial class Strip : UserControl
+	public partial class TL_Strip : UserControl
 	{
 		private static SolidColorBrush NumverNormalColor = new SolidColorBrush(Colors.RosyBrown);
 
-		public Strip()
+		public TL_Strip()
 		{
 			InitializeComponent();
 		}
@@ -28,7 +28,7 @@ namespace RDSCL
 			set { SetValue(HolesContentColorProperty, value); }
 		}
 		public static readonly DependencyProperty HolesContentColorProperty =
-			DependencyProperty.Register(nameof(HolesContentColor), typeof(IEnumerable), typeof(Strip), new PropertyMetadata(null));
+			DependencyProperty.Register(nameof(HolesContentColor), typeof(IEnumerable), typeof(TL_Strip), new PropertyMetadata(null));
 
 		public string Number
 		{
@@ -36,7 +36,7 @@ namespace RDSCL
 			set { SetValue(NumberValueProperty, value); }
 		}
 		public static readonly DependencyProperty NumberValueProperty =
-			DependencyProperty.Register(nameof(Number), typeof(string), typeof(Strip), new PropertyMetadata("0"));
+			DependencyProperty.Register(nameof(Number), typeof(string), typeof(TL_Strip), new PropertyMetadata("0"));
 
 		public SolidColorBrush NumberColor
 		{
@@ -48,8 +48,8 @@ namespace RDSCL
 			(
 				nameof(NumberColor),
 				typeof(SolidColorBrush),
-				typeof(Strip),
-				new PropertyMetadata(Strip.NumverNormalColor)
+				typeof(TL_Strip),
+				new PropertyMetadata(TL_Strip.NumverNormalColor)
 			);
 
 
@@ -60,7 +60,7 @@ namespace RDSCL
 			set { SetValue(BodyVisibilityProperty, value); }
 		}
 		public static readonly DependencyProperty BodyVisibilityProperty =
-			DependencyProperty.Register(nameof(BodyVisibility), typeof(Visibility), typeof(Strip), new PropertyMetadata(Visibility.Visible));
+			DependencyProperty.Register(nameof(BodyVisibility), typeof(Visibility), typeof(TL_Strip), new PropertyMetadata(Visibility.Visible));
 
 
 
@@ -70,7 +70,7 @@ namespace RDSCL
 			set { SetValue(BackgroundColorProperty, value); }
 		}
 		public static readonly DependencyProperty BackgroundColorProperty =
-			DependencyProperty.Register(nameof(BackgroundColor), typeof(SolidColorBrush), typeof(Strip), new PropertyMetadata(new SolidColorBrush(Colors.White)));
+			DependencyProperty.Register(nameof(BackgroundColor), typeof(SolidColorBrush), typeof(TL_Strip), new PropertyMetadata(new SolidColorBrush(Colors.White)));
 
 
 
@@ -80,7 +80,7 @@ namespace RDSCL
 			set { SetValue(FrameStyleProperty, value); }
 		}
 		public static readonly DependencyProperty FrameStyleProperty =
-			DependencyProperty.Register(nameof(FrameStyle), typeof(DoubleCollection), typeof(Strip), new PropertyMetadata(default(DoubleCollection)));
+			DependencyProperty.Register(nameof(FrameStyle), typeof(DoubleCollection), typeof(TL_Strip), new PropertyMetadata(default(DoubleCollection)));
 
 		public StripState CurrentState
 		{
@@ -88,13 +88,13 @@ namespace RDSCL
 			set { SetValue(CurrentStateProperty, value); }
 		}
 		public static readonly DependencyProperty CurrentStateProperty =
-			DependencyProperty.Register(nameof(CurrentState), typeof(StripState), typeof(Strip), new PropertyMetadata(StripState.Leaving, new PropertyChangedCallback(Callback_CurrentState)));
+			DependencyProperty.Register(nameof(CurrentState), typeof(StripState), typeof(TL_Strip), new PropertyMetadata(StripState.Leaving, new PropertyChangedCallback(Callback_CurrentState)));
 
 		private static void Callback_CurrentState(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			if (e.NewValue != null)
 			{
-				Strip strip = d as Strip;
+				TL_Strip strip = d as TL_Strip;
 				var currentState = (StripState)e.NewValue;
 				switch (currentState)
 				{
@@ -104,7 +104,7 @@ namespace RDSCL
 						strip.BackgroundColor = new SolidColorBrush(Colors.White);
 						strip.FrameStyle = default(DoubleCollection);
 						strip.Opacity = 1.0;
-						strip.NumberColor = Strip.NumverNormalColor;
+						strip.NumberColor = TL_Strip.NumverNormalColor;
 						break;
 					}
 					case StripState.Inexistence:

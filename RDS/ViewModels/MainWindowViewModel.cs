@@ -2,11 +2,9 @@
 
 namespace RDS.ViewModels
 {
-    class MainWindowViewModel:ViewModel
+    public class MainWindowViewModel:ViewModel
     {
-        
-
-        public MainWindowViewModel()
+		public MainWindowViewModel()
         {
            
         }

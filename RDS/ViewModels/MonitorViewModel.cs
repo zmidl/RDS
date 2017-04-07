@@ -101,12 +101,12 @@ namespace RDS.ViewModels
 
 		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, HoleState cellState)
 		{
-			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
+			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].State = cellState;
 		}
 
 		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, HoleState cellState)
 		{
-			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
+			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].State = cellState;
 		}
 
 		public void SetTipState(int tipRacksIndex, int tipsIndex, TipState tipState)
@@ -116,7 +116,7 @@ namespace RDS.ViewModels
 
 		public void SetReaderCellState(int stripsIndex, int cellsIndex, HoleState cellState)
 		{
-			this.Reader.Strips[stripsIndex].Cells[cellsIndex].CellState = cellState;
+			this.Reader.Strips[stripsIndex].Cells[cellsIndex].State = cellState;
 		}
 
 		public void SetReaderEnzymeValue(int enzymeIndex, int value)

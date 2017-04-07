@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="RDSCL.Hole"
+﻿<UserControl x:Class="RDSCL.TL_Hole"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -17,8 +17,8 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Grid>
-                                <Ellipse Width="120" Height="120" StrokeThickness="10" Stroke="{Binding ExcircleColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hole}}}" />
-                                <Ellipse Width="112" Height="112" StrokeThickness="10" Stroke="{Binding ExcircleColor2, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:Hole}}}" />
+                                <Ellipse Width="120" Height="120" StrokeThickness="10" Stroke="{Binding ExcircleColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TL_Hole}}}" />
+                                <Ellipse Width="112" Height="112" StrokeThickness="10" Stroke="{Binding ExcircleColor2, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TL_Hole}}}" />
                                 <Ellipse  Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
                                 <Ellipse  Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColor2, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
                                 <ed:Arc 
@@ -33,7 +33,7 @@
                                     StrokeThickness=
                                         "{Binding ThicknessValue, 
                                         RelativeSource={RelativeSource FindAncestor, 
-                                        AncestorType={x:Type local:Hole}}}" Stretch="None" 
+                                        AncestorType={x:Type local:TL_Hole}}}" Stretch="None" 
                                     Stroke=
                                         "{Binding ValueColor, 
                                         RelativeSource={RelativeSource FindAncestor, 

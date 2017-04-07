@@ -109,8 +109,7 @@ namespace RDS.Views.Monitor
 			else if (e.Index == $"SampleState1")
 			{
 				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
-				var test = this.Reader_1.Source;
-				var test2 = this.Heating_1.ItemsSource;
+				
 				this.ShakerRack_1.IsShake = true;
 				this.ViewModel.SetTipState(0, 0, TipState.Exist);
 
@@ -118,10 +117,12 @@ namespace RDS.Views.Monitor
 
 				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Sampled);
-				this.ViewModel.CupRacks[0].Strips[0].Cells[0].CellState = HoleState.Full;
+				this.ViewModel.CupRacks[0].Strips[0].Cells[0].State = HoleState.Full;
+				this.ViewModel.CupRacks[0].Strips[0].Cells[1].State = HoleState.Full;
+
 				this.ViewModel.CupRacks[0].Strips[0].State = StripState.Leaving;
 				this.ViewModel.Heating.Strips[0].State = StripState.Inexistence;
-				this.ViewModel.Heating.Strips[0].Cells[0].CellState = HoleState.Full;
+				this.ViewModel.Heating.Strips[0].Cells[0].State = HoleState.Full;
 
 				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.Full);
 
@@ -138,11 +139,11 @@ namespace RDS.Views.Monitor
 
 
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Normal);
-				this.ViewModel.CupRacks[0].Strips[0].Cells[0].CellState = HoleState.Empty;
+				this.ViewModel.CupRacks[0].Strips[0].Cells[0].State = HoleState.Empty;
 				this.ViewModel.CupRacks[0].Strips[0].State = StripState.Existence;
 
 				this.ViewModel.Heating.Strips[0].State = StripState.Leaving;
-				this.ViewModel.Heating.Strips[0].Cells[0].CellState = HoleState.Empty;
+				this.ViewModel.Heating.Strips[0].Cells[0].State = HoleState.Empty;
 			}
 			else if (e.Index == $"SampleState3")
 			{

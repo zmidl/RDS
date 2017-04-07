@@ -1,6 +1,7 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
 using RDS.ViewModels.Common;
+using System.Data;
 
 namespace RDS.Views
 {
@@ -15,6 +16,8 @@ namespace RDS.Views
         {
             InitializeComponent();
             this.PreviousContent = this.Content;
+
+			this.DataGrid1.ItemsSource = this.Test().AsDataView();
         }
 
         private void Button_NewExperiment_Click(object sender, RoutedEventArgs e)
@@ -26,5 +29,23 @@ namespace RDS.Views
         {
             General.ExitView(this.PreviousContent, this, ((IExitView)new MaintenanceView()));
         }
+
+		private DataTable Test()
+		{
+			DataTable result = new DataTable();
+			DataColumn dc = new DataColumn($"Nmae", typeof(string));
+			result.Columns.Add(dc);
+			dc = new DataColumn($"Age", typeof(int));
+			result.Columns.Add(dc);
+
+			for (int i = 0; i < 10; i++)
+			{
+				DataRow dr = result.NewRow();
+				dr[0] = $"Name{i}";
+				dr[1] = i;
+				result.Rows.Add(dr);
+			}
+			return result;
+		}
     }
 }

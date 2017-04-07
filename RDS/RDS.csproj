@@ -89,6 +89,7 @@
     <Compile Include="ViewModels\Common\Enumeration.cs" />
     <Compile Include="ViewModels\Common\SQLiteHelper.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
+    <Compile Include="ViewModels\MainViewViewModel.cs" />
     <Compile Include="ViewModels\ViewProperties\Cell.cs" />
     <Compile Include="ViewModels\ViewProperties\CupRack.cs" />
     <Compile Include="ViewModels\ViewProperties\Enzyme.cs" />

@@ -15,29 +15,29 @@
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="550">
                                 <Rectangle Fill="#FF740202" RadiusX="5" RadiusY="5" Width="90" Height="550" Stroke="Black"/>
-                                <local:Hole x:Name="RD_MBBottle1" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
-                                <local:Hole x:Name="RD_MBBottle2" Width="38" Canvas.Left="40" Canvas.Top="20"/>
+                                <local:TL_Hole x:Name="RD_MBBottle1" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
+                                <local:TL_Hole x:Name="RD_MBBottle2" Width="38" Canvas.Left="40" Canvas.Top="20"/>
 
-                                <local:Hole x:Name="RD_AMPBottle1" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
-                                <local:Hole x:Name="RD_AMPBottle2" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
-                                <local:Hole x:Name="RD_AMPBottle3" Width="25" Canvas.Left="-4" Canvas.Top="128"/>
-                                <local:Hole x:Name="RD_AMPBottle4" Width="25" Canvas.Left="-4" Canvas.Top="156"/>
+                                <local:TL_Hole x:Name="RD_AMPBottle1" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
+                                <local:TL_Hole x:Name="RD_AMPBottle2" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
+                                <local:TL_Hole x:Name="RD_AMPBottle3" Width="25" Canvas.Left="-4" Canvas.Top="128"/>
+                                <local:TL_Hole x:Name="RD_AMPBottle4" Width="25" Canvas.Left="-4" Canvas.Top="156"/>
 
-                                <local:Hole x:Name="RD_PNBottle1" Width="20" Canvas.Left="-4" Canvas.Top="195"/>
-                                <local:Hole x:Name="RD_PNBottle2" Width="20" Canvas.Left="-4" Canvas.Top="220"/>
-                                <local:Hole x:Name="RD_PNBottle3" Width="20" Canvas.Left="-4" Canvas.Top="245"/>
-                                <local:Hole x:Name="RD_PNBottle4" Width="20" Canvas.Left="-4" Canvas.Top="270"/>
+                                <local:TL_Hole x:Name="RD_PNBottle1" Width="20" Canvas.Left="-4" Canvas.Top="195"/>
+                                <local:TL_Hole x:Name="RD_PNBottle2" Width="20" Canvas.Left="-4" Canvas.Top="220"/>
+                                <local:TL_Hole x:Name="RD_PNBottle3" Width="20" Canvas.Left="-4" Canvas.Top="245"/>
+                                <local:TL_Hole x:Name="RD_PNBottle4" Width="20" Canvas.Left="-4" Canvas.Top="270"/>
 
 
-                                <local:Hole x:Name="RD_ISBottle1" Width="20" Canvas.Left="-4" Canvas.Top="305"/>
-                                <local:Hole x:Name="RD_ISBottle2" Width="20" Canvas.Left="-4" Canvas.Top="330"/>
-                                <local:Hole x:Name="RD_ISBottle3" Width="20" Canvas.Left="-4" Canvas.Top="355"/>
-                                <local:Hole x:Name="RD_ISBottle4" Width="20" Canvas.Left="-4" Canvas.Top="380"/>
+                                <local:TL_Hole x:Name="RD_ISBottle1" Width="20" Canvas.Left="-4" Canvas.Top="305"/>
+                                <local:TL_Hole x:Name="RD_ISBottle2" Width="20" Canvas.Left="-4" Canvas.Top="330"/>
+                                <local:TL_Hole x:Name="RD_ISBottle3" Width="20" Canvas.Left="-4" Canvas.Top="355"/>
+                                <local:TL_Hole x:Name="RD_ISBottle4" Width="20" Canvas.Left="-4" Canvas.Top="380"/>
 
-                                <local:Hole x:Name="RD_PNBottle5" Width="20" Canvas.Left="-4" Canvas.Top="420"/>
-                                <local:Hole x:Name="RD_PNBottle6" Width="20" Canvas.Left="-4" Canvas.Top="445"/>
-                                <local:Hole x:Name="RD_PNBottle7" Width="20" Canvas.Left="-4" Canvas.Top="470"/>
-                                <local:Hole x:Name="RD_PNBottle8" Width="20" Canvas.Left="-4" Canvas.Top="495"/>
+                                <local:TL_Hole x:Name="RD_PNBottle5" Width="20" Canvas.Left="-4" Canvas.Top="420"/>
+                                <local:TL_Hole x:Name="RD_PNBottle6" Width="20" Canvas.Left="-4" Canvas.Top="445"/>
+                                <local:TL_Hole x:Name="RD_PNBottle7" Width="20" Canvas.Left="-4" Canvas.Top="470"/>
+                                <local:TL_Hole x:Name="RD_PNBottle8" Width="20" Canvas.Left="-4" Canvas.Top="495"/>
 
                                 <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Canvas.Top="64" />
                                 <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Canvas.Top="64" />
@@ -63,100 +63,100 @@
                                     Opacity="0.7" RenderTransformOrigin="0.25,-0.065">
                                     <Canvas Height="{Binding ElementName=PopupForm,Path=Height}" Width="{Binding ElementName=PopupForm,Path=Width}" >
                                         <Canvas Canvas.Left="100" Canvas.Top="60"  Width="230" Height="230">
-                                            <local:Hole Value="60" Width="230" Height="230" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="230" Height="230" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="70" FontWeight="Bold" Canvas.Left="25" Canvas.Top="55" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="360" Canvas.Top="60"  Width="230" Height="230">
-                                            <local:Hole Value="60" Width="230" Height="230" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="230" Height="230" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="70" FontWeight="Bold" Canvas.Left="25" Canvas.Top="55" Foreground="#FF6E0000"/>
                                         </Canvas>
 
 
 
                                         <Canvas Canvas.Left="100" Canvas.Top="320"  Width="200" Height="200">
-                                            <local:Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="50" FontWeight="Bold" Canvas.Left="20" Canvas.Top="45" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="480"  Width="200" Height="200">
-                                            <local:Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="50" FontWeight="Bold" Canvas.Left="20" Canvas.Top="45" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="640"  Width="200" Height="200">
-                                            <local:Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="50" FontWeight="Bold" Canvas.Left="20" Canvas.Top="45" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="800"  Width="200" Height="200">
-                                            <local:Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="150" Height="150" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="50" FontWeight="Bold" Canvas.Left="20" Canvas.Top="45" Foreground="#FF6E0000"/>
                                         </Canvas>
 
 
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1000"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1140"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1280"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1420"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
 
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1600"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1740"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="1880"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="2020"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
 
 
                                         <Canvas Canvas.Left="100" Canvas.Top="2200"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="2340"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="2480"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 
                                         <Canvas Canvas.Left="100" Canvas.Top="2620"  Width="120" Height="120">
-                                            <local:Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
+                                            <local:TL_Hole Value="60" Width="130" Height="130" ExcircleColor="#FF2B7EE2" ContentColor="Transparent" ValueColor="#FFE89D43" ThicknessValue="50"/>
                                             <TextBlock Text="60%" FontSize="43" FontWeight="Bold" Canvas.Left="18" Canvas.Top="40" Foreground="#FF6E0000"/>
                                         </Canvas>
 

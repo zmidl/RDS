@@ -62,6 +62,12 @@
     <Compile Include="Hole2.xaml.cs">
       <DependentUpon>Hole2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="RD_Hole.xaml.cs">
+      <DependentUpon>RD_Hole.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="RD_Strip.xaml.cs">
+      <DependentUpon>RD_Strip.xaml</DependentUpon>
+    </Compile>
     <Compile Include="TL_CoolDown.xaml.cs">
       <DependentUpon>TL_CoolDown.xaml</DependentUpon>
     </Compile>
@@ -98,8 +104,8 @@
     <Compile Include="RD_ShakerRack.xaml.cs">
       <DependentUpon>RD_ShakerRack.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Strip.xaml.cs">
-      <DependentUpon>Strip.xaml</DependentUpon>
+    <Compile Include="TL_Strip.xaml.cs">
+      <DependentUpon>TL_Strip.xaml</DependentUpon>
     </Compile>
     <Compile Include="TipRack_1000uL.xaml.cs">
       <DependentUpon>TipRack_1000uL.xaml</DependentUpon>
@@ -115,6 +121,14 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Hole2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RD_Hole.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="RD_Strip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -166,19 +180,19 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Hole.xaml">
+    <Page Include="TL_Hole.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="Hole.xaml.cs">
-      <DependentUpon>Hole.xaml</DependentUpon>
+    <Compile Include="TL_Hole.xaml.cs">
+      <DependentUpon>TL_Hole.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
     <Page Include="RD_ShakerRack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Strip.xaml">
+    <Page Include="TL_Strip.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

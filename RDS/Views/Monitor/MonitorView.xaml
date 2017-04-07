@@ -20,16 +20,26 @@
         <common:SampleStateToSolidColorBrush x:Key="SampleStateToSolidColorBrush"/>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
-        <Canvas Width="1900" Height="850"  Background="#FF7199FF">
+        <Canvas Width="1900" Height="850">
+            <Rectangle Width="1440" Height="800" Canvas.Left="50" Canvas.Top="50">
+                <Rectangle.Fill>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF9C9C9C" Offset="0"/>
+                        <GradientStop Color="White" Offset="0.504"/>
+                        <GradientStop Color="#FFCDCDCD" Offset="1"/>
+                    </LinearGradientBrush>
+                </Rectangle.Fill>
+            </Rectangle>
             <Canvas Canvas.Left="330" Canvas.Top="120" Width="180" Height="620">
-                <Rectangle RadiusX="5" RadiusY="5" Width="180" Height="620" Fill="#FFC7C7C7" Stroke="Black" />
-                <Ellipse Width="36" Height="36" Canvas.Bottom="10" Canvas.Left="72" Fill="#FF7199FF" Stroke="#FF121212"/>
-                <Ellipse Width="36" Height="36" Canvas.Top="10" Canvas.Left="72" Stroke="#FF121212" Fill="#FF7199FF"/>
-                <rdsc:Border Width="187" Canvas.Left="-3" Canvas.Bottom="-60"/>
+                
                 <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="160" Canvas.Top="20" Canvas.Left="10"/>
                 <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="160" Canvas.Top="140" Canvas.Left="10"/>
                 <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="160" Canvas.Top="260" Canvas.Left="10"/>
-                <rdsc:RD_CupRack ItemsSource="{Binding CupRacks[0].Strips}" Width="170" Height="160" Canvas.Left="5"  Canvas.Bottom="70"/>
+                <rdsc:RD_CupRack x:Name="CupRack" ItemsSource="{Binding CupRacks[0].Strips}" Width="170" Height="160" Canvas.Left="5"  Canvas.Bottom="70" Foreground="{x:Null}">
+                    <rdsc:RD_CupRack.Effect>
+                        <DropShadowEffect Color="#FFAEAEAE"/>
+                    </rdsc:RD_CupRack.Effect>
+                </rdsc:RD_CupRack>
 
 
             </Canvas>
@@ -91,9 +101,6 @@
                         </TransformGroup>
                     </zmcl2:MyCheckBox.RenderTransform>
                 </zmcl2:MyCheckBox>
-
-
-
             </Canvas>
         </Canvas>
     </Viewbox>
