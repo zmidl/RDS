@@ -6,85 +6,79 @@
              xmlns:zmcl="clr-namespace:ZMCL.MyControl.WhiteGold;assembly=ZMCL"
              xmlns:zmcl2="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
              mc:Ignorable="d" 
-           d:DesignHeight="850" d:DesignWidth="1900">
+           d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="400" Background="WhiteSmoke">
-            <DockPanel LastChildFill="True">
-                <DockPanel LastChildFill="True" DockPanel.Dock="Bottom" Height="50" Width="800">
-                    <zmcl2:UcButton x:Name="Button_Home" Command="{Binding TurnHomeView}" Content="{DynamicResource InitializeSuppliesView_Home}" DockPanel.Dock="Left" Width="100" Height="45"/>
-                    <Button x:Name="Button_Next" Command="{Binding TurnNextView}" Content="{DynamicResource InitializeSuppliesView_Next}" DockPanel.Dock="Right" Width="100" Height="45" Click="Button_Next_Click" />
-                    <StackPanel Orientation="Horizontal">
-                        <!--<zmcl:WG_RoundCheckBox Width="40" Height="40" Margin="150,0,0,0"/>
-                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
-                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
-                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
-                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>
-                        <zmcl:WG_RoundCheckBox Width="40" Height="40"  Margin="10,0,0,0"/>-->
-                    </StackPanel>
-                </DockPanel>
-                <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}">
+        <Grid Width="950" Height="500">
+            <Canvas>
+                <Rectangle Fill="{DynamicResource RectangleContainerBackground}" Effect="{StaticResource RectangleContainerEffect}" Stroke="{StaticResource RectangleContainerStroke}" Width="900" Height="460" Canvas.Left="25" Canvas.Top="20" RadiusX="10" RadiusY="10"/>
+                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnHomeView}" Canvas.Left="200" Canvas.Top="414">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
+                </Button>
+                <StackPanel Canvas.Left="260" Canvas.Top="428" Orientation="Horizontal" >
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard4,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard5,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard6,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard7,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard8,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard9,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard10,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard11,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard12,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard13,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard14,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                </StackPanel>
+                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnNextView}" Canvas.Right="200" Canvas.Top="414">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
+                </Button>
+                <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}" Width="600" Height="350" Canvas.Left="180" Canvas.Top="30" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <zmcl2:UcTextBlock Style="{DynamicResource ResourceKey=TextBlockStyle2}" FontSize="65" Text="先将试剂从冰箱中拿出。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="720" Margin="0,88"/>
-                        </StackPanel>
+                        <Canvas>
+                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="393.5" Stretch="Fill" HorizontalAlignment="Left" Height="286.9" Canvas.Left="100.5" OpacityMask="#4CFFFFFF"/>
+                            <TextBlock Foreground="{StaticResource TextForeground2}" FontSize="30" Text="先将试剂从冰箱中拿出。" TextWrapping="WrapWithOverflow" Canvas.Left="154.5" Canvas.Top="300.9"/>
+                        </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <Canvas Height="190" Width="300">
-                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
-                                    <Rectangle Fill="#FFFB0000" Width="4.5" Height="24" Canvas.Left="217" Canvas.Top="121" />
-                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1                                                " Width="11" Height="40" Canvas.Left="214" Canvas.Top="114" StrokeThickness="2" />
-                                </Canvas>
-                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
-                            </StackPanel>
-                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}" Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入石蜡" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                        </StackPanel>
-                    </TabItem>
-                    <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <Canvas Height="190" Width="300">
-                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
-                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
-                                               " Width="125" Height="91" Canvas.Left="61" Canvas.Top="23" StrokeThickness="2" />
-                                </Canvas>
-                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
-                            </StackPanel>
-                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}"  Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入TIP头" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                        </StackPanel>
-                    </TabItem>
-                    <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Vertical">
-                            <StackPanel Orientation="Horizontal">
-                                <Canvas Height="190" Width="300">
-                                    <Image Source="/RDS;component/Apps/Images/a.png" Height="190" Width="300" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5"/>
-                                    <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1
-                                               " Width="127" Height="53" Canvas.Left="60" Canvas.Top="108" StrokeThickness="2" />
-                                </Canvas>
-                                <Image Source="/RDS;component/Apps/Images/image.jpg" Height="190" Stretch="Fill"/>
-                            </StackPanel>
-                            <zmcl2:UcTextBlock Style="{DynamicResource TextBlockStyle2}" Margin="20,20,0,0" TextWrapping="WrapWithOverflow" FontSize="50" Text="放入六联排" HorizontalAlignment="Center" VerticalAlignment="Center"  />
-                        </StackPanel>
+                        <Canvas >
+                            <Image Source="/RDS;component/Apps/Images/a.png" Height="287" Width="574" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5" Canvas.Left="10" Canvas.Top="10"/>
+                            <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="14" Height="44" Canvas.Left="423" Canvas.Top="189" StrokeThickness="2" />
+                            <TextBlock Foreground="{StaticResource TextForeground2}" FontSize="30" Text="放入石蜡" TextWrapping="WrapWithOverflow" Canvas.Left="252" Canvas.Top="302"/>
+                        </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
                         <Canvas>
-                            <TextBlock Text="请选择试剂       至少1项最多4项" TextWrapping="Wrap" Style="{DynamicResource TextBlockStyle2}" FontSize="70" Canvas.Left="315" Canvas.Top="80" Width="521" Height="264"/>
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="137" Canvas.Top="6" />
-                            <zmcl:WG_CheckBox IsChecked="{Binding IsUuSelected}" Width="50" Canvas.Left="222" Canvas.Top="2"/>
+                            <Image Source="/RDS;component/Apps/Images/a.png" Height="287" Width="574" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5" Canvas.Left="10" Canvas.Top="10"/>
+                            <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="235" Height="134" Canvas.Left="129" Canvas.Top="46" StrokeThickness="2" />
+                            <TextBlock Foreground="{StaticResource TextForeground2}" FontSize="30" Text="放入Tip头" TextWrapping="WrapWithOverflow" Canvas.Left="252" Canvas.Top="302"/>
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <Image Source="/RDS;component/Apps/Images/a.png" Height="287" Width="574" Stretch="Fill" HorizontalAlignment="Left" Opacity="0.5" Canvas.Left="10" Canvas.Top="10"/>
+                            <Rectangle Stroke="Red" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="239" Height="71" Canvas.Left="127" Canvas.Top="177" StrokeThickness="2" />
+                            <TextBlock Foreground="{StaticResource TextForeground2}" FontSize="30" Text="放入六联排" TextWrapping="WrapWithOverflow" Canvas.Left="252" Canvas.Top="302"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UT" Canvas.Left="137" Canvas.Top="76" />
-                            <zmcl:WG_CheckBox IsChecked="{Binding IsCtSelected}" Width="50" Canvas.Left="222" Canvas.Top="72"/>
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+                            <TextBlock Text="请选择1至4项试剂" Foreground="{StaticResource TextForeground2}" TextWrapping="Wrap" FontSize="30"  Canvas.Left="180" Canvas.Top="302"/>
+                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Uu,Path=Foreground}" Text="UU" Canvas.Left="34" Canvas.Top="112" />
+                            <CheckBox x:Name="CheckBox_Uu" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsUuSelected}" Width="50" Canvas.Left="34" Canvas.Top="150"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MG" Canvas.Left="137" Canvas.Top="146" />
-                            <zmcl:WG_CheckBox IsChecked="{Binding IsMgSelected}" Width="50" Canvas.Left="222" Canvas.Top="142"/>
+                            <TextBlock FontSize="30" Foreground="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Text="CT" Canvas.Left="158" Canvas.Top="112" />
+                            <CheckBox x:Name="CheckBox_Ct" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsCtSelected}" Width="50" Canvas.Left="154" Canvas.Top="150"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="UU" Canvas.Left="137" Canvas.Top="216" />
-                            <zmcl:WG_CheckBox IsChecked="{Binding IsNgSelected}" Width="50" Canvas.Left="222" Canvas.Top="212"/>
+                            <TextBlock FontSize="30" Foreground="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Text="MG" Canvas.Left="275" Canvas.Top="112" />
+                            <CheckBox x:Name="CheckBox_Mg" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMgSelected}" Width="50" Canvas.Left="274" Canvas.Top="150"/>
 
-                            <TextBlock Style="{DynamicResource TextBlockStyle4}" FontSize="50" Text="MP" Canvas.Left="137" Canvas.Top="286" />
-                            <zmcl:WG_CheckBox IsChecked="{Binding IsMpSelected}" Width="50" Canvas.Left="222" Canvas.Top="282"/>
+                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Text="NG" Canvas.Left="396" Canvas.Top="112" />
+                            <CheckBox x:Name="CheckBox_Ng" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsNgSelected}" Width="50" Canvas.Left="394" Canvas.Top="150"/>
+
+                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Text="MP" Canvas.Left="516" Canvas.Top="112" />
+                            <CheckBox x:Name="CheckBox_Mp" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMpSelected}" Width="50" Canvas.Left="514" Canvas.Top="150"/>
 
                         </Canvas>
                     </TabItem>
@@ -988,7 +982,17 @@
                     </TabItem >
                     <TabItem Height="1" Width="0"/>
                 </TabControl>
-            </DockPanel>
+                <Line X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100">
+                    <Line.Stroke>
+                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                            <GradientStop Color="#FF383838" Offset="0"/>
+                            <GradientStop Color="#FF4B4B4B" Offset="1"/>
+                            <GradientStop Color="#FF5D5D5D" Offset="0.56"/>
+                            <GradientStop Color="#FF252525" Offset="0.547"/>
+                        </LinearGradientBrush>
+                    </Line.Stroke>
+                </Line>
+            </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

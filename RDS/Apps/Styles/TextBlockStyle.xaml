@@ -63,7 +63,4 @@
         </Setter>
     </Style>
 
-    <Style x:Key="RD_ButtonStyle1">
-        
-    </Style>
 </ResourceDictionary>

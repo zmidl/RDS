@@ -5,16 +5,35 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RDSCL"
              mc:Ignorable="d" 
-             d:DesignHeight="200" d:DesignWidth="50">
+             d:DesignHeight="130" d:DesignWidth="28">
+    <UserControl.Resources>
+        <PathGeometry x:Key="ReagentBoxFrame" Figures="M1,6 A5,5 0,0,1 11,6 3.5,5 0,0,0 17,6 5,5 0,0,1 27,6 L27,124 A5,5 0,0,1 17,124 3.5,5 0,0,0 11,124 5,5 0,0,1 1,124Z"/>
+        <LinearGradientBrush x:Key="ReagentBoxFrameStroke" EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF5F5F5F" Offset="1"/>
+            <GradientStop Color="White"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ReagentBoxContentStroke" EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#FF5F5F5F"/>
+            <GradientStop Color="White" Offset="1"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="ContentColorMask" EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#CC0E0E0E" Offset="0.992"/>
+            <GradientStop Color="#00D3D1D1"/>
+        </LinearGradientBrush>
+
+    </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
-                            <Canvas Width="25" Height="100">
-                                <Rectangle Canvas.Bottom="0" Height="{Binding Value, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"  Width="25" Fill="#FFE89D43" />
-                                <Rectangle Canvas.Bottom="0" Height="100"  Width="25" Stroke="#FF2B7EE2" StrokeThickness="2" />
+                            <Canvas Width="28" Height="130">
+                                <Path Data="{StaticResource ReagentBoxFrame}" Stroke="{StaticResource ReagentBoxFrameStroke}" StrokeThickness="2" Fill="#FFB4B4B4"/>
+                                <Rectangle Height="100" Width="18" Canvas.Left="5" Canvas.Top="14" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"/>
+                                <Rectangle Height="100" Width="18" Canvas.Left="5" Canvas.Top="14" Fill="{StaticResource ContentColorMask}" Stroke="{StaticResource ReagentBoxContentStroke}" StrokeThickness='2'/>
                             </Canvas>
                         </Viewbox>
                     </ControlTemplate>

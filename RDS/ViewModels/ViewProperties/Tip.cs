@@ -15,7 +15,7 @@ namespace RDS.ViewModels.ViewProperties
 				tipState = value;
 				this.RaisePropertyChanged(nameof(TipState));
 				if (value == TipState.NoExist) this.TipContentColor = new SolidColorBrush(Colors.WhiteSmoke);
-				else this.TipContentColor = new SolidColorBrush(Colors.Black);
+				else this.TipContentColor = new SolidColorBrush(Colors.Gray);
 				this.RaisePropertyChanged(nameof(this.TipContentColor));
 			}
 		}

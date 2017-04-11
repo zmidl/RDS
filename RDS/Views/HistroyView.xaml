@@ -4,16 +4,14 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-              d:DesignHeight="850" d:DesignWidth="1900">
+              d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="9*"/>
-                <RowDefinition/>
-            </Grid.RowDefinitions>
+        <Canvas Width="950" Height="500">
+            <Rectangle Fill="{DynamicResource RectangleContainerBackground}" Effect="{StaticResource RectangleContainerEffect}" Stroke="{StaticResource RectangleContainerStroke}" Width="900" Height="460" Canvas.Left="25" Canvas.Top="20" RadiusX="20" RadiusY="20"/>
 
-            <DockPanel LastChildFill="True" Grid.Row="0">
-                <DataGrid  x:Name="DataGrid_ReportName" Width="100" Height="300"  DockPanel.Dock="Left" CanUserAddRows="False"/>
+
+            <DockPanel LastChildFill="True" Grid.Row="0" Canvas.Left="47.563" Canvas.Top="35">
+                <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBlackStyle}" Margin="10" Width="80" Height="300"  DockPanel.Dock="Left" CanUserAddRows="False"/>
                 <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Width="150">
                     <Label x:Name="Label_ShowFirstDiagram" Height="60" PreviewMouseUp="Label_ShowFirstDiagram_PreviewMouseUp">
                         <Path 
@@ -35,9 +33,9 @@
                               Data="M13,9H18.5L13,3.5V9M6,2H14L20,8V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V4C4,2.89 4.89,2 6,2M15,18V16H6V18H15M18,14V12H6V14H18Z" StrokeThickness="0" />
                     </Label>
                 </StackPanel>
-                <Canvas Width="400" />
+                <Canvas Width="400"/>
             </DockPanel>
-            <StackPanel Grid.Row="1" Orientation="Horizontal">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Canvas.Left="156.612" Canvas.Top="425.754">
                 <TextBlock Width="50" Text="姓名" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <TextBox Width="100" Height="30" Margin="2,0,0,0" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
 
@@ -50,6 +48,6 @@
                 <Button Width="60" Height="30" Content="导进LIS" Margin="10,0,0,0" />
 
             </StackPanel>
-        </Grid>
+        </Canvas>
     </Viewbox>
 </UserControl>

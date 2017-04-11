@@ -18,11 +18,20 @@ namespace RDS.Views
             InitializeComponent();
 			
             this.DataContext = new ViewModels.InitializeSuppliesViewModel();
+
+			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
         }
 
-		private void Button_Next_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-            if (this.ViewModel.WizardIndex == 13) this.Content = new Monitor.MonitorView();
-        }
-    }
+		private void ViewModel_ViewChanged(object sender, object e)
+		{
+			//throw new NotImplementedException();
+			this.Content = new Monitor.MonitorView();
+			
+		}
+
+		//private void Button_Next_Click(object sender, System.Windows.RoutedEventArgs e)
+		//      {
+		//          if (this.ViewModel.WizardIndex == 13) this.Content = new Monitor.MonitorView();
+		//      }
+	}
 }

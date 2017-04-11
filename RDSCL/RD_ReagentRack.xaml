@@ -7,6 +7,28 @@
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="90">
+    <UserControl.Resources>
+       
+        <LinearGradientBrush x:Key="BackgroundFill" EndPoint="0.5,1" StartPoint="0,0">
+            <GradientStop Color="#FFC9C9C9" Offset="0.981"/>
+            <GradientStop Color="White"/>
+            <GradientStop Color="#FF939393" Offset="0.293"/>
+            <GradientStop Color="#FFF9F9F9" Offset="0.444"/>
+            <GradientStop Color="#FFB0B0B0" Offset="0.733"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Content" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF444444" Offset="1"/>
+            <GradientStop Color="#337C7C7C" Offset="0.801"/>
+            <GradientStop Color="#19FFFFFF"/>
+        </LinearGradientBrush>
+
+        <LinearGradientBrush x:Key="Excircle" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="Black" Offset="0"/>
+            <GradientStop Color="White" Offset="0.712"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
+
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Template">
@@ -14,33 +36,32 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="550">
-                                <Rectangle Fill="#FF740202" RadiusX="5" RadiusY="5" Width="90" Height="550" Stroke="Black"/>
-                                <local:TL_Hole x:Name="RD_MBBottle1" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
-                                <local:TL_Hole x:Name="RD_MBBottle2" Width="38" Canvas.Left="40" Canvas.Top="20"/>
+                                <local:RD_Hole x:Name="RD_MBBottle1" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
+                                <local:RD_Hole x:Name="RD_MBBottle2" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="38" Canvas.Left="40" Canvas.Top="20"/>
 
-                                <local:TL_Hole x:Name="RD_AMPBottle1" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
-                                <local:TL_Hole x:Name="RD_AMPBottle2" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
-                                <local:TL_Hole x:Name="RD_AMPBottle3" Width="25" Canvas.Left="-4" Canvas.Top="128"/>
-                                <local:TL_Hole x:Name="RD_AMPBottle4" Width="25" Canvas.Left="-4" Canvas.Top="156"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle1" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle2" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle3" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="128"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle4" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="156"/>
 
-                                <local:TL_Hole x:Name="RD_PNBottle1" Width="20" Canvas.Left="-4" Canvas.Top="195"/>
-                                <local:TL_Hole x:Name="RD_PNBottle2" Width="20" Canvas.Left="-4" Canvas.Top="220"/>
-                                <local:TL_Hole x:Name="RD_PNBottle3" Width="20" Canvas.Left="-4" Canvas.Top="245"/>
-                                <local:TL_Hole x:Name="RD_PNBottle4" Width="20" Canvas.Left="-4" Canvas.Top="270"/>
+                                <local:RD_Hole x:Name="RD_PNBottle1" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="195"/>
+                                <local:RD_Hole x:Name="RD_PNBottle2" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="220"/>
+                                <local:RD_Hole x:Name="RD_PNBottle3" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="245"/>
+                                <local:RD_Hole x:Name="RD_PNBottle4" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="270"/>
 
 
-                                <local:TL_Hole x:Name="RD_ISBottle1" Width="20" Canvas.Left="-4" Canvas.Top="305"/>
-                                <local:TL_Hole x:Name="RD_ISBottle2" Width="20" Canvas.Left="-4" Canvas.Top="330"/>
-                                <local:TL_Hole x:Name="RD_ISBottle3" Width="20" Canvas.Left="-4" Canvas.Top="355"/>
-                                <local:TL_Hole x:Name="RD_ISBottle4" Width="20" Canvas.Left="-4" Canvas.Top="380"/>
+                                <local:RD_Hole x:Name="RD_ISBottle1" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="305"/>
+                                <local:RD_Hole x:Name="RD_ISBottle2" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="330"/>
+                                <local:RD_Hole x:Name="RD_ISBottle3" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="355"/>
+                                <local:RD_Hole x:Name="RD_ISBottle4" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="380"/>
 
-                                <local:TL_Hole x:Name="RD_PNBottle5" Width="20" Canvas.Left="-4" Canvas.Top="420"/>
-                                <local:TL_Hole x:Name="RD_PNBottle6" Width="20" Canvas.Left="-4" Canvas.Top="445"/>
-                                <local:TL_Hole x:Name="RD_PNBottle7" Width="20" Canvas.Left="-4" Canvas.Top="470"/>
-                                <local:TL_Hole x:Name="RD_PNBottle8" Width="20" Canvas.Left="-4" Canvas.Top="495"/>
+                                <local:RD_Hole x:Name="RD_PNBottle5" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="420"/>
+                                <local:RD_Hole x:Name="RD_PNBottle6" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="445"/>
+                                <local:RD_Hole x:Name="RD_PNBottle7" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="470"/>
+                                <local:RD_Hole x:Name="RD_PNBottle8" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="495"/>
 
-                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Canvas.Top="64" />
-                                <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Canvas.Top="64" />
+                                <local:RD_ReagentBox ContentColor="Red" Width="28" Height="112" Canvas.Left="27" Canvas.Top="64" />
+                                <local:RD_ReagentBox ContentColor="Green" Width="28" Height="112" Canvas.Left="57" Canvas.Top="64" />
 
                                 <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="27" Canvas.Top="180" />
                                 <local:RD_ReagentBox Width="28" Height="112" Canvas.Left="57" Canvas.Top="180" />

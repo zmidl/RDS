@@ -29,6 +29,14 @@ namespace RDSCL
 			DependencyProperty.Register(nameof(Value), typeof(double), typeof(RD_ReagentBox), new PropertyMetadata(0d));
 
 
+		public SolidColorBrush ContentColor
+		{
+			get { return (SolidColorBrush)GetValue(ContentColorProperty); }
+			set { SetValue(ContentColorProperty, value); }
+		}
+		public static readonly DependencyProperty ContentColorProperty =
+			DependencyProperty.Register(nameof(ContentColor), typeof(SolidColorBrush), typeof(RD_ReagentBox), new PropertyMetadata(new SolidColorBrush(Colors.Gray)));
+
 		public RD_ReagentBox()
 		{
 			InitializeComponent();

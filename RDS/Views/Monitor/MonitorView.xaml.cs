@@ -111,12 +111,14 @@ namespace RDS.Views.Monitor
 				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
 				
 				this.ShakerRack_1.IsShake = true;
-				this.ViewModel.SetTipState(0, 0, TipState.Exist);
+				this.ViewModel.SetTipState(0, 1, TipState.Exist);
 
-				this.ViewModel.SetTipState(1, 0, TipState.Exist);
+				this.ViewModel.SetTipState(1, 1, TipState.Exist);
 
 				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Sampled);
+				this.ViewModel.SetSampleTubeState(3, 5, SampleTubeState.Sampled);
+
 				this.ViewModel.CupRacks[0].Strips[0].Cells[0].State = HoleState.Full;
 				this.ViewModel.CupRacks[0].Strips[0].Cells[1].State = HoleState.Full;
 

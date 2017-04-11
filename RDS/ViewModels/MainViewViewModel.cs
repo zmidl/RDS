@@ -68,6 +68,7 @@ namespace RDS.ViewModels
 		public MainViewViewModel()
 		{
 			this.ExitApp = new RelayCommand(this.ExecuteExitApp);
+			this.IsTask = true;
 			//this.ShowHistroyView = new RelayCommand(this.ExecuteShowHistroyView);
 			//this.ShowHelpView = new RelayCommand(this.ExecuteShowHelpView);
 		}
@@ -98,7 +99,8 @@ namespace RDS.ViewModels
 			HistroyView = 1,
 			HelpView = 2,
 			AdminView=3,
-			ExitApp=4
+			Minisize=4,
+			ExitApp=5
 		}
 	}
 }

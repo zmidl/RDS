@@ -37,12 +37,12 @@
 
         </DataTemplate>
 
-        <Style x:Key="Sample_TextBlockStyle1" BasedOn="{StaticResource TextBlockStyle4}" TargetType="{x:Type TextBlock}">
+        <Style x:Key="Sample_TextBlockStyle1" TargetType="{x:Type TextBlock}">
             <Setter Property="FontSize" Value="18"/>
             <Setter Property="Panel.ZIndex" Value="1"/>
         </Style>
 
-        <Style x:Key="Sample_TextBlockStyle2" BasedOn="{StaticResource TextBlockStyle3}" TargetType="{x:Type TextBlock}">
+        <Style x:Key="Sample_TextBlockStyle2" TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="0,-4.8,0,0"/>
             <Setter Property="FontSize" Value="16.2"/>
         </Style>
@@ -150,7 +150,7 @@
 
 
                         <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="10">
-                            <zmlc:UcTextBlock Style="{StaticResource TextBlockStyle3}" Text="1" FontSize="16.2"/>
+                            <TextBlock Text="1" FontSize="16.2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="3"/>
                             <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="4"/>

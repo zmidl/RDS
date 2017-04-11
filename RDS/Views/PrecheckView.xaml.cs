@@ -51,11 +51,19 @@ namespace RDS.Views
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {
-            if (this.CheckBox_First.IsChecked == true &&
-         
-                this.CheckBox_Third.IsChecked == true &&
-                this.CheckBox_Fourth.IsChecked == true &&
-                this.CheckBox_Fifth.IsChecked == true) General.ExitView(this.PreviousContent, this, ((IExitView)new InitializeSuppliesView()));
+			if (this.CheckBox_First.IsChecked == true &&
+
+				this.CheckBox_Second.IsChecked == true &&
+				this.CheckBox_Fourth.IsChecked == true &&
+				this.CheckBox_Fifth.IsChecked == true)
+			{
+				General.ExitView(this.PreviousContent, this, ((IExitView)new InitializeSuppliesView()));
+			}
         }
-    }
+
+		private void CheckBox_Second_Click(object sender, RoutedEventArgs e)
+		{
+
+		}
+	}
 }
