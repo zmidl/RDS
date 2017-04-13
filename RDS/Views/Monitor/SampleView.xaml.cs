@@ -25,43 +25,37 @@ namespace RDS.Views.Monitor
 			((IExitView)this).ExitView();
 		}
 
-		private void Button_Import_Click(object sender, RoutedEventArgs e)
-		{
+		//private void Button_Import_Click(object sender, RoutedEventArgs e)
+		//{
 			
-			System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
-			ofd.Filter = "Xm;文件(*.xml;)|*.xml;|所有文件|*.*";
-			ofd.ValidateNames = true;
-			ofd.CheckPathExists = true;
-			ofd.CheckFileExists = true;
-			if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-			{
-				this.ViewModel.Test.Execute(null);
-			}
-			var table = XmlOperation.ReadXmlFile(ofd.FileName).Tables[2];
-			var path = System.IO.Directory.GetCurrentDirectory();
-			//this.ViewModel.DatatableToEntity(XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
-		}
+		//	System.Windows.Forms.OpenFileDialog ofd = new System.Windows.Forms.OpenFileDialog();
+		//	ofd.Filter = "Xm;文件(*.xml;)|*.xml;|所有文件|*.*";
+		//	ofd.ValidateNames = true;
+		//	ofd.CheckPathExists = true;
+		//	ofd.CheckFileExists = true;
+		//	if (ofd.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+		//	{
+		//		this.ViewModel.Test.Execute(null);
+		//	}
+		//	var table = XmlOperation.ReadXmlFile(ofd.FileName).Tables[2];
+		//	var path = System.IO.Directory.GetCurrentDirectory();
+		//	//this.ViewModel.DatatableToEntity(XmlOperation.ReadXmlFile(ofd.FileName).Tables[2]);
+		//}
 
-		private void Button_Layout_Click(object sender, RoutedEventArgs e)
-		{
-			LayoutSetting LS = new LayoutSetting();
-			LS.ShowDialog();
-		}
-
-		private void Button_On_Click(object sender, RoutedEventArgs e)
-		{
-			//Tip tipDescription = new Tip(TipState.NoExist);
-			//var a = this.ViewModel.EntityToXmlString(tipDescription);
-			//var c = this.ViewModel.XmlStringToEntity(a);
-			//var t1 = c.GetType();
-			//var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
-			//var t2 = tipDescription.GetType();
+		//private void Button_On_Click(object sender, RoutedEventArgs e)
+		//{
+		//	Tip tipDescription = new Tip(TipState.NoExist);
+		//	var a = this.ViewModel.EntityToXmlString(tipDescription);
+		//	var c = this.ViewModel.XmlStringToEntity(a);
+		//	var t1 = c.GetType();
+		//	var d = this.ViewModel.XmlStringToEntity2(tipDescription, a);
+		//	var t2 = tipDescription.GetType();
 
 
-			//this.ViewModel.Test.Execute(null);
-			//var a=this.FindResource("Uid").ToString();
-			//MessageBox.Show(a);
-			//this.ViewModel.RaiseSampleViewChanged(new SampleViewChangedArgs(SampleViewChangedName.MultiSelectMouseDown, 1));
-		}
+		//	this.ViewModel.Test.Execute(null);
+		//	var a = this.FindResource("Uid").ToString();
+		//	MessageBox.Show(a);
+		//	this.ViewModel.RaiseSampleViewChanged(new SampleViewChangedArgs(SampleViewChangedName.MultiSelectMouseDown, 1));
+		//}
 	}
 }

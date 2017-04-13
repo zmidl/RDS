@@ -35,7 +35,13 @@
 		Exist = 1
 	}
 
-
+	public enum ReagentState
+	{
+		Empty = 0,
+		Few = 1,
+		Normal = 2,
+		Full = 3
+	}
 
 	public enum ShowView
 	{

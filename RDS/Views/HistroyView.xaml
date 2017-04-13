@@ -7,8 +7,7 @@
               d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Canvas Width="950" Height="500">
-            <Rectangle Fill="{DynamicResource RectangleContainerBackground}" Effect="{StaticResource RectangleContainerEffect}" Stroke="{StaticResource RectangleContainerStroke}" Width="900" Height="460" Canvas.Left="25" Canvas.Top="20" RadiusX="20" RadiusY="20"/>
-
+            <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
 
             <DockPanel LastChildFill="True" Grid.Row="0" Canvas.Left="47.563" Canvas.Top="35">
                 <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBlackStyle}" Margin="10" Width="80" Height="300"  DockPanel.Dock="Left" CanUserAddRows="False"/>

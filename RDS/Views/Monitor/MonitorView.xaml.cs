@@ -115,6 +115,15 @@ namespace RDS.Views.Monitor
 
 				this.ViewModel.SetTipState(1, 1, TipState.Exist);
 
+				this.ViewModel.SetReagentBoxState(0, ReagentState.Full);
+				this.ViewModel.SetReagentBoxState(7, ReagentState.Few);
+
+				this.ViewModel.SetMBBottleState(0, ReagentState.Normal);
+				this.ViewModel.SetMBBottleState(1, ReagentState.Few);
+				this.ViewModel.SetAMPBottleState(0, ReagentState.Full);
+				this.ViewModel.SetNPBottleState(1, ReagentState.Few);
+				this.ViewModel.SetISBottleState(2, ReagentState.Full);
+				this.ViewModel.SetNPBottleState(7, ReagentState.Normal);
 				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Sampled);
 				this.ViewModel.SetSampleTubeState(3, 5, SampleTubeState.Sampled);
@@ -128,7 +137,7 @@ namespace RDS.Views.Monitor
 
 				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.Full);
 
-				for (int i = 0; i < 7; i++)
+				for (int i = 0; i < 1; i++)
 				{
 					this.ViewModel.CupRacks[2].Strips[i].State = StripState.Inexistence;
 				}

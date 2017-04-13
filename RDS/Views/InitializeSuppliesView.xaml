@@ -7,10 +7,24 @@
              xmlns:zmcl2="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
              mc:Ignorable="d" 
            d:DesignHeight="1000" d:DesignWidth="1900">
+    <UserControl.Resources>
+        <PathGeometry x:Key="Tube" Figures="M7,2V4H8V18A4,4 0 0,0 12,22A4,4 0 0,0 16,18V4H17V2H7M11,16C10.4,16 10,15.6 10,15C10,14.4 10.4,14 11,14C11.6,14 12,14.4 12,15C12,15.6 11.6,16 11,16M13,12C12.4,12 12,11.6 12,11C12,10.4 12.4,10 13,10C13.6,10 14,10.4 14,11C14,11.6 13.6,12 13,12M14,7H10V4H14V7Z"/>
+        <Style x:Key="TextBlock" TargetType="{x:Type TextBlock}">
+            <Setter Property="Effect" Value="{StaticResource TextEffect}"/>
+            <Setter Property="FontSize" Value="30"/>
+        </Style>
+
+        <Style x:Key="Path" TargetType="{x:Type Path}">
+            <Setter Property="Data" Value="{StaticResource Tube}"/>
+            <Setter Property="Effect" Value="{StaticResource IconEffect}"/>
+            <Setter Property="Width" Value="25"/>
+            <Setter Property="Stretch" Value="UniformToFill"/>
+        </Style>
+    </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
-                <Rectangle Fill="{DynamicResource RectangleContainerBackground}" Effect="{StaticResource RectangleContainerEffect}" Stroke="{StaticResource RectangleContainerStroke}" Width="900" Height="460" Canvas.Left="25" Canvas.Top="20" RadiusX="10" RadiusY="10"/>
+                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
                 <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnHomeView}" Canvas.Left="200" Canvas.Top="414">
                     <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
                 </Button>
@@ -37,7 +51,9 @@
                     <TabItem Height="1" Width="0">
                         <Canvas>
                             <Image Source="/RDS;component/Apps/Images/image.jpg" Width="393.5" Stretch="Fill" HorizontalAlignment="Left" Height="286.9" Canvas.Left="100.5" OpacityMask="#4CFFFFFF"/>
-                            <TextBlock Foreground="{StaticResource TextForeground2}" FontSize="30" Text="先将试剂从冰箱中拿出。" TextWrapping="WrapWithOverflow" Canvas.Left="154.5" Canvas.Top="300.9"/>
+                            <StackPanel Canvas.Top="300" Width="600">
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message}" />
+                            </StackPanel>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
@@ -64,22 +80,37 @@
                     </TabItem>
                     <TabItem Height="1" Width="0">
                         <Canvas>
-                            <TextBlock Text="请选择1至4项试剂" Foreground="{StaticResource TextForeground2}" TextWrapping="Wrap" FontSize="30"  Canvas.Left="180" Canvas.Top="302"/>
-                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Uu,Path=Foreground}" Text="UU" Canvas.Left="34" Canvas.Top="112" />
-                            <CheckBox x:Name="CheckBox_Uu" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsUuSelected}" Width="50" Canvas.Left="34" Canvas.Top="150"/>
+                            <StackPanel Orientation="Vertical" Canvas.Top="300" Width="600">
+                                <TextBlock Text="请选择1至4项试剂" Style="{StaticResource TextBlockStyle}" />
+                            </StackPanel>
 
-                            <TextBlock FontSize="30" Foreground="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Text="CT" Canvas.Left="158" Canvas.Top="112" />
-                            <CheckBox x:Name="CheckBox_Ct" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsCtSelected}" Width="50" Canvas.Left="154" Canvas.Top="150"/>
+                            <StackPanel Orientation="Horizontal" Canvas.Left="35" Canvas.Top="100">
+                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Uu,Path=Foreground}" Text="UU"  />
+                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Text="CT" Margin="78,0,0,0" />
+                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Text="MG" Margin="78,0,0,0" />
+                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Text="NG" Margin="70,0,0,0" />
+                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Text="MP" Margin="70,0,0,0" />
 
-                            <TextBlock FontSize="30" Foreground="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Text="MG" Canvas.Left="275" Canvas.Top="112" />
-                            <CheckBox x:Name="CheckBox_Mg" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMgSelected}" Width="50" Canvas.Left="274" Canvas.Top="150"/>
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Canvas.Left="35" Canvas.Top="220">
+                                <CheckBox x:Name="CheckBox_Uu" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsUuSelected}" Width="50"/>
 
-                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Text="NG" Canvas.Left="396" Canvas.Top="112" />
-                            <CheckBox x:Name="CheckBox_Ng" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsNgSelected}" Width="50" Canvas.Left="394" Canvas.Top="150"/>
+                                <CheckBox x:Name="CheckBox_Ct" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsCtSelected}" Width="50" Margin="70,0,0,0"/>
 
-                            <TextBlock  FontSize="30" Foreground="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Text="MP" Canvas.Left="516" Canvas.Top="112" />
-                            <CheckBox x:Name="CheckBox_Mp" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMpSelected}" Width="50" Canvas.Left="514" Canvas.Top="150"/>
+                                <CheckBox x:Name="CheckBox_Mg" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMgSelected}" Width="50" Margin="70,0,0,0"/>
 
+                                <CheckBox x:Name="CheckBox_Ng" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsNgSelected}" Width="50" Margin="70,0,0,0"/>
+
+                                <CheckBox x:Name="CheckBox_Mp" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMpSelected}" Width="50" Margin="70,0,0,0"/>
+
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Canvas.Left="46" Canvas.Top="155">
+                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Uu,Path=Foreground}" />
+                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Margin="96,0,0,0"/>
+                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Margin="96,0,0,0"/>
+                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Margin="95,0,0,0"/>
+                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Margin="92,0,0,0"/>
+                            </StackPanel>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">

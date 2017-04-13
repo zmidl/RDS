@@ -19,8 +19,13 @@
     <system:String x:Key="SampleView_Reagent">试剂</system:String>
     <system:String x:Key="SampleView_Emergency">急诊</system:String>
     <system:String x:Key="PrecheckView_SelfTest">仪器自检</system:String>
+    <system:String x:Key="PrecheckView_CheckWasteBox">废物框检查：废物框是否已清空</system:String>
+    <system:String x:Key="PrecheckView_CheckWasteBin">废液桶检查：废液桶是否已清空</system:String>
+    <system:String x:Key="PrecheckView_CheckLiquid">废液液检查：系统液是否充足</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">第一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">下一步</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message">请从冰箱里拿出试剂并解冻</system:String>
+    
     <system:String x:Key="Test">测试</system:String>
     <system:String x:Key="MessageTitle_Information">提示</system:String>
     <system:String x:Key="MessageContent_CloseBingate">关闭仓门</system:String>

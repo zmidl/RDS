@@ -54,7 +54,7 @@ namespace RDSCL
 				switch (currentState)
 				{
 					case StripState.Existence: { strip.Visibility = Visibility.Visible; strip.Opacity = 1.0; break; }
-					case StripState.Inexistence: { strip.Visibility = Visibility.Collapsed; break; }
+					case StripState.Inexistence: { strip.Visibility = Visibility.Hidden; break; }
 					case StripState.Leaving: { strip.Visibility = Visibility.Visible; strip.Opacity = 0.4; break; }
 					default: { break; }
 				}

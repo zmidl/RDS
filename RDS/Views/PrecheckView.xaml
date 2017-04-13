@@ -7,47 +7,50 @@
              xmlns:zmcl3="clr-namespace:ZMCL.MyControl.WhiteGold;assembly=ZMCL"
              xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
              d:DesignHeight="1000" d:DesignWidth="1900">
+    <UserControl.Resources>
+        
+        
+        <Style x:Key="TextBlock" BasedOn="{StaticResource TextBlockStyle}" TargetType="TextBlock">
+            <Setter Property="Margin" Value="20,0,0,0"/>
+        </Style>
+        
+        <Style x:Key="Path" TargetType="{x:Type Path}">
+            <Setter Property="Stretch" Value="UniformToFill"/>
+            <Setter Property="Width" Value="50"/>
+            <Setter Property="Effect" Value="{StaticResource IconEffect}"/>
+        </Style>
+
+    </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
-                <Rectangle Fill="{DynamicResource RectangleContainerBackground}" Effect="{StaticResource RectangleContainerEffect}" Stroke="{StaticResource RectangleContainerStroke}" Width="900" Height="460" Canvas.Left="25" Canvas.Top="20" RadiusX="10" RadiusY="10"/>
+                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
                 <StackPanel Width="800" Canvas.Left="80" Canvas.Top="60"  Orientation="Vertical" >
                     <DockPanel LastChildFill="True">
-                        <Path Width="50" Fill="{StaticResource TextForeground}" Stretch="Uniform" Data="{StaticResource Instrument}"/>
-                        <TextBlock Margin="20,0,0,0" Foreground="{StaticResource TextForeground2}" Text="{StaticResource PrecheckView_SelfTest}" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_First,Path=Foreground}" Data="{StaticResource Instrument}"/>
+                        <TextBlock Style="{StaticResource TextBlock}" Text="{DynamicResource PrecheckView_SelfTest}" />
                         <CheckBox x:Name="CheckBox_First" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" />
                         <ProgressBar x:Name="ProgressBar_CheckTemperature" Width="300" Visibility="Collapsed" Margin="20,0,0,0" SmallChange="1" Maximum="100"/>
                     </DockPanel>
-
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <Path Width="50" Stretch="UniformToFill" Fill="{StaticResource TextForeground}" Data="{StaticResource WasteBasket}" DockPanel.Dock="Left" />
-                        <TextBlock Foreground="{StaticResource TextForeground2}" Margin="20,0,0,0" Text="废液框检测：废液框是否清空"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Second,Path=Foreground}" Data="{StaticResource WasteBasket}" DockPanel.Dock="Left" />
+                        <TextBlock Style="{StaticResource TextBlock}" Text="{DynamicResource PrecheckView_CheckWasteBox}" />
                         <CheckBox x:Name="CheckBox_Second" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" Click="CheckBox_Click" />
                         <Label/>
                     </DockPanel>
 
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-
-                        <Path Width="50" Stretch="UniformToFill" Fill="{StaticResource TextForeground}" Data="{StaticResource WasteBucket}"/>
-                        <TextBlock Foreground="{StaticResource TextForeground2}" Margin="20,0,0,0" Text="废液桶检测：废液桶是否清空"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Fourth,Path=Foreground}" Data="{StaticResource WasteBucket}"/>
+                        <TextBlock Style="{StaticResource TextBlock}" Text="{DynamicResource PrecheckView_CheckWasteBin}"/>
                         <CheckBox x:Name="CheckBox_Fourth" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" Click="CheckBox_Click" />
                         <Label/>
                     </DockPanel>
 
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">
-                        <Path Width="50" Stretch="UniformToFill" Fill="{StaticResource TextForeground}" Data="M18,19H19V21H5V19H6V13H5V11H6V5H5V3H19V5H18V11H19V13H18V19M9,13A3,3 0 0,0 12,16A3,3 0 0,0 15,13C15,11 12,7.63 12,7.63C12,7.63 9,11 9,13Z">
-                            <Path.Effect>
-                                <DropShadowEffect BlurRadius="10" Color="#FF6C6C6C" ShadowDepth="2"/>
-                            </Path.Effect>
-                        </Path>
-                        <TextBlock Margin="20,0,0,0" Foreground="{StaticResource TextForeground2}" DockPanel.Dock="Left" Text="系统液检测：系统液是否准备充足"  FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center">
-                            <TextBlock.Effect>
-                                <DropShadowEffect BlurRadius="10" ShadowDepth="2"/>
-                            </TextBlock.Effect>
+                        <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Fifth,Path=Foreground}" Data="M18,19H19V21H5V19H6V13H5V11H6V5H5V3H19V5H18V11H19V13H18V19M9,13A3,3 0 0,0 12,16A3,3 0 0,0 15,13C15,11 12,7.63 12,7.63C12,7.63 9,11 9,13Z"/>
+                        <TextBlock Style="{StaticResource TextBlock}" Text="{DynamicResource PrecheckView_CheckLiquid}" >
                         </TextBlock>
                         <CheckBox x:Name="CheckBox_Fifth" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" Click="CheckBox_Click"/>
-
-
                         <Label/>
                     </DockPanel>
                 </StackPanel>

@@ -21,12 +21,12 @@
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="1900" Height="1000" Background="{StaticResource RectangleContainerBackground}">
-           
 
-            <rdsc:SampleRack  SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="205" Canvas.Top="90" />
-            <rdsc:SampleRack  SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="260" Canvas.Top="90" />
-            <rdsc:SampleRack  SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="315" Canvas.Top="90" />
-            <rdsc:SampleRack  SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="370" Canvas.Top="90" />
+
+            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="205" Canvas.Top="90" />
+            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="260" Canvas.Top="90" />
+            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="315" Canvas.Top="90" />
+            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="370" Canvas.Top="90" />
 
 
             <Canvas Canvas.Left="460" Canvas.Top="90" Width="260" Height="850">
@@ -56,7 +56,7 @@
                 <rdsc:RD_CupRack ItemsSource="{Binding CupRacks[2].Strips}" Width="250" Canvas.Left="5"  Canvas.Top="580"/>
             </Canvas>
 
-            <rdsc:RD_ReagentRack Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
+            <rdsc:RD_ReagentRack DataSource="{Binding ReagentRack}" Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
 
             <rdsc:RD_Heating x:Name="Heating_1" ItemsSource="{Binding Heating.Strips}" Width="232"  Canvas.Top="652" Canvas.Left="1270" />
             <rdsc:RD_ShakerRack x:Name="ShakerRack_1" ItemsSource="{Binding ShakerRack.Strips}" Width="170"  Canvas.Left="1490" Canvas.Top="652"/>

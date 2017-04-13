@@ -62,6 +62,9 @@
     <Compile Include="Hole2.xaml.cs">
       <DependentUpon>Hole2.xaml</DependentUpon>
     </Compile>
+    <Compile Include="MonitorChart.xaml.cs">
+      <DependentUpon>MonitorChart.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RD_Hole.xaml.cs">
       <DependentUpon>RD_Hole.xaml</DependentUpon>
     </Compile>
@@ -121,6 +124,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Hole2.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MonitorChart.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

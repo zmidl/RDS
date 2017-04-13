@@ -1,0 +1,71 @@
+﻿<UserControl x:Class="RDSCL.MonitorChart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:RDSCL"
+             mc:Ignorable="d" 
+             d:DesignHeight="1000" d:DesignWidth="1900">
+    <UserControl.Resources>
+         
+        <PathGeometry x:Key="ReagentBoxFrame" Figures="M0,4 A9,9 0,0,1 18,4 3.5,5 0,0,0 24,4 9,9 0,0,1 42,4 L42,170 A9,9 0,0,1 24,170 3.5,5 0,0,0 18,170 9,9 0,0,1 0,170Z"/>
+    </UserControl.Resources>
+    <UserControl.Style>
+        <Style TargetType="UserControl">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="UserControl">
+                        <Viewbox Stretch="Fill">
+                            <Canvas Width="1900" Height="1000">
+                                <local:RD_ReagentRack DataSource="{Binding ReagentRack}" Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
+                                <Canvas Canvas.Left="200" Canvas.Top="50" Background="#33000000" Width="150" Height="850" >
+                                    <Ellipse Canvas.Left="10" Canvas.Top="15" Width="60" Height="60" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="80" Canvas.Top="15" Width="60" Height="60" Stroke="White" StrokeThickness="2"/>
+
+                                    <Ellipse Canvas.Left="10" Canvas.Top="98" Width="42" Height="42" Stroke="White" StrokeThickness="2" Clip=""/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="145" Width="42" Height="42" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="192" Width="42" Height="42" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="239" Width="42" Height="42" Stroke="White" StrokeThickness="2"/>
+
+                                    <Ellipse Canvas.Left="10" Canvas.Top="303" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="345" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="386" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="427" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+
+                                    <Ellipse Canvas.Left="10" Canvas.Top="486" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="528" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="570" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="612" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+
+                                    <Ellipse Canvas.Left="10" Canvas.Top="700" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="528" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="570" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+                                    <Ellipse Canvas.Left="10" Canvas.Top="612" Width="33" Height="33" Stroke="White" StrokeThickness="2"/>
+
+
+                                    <Path Canvas.Left="56" Canvas.Top="85" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+                                    <Path Canvas.Left="106" Canvas.Top="85" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+
+                                    <Path Canvas.Left="56" Canvas.Top="278" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+                                    <Path Canvas.Left="106" Canvas.Top="278" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+
+                                    <Path Canvas.Left="56" Canvas.Top="471" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+                                    <Path Canvas.Left="106" Canvas.Top="471" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+
+                                    <Path Canvas.Left="56" Canvas.Top="664" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+                                    <Path Canvas.Left="106" Canvas.Top="664" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
+
+                                </Canvas>
+                            </Canvas>
+                        </Viewbox>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>

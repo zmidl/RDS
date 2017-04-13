@@ -9,7 +9,6 @@ namespace RDS.ViewModels
 	public class MonitorViewModel : ViewModel
 	{
 		private const int CUPRACKS_COUNT = 3;
-
 		private const int TIPRACKS_COUNT = 9;
 
 		public SampleViewModel SampleViewModel { get; set; } = new SampleViewModel();
@@ -17,6 +16,8 @@ namespace RDS.ViewModels
 		public ObservableCollection<CupRack> CupRacks { get; set; } = new ObservableCollection<CupRack>();
 
 		public ObservableCollection<TipRack> TipRacks { get; set; } = new ObservableCollection<TipRack>();
+
+		public ReagentRack ReagentRack { get; set; } = new ReagentRack();
 
 		private Heating heating = new Heating();
 		public Heating Heating
@@ -29,16 +30,7 @@ namespace RDS.ViewModels
 			}
 		}
 
-		private ShakerRack shakerRack = new ShakerRack();
-		public ShakerRack ShakerRack
-		{
-			get { return shakerRack; }
-			set
-			{
-				shakerRack = value;
-				this.RaisePropertyChanged(nameof(ShakerRack));
-			}
-		}
+		public ShakerRack ShakerRack { get; set; } = new ShakerRack();
 
 		private Mag mag = new Mag();
 		public Mag Mag
@@ -124,9 +116,34 @@ namespace RDS.ViewModels
 			this.Reader.Enzymes[enzymeIndex].Value += value;
 		}
 
-		public void SetSampleRackState(int sampleRackIndex,string stateDescription)
+		public void SetSampleRackState(int sampleRackIndex, string stateDescription)
 		{
 			this.SampleViewModel.SampleRacks[sampleRackIndex].SampleRackState = (RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
+		}
+
+		public void SetReagentBoxState(int reagentBoxIndex, ReagentState reagentState)
+		{
+			this.ReagentRack.ReagentBoxs[reagentBoxIndex].State = reagentState;
+		}
+
+		public void SetMBBottleState(int mBBottleIndex, ReagentState reagentState)
+		{
+			this.ReagentRack.MBBottles[mBBottleIndex].State = reagentState;
+		}
+
+		public void SetAMPBottleState(int aMPBottleIndex, ReagentState reagentState)
+		{
+			this.ReagentRack.AMPBottles[aMPBottleIndex].State = reagentState;
+		}
+
+		public void SetNPBottleState(int nPBottleIndex, ReagentState reagentState)
+		{
+			this.ReagentRack.PNBottles[nPBottleIndex].State = reagentState;
+		}
+
+		public void SetISBottleState(int iSBottleIndex, ReagentState reagentState)
+		{
+			this.ReagentRack.ISBottles[iSBottleIndex].State = reagentState;
 		}
 
 		public string TimeCount

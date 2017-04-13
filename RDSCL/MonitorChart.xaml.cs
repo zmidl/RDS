@@ -16,22 +16,11 @@ using System.Windows.Shapes;
 namespace RDSCL
 {
 	/// <summary>
-	/// RD_ReagentRack.xaml 的交互逻辑
+	/// MonitorChart.xaml 的交互逻辑
 	/// </summary>
-	public partial class RD_ReagentRack : UserControl
+	public partial class MonitorChart : UserControl
 	{
-
-
-		public object DataSource
-		{
-			get { return (object)GetValue(DataSourceProperty); }
-			set { SetValue(DataSourceProperty, value); }
-		}
-		public static readonly DependencyProperty DataSourceProperty =
-			DependencyProperty.Register(nameof(DataSource), typeof(object), typeof(RD_ReagentRack), new PropertyMetadata(null));
-
-
-		public RD_ReagentRack()
+		public MonitorChart()
 		{
 			InitializeComponent();
 		}

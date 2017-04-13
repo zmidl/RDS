@@ -13,167 +13,87 @@
              xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              xmlns:local="clr-namespace:RDS.Views.Monitor" x:Class="RDS.Views.Monitor.SampleView"
              mc:Ignorable="d" 
-             d:DesignHeight="850" d:DesignWidth="1900">
+             d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-        <common:SampleStateToSolidColorBrush x:Key="SamplingToSolidColorBrush"/>
-        <common:SampleSelectionStateToSolidColorBrush x:Key="SampleSelectionStateToSolidColorBrush"/>
-
-        <DataTemplate x:Key="Column7Header">
-            <zmlc:UcButton Content="试剂" Width="50" Height="20" FontSize="10"/>
-        </DataTemplate>
-        <DataTemplate x:Key="Column1Header">
-
-        </DataTemplate>
-        <DataTemplate x:Key="Column2Header">
-
-        </DataTemplate>
-        <DataTemplate x:Key="Column3Header">
-
-        </DataTemplate>
-        <DataTemplate x:Key="Column4Header">
-
-        </DataTemplate>
-        <DataTemplate x:Key="Column5Header">
-
-        </DataTemplate>
-
-        <Style x:Key="Sample_TextBlockStyle1" TargetType="{x:Type TextBlock}">
-            <Setter Property="FontSize" Value="18"/>
-            <Setter Property="Panel.ZIndex" Value="1"/>
+        <Style BasedOn="{StaticResource TextBlockStyle}" TargetType="{x:Type TextBlock}">
+            <Setter Property="Margin" Value="0,2.1,0,0"/>
+            <Setter Property="FontSize" Value="12"/>
         </Style>
-
-        <Style x:Key="Sample_TextBlockStyle2" TargetType="{x:Type TextBlock}">
-            <Setter Property="Margin" Value="0,-4.8,0,0"/>
-            <Setter Property="FontSize" Value="16.2"/>
-        </Style>
-
-        <Style x:Key="SingleTubeStyle" TargetType="{x:Type UserControl}">
-            <Setter Property="Width" Value="50"/>
-            <Setter Property="Height" Value="50"/>
-            <Setter Property="Margin" Value="10,0,0,0"/>
-        </Style>
-
         <Style x:Key="DataGridColumn0Editing" TargetType="{x:Type TextBox}">
             <Setter Property="Foreground" Value="White"/>
             <Setter Property="Background" Value="Gray"/>
             <Setter Property="BorderBrush" Value="Navy"/>
             <Setter Property="BorderThickness" Value="2"/>
         </Style>
-
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="400" Background="White">
+        <Grid Width="950" Height="500">
+            <Canvas>
+                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+                <Button x:Name="Button_Exit" Style="{StaticResource RD_ButtonStyle}" Content="返回" Width="92" Height="32" Click="Button_Exit_Click" Canvas.Left="438" Canvas.Top="431"/>
 
-            <Canvas Width="900" Height="400">
-
-                <zmlc:UcGlassButton
-					x:Name="Button_On" 
-					Foreground="#FF002AFA"
-					Content="上样" Margin="0" 
-					Width="50" Height="50" 
-					Canvas.Left="830" Canvas.Top="200" Click="Button_On_Click" />
-
-                <zmlc:UcGlassButton
-					x:Name="Button_Layout" 
-					Foreground="#FF002AFA"
-					Content="布样" Margin="0" 
-					Width="50" Height="50" 
-					Canvas.Left="830" Canvas.Top="130" Click="Button_Layout_Click" />
-
-                <zmlc:UcGlassButton
-					x:Name="Button_Import" 
-					Foreground="#FF002AFA"
-					Content="导入" Margin="0" 
-					Width="50" Height="50" 
-					Canvas.Left="830" Canvas.Top="60" Click="Button_Import_Click" />
-
-                <zmlc:UcGlassButton
-					x:Name="Button_Exit" 
-					Foreground="#FF002AFA"
-					Content="返回" Margin="0" 
-					Width="50" Height="50" 
-					Click="Button_Exit_Click" Canvas.Left="830" Canvas.Top="270"/>
-
-                <zmlc:UcDataGrid 
-						x:Name="ucDataGrid" 
-                        AllowDrop="True"
-						ItemsSource="{Binding SampleInformations}"
+                <DataGrid x:Name="ucDataGrid" Style="{StaticResource RD_DataGridBlackStyle}"
+                    AllowDrop="True" ItemsSource="{Binding SampleInformations}"
 						SelectionMode="Extended"
 						AutoGenerateColumns="False"
-						Width="677" 
+						Width="700" 
 						Height="380" 
-						Canvas.Left="138" Canvas.Top="10">
-                    <zmlc:UcDataGrid.Columns>
-                        <DataGridTextColumn MinWidth="30" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
-                        <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
+						Canvas.Left="194" Canvas.Top="40">
+                    <DataGrid.Columns>
+                        <DataGridTextColumn MinWidth="50" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
+                        <DataGridTextColumn MinWidth="90" Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_SampleNumber}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding SampleId}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Name}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Name}" />
-                        <DataGridTextColumn MinWidth="30" Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Sex}" />
-                        <DataGridTextColumn MinWidth="30" Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Age}" />
+                        <DataGridTextColumn MinWidth="35" Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Sex}" />
+                        <DataGridTextColumn MinWidth="35" Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Age}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Type}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Type}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Reagent}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Reagent}" />
                         <DataGridTextColumn MinWidth="90" Header="{DynamicResource SampleView_DateTime}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding DateTime}" />
-                        <DataGridTextColumn Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" />
-                    </zmlc:UcDataGrid.Columns>
-                    <zmlc:UcDataGrid.Effect>
-                        <DropShadowEffect ShadowDepth="1" Color="#FFA4A4A4"/>
-                    </zmlc:UcDataGrid.Effect>
-                </zmlc:UcDataGrid>
-                <Canvas 
-					x:Name="Canvas_SampleViewOne"
-					Canvas.Left="6" Canvas.Top="10" 
-					Width="128" Height="383" 
-                   AllowDrop="True">
+                        <DataGridTextColumn MinWidth="50" Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" />
+                    </DataGrid.Columns>
+                </DataGrid>
 
-                    <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle1}" Text="A" Canvas.Left="35" Canvas.Bottom="8">
+                <TextBlock Text="A" Canvas.Left="78" Canvas.Bottom="8" Canvas.Top="431">
                         <i:Interaction.Behaviors>
                             <behavior:SampleRackMouseUp Index="0" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
-                    </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="B" Canvas.Left="58" Canvas.Bottom="8" >
+                </TextBlock>
+                <TextBlock  Text="B" Canvas.Left="105" Canvas.Bottom="8" Canvas.Top="431" >
                         <i:Interaction.Behaviors>
                             <behavior:SampleRackMouseUp Index="1" ViewModel="{Binding Mode=OneWay}"/>
                         </i:Interaction.Behaviors>
-                    </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="C" Canvas.Left="81" Canvas.Bottom="8">
-
-                    </zmlc:UcTextBlock>
-                    <zmlc:UcTextBlock Style="{DynamicResource Sample_TextBlockStyle1}" Text="D" Canvas.Left="104" Canvas.Bottom="8" >
-
-                    </zmlc:UcTextBlock>
-
-                    <Canvas Margin="2,19,0,0">
-                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="19" Canvas.Left="28" Canvas.Top="-16"/>
-                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="19" Canvas.Left="51" Canvas.Top="-16"/>
-                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="19" Canvas.Left="74" Canvas.Top="-16"/>
-                        <rdscl:SampleRack SampleRackState="{Binding SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="19" Canvas.Left="97" Canvas.Top="-16"/>
+                </TextBlock>
+                <TextBlock Text="C" Canvas.Left="130" Canvas.Bottom="8" Canvas.Top="431"/>
+                <TextBlock Text="D" Canvas.Left="156" Canvas.Bottom="8" Canvas.Top="431" />
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="26" Canvas.Left="72" Canvas.Top="40"/>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="26" Canvas.Left="98" Canvas.Top="40"/>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="26" Canvas.Left="124" Canvas.Top="40"/>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="26" Canvas.Left="150" Canvas.Top="40"/>
 
 
-                        <StackPanel Orientation="Vertical" Canvas.Left="6" Canvas.Top="10">
-                            <TextBlock Text="1" FontSize="16.2"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="2"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="3"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="4"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="5"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="6"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="7"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="8"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="9"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="10"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="11"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="12"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="13"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="14"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="15"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="16"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="17"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="18"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="19"/>
-                            <zmlc:UcTextBlock Style="{StaticResource Sample_TextBlockStyle2}" Text="20"/>
-                        </StackPanel>
-                    </Canvas>
 
-                </Canvas>
+                <StackPanel Orientation="Vertical" Canvas.Left="48" Canvas.Top="63">
+                    <TextBlock Text="1" />
+                    <TextBlock Text="2" />
+                    <TextBlock Text="3" />
+                    <TextBlock Text="4" />
+                    <TextBlock Text="5" />
+                    <TextBlock Text="6" />
+                    <TextBlock Text="7" />
+                    <TextBlock Text="8" />
+                    <TextBlock Text="9" />
+                    <TextBlock Text="10" />
+                    <TextBlock Text="11" />
+                    <TextBlock Text="12" />
+                    <TextBlock Text="13" />
+                    <TextBlock Text="14" />
+                    <TextBlock Text="15" />
+                    <TextBlock Text="16" />
+                    <TextBlock Text="17" />
+                    <TextBlock Text="18" />
+                    <TextBlock Text="19" />
+                    <TextBlock Text="20" />
+                </StackPanel>
             </Canvas>
         </Grid>
     </Viewbox>

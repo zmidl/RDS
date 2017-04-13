@@ -115,3 +115,5 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Hole.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Strip.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Hole.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Strip.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\MonitorChart.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\MonitorChart.baml

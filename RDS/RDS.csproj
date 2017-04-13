@@ -95,6 +95,8 @@
     <Compile Include="ViewModels\ViewProperties\Enzyme.cs" />
     <Compile Include="ViewModels\ViewProperties\Mag.cs" />
     <Compile Include="ViewModels\ViewProperties\Reader.cs" />
+    <Compile Include="ViewModels\ViewProperties\Reagent.cs" />
+    <Compile Include="ViewModels\ViewProperties\ReagentRack.cs" />
     <Compile Include="ViewModels\ViewProperties\SampleTube.cs" />
     <Compile Include="ViewModels\ViewProperties\ShakerRack.cs" />
     <Compile Include="ViewModels\ViewProperties\Strip.cs" />
@@ -114,9 +116,6 @@
     </Compile>
     <Compile Include="Views\InitializeSuppliesView.xaml.cs">
       <DependentUpon>InitializeSuppliesView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\LayoutSetting.xaml.cs">
-      <DependentUpon>LayoutSetting.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -174,10 +173,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\InitializeSuppliesView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\LayoutSetting.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
