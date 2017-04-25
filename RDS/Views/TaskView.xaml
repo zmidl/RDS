@@ -8,17 +8,17 @@
             d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Canvas Width="950" Height="500" >
-
+            <TextBlock x:Name="AAA" Width="100" />
             <Button x:Name="Button_NewExperiment" Style="{StaticResource RD_ButtonStyle}" FontSize="30" Width="250" Height="60" Canvas.Left="380" Canvas.Top="180" Click="Button_NewExperiment_Click">
                 <StackPanel Orientation="Horizontal" Height="{Binding ElementName=Button_NewExperiment,Path=Height}">
-                    <Path Width="40" Height="40" Stretch="Uniform" Fill="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Margin="0,-2,0,0" Data="M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6Z"/>
-                    <TextBlock Text="开始实验" Foreground="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="20"/>
+                    <Path Width="40" Height="40" Stretch="Uniform" Fill="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Margin="0,-2,0,0" Data="{StaticResource Experiment}"/>
+                    <TextBlock Text="{DynamicResource TaskView_BeginExperiment}" Foreground="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="20"/>
                 </StackPanel>
             </Button>
             <Button x:Name="Button_Maintenance" Style="{StaticResource RD_ButtonStyle}"  FontSize="30" Width="250" Height="60" Canvas.Left="380" Canvas.Top="270" Click="Button_Maintenance_Click">
                 <StackPanel Orientation="Horizontal" Height="{Binding ElementName=Button_NewExperiment,Path=Height}">
                     <Path Width="40" Height="40" Stretch="Uniform" Fill="{Binding ElementName=Button_Maintenance,Path=Foreground}" Margin="0,-2,0,0" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z"/>
-                    <TextBlock Text="进入维护" Foreground="{Binding ElementName=Button_Maintenance,Path=Foreground}" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="20"/>
+                    <TextBlock Text="{DynamicResource TaskView_BeginMaintain}" Foreground="{Binding ElementName=Button_Maintenance,Path=Foreground}" Margin="20,0,0,0" VerticalAlignment="Center" FontSize="20"/>
                 </StackPanel>
             </Button>
         </Canvas>

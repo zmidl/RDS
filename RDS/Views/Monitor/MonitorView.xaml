@@ -11,71 +11,127 @@
              mc:Ignorable="d"
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
+
+        <ImageBrush x:Key="WorkDeskBackgroundImage" ImageSource="/RDS;component/Apps/Images/WorkDesk.png"/>
+
+        <DropShadowEffect x:Key="ModuleEffect" BlurRadius="5" ShadowDepth="5" Color="#FF707070"/>
+        <DropShadowEffect x:Key="ReaderModuleEffect" BlurRadius="5" ShadowDepth="5"/>
+
         <Style x:Key="TipStyle" TargetType="{x:Type Ellipse}">
             <Setter Property="Width" Value="5"/>
             <Setter Property="Height" Value="5"/>
 
             <Setter Property="Margin" Value="1.5,0,0,0"/>
         </Style>
-        
+
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
-        <Canvas Width="1900" Height="1000" Background="{StaticResource RectangleContainerBackground}">
+        <Canvas Width="1900" Height="1000">
+            <TextBox Style="{StaticResource RD_TextBoxStyle2}" Focusable="False" Width="1700" Height="100" Canvas.Left="100" Canvas.Top="10"/>
+            <Rectangle  Width="1700" Height="800" Canvas.Left="100" Canvas.Bottom="80"  RadiusX="20" RadiusY="20" Fill="Black">
+                <Rectangle.Effect>
+                    <DropShadowEffect BlurRadius="20" ShadowDepth="20"/>
+                </Rectangle.Effect>
+            </Rectangle>
+            <Canvas Width="1700" Height="800" Canvas.Left="100" Canvas.Bottom="80" Background="{StaticResource WorkDeskBackgroundImage}" >
+                <Rectangle Width="1700" Height="800" RadiusX="20" RadiusY="20" >
+                    <Rectangle.Fill>
+                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                            <GradientStop Color="#4C000000" Offset="1"/>
+                            <GradientStop/>
+                        </LinearGradientBrush>
+                    </Rectangle.Fill>
+                </Rectangle>
+                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="200" Canvas.Top="30" />
+                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="250" Canvas.Top="30" />
+                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="300" Canvas.Top="30" />
+                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="350" Canvas.Top="30" />
 
 
-            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="205" Canvas.Top="90" />
-            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="260" Canvas.Top="90" />
-            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="315" Canvas.Top="90" />
-            <rdsc:SampleRack SampleRackState="{Binding SampleViewModel.SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="55" MouseUp="SampleRack_MouseUp" Canvas.Left="370" Canvas.Top="90" />
+                <Canvas Canvas.Left="430" Canvas.Top="40" Width="230" Height="710">
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220"  Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
+                    <rdsc:RD_CupRack x:Name="CupRack"  ItemsSource="{Binding CupRacks[0].Strips}" Width="220"  Canvas.Left="5"  Canvas.Top="490" Foreground="{x:Null}"/>
 
+                </Canvas>
 
-            <Canvas Canvas.Left="460" Canvas.Top="90" Width="260" Height="850">
-                <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="250"  Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="190" Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="380" Canvas.Left="5"/>
-                <rdsc:RD_CupRack x:Name="CupRack" ItemsSource="{Binding CupRacks[0].Strips}" Width="250"  Canvas.Left="5"  Canvas.Top="580" Foreground="{x:Null}"/>
-                <!--<Canvas.Effect>
-                    <DropShadowEffect Color="#FFAEAEAE"/>
-                </Canvas.Effect>-->
+                <Canvas Canvas.Left="670" Canvas.Top="40" Width="230" Height="710">
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
+                    <rdsc:RD_CupRack  ItemsSource="{Binding CupRacks[1].Strips}" Width="220"  Canvas.Left="5" Canvas.Top="490"/>
+                </Canvas>
+
+                <Canvas Canvas.Left="910" Canvas.Top="40" Width="230" Height="710">
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
+                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
+                    <rdsc:RD_CupRack  ItemsSource="{Binding CupRacks[2].Strips}" Width="220" Canvas.Left="5"  Canvas.Top="490"/>
+                </Canvas>
+
+                <rdsc:RD_ReagentRack Effect="{StaticResource ModuleEffect}"  DataSource="{Binding ReagentRack}" Width="120" Panel.ZIndex="3" Canvas.Top="10"  Canvas.Left="60" />
+                <rdsc:RD_Heating  DataSource="{Binding Heating}" Width="205"  Canvas.Top="512" Canvas.Left="1163" />
+                <rdsc:RD_ShakerRack  ItemsSource="{Binding ShakerRack.Strips}" Width="150"  Canvas.Left="1357" Canvas.Top="512"/>
+                <rdsc:RD_Mag Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding Mag.Strips}" Width="157" Canvas.Top="511" Canvas.Left="1500"/>
+
+                <rdsc:RD_Reader  Effect="{StaticResource ReaderModuleEffect}"  DataSource="{Binding Reader}" Width="300" Canvas.Left="1320" Canvas.Top="180" />
+                <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
+
             </Canvas>
-
-            <Canvas Canvas.Left="730" Canvas.Top="90" Width="260" Height="850">
-                <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="250" Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="190" Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="380" Canvas.Left="5"/>
-                <rdsc:RD_CupRack ItemsSource="{Binding CupRacks[1].Strips}" Width="250"  Canvas.Left="5" Canvas.Top="580"/>
-                <!--<Canvas.Effect>
-                    <DropShadowEffect Color="#FFAEAEAE"/>
-                </Canvas.Effect>-->
-            </Canvas>
-
-            <Canvas Canvas.Left="1000" Canvas.Top="90" Width="260" Height="850">
-                <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="250" Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="190" Canvas.Left="5"/>
-                <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="250" Canvas.Top="380" Canvas.Left="5"/>
-                <rdsc:RD_CupRack ItemsSource="{Binding CupRacks[2].Strips}" Width="250" Canvas.Left="5"  Canvas.Top="580"/>
-            </Canvas>
-
-            <rdsc:RD_ReagentRack DataSource="{Binding ReagentRack}" Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
-
-            <rdsc:RD_Heating x:Name="Heating_1" ItemsSource="{Binding Heating.Strips}" Width="232"  Canvas.Top="652" Canvas.Left="1270" />
-            <rdsc:RD_ShakerRack x:Name="ShakerRack_1" ItemsSource="{Binding ShakerRack.Strips}" Width="170"  Canvas.Left="1490" Canvas.Top="652"/>
-            <rdsc:RD_Mag ItemsSource="{Binding Mag.Strips}" Width="177" Canvas.Top="652" Canvas.Left="1660"/>
-
-            <rdsc:RD_Reader Width="340" Canvas.Left="1448" Canvas.Top="296.5"/>
-
-            <TextBlock  Text="{DynamicResource Test}" Foreground="{StaticResource TextForeground2}"  Width="258" Height="90"  FontSize="60" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="50" Canvas.Left="1312"/>
-            <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
-            <zmcl2:MyCheckBox RenderTransformOrigin="0.5,0.5" Canvas.Left="1604" Canvas.Top="54" Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked" >
-                <zmcl2:MyCheckBox.RenderTransform>
+            <!--<zmcl:UcCheckBox RenderTransformOrigin="0.5,0.5" Canvas.Left="1618" Canvas.Top="32" Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked" Height="54" Width="103" >
+                <zmcl:UcCheckBox.RenderTransform>
                     <TransformGroup>
-                        <ScaleTransform ScaleX="2.2" ScaleY="2"/>
+                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
                         <SkewTransform/>
                         <RotateTransform/>
                         <TranslateTransform/>
                     </TransformGroup>
-                </zmcl2:MyCheckBox.RenderTransform>
-            </zmcl2:MyCheckBox>
+                </zmcl:UcCheckBox.RenderTransform>
+            </zmcl:UcCheckBox>-->
+
+            <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="150" Fill="{StaticResource TextForeground}" Data="{StaticResource Clock}"/>
+            <TextBlock Canvas.Left="220" Text="{Binding TimeCount,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="410" Canvas.Top="25"/>
+
+
+            <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="450" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
+            <TextBlock Canvas.Left="501" Text="50%RH" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="680" Canvas.Top="25"/>
+
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="720" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="785" Text="50℃（I）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="980" Canvas.Top="25" StrokeThickness="8"/>
+
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="1020" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="1085" Text="50℃（E）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1280" Canvas.Top="25"/>
+
+            <Button Style="{StaticResource RD_ButtonStyle}" Width="200" Height="70" Canvas.Top="25" Canvas.Right="380">
+                <Button.Content>
+                    <Canvas Width="200" Height="70">
+                        <Path Stretch="UniformToFill" Width="50" Canvas.Top="8" Canvas.Left="20" Fill="{StaticResource TextForeground}" Data="{StaticResource Emergency}"/>
+                        <TextBlock Text="急诊" FontSize="40" FontWeight="Bold" Foreground="{StaticResource TextForeground}" Canvas.Top="8" Canvas.Left="80" />
+                    </Canvas>
+                </Button.Content>
+            </Button>
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1550" Canvas.Top="25"/>
+
+
+            <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Right="270" Fill="{StaticResource TextForeground}" Data="{StaticResource Power}"/>
+            <CheckBox Width="100" Height="60" Style="{StaticResource RD_CheckBoxStyle}" Canvas.Right="150" Canvas.Top="30"/>
+            <Grid Width="1900" Canvas.Bottom="22">
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="Gray" FontSize="28" />
+            </Grid>
 
         </Canvas>
     </Viewbox>

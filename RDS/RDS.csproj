@@ -13,6 +13,21 @@
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -89,10 +104,11 @@
     <Compile Include="ViewModels\Common\Enumeration.cs" />
     <Compile Include="ViewModels\Common\SQLiteHelper.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
+    <Compile Include="ViewModels\MaintenanceViewModel.cs" />
     <Compile Include="ViewModels\MainViewViewModel.cs" />
+    <Compile Include="ViewModels\PopupWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewProperties\Cell.cs" />
     <Compile Include="ViewModels\ViewProperties\CupRack.cs" />
-    <Compile Include="ViewModels\ViewProperties\Enzyme.cs" />
     <Compile Include="ViewModels\ViewProperties\Mag.cs" />
     <Compile Include="ViewModels\ViewProperties\Reader.cs" />
     <Compile Include="ViewModels\ViewProperties\Reagent.cs" />
@@ -142,11 +158,11 @@
     <Compile Include="Views\MaintenanceView.xaml.cs">
       <DependentUpon>MaintenanceView.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Views\PopupWindow.xaml.cs">
+      <DependentUpon>PopupWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PrecheckView.xaml.cs">
       <DependentUpon>PrecheckView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\RdsMessageBox.xaml.cs">
-      <DependentUpon>RdsMessageBox.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TaskView.xaml.cs">
       <DependentUpon>TaskView.xaml</DependentUpon>
@@ -222,11 +238,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Views\PrecheckView.xaml">
+    <Page Include="Views\PopupWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\RdsMessageBox.xaml">
+    <Page Include="Views\PrecheckView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -249,12 +265,33 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Resource Include="Apps\Images\InitializeSuppliesView1.bmp" />
+    <Resource Include="Apps\Images\InitializeSuppliesView2.bmp" />
+    <Resource Include="Apps\Images\InitializeSuppliesView3.bmp" />
+    <Resource Include="Apps\Images\InitializeSuppliesView4.png" />
+    <Resource Include="Apps\Images\InitializeSuppliesView5.bmp" />
+    <Resource Include="Apps\Images\InitializeSuppliesView6.bmp" />
+    <Resource Include="Apps\Images\1.png" />
+    <Resource Include="Apps\Images\2.png" />
+    <Resource Include="Apps\Images\3.png" />
+    <Resource Include="Apps\Images\4.png" />
+    <Resource Include="Apps\Images\6.png" />
+    <Resource Include="Apps\Images\7.png" />
+    <Resource Include="Apps\Images\8.png" />
+    <Resource Include="Apps\Images\9.png" />
+    <Resource Include="Apps\Images\WorkDesk.png" />
+    <Resource Include="Apps\Images\10.png" />
+    <Resource Include="Apps\Images\11.png" />
+    <Resource Include="Apps\Images\12.png" />
+    <Resource Include="Apps\Images\RdLogo_H.png" />
+    <Resource Include="Apps\Images\RdLogoH.png" />
     <Content Include="Apps\LisFiles\Barcode_20170329.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <Content Include="Apps\Database\Rds.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
@@ -271,16 +308,10 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Apps\Images\a.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\RDSCL\RDSCL.csproj">
       <Project>{cd1bb68d-e713-442a-b4e9-15461e7e2f4e}</Project>
       <Name>RDSCL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Apps\Images\image.jpg" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Apps\Dlls\mfc110d.dll" />
@@ -297,7 +328,18 @@
     <Content Include="Apps\Dlls\System.Data.SQLite%284.0%29.dll" />
     <Content Include="Apps\Dlls\vccorlib110d.dll" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

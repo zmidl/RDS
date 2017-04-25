@@ -2,6 +2,9 @@
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
+
+    <system:String x:Key="TaskView_BeginExperiment">Experiment</system:String>
+    <system:String x:Key="TaskView_BeginMaintain">Maintain</system:String>
     <system:String x:Key="Button_StartP">English</system:String>
     <system:String x:Key="Button_Emergency">Emergency</system:String>
     <system:String x:Key="Button_FinishTask">Finish</system:String>
@@ -14,7 +17,33 @@
     <system:String x:Key="PrecheckView_CheckLiquid">Liquid：Whether the liquid is enough</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">Home</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">Next</system:String>
+    
     <system:String x:Key="InitializeSuppliesView_Message">Please take the reagent from the fridge and defrost</system:String>
-    <system:String x:Key="Test">Test</system:String>
-    <system:String x:Key="MessageContent_CloseBingate">Close the bin gate</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message2">Please place olefin here</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message3">Please place TipRacks here</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message4">Please place CupRacks here</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5">Select the location of the bead place</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5-1">Left</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5-2">Right</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message6">Please select the reagent of amplification</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message7">Please select the reagent of YX</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message8">Please select the reagent of NB</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message9">Please select the reagent of YX</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message10">Here is the normal saline</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message11">Here is the stabilizer</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message12">Here is the mineral oil</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message13">Here is the washing liquid</system:String>
+    <system:String x:Key="MonitorView_RemainingTime">remaining time</system:String>
+    <system:String x:Key="MaintenanceView_Message1">abc</system:String>
+    <system:String x:Key="MaintenanceView_Message2">pliase use 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
+    <system:String x:Key="MaintenanceView_Message3">pliase use 清水擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
+    <system:String x:Key="FinalView_Message1">Close the bin gate</system:String>
+    <system:String x:Key="FinalView_Message2">Close the computer</system:String>
+    <system:String x:Key="HistroyView_Name">Name</system:String>
+    <system:String x:Key="HistroyView_Type">Type</system:String>
+    <system:String x:Key="HistroyView_Date">Date</system:String>
+    <system:String x:Key="PopupWindow_MessageBox">message box</system:String>
+    <system:String x:Key="PopupWindow_Administrators">setup</system:String>
+    <system:String x:Key="PopupWindow_About">about us</system:String>
+    <system:String x:Key="MonitorView_CorporateName">ShangHai Rendu Biotechnology</system:String>
 </ResourceDictionary>

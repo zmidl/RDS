@@ -111,14 +111,20 @@ namespace RDS.ViewModels
 			this.Reader.Strips[stripsIndex].Cells[cellsIndex].State = cellState;
 		}
 
-		public void SetReaderEnzymeValue(int enzymeIndex, int value)
+		public void SetReaderEnzymeBottlesValue(int enzymeIndex, int value)
 		{
-			this.Reader.Enzymes[enzymeIndex].Value += value;
+			this.Reader.EnzymeBottles[enzymeIndex].Volume += value;
 		}
 
-		public void SetSampleRackState(int sampleRackIndex, string stateDescription)
+		public void SetReaderEnzymeBottlesState(int enzymeIndex, HoleState holeSstate)
 		{
-			this.SampleViewModel.SampleRacks[sampleRackIndex].SampleRackState = (RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
+			this.Reader.EnzymeBottles[enzymeIndex].State = ReagentState.Full;
+		}
+
+		public void SetSampleRackState(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
+		{
+			this.SampleViewModel.SampleRacks[sampleRackIndex].SampleRackState = sampleRackState;
+			//(RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
 		}
 
 		public void SetReagentBoxState(int reagentBoxIndex, ReagentState reagentState)
@@ -126,9 +132,19 @@ namespace RDS.ViewModels
 			this.ReagentRack.ReagentBoxs[reagentBoxIndex].State = reagentState;
 		}
 
+		public void SetReagentBoxVolume(int reagentBoxIndex,int volume)
+		{
+			this.ReagentRack.ReagentBoxs[reagentBoxIndex].Volume = volume;
+		}
+
 		public void SetMBBottleState(int mBBottleIndex, ReagentState reagentState)
 		{
 			this.ReagentRack.MBBottles[mBBottleIndex].State = reagentState;
+		}
+
+		public void SetMBBottleVolume(int mBBottleIndex,int volume)
+		{
+			this.ReagentRack.MBBottles[mBBottleIndex].Volume = volume;
 		}
 
 		public void SetAMPBottleState(int aMPBottleIndex, ReagentState reagentState)

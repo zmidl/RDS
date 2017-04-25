@@ -1,104 +1,74 @@
 ﻿using RDS.ViewModels.Common;
-using System.Collections.Generic;
-using System.Linq;
+using System;
 using System.Windows.Media;
 
 namespace RDS.ViewModels
 {
 	public class InitializeSuppliesViewModel : ViewModel
 	{
-		private bool[] reagentSelections = new bool[5];
-
-		public bool IsUuSelected
+		public enum BeadPlace
 		{
-			get { return reagentSelections[0]; }
+			Neither = 0,
+			Left = 1,
+			Right = 2,
+			Both = 3
+		}
+
+		private BeadPlace beadPlace=BeadPlace.Both;
+
+		public bool IsLeftSelected
+		{
+			get { return this.GetLeftBeadSelectionState(); }
 			set
 			{
-				reagentSelections[0] = value;
-				this.RaisePropertyChanged(nameof(IsUuSelected));
-				this.TurnNextView.RaiseCanExecuteChanged();
+				if(value)
+				{
+					if (this.IsRightSelected) this.beadPlace = BeadPlace.Both;
+					else this.beadPlace = BeadPlace.Left;
+				}
+				else
+				{
+					if (this.IsRightSelected) this.beadPlace = BeadPlace.Right;
+					else this.beadPlace = BeadPlace.Neither;
+				}
+				this.RaisePropertyChanged(nameof(IsLeftSelected));
+				this.OnViewChanged(new Tuple<string,object>("BeadSelectionState",this.beadPlace));
 			}
 		}
 
-		public bool IsCtSelected
+		public bool IsRightSelected
 		{
-			get { return reagentSelections[1]; }
+			get { return this.GetRightBeadSelectionState(); }
 			set
 			{
-				reagentSelections[1] = value;
-				this.RaisePropertyChanged(nameof(IsCtSelected));
-				this.TurnNextView.RaiseCanExecuteChanged();
+				if (value)
+				{
+					if (this.IsLeftSelected) this.beadPlace = BeadPlace.Both;
+					else this.beadPlace = BeadPlace.Right;
+				}
+				else
+				{
+					if (this.IsLeftSelected) this.beadPlace = BeadPlace.Left;
+					else this.beadPlace = BeadPlace.Neither;
+				}
+				this.RaisePropertyChanged(nameof(IsRightSelected));
+				this.OnViewChanged(new Tuple<string, object>("BeadSelectionState", this.beadPlace));
 			}
 		}
 
-		public bool IsMgSelected
+		private bool GetLeftBeadSelectionState()
 		{
-			get { return reagentSelections[2]; }
-			set
-			{
-				reagentSelections[2] = value;
-				this.RaisePropertyChanged(nameof(IsMgSelected));
-				this.TurnNextView.RaiseCanExecuteChanged();
-			}
+			if (this.beadPlace == BeadPlace.Left || this.beadPlace == BeadPlace.Both) return true;
+			else return false;
 		}
 
-		public bool IsNgSelected
+		private bool GetRightBeadSelectionState()
 		{
-			get { return reagentSelections[3]; }
-			set
-			{
-				reagentSelections[3] = value;
-				this.RaisePropertyChanged(nameof(IsNgSelected));
-				this.TurnNextView.RaiseCanExecuteChanged();
-			}
+			if (this.beadPlace == BeadPlace.Right || this.beadPlace == BeadPlace.Both) return true;
+			else return false;
 		}
 
-		public bool IsMpSelected
-		{
-			get { return reagentSelections[4]; }
-			set
-			{
-				reagentSelections[4] = value;
-				this.RaisePropertyChanged(nameof(IsMpSelected));
-				this.TurnNextView.RaiseCanExecuteChanged();
-			}
-		}
-
-		private bool isLeft;
-		public bool IsLeft
-		{
-			get { return isLeft; }
-			set
-			{
-				isLeft = value;
-				this.RaisePropertyChanged(nameof(this.IsRight));
-				this.RaisePropertyChanged(nameof(IsLeft));
-				this.RaisePropertyChanged(nameof(LeftColor));
-				this.RaisePropertyChanged(nameof(RightColor));
-			}
-		}
-
-		public bool IsRight
-		{
-			get { return !this.IsLeft; }
-			set
-			{
-				this.isLeft = !value;
-				this.RaisePropertyChanged(nameof(this.IsLeft));
-				this.RaisePropertyChanged(nameof(IsRight));
-				this.RaisePropertyChanged(nameof(RightColor));
-				this.RaisePropertyChanged(nameof(LeftColor));
-			}
-		}
-	
-		public SolidColorBrush LeftColor
-		{
-			get { return this.isLeft?new SolidColorBrush(Colors.Blue):new SolidColorBrush(Colors.Black); }
-		}
-		public SolidColorBrush RightColor
-		{
-			get { return !this.isLeft ? new SolidColorBrush(Colors.Blue) : new SolidColorBrush(Colors.Black); }
-		}
+		private readonly int WizardSize = 12;
 
 		private int wizardIndex;
 		public int WizardIndex
@@ -107,10 +77,10 @@ namespace RDS.ViewModels
 			set
 			{
 				if (value < 0) value = 0;
-				else if (value > 13) value = 13;
+				else if (value > this.WizardSize) value = this.WizardSize;
 				wizardIndex = value;
 				this.RaisePropertyChanged(nameof(WizardIndex));
-				this.TurnNextView.RaiseCanExecuteChanged();
+				//this.TurnNextView.RaiseCanExecuteChanged();
 			}
 		}
 
@@ -130,34 +100,19 @@ namespace RDS.ViewModels
 		public bool Wizard14 { get { return this.wizardIndex == 13 ? true : false; } }
 
 		public RelayCommand TurnNextView { get; private set; }
-		public RelayCommand TurnHomeView { get; private set; }
+		public RelayCommand TurnPreviousView { get; private set; }
 
 		public InitializeSuppliesViewModel()
 		{
-			this.TurnNextView = new RelayCommand(this.ExecuteTurnNextView,this.CanExecuteTurnNextView);
-			this.TurnHomeView = new RelayCommand(() => { this.WizardIndex = 0;this.RaiseWizards(); });
+			this.TurnNextView = new RelayCommand(this.ExecuteTurnNextView);
+			this.TurnPreviousView = new RelayCommand(() => { this.WizardIndex --; this.RaiseWizards(); });
 			this.RaiseWizards();
 		}
 
 		private void ExecuteTurnNextView()
 		{
-			if (this.WizardIndex++ == 13) { this.OnViewChanged(2); };
+			if (this.WizardIndex++ == this.WizardSize) { this.OnViewChanged(new Tuple<string, object>(string.Empty, null)); };
 			this.RaiseWizards();
-		}
-
-		private bool CanExecuteTurnNextView()
-		{
-			bool result = default(bool);
-			var count = this.reagentSelections.Where(o => o == true).Count();
-			if(this.wizardIndex==4)
-			{
-				if (count > 0 && count < 5) result = true;
-			}
-			else
-			{
-				result = true;
-			}
-			return result;
 		}
 
 		private void RaiseWizards()

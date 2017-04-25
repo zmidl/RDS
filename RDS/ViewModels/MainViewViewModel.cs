@@ -61,16 +61,21 @@ namespace RDS.ViewModels
 			}
 		}
 
-		public RelayCommand ExitApp { get; private set; }
-		//public RelayCommand ShowHistroyView { get; private set; }
-		//public RelayCommand ShowHelpView { get; private set; }
+		public PopupWindowViewModel PopupWindowViewModel { get; set; } = new PopupWindowViewModel();
 
+		public RelayCommand ExitApp { get; private set; }
+		public RelayCommand ExitPopupWindow { get; private set; }
+		public RelayCommand ShowAdministratorsView { get; private set; }
+		public RelayCommand ShowMessageView { get; private set; }
+		public RelayCommand ShowCricleProgress { get; private set; }
 		public MainViewViewModel()
 		{
+			this.ShowAdministratorsView = new RelayCommand(()=>General.ShowAdministrators());
+			this.ExitPopupWindow = new RelayCommand(() => General.ExitPopupWindow());
+			this.ShowMessageView = new RelayCommand(()=>General.ShowMessage("wahahahah...."));
+			this.ShowCricleProgress = new RelayCommand(() => General.ShowCricleProgress());
 			this.ExitApp = new RelayCommand(this.ExecuteExitApp);
 			this.IsTask = true;
-			//this.ShowHistroyView = new RelayCommand(this.ExecuteShowHistroyView);
-			//this.ShowHelpView = new RelayCommand(this.ExecuteShowHelpView);
 		}
 
 		private void ShowTaskView()
@@ -98,9 +103,9 @@ namespace RDS.ViewModels
 			TaskView = 0,
 			HistroyView = 1,
 			HelpView = 2,
-			AdminView=3,
-			Minisize=4,
-			ExitApp=5
+			AdminView = 3,
+			Minisize = 4,
+			ExitApp = 5
 		}
 	}
 }

@@ -1,28 +1,40 @@
-﻿using System.Collections.Generic;
-using System.Collections.ObjectModel;
+﻿using System.Collections.ObjectModel;
 using RDS.Models;
-using System.Linq;
 using RDS.ViewModels.Common;
 using RDS.ViewModels.ViewProperties;
 using System.Data;
 using System;
-using System.Windows.Controls;
-using System.Windows.Media;
+using System.Configuration;
+using System.IO;
 
 namespace RDS.ViewModels
 {
 	public class SampleViewModel : ViewModel
 	{
+		public int CurrentColumnIndex { get; set; } = 0;
+
+		public enum SampleColumn
+		{
+			ColumnA = 0,
+			ColumnB = 1,
+			ColumnC = 2,
+			ColumnD = 3
+		}
+
+		private DataTable lisInformationTable;
+
 		public ObservableCollection<SampleRack> SampleRacks { get; set; } = new ObservableCollection<SampleRack>();
 
 		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
+
+		private ObservableCollection<SampleInformation>[] SampleInformationsColumns = new ObservableCollection<SampleInformation>[4];
 
 		public void MultipeSetSampleStateToEmergency()
 		{
 
 		}
 
-		public RelayCommand Test { get; private set; }
+		public RelayCommand ExitSampleView { get; private set; }
 
 		public SampleViewModel()
 		{
@@ -31,23 +43,24 @@ namespace RDS.ViewModels
 				this.SampleRacks.Add(new SampleRack(i));
 			}
 
-			this.Test = new RelayCommand
-				(() =>
-				{
-					this.SampleInformations.Add(new SampleInformation()
-					{
-						Age = "25",
-						Barcode = "1234567",
-						Birthday = "20010321",
-						DateTime = "20170101",
-						HoleName = "",
-						Name = "王秀娟",
-						Reagent = "UU",
-						SampleId = "123",
-						Sex = "女",
-						Type = "未知"
-					});
-				});
+			this.GetLisTableFromFile();
+			this.ExitSampleView = new RelayCommand(() => { this.OnViewChanged(null); this.RollBackSampleRacksState(true, this.CurrentColumnIndex); });
+			//	(() =>
+			//	{
+			//		this.SampleInformations.Add(new SampleInformation()
+			//		{
+			//			Age = "25",
+			//			Barcode = "1234567",
+			//			Birthday = "20010321",
+			//			DateTime = "20170101",
+			//			HoleName = "",
+			//			Name = "王秀娟",
+			//			Reagent = "UU",
+			//			SampleId = "123",
+			//			Sex = "女",
+			//			Type = "未知"
+			//		});
+			//	});
 		}
 
 		private string GetHoleNameByNumber(int number)
@@ -72,43 +85,36 @@ namespace RDS.ViewModels
 			return result;
 		}
 
-		public void DatatableToEntity(DataTable table)
+		public void DatatableToEntity(SampleColumn sampleColumn)
 		{
-
-			//	for (int i = 0; i < table.Rows.Count; i++)
-			//	{
-			//		var sampleInformation = new SampleInformation()
-			//		{
-			//			Age = table.Rows[i]["strAge"].ToString(),
-			//			Barcode = table.Rows[i]["strBarcode"].ToString(),
-			//			Birthday = table.Rows[i]["strBirthday"].ToString(),
-			//			DateTime = table.Rows[i]["strDateTime"].ToString(),
-			//			HoleName = "0",
-			//			Name = table.Rows[i]["strName"].ToString(),
-			//			Reagent = table.Rows[i]["strItem"].ToString(),
-			//			SampleId = table.Rows[i]["strSampleID"].ToString(),
-			//			Sex = table.Rows[i]["strSex"].ToString(),
-			//			Type = table.Rows[i]["strSampleType"].ToString()
-			//		};
-			//		this.SampleInformations.Add(sampleInformation);
-			//	}
-			//}
-
-
-
-			this.SampleInformations.Add(new SampleInformation()
+			var sampleInformationsColumns = new ObservableCollection<SampleInformation>();
+			if (this.lisInformationTable != null)
 			{
-				Age = "25",
-				Barcode = "1234567",
-				Birthday = "20010321",
-				DateTime = "20170101",
-				HoleName = "A9",
-				Name = "王秀娟",
-				Reagent = "UU",
-				SampleId = "123",
-				Sex = "女",
-				Type = "未知"
-			});
+				for (int i = 0; i < this.lisInformationTable.Rows.Count; i++)
+				{
+					var sampleInformation = new SampleInformation()
+					{
+						Age = this.lisInformationTable.Rows[i]["strAge"].ToString(),
+						Barcode = this.lisInformationTable.Rows[i]["strBarcode"].ToString(),
+						Birthday = this.lisInformationTable.Rows[i]["strBirthday"].ToString(),
+						DateTime = this.lisInformationTable.Rows[i]["strDateTime"].ToString(),
+						HoleName = this.GetHoleNameByNumber(i + 1+(20*(int)sampleColumn)),
+						Name = this.lisInformationTable.Rows[i]["strName"].ToString(),
+						Reagent = this.lisInformationTable.Rows[i]["strItem"].ToString(),
+						SampleId = this.lisInformationTable.Rows[i]["strSampleID"].ToString(),
+						Sex = this.lisInformationTable.Rows[i]["strSex"].ToString(),
+						Type = this.lisInformationTable.Rows[i]["strSampleType"].ToString(),
+						IsEmergency = i % 2 == 0 ? true : false
+					};
+					sampleInformationsColumns.Add(sampleInformation);
+				}
+				this.SampleInformations= this.SampleInformationsColumns[(int)sampleColumn] = sampleInformationsColumns;
+				this.RaisePropertyChanged(nameof(this.SampleInformations));
+			}
+			else
+			{
+				
+			}
 		}
 
 		public string EntityToXmlString(object entity, bool isFormat = false)
@@ -128,14 +134,44 @@ namespace RDS.ViewModels
 
 		public void SetSampleRackState(SampleRackStateArgs args)
 		{
+			this.RollBackSampleRacksState(false,args.SampleRackIndex);
 			this.SampleRacks[args.SampleRackIndex].SampleRackState = args.SampleRackState;
+			this.SampleInformations = this.SampleInformationsColumns[args.SampleRackIndex];
+			this.RaisePropertyChanged(nameof(this.SampleInformations));
 		}
 
-		public void RollBackAllSampleRacksState()
+		private void RollBackSampleRacksState(bool isRollBackCurrentIndex,int currentIndex)
 		{
-			for (int i = 0; i < this.SampleRacks.Count; i++)
+			if (isRollBackCurrentIndex) this.SampleRacks[currentIndex].RollbackState();
+			else
 			{
-				this.SampleRacks[i].RollbackState();
+				for (int i = 0; i < this.SampleRacks.Count; i++)
+				{
+					if (currentIndex != i) this.SampleRacks[i].RollbackState();
+				}
+			}
+		}
+
+		public void GetLisTableFromFile()
+		{
+			try
+			{
+				var lisFilesPath = string.Format
+				(
+					ConfigurationManager.AppSettings[Properties.Resources.LisFilesPath].ToString(),
+					System.IO.Directory.GetCurrentDirectory(),
+					DateTime.Now.ToString(Properties.Resources.LisFileNameFormat)
+				);
+				if (File.Exists(lisFilesPath))
+				{
+					this.lisInformationTable = XmlOperation.ReadXmlFile(lisFilesPath).Tables[2];
+					if (this.lisInformationTable == null) { /*General.ShowAdministratorsView(); */return; }
+				}
+				else { /*General.ShowAdministratorsView();*/ return; }
+			}
+			catch (Exception ex)
+			{
+				//General.ShowAdministratorsView();
 			}
 		}
 	}
@@ -146,7 +182,7 @@ namespace RDS.ViewModels
 		public int SampleRackIndex { get; set; } = 0;
 		public RDSCL.SampleRackState SampleRackState { get; set; } = RDSCL.SampleRackState.NotSample;
 
-		public SampleRackStateArgs(int sampleRackIndex,RDSCL.SampleRackState sampleRackState)
+		public SampleRackStateArgs(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
 		{
 			this.SampleRackIndex = sampleRackIndex;
 			this.SampleRackState = sampleRackState;

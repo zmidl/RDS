@@ -5,14 +5,14 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Enzyme:ViewModel
 	{
-		private int value;
-		public int Value
+		private int volume;
+		public int Volume
 		{
-			get { return value; }
+			get { return volume; }
 			set
 			{
-				this.value = value;
-				this.RaisePropertyChanged(nameof(Value));
+				this.volume = value;
+				this.RaisePropertyChanged(nameof(Volume));
 			}
 		}
 
@@ -20,7 +20,7 @@ namespace RDS.ViewModels.ViewProperties
 
 		public Enzyme(int value)
 		{
-			this.Value = value;
+			this.Volume = value;
 		}
 	}
 }

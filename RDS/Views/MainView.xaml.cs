@@ -1,5 +1,5 @@
 ﻿using RDS.ViewModels;
-using System;
+using RDS.ViewModels.Common;
 using System.Windows;
 using System.Windows.Controls;
 
@@ -28,14 +28,19 @@ namespace RDS.Views
 
 			this.DataContext = new MainViewViewModel();
 
-			MainWindow.GlobalNotify += MainWindow_GlobalNotify;
-
 			this.ContentControl_CurrentContent.Content = this.taskView;
 
 			this.PreviousContent = this.ContentControl_CurrentContent.Content;
 
 			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
+
+			PopupWindow popupWindow = new PopupWindow();
+			popupWindow.DataContext = this.ViewModel.PopupWindowViewModel;
+			popupWindow.Owner = Window.GetWindow(this);
+			General.InitializePopupWindow(popupWindow);
 		}
+
+		
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
@@ -45,21 +50,14 @@ namespace RDS.Views
 				case MainViewViewModel.ViewChange.HistroyView: { this.ContentControl_CurrentContent.Content = this.histroyView; break; }
 				case MainViewViewModel.ViewChange.HelpView: { this.ContentControl_CurrentContent.Content = this.helpView; break; }
 				case MainViewViewModel.ViewChange.ExitApp: { Application.Current.Shutdown();/*Environment.Exit(0);*/break; }
+				case MainViewViewModel.ViewChange.AdminView: { /*General.ShowAdministratorsView();*/ break; }
 				default: break;
-			}
-		}
-
-		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
-		{
-			if (e.Index == "Admin")
-			{
-				this.Canvas_Admin.Visibility = Visibility.Visible;
 			}
 		}
 
 		private void Button_Admin_Click(object sender, RoutedEventArgs e)
 		{
-			this.Canvas_Admin.Visibility = Visibility.Collapsed;
+
 		}
 	}
 }

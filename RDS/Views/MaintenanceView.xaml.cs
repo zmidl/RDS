@@ -2,6 +2,7 @@
 using System.Windows;
 using System.Windows.Controls;
 using RDS.ViewModels.Common;
+using RDS.ViewModels;
 
 namespace RDS.Views
 {
@@ -11,22 +12,24 @@ namespace RDS.Views
 	public partial class MaintenanceView : UserControl,IExitView
     {
         Action IExitView.ExitView { get; set; }
-    
+    public MaintenanceViewModel ViewModel { get { return this.DataContext as MaintenanceViewModel; } }
         public MaintenanceView()
         {
             InitializeComponent();
-         
+
+			this.DataContext = new MaintenanceViewModel();
+
+			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
         }
 
-        private void Button_ExitView_Click(object sender, RoutedEventArgs e)
+		private void ViewModel_ViewChanged(object sender, object e)
+		{
+			this.Content = new FinalView();
+		}
+
+		private void Button_ExitView_Click(object sender, RoutedEventArgs e)
         {
             ((IExitView)this).ExitView();
-        }
-
-        private void Button_WizardNext_Click_1(object sender, RoutedEventArgs e)
-        {
-            this.TabControl_MaintenanceWizard.SelectedIndex++;
-            if (this.TabControl_MaintenanceWizard.SelectedIndex == 3) this.Content = new FinalView();
         }
 
         private void Button_WizardPrevious_Click(object sender, RoutedEventArgs e)

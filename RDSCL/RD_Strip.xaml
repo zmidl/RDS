@@ -54,14 +54,13 @@
                                     <local:RD_Hole x:Name="SingleTube6" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[5].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                 </StackPanel>
 
-                                <TextBox  
-                                    x:Name="TextBlock_Number"  
-                                    Width="90" 
+                                <Grid Width="90" Height="90"  Canvas.Top="-50" >
+                                    <TextBlock x:Name="TextBlock_Number"  
                                     Text="{Binding Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                    Canvas.Top="-50" Background="Transparent"
-                                    Foreground="Gray" 
-                                    FontSize="50"  FontWeight="Bold" HorizontalContentAlignment="Center" HorizontalAlignment="Center" BorderBrush="{x:Null}" />
-                                <Rectangle Width="90" Height="90"  Canvas.Top="-50" Fill="#05000000" />
+                                    Foreground="{StaticResource TextForeground2}" 
+                                    FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" />
+
+                                </Grid>
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

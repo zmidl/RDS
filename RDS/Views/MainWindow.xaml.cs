@@ -28,6 +28,11 @@ namespace RDS.Views
 			MainWindow.GlobalNotify?.Invoke(null, myArgs);
 		}
 
+		public static void abcde()
+		{
+			
+		}
+
 		public MainWindow()
 		{
 			InitializeComponent();
@@ -43,7 +48,7 @@ namespace RDS.Views
 			{
 				//for (int i = 12; i > 0; i--)
 				//{
-				//	Thread.Sleep(300);
+				//	System.Threading.Thread.Sleep(300);
 				//	this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.TextBlock_count.Text = i.ToString(); }));
 				//}
 			});
@@ -90,15 +95,16 @@ namespace RDS.Views
 				}
 				else if(Keyboard.IsKeyDown(Key.S))
 				{
-
 					if (Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState1"));
 					else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState2"));
 					else if (Keyboard.IsKeyDown(Key.NumPad3)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState3"));
 					else if (Keyboard.IsKeyDown(Key.NumPad4)) this.OnGlobalNotify(new GlobalNotifyArgs($"SampleState4"));
 
-					else if (Keyboard.IsKeyDown(Key.N)) this.OnGlobalNotify(new GlobalNotifyArgs($"NotSample"));
-					else if (Keyboard.IsKeyDown(Key.P)) this.OnGlobalNotify(new GlobalNotifyArgs($"PrepareSample"));
-					else if (Keyboard.IsKeyDown(Key.A)) this.OnGlobalNotify(new GlobalNotifyArgs($"AlreadySample"));
+					else if (Keyboard.IsKeyDown(Key.D1)) this.OnGlobalNotify(new GlobalNotifyArgs($"Sample1"));
+					else if (Keyboard.IsKeyDown(Key.D2)) this.OnGlobalNotify(new GlobalNotifyArgs($"Sample2"));
+					else if (Keyboard.IsKeyDown(Key.D3)) this.OnGlobalNotify(new GlobalNotifyArgs($"Sample3"));
+					else if (Keyboard.IsKeyDown(Key.D4)) this.OnGlobalNotify(new GlobalNotifyArgs($"Sample4"));
+
 				}
 				else if (Keyboard.IsKeyDown(Key.M))
 				{
@@ -113,9 +119,9 @@ namespace RDS.Views
 				}
 				else if (Keyboard.IsKeyDown(Key.R))
 				{
-					if (Keyboard.IsKeyDown(Key.R) && Keyboard.IsKeyDown(Key.D)) this.OnGlobalNotify(new GlobalNotifyArgs($"Admin"));
-					
-					else if(Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme+"));
+					if (Keyboard.IsKeyDown(Key.R) && Keyboard.IsKeyDown(Key.D)) {; }
+
+					else if (Keyboard.IsKeyDown(Key.NumPad1)) this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme+"));
 
 					else if (Keyboard.IsKeyDown(Key.NumPad2)) this.OnGlobalNotify(new GlobalNotifyArgs($"Enzyme-"));
 				}

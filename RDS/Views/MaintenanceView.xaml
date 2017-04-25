@@ -4,40 +4,50 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
-           d:DesignHeight="850" d:DesignWidth="1900">
+           d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="400">
-            <DockPanel LastChildFill="True">
-                <StackPanel x:Name="StackPanel_Wizard" Height="30"  Orientation="Horizontal" DockPanel.Dock="Bottom">
-                    <DockPanel LastChildFill="True">
-                        <Button x:Name="Button_WizardPrevious" Content="上一步" Width="100" Margin="50,0,0,0"  DockPanel.Dock="Left" Click="Button_WizardPrevious_Click" />
-                        <Button x:Name="Button_ExitView" Content="返回" Width="100" Height="30" Margin="250,0,0,0" Click="Button_ExitView_Click" />
-                        <Button x:Name="Button_WizardNext" Content="下一步" Width="100" Margin="0,0,50,0" DockPanel.Dock="Right" Click="Button_WizardNext_Click_1"/>
-                        <Canvas Width="250"/>
-                    </DockPanel>
-                </StackPanel>
-                <TabControl x:Name="TabControl_MaintenanceWizard">
-                    <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="50" Text="户配置符合要求的 84 溶液。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="300"/>
-                        </StackPanel>
+        <Grid Width="950" Height="500">
+            <Canvas>
+                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+                <TabControl x:Name="TabControl_MaintenanceWizard" SelectedIndex="{Binding WizardIndex}" Background="{x:Null}"  Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" BorderBrush="{x:Null}">
+                    <TabItem Height="1" Width="0" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <Grid>
+                            <Image Source="/RDS;component/Apps/Images/12.png" VerticalAlignment="Top" Width="400" HorizontalAlignment="Stretch" Stretch="UniformToFill" Height="280" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="40" Text="用 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="474" Margin="0,-169"/>
-                        </StackPanel>
+                        <Grid>
+                            <Image Source="/RDS;component/Apps/Images/10.png" VerticalAlignment="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="270" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow" Text="{DynamicResource MaintenanceView_Message2}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <StackPanel Orientation="Horizontal">
-                            <Image Source="/RDS;component/Apps/Images/image.jpg" Width="400" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <TextBlock FontSize="40" Text="需用清水擦拭试剂架、擦拭样本架、擦拭 耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸磁 模块、擦拭荧光读数模块。" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="WrapWithOverflow" Width="474" Margin="0,-169"/>
-                        </StackPanel>
+                        <Grid>
+                            <Image Source="/RDS;component/Apps/Images/11.png" VerticalAlignment="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="270" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow" Text="{DynamicResource MaintenanceView_Message3}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
+                        </Grid>
                     </TabItem>
                     <TabItem Height="1" Width="0"/>
                 </TabControl>
-            </DockPanel>
+                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnPreviousView}"  Canvas.Left="390" Canvas.Top="414">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
+                </Button>
+                <StackPanel Canvas.Left="450" Canvas.Top="428" Orientation="Horizontal" >
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                </StackPanel>
+                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnNextView}" Canvas.Right="340" Canvas.Top="414">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
+                </Button>
+
+                <Button x:Name="Button_ExitView" Style="{StaticResource RD_EllipseButtonStyle}"  Width="50" Height="50" Click="Button_ExitView_Click" Canvas.Left="80" Canvas.Top="414">
+                    <Path  Fill="{StaticResource PressedForeground}" Data=" M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" Stretch="Uniform" Width="60" Height="60" Margin="18,16,0,0" StrokeThickness="2"/>
+                </Button>
+
+                <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>
+            </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

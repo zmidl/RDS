@@ -3,6 +3,8 @@
                     xmlns:system="clr-namespace:System;assembly=mscorlib">
     
     <system:String x:Key="Uid">abcde</system:String>
+    <system:String x:Key="TaskView_BeginExperiment">开始实验</system:String>
+    <system:String x:Key="TaskView_BeginMaintain">进入维护</system:String>
     <system:String x:Key="Button_Emergency">急诊</system:String>
     <system:String x:Key="Button_FinishTask">结束</system:String>
     <system:String x:Key="TabButton_CurrentTask">当前任务</system:String>
@@ -25,8 +27,32 @@
     <system:String x:Key="InitializeSuppliesView_Home">第一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">下一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Message">请从冰箱里拿出试剂并解冻</system:String>
-    
-    <system:String x:Key="Test">测试</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message2">请将石蜡放置此处</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message3">请将Tip头放置此处</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message4">请将六联排放置此处</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5">请选择磁珠放置的位置</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5-1">左边</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5-2">右边</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message6">请选择扩增检测液试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message7">请选择阳性对照试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message8">请选择内标试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message9">请选择阴性对照试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message10">此处放置生理盐水</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message11">此处放置尿保</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message12">此处放置矿物油</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message13">此处放置洗涤液</system:String>
+    <system:String x:Key="MonitorView_RemainingTime">剩余时间</system:String>
+    <system:String x:Key="MaintenanceView_Message1">请按照配方配对一定比例的清洁液与清水</system:String>
+    <system:String x:Key="MaintenanceView_Message2">用 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
+    <system:String x:Key="MaintenanceView_Message3">用清水擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
     <system:String x:Key="MessageTitle_Information">提示</system:String>
-    <system:String x:Key="MessageContent_CloseBingate">关闭仓门</system:String>
+    <system:String x:Key="HistroyView_Name">姓名</system:String>
+    <system:String x:Key="HistroyView_Type">类别</system:String>
+    <system:String x:Key="HistroyView_Date">日期</system:String>
+    <system:String x:Key="FinalView_Message1">关闭仓门</system:String>
+    <system:String x:Key="FinalView_Message2">关闭计算机</system:String>
+    <system:String x:Key="PopupWindow_MessageBox">消息框</system:String>
+    <system:String x:Key="PopupWindow_Administrators">配置管理</system:String>
+    <system:String x:Key="PopupWindow_About">关于</system:String>
+    <system:String x:Key="MonitorView_CorporateName">上海仁度生物科技</system:String>
 </ResourceDictionary>

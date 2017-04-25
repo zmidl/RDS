@@ -1,0 +1,15 @@
+﻿<Window x:Class="RDS.Views.RdsCricleProgress"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:RDS.Views"
+        xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
+        mc:Ignorable="d"
+        WindowState="Maximized"
+        WindowStyle="None"
+        Title="RdsCricleProgress" Height="1000" Width="1900" Background="#FFFFFFFF">
+    <Grid>
+        <rdscl:RD_CricleProgress />
+    </Grid>
+</Window>

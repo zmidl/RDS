@@ -1,16 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace RDS.Views
 {
@@ -21,12 +9,18 @@ namespace RDS.Views
 	{
 		public RdsMessageBox()
 		{
-			InitializeComponent();
+			//InitializeComponent();
 		}
 
-		private void Button_Click(object sender, RoutedEventArgs e)
+		public void ShowMessage(string message)
 		{
-			this.Close();
+			//this.TextBlock_Message.Text = message;
+			base.ShowDialog();
+		}
+
+		private void Button_Exit_Click(object sender, RoutedEventArgs e)
+		{
+			this.Hide();
 		}
 	}
 }

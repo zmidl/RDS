@@ -20,6 +20,15 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_Reader : UserControl
 	{
+		public object DataSource
+		{
+			get { return (object)GetValue(DataSourceProperty); }
+			set { SetValue(DataSourceProperty, value); }
+		}
+		public static readonly DependencyProperty DataSourceProperty =
+			DependencyProperty.Register(nameof(DataSource), typeof(object), typeof(RD_Reader), new PropertyMetadata(null));
+
+
 		public RD_Reader()
 		{
 			InitializeComponent();

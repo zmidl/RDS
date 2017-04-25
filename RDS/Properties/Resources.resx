@@ -129,6 +129,12 @@
   <data name="English" xml:space="preserve">
     <value>/RDS;component/Apps/Languages/en-US.xaml</value>
   </data>
+  <data name="FinalView_Message1" xml:space="preserve">
+    <value>FinalView_Message1</value>
+  </data>
+  <data name="FinalView_Message2" xml:space="preserve">
+    <value>FinalView_Message2</value>
+  </data>
   <data name="LisFileNameFormat" xml:space="preserve">
     <value>yyyyMMdd</value>
   </data>
@@ -138,10 +144,16 @@
   <data name="NotSample" xml:space="preserve">
     <value>NotSample</value>
   </data>
+  <data name="PopupWindow_About" xml:space="preserve">
+    <value>PopupWindow_About</value>
+  </data>
+  <data name="PopupWindow_Administrators" xml:space="preserve">
+    <value>PopupWindow_Administrators</value>
+  </data>
+  <data name="PopupWindow_MessageBox" xml:space="preserve">
+    <value>PopupWindow_MessageBox</value>
+  </data>
   <data name="PrepareSample" xml:space="preserve">
     <value>PrepareSample</value>
-  </data>
-  <data name="String1" xml:space="preserve">
-    <value>我是一</value>
   </data>
 </root>

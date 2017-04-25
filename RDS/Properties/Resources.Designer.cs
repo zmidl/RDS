@@ -97,6 +97,24 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 FinalView_Message1 的本地化字符串。
+        /// </summary>
+        internal static string FinalView_Message1 {
+            get {
+                return ResourceManager.GetString("FinalView_Message1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 FinalView_Message2 的本地化字符串。
+        /// </summary>
+        internal static string FinalView_Message2 {
+            get {
+                return ResourceManager.GetString("FinalView_Message2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 yyyyMMdd 的本地化字符串。
         /// </summary>
         internal static string LisFileNameFormat {
@@ -124,20 +142,38 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PopupWindow_About 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_About {
+            get {
+                return ResourceManager.GetString("PopupWindow_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_Administrators 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_Administrators {
+            get {
+                return ResourceManager.GetString("PopupWindow_Administrators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_MessageBox 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_MessageBox {
+            get {
+                return ResourceManager.GetString("PopupWindow_MessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 PrepareSample 的本地化字符串。
         /// </summary>
         internal static string PrepareSample {
             get {
                 return ResourceManager.GetString("PrepareSample", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 我是一 的本地化字符串。
-        /// </summary>
-        internal static string String1 {
-            get {
-                return ResourceManager.GetString("String1", resourceCulture);
             }
         }
     }

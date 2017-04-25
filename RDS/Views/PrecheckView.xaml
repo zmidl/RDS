@@ -54,17 +54,7 @@
                         <Label/>
                     </DockPanel>
                 </StackPanel>
-                <Line Y1="0" Y2="458" StrokeThickness="4" Canvas.Left="780" Canvas.Top="21">
-                    <Line.Stroke>
-                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                            <GradientStop Color="#FF3A3A3A" Offset="0"/>
-                            <GradientStop Color="#FF4B4B4B" Offset="1"/>
-                            <GradientStop Color="#FF5D5D5D" Offset="0.56"/>
-                            <GradientStop Color="#FF2B2B2B" Offset="0.547"/>
-                        </LinearGradientBrush>
-                    </Line.Stroke>
-                </Line>
-           
+                <Line Style="{StaticResource LineStyle}" Y1="0" Y2="458" Canvas.Left="780" Canvas.Top="21"/>
             </Canvas>
         </Grid>
     </Viewbox>

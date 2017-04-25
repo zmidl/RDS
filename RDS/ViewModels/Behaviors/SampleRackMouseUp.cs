@@ -30,15 +30,16 @@ namespace RDS.ViewModels.Behaviors
 
 		private void AssociatedObject_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			this.ViewModel.RollBackAllSampleRacksState();
 			this.ViewModel.SetSampleRackState(new SampleRackStateArgs(this.Index, RDSCL.SampleRackState.PrepareSample));
+			this.ViewModel.CurrentColumnIndex = this.Index;
+			//this.ViewModel.GetLisTableFromFile();
+
+			//this.ViewModel.DatatableToEntity();
 		}
 
 		protected override void OnDetaching()
 		{
 			base.OnDetaching(); this.AssociatedObject.MouseUp -= AssociatedObject_MouseUp;
 		}
-
-
 	}
 }

@@ -20,23 +20,23 @@ namespace RDS.Views.Monitor
 		private readonly string NotSample = Properties.Resources.NotSample;
 		private readonly string PrepareSample = Properties.Resources.PrepareSample;
 		private readonly string AlreadySample = Properties.Resources.AlreadySample;
-		
 
-		//C:\zhaomin\sourcecode\CppTestDll\Debug
-		[DllImport("CppTestDll.dll", EntryPoint = "Test1")]
-		extern static int Test1();
 
-		[DllImport("CppTestDll.dll", EntryPoint = "Test2")]
-		extern static int Test2();
+		////C:\zhaomin\sourcecode\CppTestDll\Debug
+		//[DllImport("CppTestDll.dll", EntryPoint = "Test1")]
+		//extern static int Test1();
 
-		[DllImport("ShareDll_d.dll", EntryPoint = "InitDLL")]
-		extern static int InitDLL(byte[] targetName);
+		//[DllImport("CppTestDll.dll", EntryPoint = "Test2")]
+		//extern static int Test2();
 
-		[DllImport("ShareDll_d.dll", EntryPoint = "SendData")]
-		extern static int SendData(byte[] dataArray, int dataArrayLength, string targetName);
+		//[DllImport("ShareDll_d.dll", EntryPoint = "InitDLL")]
+		//extern static int InitDLL(byte[] targetName);
 
-		[DllImport("ShareDll_d.dll", EntryPoint = "ReciveData")]
-		extern static int ReciveData(byte[] receivedDataArray, int dataArrayLength, string plpszSrc);
+		//[DllImport("ShareDll_d.dll", EntryPoint = "SendData")]
+		//extern static int SendData(byte[] dataArray, int dataArrayLength, string targetName);
+
+		//[DllImport("ShareDll_d.dll", EntryPoint = "ReciveData")]
+		//extern static int ReciveData(byte[] receivedDataArray, int dataArrayLength, string plpszSrc);
 
 		private SampleView sampleView;
 
@@ -53,7 +53,7 @@ namespace RDS.Views.Monitor
 			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
 			this.currentContent = this.Content;
 			MainWindow.GlobalNotify += MainWindow_GlobalNotify;
-		    this.ViewModel.A();
+			this.ViewModel.A();
 
 			this.sampleView = new SampleView();
 			this.sampleView.DataContext = this.ViewModel.SampleViewModel;
@@ -67,7 +67,7 @@ namespace RDS.Views.Monitor
 				case ShowView.ShowSampleView:
 				{
 					this.ViewModel.SampleViewModel.MultipeSetSampleStateToEmergency();
-					
+
 					General.ExitView(this.currentContent, this, (IExitView)sampleView);
 					break;
 				}
@@ -77,6 +77,8 @@ namespace RDS.Views.Monitor
 				}
 			}
 		}
+
+		bool[] samples = new bool[4];
 
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
 		{
@@ -108,9 +110,12 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"SampleState1")
 			{
-				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
 				
-				this.ShakerRack_1.IsShake = true;
+				this.ViewModel.Reader.EnzymeBottles[0].State = ReagentState.Full;
+				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
+				this.ViewModel.SetReaderCellState(1, 2, HoleState.Full);
+				this.ViewModel.SetReaderEnzymeBottlesValue(3, 45);
+				//this.ShakerRack_1.IsShake = true;
 				this.ViewModel.SetTipState(0, 1, TipState.Exist);
 
 				this.ViewModel.SetTipState(1, 1, TipState.Exist);
@@ -124,6 +129,8 @@ namespace RDS.Views.Monitor
 				this.ViewModel.SetNPBottleState(1, ReagentState.Few);
 				this.ViewModel.SetISBottleState(2, ReagentState.Full);
 				this.ViewModel.SetNPBottleState(7, ReagentState.Normal);
+
+				this.ViewModel.Heating.OlefinBox.State = ReagentState.Full;
 				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Sampled);
 				this.ViewModel.SetSampleTubeState(3, 5, SampleTubeState.Sampled);
@@ -137,14 +144,14 @@ namespace RDS.Views.Monitor
 
 				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.Full);
 
-				for (int i = 0; i < 1; i++)
+				for (int i = 0; i < 2; i++)
 				{
 					this.ViewModel.CupRacks[2].Strips[i].State = StripState.Inexistence;
 				}
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				this.ShakerRack_1.IsShake = false;
+				//this.ShakerRack_1.IsShake = false;
 				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.None);
 				this.ViewModel.SetTipState(0, 0, TipState.NoExist);
 
@@ -167,16 +174,45 @@ namespace RDS.Views.Monitor
 			else if (e.Index == $"Enzyme+")
 			{
 				v++;
-				this.ViewModel.SetReaderEnzymeValue(0, v);
+				this.ViewModel.ReagentRack.MBBottles[0].Volume += v;
+				this.ViewModel.ReagentRack.MBBottles[1].Volume += v * 2;
+
+				this.ViewModel.Reader.Temperature += v;
+				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
 			}
 			else if (e.Index == $"Enzyme-")
 			{
 				v--;
-				this.ViewModel.SetReaderEnzymeValue(0, v);
+				this.ViewModel.Reader.Temperature += v;
+				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
 			}
-			else if (e.Index == this.NotSample || e.Index == this.PrepareSample || e.Index == this.AlreadySample)
+			else if (e.Index == "Sample1")
 			{
-				this.ViewModel.SetSampleRackState(1, e.Index);
+				this.samples[0] = !this.samples[0];
+				if(this.samples[0]) this.ViewModel.SetSampleRackState(0, SampleRackState.AlreadySample);
+				else this.ViewModel.SetSampleRackState(0, SampleRackState.NotSample);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnA);
+			}
+			else if (e.Index == "Sample2")
+			{
+				this.samples[1] = !this.samples[1];
+				if (this.samples[1]) this.ViewModel.SetSampleRackState(1, SampleRackState.AlreadySample);
+				else this.ViewModel.SetSampleRackState(1, SampleRackState.NotSample);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnB);
+			}
+			else if (e.Index == "Sample3")
+			{
+				this.samples[2] = !this.samples[2];
+				if (this.samples[2]) this.ViewModel.SetSampleRackState(2, SampleRackState.AlreadySample);
+				else this.ViewModel.SetSampleRackState(2, SampleRackState.NotSample);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnC);
+			}
+			else if (e.Index == "Sample4")
+			{
+				this.samples[3] = !this.samples[3];
+				if (this.samples[3]) this.ViewModel.SetSampleRackState(3, SampleRackState.AlreadySample);
+				else this.ViewModel.SetSampleRackState(3, SampleRackState.NotSample);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnD);
 			}
 		}
 

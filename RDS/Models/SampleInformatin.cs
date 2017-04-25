@@ -1,14 +1,24 @@
 ﻿namespace RDS.Models
 {
-	public class SampleInformation: ViewModels.Common.ViewModel
+	public class SampleInformation : ViewModels.Common.ViewModel
 	{
 		public SampleInformation() { }
 
-        public string SampleId { get; set; }//strSampleID="20141225CEH001"
+		public string SampleId { get; set; }//strSampleID="20141225CEH001"
 
 		public string Barcode { get; set; }//strBarcode="2009161629"
 
-		public string Name { get; set; }//strName="郑志营"
+		private string name;
+		public string Name
+		{
+			get { return name; }
+			set
+			{
+				name = value;
+				this.RaisePropertyChanged(nameof(Name));
+			}
+		}
+
 
 		public string Age { get; set; }//strAge="34"
 
@@ -27,12 +37,22 @@
 			}
 		}
 
-
-
 		public string Birthday { get; set; }// strBirthday="19801126"
 
 		public string Reagent { get; set; }//strItem="UU"
 
 		public string DateTime { get; set; }// strDateTime="20141225092145"
+
+		private bool isEmergency = false;
+		public bool IsEmergency
+		{
+			get { return isEmergency; }
+			set
+			{
+				isEmergency = value;
+				this.RaisePropertyChanged(nameof(IsEmergency));
+			}
+		}
+
 	}
 }

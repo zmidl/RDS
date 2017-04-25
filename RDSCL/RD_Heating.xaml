@@ -6,6 +6,14 @@
              xmlns:local="clr-namespace:RDSCL"
              mc:Ignorable="d" 
              d:DesignHeight="780" d:DesignWidth="642">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="ContentColorMask" EndPoint="1,0.5" StartPoint="0,0.5">
+            <GradientStop Color="#CC6C6C6C" Offset="0.992"/>
+            <GradientStop Color="#CC686868"/>
+            <GradientStop Color="#CCCFCFCF" Offset="0.811"/>
+            <GradientStop Color="#CCCDCDCD" Offset="0.259"/>
+        </LinearGradientBrush>
+    </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Template">
@@ -14,12 +22,14 @@
                         <Viewbox Stretch="Fill">
                             <Canvas Width="642" Height="780" >
                                 <StackPanel Canvas.Left="70" Canvas.Top="50" Height="680" Width="370" Orientation="Horizontal">
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding ItemsSource[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding ItemsSource[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}"/>
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding ItemsSource[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding ItemsSource[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding ItemsSource[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding ItemsSource[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding ItemsSource[3].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding ItemsSource[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}"/>
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[3].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
                                 </StackPanel>
-                                <Rectangle Canvas.Left="465" Canvas.Top="140" Width="110" Height="460" StrokeThickness="3" Stroke="Black" Fill="{x:Null}" RadiusX="10" RadiusY="10" />
+                                <Rectangle Fill="{Binding DataSource.OlefinBox.Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Canvas.Left="473" Canvas.Top="148" Width="94" Height="444" RadiusX="4" RadiusY="4" />
+
+                                <Rectangle Fill="{StaticResource ContentColorMask}" Canvas.Left="465" Canvas.Top="140" Width="110" Height="460" StrokeThickness="8" Stroke="#FF444444" RadiusX="10" RadiusY="10" />
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

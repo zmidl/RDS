@@ -21,14 +21,13 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_Heating : UserControl
 	{
-		public IEnumerable ItemsSource
+		public object DataSource
 		{
-			get { return (IEnumerable)GetValue(ItemsSourceProperty); }
-			set { SetValue(ItemsSourceProperty, value); }
+			get { return (object)GetValue(DataSourceProperty); }
+			set { SetValue(DataSourceProperty, value); }
 		}
-		public static readonly DependencyProperty ItemsSourceProperty =
-			DependencyProperty.Register(nameof(ItemsSource), typeof(IEnumerable), typeof(RD_Heating), new PropertyMetadata(null));
-
+		public static readonly DependencyProperty DataSourceProperty =
+			DependencyProperty.Register(nameof(DataSource), typeof(object), typeof(RD_Heating), new PropertyMetadata(null));
 
 		public RD_Heating()
 		{

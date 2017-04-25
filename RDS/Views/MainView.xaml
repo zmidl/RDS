@@ -4,76 +4,43 @@
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
+             xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
+        
+        <LinearGradientBrush x:Key="BodyBackground" EndPoint="0.5,1" StartPoint="0.5,0">
+            <GradientStop Color="#FF131313" Offset="1"/>
+            <GradientStop Color="#FF272727"/>
+            <GradientStop Color="#FF1B1B1B" Offset="0.537"/>
+        </LinearGradientBrush>
         <DropShadowEffect x:Key="TitleEffect" BlurRadius="3" ShadowDepth="3" Color="#FF4B4B4B"/>
+        <Path x:Key="Path_Task" Fill="{Binding ElementName=CheckBox_Task,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Monitor}"/>
+        <Path x:Key="Path_Histroy" Fill="{Binding ElementName=CheckBox_Histroy,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Histroy}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+        <Path x:Key="Path_help" Fill="{Binding ElementName=CheckBox_Help,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Help}"/>
+        <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
+        <Path x:Key="Path_Administrators" Fill="{Binding ElementName=Button_AccountSettingsVariant,Path=Foreground}" Data="{StaticResource AccountSettingsVariant}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill" Height="60" Margin="15,20,0,0"/>
+        <Path x:Key="Path_Minimize" Fill="{Binding ElementName=Button_Minimize,Path=Foreground}" Data="M20,14H4V10H20" Stretch="UniformToFill" Width="60" Height="10" Margin="20,43,0,0"/>
+        <Path x:Key="Path_Information" Fill="{Binding ElementName=Button_Information,Path=Foreground}" Data="{StaticResource Information}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Width="30" Height="60" Margin="33,20,0,0"/>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
-        <Grid Width="1900" Height="1000">
-            <Grid.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FF131313" Offset="1"/>
-                    <GradientStop Color="#FF272727"/>
-                    <GradientStop Color="#FF1B1B1B" Offset="0.537"/>
-                </LinearGradientBrush>
-            </Grid.Background>
-            <Canvas Width="1900" Height="1000" >
-                <DockPanel Width="1900" Height="1000" LastChildFill="True">
-                    <DockPanel  x:Name="StackPanel_Head"  Height="80"  LastChildFill="True" DockPanel.Dock="Top">
-                        <DockPanel.Background>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="#FF2E2E2E" Offset="1"/>
-                                <GradientStop Color="#FF363636"/>
-                                <GradientStop Color="#FF272727" Offset="0.537"/>
-                            </LinearGradientBrush>
-                        </DockPanel.Background>
-                        <Path Effect="{StaticResource TitleEffect}" DockPanel.Dock="Left" Width="100"  Height="70" Stretch="Uniform" Fill="{StaticResource PressedForeground}" Data="M12,2A1.58,1.58 0 0,1 13.58,3.58A1.58,1.58 0 0,1 12,5.16A1.58,1.58 0 0,1 10.42,3.58A1.58,1.58 0 0,1 12,2M7.79,3.05C8.66,3.05 9.37,3.76 9.37,4.63C9.37,5.5 8.66,6.21 7.79,6.21A1.58,1.58 0 0,1 6.21,4.63A1.58,1.58 0 0,1 7.79,3.05M16.21,3.05C17.08,3.05 17.79,3.76 17.79,4.63C17.79,5.5 17.08,6.21 16.21,6.21A1.58,1.58 0 0,1 14.63,4.63A1.58,1.58 0 0,1 16.21,3.05M11.8,10.95C9.7,8.84 10.22,7.79 10.22,7.79H13.91C13.91,9.37 11.8,10.95 11.8,10.95M13.91,21.47C13.91,21.47 13.91,19.37 9.7,15.16C5.5,10.95 4.96,9.89 4.43,6.74C4.43,6.74 4.83,6.21 5.36,6.74C5.88,7.26 7.07,7.66 8.12,7.66C8.12,7.66 9.17,10.95 12.07,13.05C12.07,13.05 15.88,9.11 15.88,7.53C15.88,7.53 17.07,7.79 18.5,6.74C18.5,6.74 19.5,6.21 19.57,6.74C19.7,7.79 18.64,11.47 14.3,15.16C14.3,15.16 17.07,18.32 16.8,21.47H13.91M9.17,16.21L11.41,18.71C10.36,19.76 10.22,22 10.22,22H7.07C7.59,17.79 9.17,16.21 9.17,16.21Z"/>
-                        <TextBlock Text="RDBIO" Effect="{StaticResource TitleEffect}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource PressedForeground}"/>
-
-                        <Button  x:Name="Button_Exit" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ExitApp}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,20,0"  FontSize="100" >
-                            <Path Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
-                        </Button>
-                        <Button  x:Name="Button_Minimize" Style="{StaticResource RD_EllipseButtonStyle}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"  FontSize="100" >
-                            <Path Fill="{Binding ElementName=Button_Minimize,Path=Foreground}" Data="M20,14H4V10H20" Stretch="UniformToFill" Width="60" Height="10" Margin="20,43,0,0"/>
-                        </Button>
-                        <Button  x:Name="Button_Information" Style="{StaticResource RD_EllipseButtonStyle}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" >
-
-                            <Path Fill="{Binding ElementName=Button_Information,Path=Foreground}" Data="M13.5,4A1.5,1.5 0 0,0 12,5.5A1.5,1.5 0 0,0 13.5,7A1.5,1.5 0 0,0 15,5.5A1.5,1.5 0 0,0 13.5,4M13.14,8.77C11.95,8.87 8.7,11.46 8.7,11.46C8.5,11.61 8.56,11.6 8.72,11.88C8.88,12.15 8.86,12.17 9.05,12.04C9.25,11.91 9.58,11.7 10.13,11.36C12.25,10 10.47,13.14 9.56,18.43C9.2,21.05 11.56,19.7 12.17,19.3C12.77,18.91 14.38,17.8 14.54,17.69C14.76,17.54 14.6,17.42 14.43,17.17C14.31,17 14.19,17.12 14.19,17.12C13.54,17.55 12.35,18.45 12.19,17.88C12,17.31 13.22,13.4 13.89,10.71C14,10.07 14.3,8.67 13.14,8.77Z" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Width="30" Height="60" Margin="33,20,0,0"/>
-
-                        </Button>
-
-                        <CheckBox x:Name="BB" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsTask}" DockPanel.Dock="Left" Margin="300,0,0,0" Width="250" Height="80" >
-                            <Path Fill="{Binding ElementName=BB,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="M5,19A1,1 0 0,0 6,20H18A1,1 0 0,0 19,19C19,18.79 18.93,18.59 18.82,18.43L13,8.35V4H11V8.35L5.18,18.43C5.07,18.59 5,18.79 5,19M6,22A3,3 0 0,1 3,19C3,18.4 3.18,17.84 3.5,17.37L9,7.81V6A1,1 0 0,1 8,5V4A2,2 0 0,1 10,2H14A2,2 0 0,1 16,4V5A1,1 0 0,1 15,6V7.81L20.5,17.37C20.82,17.84 21,18.4 21,19A3,3 0 0,1 18,22H6M13,16L14.34,14.66L16.27,18H7.73L10.39,13.39L13,16M12.5,12A0.5,0.5 0 0,1 13,12.5A0.5,0.5 0 0,1 12.5,13A0.5,0.5 0 0,1 12,12.5A0.5,0.5 0 0,1 12.5,12Z"/>
-                        </CheckBox>
-                        <CheckBox x:Name="AA" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHistroy}" DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80">
-                            <Path Fill="{Binding ElementName=AA,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z" HorizontalAlignment="Center" VerticalAlignment="Center" />
-                        </CheckBox>
-                        <CheckBox x:Name="CC" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHelp}"  DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80">
-                            <Path  Fill="{Binding ElementName=CC,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5 2.45,5.4 1,6.5V21.16C1,21.41 1.25,21.66 1.5,21.66C1.6,21.66 1.65,21.59 1.75,21.59C3.1,20.94 5.05,20.5 6.5,20.5C8.45,20.5 10.55,20.9 12,22C13.35,21.15 15.8,20.5 17.5,20.5C19.15,20.5 20.85,20.81 22.25,21.56C22.35,21.61 22.4,21.59 22.5,21.59C22.75,21.59 23,21.34 23,21.09V6.5C22.4,6.05 21.75,5.75 21,5.5V7.5L21,13V19C19.9,18.65 18.7,18.5 17.5,18.5C15.8,18.5 13.35,19.15 12,20V13L12,8.5V6.5C10.55,5.4 8.45,5 6.5,5V5Z"/>
-                        </CheckBox>
-                        <TextBlock Width="300" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FFE4FF00"/>
-                    </DockPanel>
-                    <Rectangle Width="1900" Height="5" DockPanel.Dock="Top">
-                        <Rectangle.Fill>
-                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                <GradientStop Color="Black"/>
-                                <GradientStop Color="#FF32363A" Offset="1"/>
-                            </LinearGradientBrush>
-                        </Rectangle.Fill>
-                    </Rectangle>
-                    
-                    <ContentControl x:Name="ContentControl_CurrentContent"/>
+        <Grid Background="{StaticResource BodyBackground}" Width="1900" Height="1000">
+            <DockPanel Width="1900" Height="1000" LastChildFill="True">
+                <DockPanel  x:Name="StackPanel_Head" Background="{StaticResource TitleBackground}" Height="80"  LastChildFill="True" DockPanel.Dock="Top">
+                    <!--<Path Effect="{StaticResource TitleEffect}" DockPanel.Dock="Left" Width="100"  Height="70" Stretch="Uniform" Fill="{StaticResource PressedForeground}" Data="M12,2A1.58,1.58 0 0,1 13.58,3.58A1.58,1.58 0 0,1 12,5.16A1.58,1.58 0 0,1 10.42,3.58A1.58,1.58 0 0,1 12,2M7.79,3.05C8.66,3.05 9.37,3.76 9.37,4.63C9.37,5.5 8.66,6.21 7.79,6.21A1.58,1.58 0 0,1 6.21,4.63A1.58,1.58 0 0,1 7.79,3.05M16.21,3.05C17.08,3.05 17.79,3.76 17.79,4.63C17.79,5.5 17.08,6.21 16.21,6.21A1.58,1.58 0 0,1 14.63,4.63A1.58,1.58 0 0,1 16.21,3.05M11.8,10.95C9.7,8.84 10.22,7.79 10.22,7.79H13.91C13.91,9.37 11.8,10.95 11.8,10.95M13.91,21.47C13.91,21.47 13.91,19.37 9.7,15.16C5.5,10.95 4.96,9.89 4.43,6.74C4.43,6.74 4.83,6.21 5.36,6.74C5.88,7.26 7.07,7.66 8.12,7.66C8.12,7.66 9.17,10.95 12.07,13.05C12.07,13.05 15.88,9.11 15.88,7.53C15.88,7.53 17.07,7.79 18.5,6.74C18.5,6.74 19.5,6.21 19.57,6.74C19.7,7.79 18.64,11.47 14.3,15.16C14.3,15.16 17.07,18.32 16.8,21.47H13.91M9.17,16.21L11.41,18.71C10.36,19.76 10.22,22 10.22,22H7.07C7.59,17.79 9.17,16.21 9.17,16.21Z"/>
+                    <TextBlock Text="RDBIO" Effect="{StaticResource TitleEffect}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource PressedForeground}"/>-->
+                    <Image Margin="2" DockPanel.Dock="Left" Effect="{StaticResource TitleEffect}" Source="/RDS;component/Apps/Images/RdLogoH.png" />
+                    <Button  x:Name="Button_Exit" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Path_Exit}" Command="{Binding ExitApp}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,20,0"  FontSize="100" />
+                    <Button  x:Name="Button_Minimize" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowCricleProgress}" Content="{StaticResource Path_Minimize}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"  FontSize="100" />
+                    <Button  x:Name="Button_Information" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowAdministratorsView}" Content="{StaticResource Path_Information}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" />
+                    <Button  x:Name="Button_AccountSettingsVariant" Command="{Binding ShowMessageView}" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Path_Administrators}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" />
+                    <CheckBox x:Name="CheckBox_Task" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsTask}" Content="{StaticResource Path_Task}" DockPanel.Dock="Left" Margin="300,0,0,0" Width="250" Height="80" />
+                    <CheckBox x:Name="CheckBox_Histroy" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHistroy}" Content="{StaticResource Path_Histroy}" DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80"/>
+                    <CheckBox x:Name="CheckBox_Help" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHelp}" Content="{StaticResource Path_help}" DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80"/>
+                    <Label/>
                 </DockPanel>
-                <Viewbox x:Name="Canvas_Admin" Width="1900" Height="850" Visibility="Collapsed">
-                    <Canvas Width="475" Height="212.5"  Background="#99000000" >
-                        <GroupBox Width="90" Header="语言选择"  Canvas.Left="10" Canvas.Top="28" Height="94"/>
-                        <CheckBox Width="50" Height="16" Content="中文" Canvas.Left="30" Canvas.Top="50"/>
-                        <CheckBox Width="50" Height="16" Content="英文" Canvas.Left="30" Canvas.Top="70"/>
-                        <CheckBox Width="50" Height="16" Content="日文" Canvas.Left="30" Canvas.Top="90"/>
-                        <Button x:Name="Button_Admin" Width="80" Height="20" Content="离开" Canvas.Left="217" Canvas.Top="182" Click="Button_Admin_Click"/>
-                    </Canvas>
-                </Viewbox>
-            </Canvas>
+                <Rectangle Fill="{StaticResource MainViewTitleLine}" Width="1900" Height="5" DockPanel.Dock="Top"/>
+                <ContentControl x:Name="ContentControl_CurrentContent"/>
+            </DockPanel>
         </Grid>
     </Viewbox>
 </UserControl>

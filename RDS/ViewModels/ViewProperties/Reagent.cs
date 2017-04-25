@@ -5,6 +5,17 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Reagent : ViewModel
 	{
+		private int volume = 0;
+		public int Volume
+		{
+			get { return volume; }
+			set
+			{
+				volume = value;
+				this.RaisePropertyChanged(nameof(Volume));
+			}
+		}
+
 		private ReagentState state;
 		public ReagentState State
 		{
@@ -57,6 +68,15 @@ namespace RDS.ViewModels.ViewProperties
 	public class ISBottle : Reagent
 	{
 		public ISBottle(ReagentState reagentState) : base(reagentState) { }
+	}
+	public class OlefinBox : Reagent
+	{
+		public OlefinBox(ReagentState reagentState) : base(reagentState) { }
+	}
+
+	public class EnzymeBottle : Reagent
+	{
+		public EnzymeBottle(ReagentState reagentState) : base(reagentState) { }
 	}
 
 }

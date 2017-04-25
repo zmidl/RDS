@@ -1,24 +1,42 @@
-﻿using System.Collections.ObjectModel;
+﻿using RDS.ViewModels.Common;
+using System.Collections.ObjectModel;
 
 namespace RDS.ViewModels.ViewProperties
 {
-	public class Reader
+	public class Reader : ViewModel
 	{
 		private const int NUMBER_OFSET = 33;
 
 		private const int STRIPS_COUNT = 5;
 
-		private const int ENZYMES_COUNT = 6;
+		private readonly int EnzymeBottlesCount = 6;
+
+		private int temperature = 0;
+		public int Temperature
+		{
+			get { return temperature; }
+			set
+			{
+				temperature = value;
+				this.RaisePropertyChanged(nameof(Temperature));
+
+				if (value >= 50) this.IsWarmAlarm = true;
+				else this.IsWarmAlarm = false;
+				this.RaisePropertyChanged(nameof(this.IsWarmAlarm));
+			}
+		}
+
+		public bool? IsWarmAlarm { get; set; } = false;
 
 		public ObservableCollection<Strip> Strips { get; set; } = new ObservableCollection<Strip>();
 
-		public ObservableCollection<Enzyme> Enzymes { get; set; } = new ObservableCollection<Enzyme>();
+		public ObservableCollection<EnzymeBottle> EnzymeBottles { get; set; } = new ObservableCollection<EnzymeBottle>();
 
 		public Reader()
 		{
 			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(Reader.NUMBER_OFSET + i, RDSCL.StripState.Existence));
 
-			for (int i = 0; i < Reader.ENZYMES_COUNT; i++) this.Enzymes.Add(new Enzyme(75));
+			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new EnzymeBottle(ReagentState.Empty));
 		}
 	}
 }

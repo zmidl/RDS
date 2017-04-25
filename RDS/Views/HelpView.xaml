@@ -6,9 +6,11 @@
              mc:Ignorable="d" 
             d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="400" Background="White">
-            <TextBlock Text="帮助" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="72"/>
-            
+        <Grid Width="950" Height="500">
+            <Canvas>
+                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+                <TextBlock Canvas.Left="430" Canvas.Top="200" Foreground="{StaticResource TextForeground2}" Text="帮助" FontSize="60"/>
+            </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

@@ -7,7 +7,7 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-         
+
         <PathGeometry x:Key="ReagentBoxFrame" Figures="M0,4 A9,9 0,0,1 18,4 3.5,5 0,0,0 24,4 9,9 0,0,1 42,4 L42,170 A9,9 0,0,1 24,170 3.5,5 0,0,0 18,170 9,9 0,0,1 0,170Z"/>
     </UserControl.Resources>
     <UserControl.Style>
@@ -17,8 +17,55 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="1900" Height="1000">
-                                <local:RD_ReagentRack DataSource="{Binding ReagentRack}" Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
-                                <Canvas Canvas.Left="200" Canvas.Top="50" Background="#33000000" Width="150" Height="850" >
+                                <local:RD_ReagentRack x:Name="ReagentRack" DataSource="{Binding ReagentRack}" Width="150" Panel.ZIndex="3"  Canvas.Top="28" Canvas.Left="50" />
+                                <Canvas x:Name="TipRack" Canvas.Left="460" Canvas.Top="90" Width="800" Height="560" OpacityMask="#4C000000">
+                                    <local:TipRack_300uL Width="250"  Canvas.Left="5"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="190" Canvas.Left="5"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="380" Canvas.Left="5"/>
+
+                                    <local:TipRack_300uL Width="250" Canvas.Left="275"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="190" Canvas.Left="275"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="380" Canvas.Left="275"/>
+
+                                    <local:TipRack_300uL Width="250" Canvas.Left="545"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="190" Canvas.Left="545"/>
+                                    <local:TipRack_1000uL Width="250" Canvas.Top="380" Canvas.Left="545"/>
+                                </Canvas>
+                                <Canvas x:Name="CupRack" Canvas.Left="460" Canvas.Top="670" Width="800" Height="250" OpacityMask="#4C000000">
+                                    <local:RD_CupRack Width="250"  Canvas.Left="5"  />
+                                    <local:RD_CupRack Width="250"  Canvas.Left="275" />
+                                    <local:RD_CupRack Width="250" Canvas.Left="545" />
+                                </Canvas>
+                                <local:RD_Heating x:Name="HeatingRack" Width="232"  Canvas.Top="652" Canvas.Left="1270" OpacityMask="#4C000000"/>
+                                <local:RD_Reader x:Name="ReaderRack" Width="340" Canvas.Left="1448" Canvas.Top="296.5"/>
+
+                                <Canvas Canvas.Left="205" Canvas.Top="90" Width="220" Height="830" OpacityMask="#4C000000">
+                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55"  />
+                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="55"/>
+                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="110"/>
+                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="165"/>
+                                </Canvas>
+                                <local:RD_ShakerRack Width="170"  Canvas.Left="1490" Canvas.Top="652" OpacityMask="#4C000000"/>
+                                <local:RD_Mag Width="177" Canvas.Top="652" Canvas.Left="1660" OpacityMask="#4C000000"/>
+                            </Canvas>
+                        </Viewbox>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Style>
+</UserControl>
+
+
+
+<!--
+    
+    <Canvas Canvas.Left="200" Canvas.Top="50" Background="#33000000" Width="150" Height="850" >
                                     <Ellipse Canvas.Left="10" Canvas.Top="15" Width="60" Height="60" Stroke="White" StrokeThickness="2"/>
                                     <Ellipse Canvas.Left="80" Canvas.Top="15" Width="60" Height="60" Stroke="White" StrokeThickness="2"/>
 
@@ -56,16 +103,4 @@
                                     <Path Canvas.Left="106" Canvas.Top="664" Data="{StaticResource ReagentBoxFrame}" Stroke="White" StrokeThickness="2" Stretch="Fill" />
 
                                 </Canvas>
-                            </Canvas>
-                        </Viewbox>
-                        <ControlTemplate.Triggers>
-                            <Trigger Property="IsMouseOver" Value="True">
-
-                            </Trigger>
-                        </ControlTemplate.Triggers>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-    </UserControl.Style>
-</UserControl>
+    -->

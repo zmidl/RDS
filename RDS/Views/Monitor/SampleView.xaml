@@ -15,64 +15,75 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
+        <DataTemplate x:Key="DataGridTemplateColumn_Emergency">
+            <CheckBox Style="{StaticResource RD_ElipseCheckBoxStyle}"  Height="18" IsChecked="{Binding IsEmergency,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,1,0,0"/>
+        </DataTemplate>
+
         <Style BasedOn="{StaticResource TextBlockStyle}" TargetType="{x:Type TextBlock}">
             <Setter Property="Margin" Value="0,2.1,0,0"/>
             <Setter Property="FontSize" Value="12"/>
         </Style>
         <Style x:Key="DataGridColumn0Editing" TargetType="{x:Type TextBox}">
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="Background" Value="Gray"/>
-            <Setter Property="BorderBrush" Value="Navy"/>
-            <Setter Property="BorderThickness" Value="2"/>
+            <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
+            <Setter Property="Background" Value="Black"/>
+            <Setter Property="BorderBrush" Value="{StaticResource TextForeground2}"/>
+            <Setter Property="BorderThickness" Value="0"/>
         </Style>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
                 <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
-                <Button x:Name="Button_Exit" Style="{StaticResource RD_ButtonStyle}" Content="返回" Width="92" Height="32" Click="Button_Exit_Click" Canvas.Left="438" Canvas.Top="431"/>
+                <Button x:Name="Button_Exit" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitSampleView}" Content="返回" Width="100" Height="30" Canvas.Left="800" Canvas.Top="435"/>
 
-                <DataGrid x:Name="ucDataGrid" Style="{StaticResource RD_DataGridBlackStyle}"
+                <DataGrid 
+                    x:Name="ucDataGrid" 
+                    Style="{StaticResource RD_DataGridBlackStyle}"
                     AllowDrop="True" ItemsSource="{Binding SampleInformations}"
-						SelectionMode="Extended"
-						AutoGenerateColumns="False"
-						Width="700" 
-						Height="380" 
-						Canvas.Left="194" Canvas.Top="40">
+                    SelectionMode="Extended"
+                    VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
+                    AutoGenerateColumns="False"
+                    Width="717" Height="426" 
+                    Canvas.Left="46" Canvas.Top="36">
                     <DataGrid.Columns>
-                        <DataGridTextColumn MinWidth="50" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
+                        <DataGridTextColumn MinWidth="45" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
                         <DataGridTextColumn MinWidth="90" Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_SampleNumber}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding SampleId}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Name}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Name}" />
-                        <DataGridTextColumn MinWidth="35" Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Sex}" />
-                        <DataGridTextColumn MinWidth="35" Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Age}" />
+                        <DataGridTextColumn MinWidth="45" Header="{DynamicResource SampleView_Sex}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Sex}" />
+                        <DataGridTextColumn MinWidth="45" Header="{DynamicResource SampleView_Age}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Age}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Type}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Type}" />
                         <DataGridTextColumn MinWidth="80" Header="{DynamicResource SampleView_Reagent}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Reagent}" />
                         <DataGridTextColumn MinWidth="90" Header="{DynamicResource SampleView_DateTime}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding DateTime}" />
-                        <DataGridTextColumn MinWidth="50" Header="{DynamicResource SampleView_Emergency}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" />
+                        <!--<DataGridCheckBoxColumn MinWidth="40" Header="{DynamicResource SampleView_Emergency}"  Binding="{Binding IsEmergency}"/>-->
+                        <DataGridTemplateColumn MinWidth="40" CellTemplate="{StaticResource DataGridTemplateColumn_Emergency}" Header="{DynamicResource SampleView_Emergency}" />
                     </DataGrid.Columns>
+
                 </DataGrid>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="26" Canvas.Left="810" Canvas.Top="40">
+                    <i:Interaction.Behaviors>
+                        <behavior:SampleRackMouseUp Index="0" ViewModel="{Binding Mode=OneWay}"/>
+                    </i:Interaction.Behaviors>
+                </rdscl:SampleRack>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="26" Canvas.Left="836" Canvas.Top="40">
+                    <i:Interaction.Behaviors>
+                        <behavior:SampleRackMouseUp Index="1" ViewModel="{Binding Mode=OneWay}"/>
+                    </i:Interaction.Behaviors>
+                </rdscl:SampleRack>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="26" Canvas.Left="862" Canvas.Top="40">
+                    <i:Interaction.Behaviors>
+                        <behavior:SampleRackMouseUp Index="2" ViewModel="{Binding Mode=OneWay}"/>
+                    </i:Interaction.Behaviors>
+                </rdscl:SampleRack>
+                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="26" Canvas.Left="888" Canvas.Top="40">
+                    <i:Interaction.Behaviors>
+                        <behavior:SampleRackMouseUp Index="3" ViewModel="{Binding Mode=OneWay}"/>
+                    </i:Interaction.Behaviors>
+                </rdscl:SampleRack>
 
-                <TextBlock Text="A" Canvas.Left="78" Canvas.Bottom="8" Canvas.Top="431">
-                        <i:Interaction.Behaviors>
-                            <behavior:SampleRackMouseUp Index="0" ViewModel="{Binding Mode=OneWay}"/>
-                        </i:Interaction.Behaviors>
-                </TextBlock>
-                <TextBlock  Text="B" Canvas.Left="105" Canvas.Bottom="8" Canvas.Top="431" >
-                        <i:Interaction.Behaviors>
-                            <behavior:SampleRackMouseUp Index="1" ViewModel="{Binding Mode=OneWay}"/>
-                        </i:Interaction.Behaviors>
-                </TextBlock>
-                <TextBlock Text="C" Canvas.Left="130" Canvas.Bottom="8" Canvas.Top="431"/>
-                <TextBlock Text="D" Canvas.Left="156" Canvas.Bottom="8" Canvas.Top="431" />
-                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="26" Canvas.Left="72" Canvas.Top="40"/>
-                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="26" Canvas.Left="98" Canvas.Top="40"/>
-                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="26" Canvas.Left="124" Canvas.Top="40"/>
-                <rdscl:SampleRack SampleRackState="{Binding SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="26" Canvas.Left="150" Canvas.Top="40"/>
 
 
-
-                <StackPanel Orientation="Vertical" Canvas.Left="48" Canvas.Top="63">
+                <StackPanel Orientation="Vertical" Canvas.Left="790" Canvas.Top="63">
                     <TextBlock Text="1" />
                     <TextBlock Text="2" />
                     <TextBlock Text="3" />

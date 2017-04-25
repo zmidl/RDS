@@ -18,6 +18,13 @@ namespace RDSCL
 		public static readonly DependencyProperty SamplesContentColorProperty =
 			DependencyProperty.Register(nameof(SamplesContentColor), typeof(IEnumerable), typeof(SampleRack), new PropertyMetadata(null));
 
+		public Visibility RackVisibility
+		{
+			get { return (Visibility)GetValue(RackVisibilityProperty); }
+			set { SetValue(RackVisibilityProperty, value); }
+		}public static readonly DependencyProperty RackVisibilityProperty =
+			DependencyProperty.Register(nameof(RackVisibility), typeof(Visibility), typeof(SampleRack), new PropertyMetadata(Visibility.Hidden));
+
 		public SampleRackState SampleRackState
 		{
 			get { return (SampleRackState)GetValue(SampleRackStateProperty); }
@@ -29,27 +36,33 @@ namespace RDSCL
 		private static void Callback_SampleRackState(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			var sampleRack = d as SampleRack;
+			var oldValue = (SampleRackState)e.OldValue;
+			var newValue = (SampleRackState)e.NewValue;
+
 			DoubleAnimation flashAnimation = new DoubleAnimation(0d, 1d, new Duration(System.TimeSpan.FromSeconds(1)));
 			flashAnimation.Completed += (sender, eventArgs) =>
 			{
 				if (sampleRack.SampleRackState==SampleRackState.PrepareSample) sampleRack.BeginAnimation(UIElement.OpacityProperty, flashAnimation);
 			};
-			switch (sampleRack.SampleRackState)
+			switch (newValue)
 			{
 				case SampleRackState.NotSample:
 				{
-					sampleRack.Visibility = Visibility.Collapsed;
+					sampleRack.RackVisibility = Visibility.Hidden;
 					break;
-				}
+				} 
 				case SampleRackState.PrepareSample:
 				{
-					sampleRack.Visibility = Visibility.Visible;
-					sampleRack.BeginAnimation(UIElement.OpacityProperty, flashAnimation);
+					if(oldValue != SampleRackState.PrepareSample)
+					{
+						sampleRack.RackVisibility = Visibility.Visible;
+						sampleRack.BeginAnimation(UIElement.OpacityProperty, flashAnimation);
+					}
 					break;
 				}
 				case SampleRackState.AlreadySample:
 				{
-					sampleRack.Visibility = Visibility.Visible;
+					sampleRack.RackVisibility = Visibility.Visible;
 					break;
 				}
 				default: break;

@@ -18,7 +18,7 @@
     <Canvas>
         <Viewbox Stretch="Fill" >
             <StackPanel x:Name="StackPanel_Animation" Orientation="Vertical"  DockPanel.Dock="Left">
-                <TextBlock Text="模拟动画" FontSize="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                <Button Content="模拟动画" FontSize="120" HorizontalAlignment="Center" VerticalAlignment="Center"/>
                 <TextBlock x:Name="TextBlock_count" Text="12" FontSize="500" HorizontalAlignment="Center" VerticalAlignment="Center"/>
             </StackPanel>
         </Viewbox>

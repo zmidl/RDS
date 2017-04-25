@@ -7,7 +7,7 @@ using RDSCL;
 
 namespace RDS.ViewModels.ViewProperties
 {
-	public class SampleRack:ViewModel
+	public class SampleRack : ViewModel
 	{
 		private SampleRackState PreviousState { get; set; }
 
@@ -17,10 +17,9 @@ namespace RDS.ViewModels.ViewProperties
 			get { return sampleRackState; }
 			set
 			{
-				if (value != SampleRackState.PrepareSample && sampleRackState!=SampleRackState.PrepareSample)
+				if (value != SampleRackState.PrepareSample)
 				{
-					this.PreviousState = sampleRackState;
-					this.RaisePropertyChanged(nameof(PreviousState));
+					this.PreviousState = value;
 				}
 				sampleRackState = value;
 				this.RaisePropertyChanged(nameof(SampleRackState));
@@ -29,18 +28,18 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<SampleTube> Samples { get; set; } = new ObservableCollection<SampleTube>();
 
-		public ICollection<SampleTubeState> SamplesState { get { return this.Samples.Select(o=> o.SampleState).ToList(); } }
-		
+		public ICollection<SampleTubeState> SamplesState { get { return this.Samples.Select(o => o.SampleState).ToList(); } }
+
 		public SampleRack(int columnIndex)
 		{
 			this.InitializeSampleHoles(columnIndex);
 			this.SampleRackState = SampleRackState.NotSample;
 		}
-		
+
 		private void InitializeSampleHoles(int columnIndex)
 		{
 			columnIndex *= 20;
-			
+
 			for (int i = 1; i <= 20; i++)
 			{
 				var sample = new SampleTube(this.GetHoleNameByNumber(columnIndex + i));
