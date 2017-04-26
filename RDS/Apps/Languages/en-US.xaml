@@ -37,13 +37,17 @@
     <system:String x:Key="MaintenanceView_Message1">abc</system:String>
     <system:String x:Key="MaintenanceView_Message2">pliase use 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
     <system:String x:Key="MaintenanceView_Message3">pliase use 清水擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
-    <system:String x:Key="FinalView_Message1">Close the bin gate</system:String>
-    <system:String x:Key="FinalView_Message2">Close the computer</system:String>
+    <system:String x:Key="FinalView_Message1">Please close the hatch</system:String>
+    <system:String x:Key="FinalView_Message2">Please close the computer</system:String>
+    <system:String x:Key="FinalView_Message3">Please turn on the UV light</system:String>
     <system:String x:Key="HistroyView_Name">Name</system:String>
     <system:String x:Key="HistroyView_Type">Type</system:String>
     <system:String x:Key="HistroyView_Date">Date</system:String>
-    <system:String x:Key="PopupWindow_MessageBox">message box</system:String>
-    <system:String x:Key="PopupWindow_Administrators">setup</system:String>
-    <system:String x:Key="PopupWindow_About">about us</system:String>
+    <system:String x:Key="PopupWindow_MessageBox">Message box</system:String>
+    <system:String x:Key="PopupWindow_Administrators">Setup</system:String>
+    <system:String x:Key="PopupWindow_Information">About us</system:String>
+    <system:String x:Key="PopupWindow_Wait">Please wait...</system:String>
+    <system:String x:Key="App_Ok">Ok</system:String>
+    <system:String x:Key="App_Cancel">Cancel</system:String>
     <system:String x:Key="MonitorView_CorporateName">ShangHai Rendu Biotechnology</system:String>
 </ResourceDictionary>

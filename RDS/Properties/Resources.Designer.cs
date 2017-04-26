@@ -61,15 +61,6 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 AlreadySample 的本地化字符串。
-        /// </summary>
-        internal static string AlreadySample {
-            get {
-                return ResourceManager.GetString("AlreadySample", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 /RDS;component/Apps/Languages/zh-CN.xaml 的本地化字符串。
         /// </summary>
         internal static string Chinese {
@@ -115,6 +106,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 FinalView_Message3 的本地化字符串。
+        /// </summary>
+        internal static string FinalView_Message3 {
+            get {
+                return ResourceManager.GetString("FinalView_Message3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 yyyyMMdd 的本地化字符串。
         /// </summary>
         internal static string LisFileNameFormat {
@@ -133,29 +133,20 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 NotSample 的本地化字符串。
-        /// </summary>
-        internal static string NotSample {
-            get {
-                return ResourceManager.GetString("NotSample", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   查找类似 PopupWindow_About 的本地化字符串。
-        /// </summary>
-        internal static string PopupWindow_About {
-            get {
-                return ResourceManager.GetString("PopupWindow_About", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 PopupWindow_Administrators 的本地化字符串。
         /// </summary>
         internal static string PopupWindow_Administrators {
             get {
                 return ResourceManager.GetString("PopupWindow_Administrators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_Information 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_Information {
+            get {
+                return ResourceManager.GetString("PopupWindow_Information", resourceCulture);
             }
         }
         
@@ -169,11 +160,20 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 PrepareSample 的本地化字符串。
+        ///   查找类似 PopupWindow_Wait 的本地化字符串。
         /// </summary>
-        internal static string PrepareSample {
+        internal static string PopupWindow_Wait {
             get {
-                return ResourceManager.GetString("PrepareSample", resourceCulture);
+                return ResourceManager.GetString("PopupWindow_Wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 FinalView_Message2 的本地化字符串。
+        /// </summary>
+        internal static string String {
+            get {
+                return ResourceManager.GetString("String", resourceCulture);
             }
         }
     }

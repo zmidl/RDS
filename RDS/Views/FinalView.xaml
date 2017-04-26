@@ -6,9 +6,26 @@
              mc:Ignorable="d" 
              d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
-        <Grid Width="900" Height="400">
-            <TextBlock x:Name="TextBlock_message" Text="{StaticResource FinalView_Message1}"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="60"/>
-            <Button x:Name="Button_ExitApp" Width="100" Height="30" Content="确认" Margin="400,360,400,10" Click="Button_ExitApp_Click"/>
+        <Grid Width="950" Height="500">
+            <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+            <DockPanel Width="900" Height="460">
+                <Button Style="{StaticResource RD_ButtonStyle}"  Command="{Binding CloseHatch}" Content="{StaticResource App_Ok}" DockPanel.Dock="Bottom" Margin="380,0,370,20" Width="150" Height="40"/>
+                <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" Margin="5,0,5,20" StrokeThickness="4"  DockPanel.Dock="Bottom"/>
+                <TabControl SelectedIndex="{Binding WizardIndex}" Background="{x:Null}" BorderBrush="{x:Null}">
+                    <TabItem Height="0" Width="1">
+                        <DockPanel DockPanel.Dock="Top"  >
+                            <Image Source="/RDS;component/Apps/Images/14.png" Margin="50,0,0,0" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message1}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Height="0" Width="1">
+                        <DockPanel DockPanel.Dock="Top"  >
+                            <Image Source="/RDS;component/Apps/Images/15.png" Margin="50,0,0,0" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message2}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        </DockPanel>
+                    </TabItem>
+                </TabControl>
+            </DockPanel>
         </Grid>
     </Viewbox>
 </UserControl>

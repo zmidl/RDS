@@ -9,14 +9,14 @@ namespace RDS.ViewModels
 {
 	public class PopupWindowViewModel : ViewModel
 	{
-		private string popupType = new System.Windows.Window().FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
-		public string PopupType
+		private string popupTitle = string.Empty;
+		public string PopupTitle
 		{
-			get { return popupType; }
+			get { return popupTitle; }
 			set
 			{
-				popupType = value;
-				this.RaisePropertyChanged(nameof(PopupType));
+				popupTitle = value;
+				this.RaisePropertyChanged(nameof(PopupTitle));
 			}
 		}
 
@@ -31,16 +31,20 @@ namespace RDS.ViewModels
 			}
 		}
 
-		private int popupTypeIndex = 0;
-		public int PopupTypeIndex
+		private PopupType popupType;
+		public PopupType PopupType
 		{
-			get { return popupTypeIndex; }
+			get { return popupType; }
 			set
 			{
-				popupTypeIndex = value;
-				this.RaisePropertyChanged(nameof(PopupTypeIndex));
+				popupType = value;
+				this.RaisePropertyChanged(nameof(PopupType));
+				this.PopupTypeIndex = (int)value;
+				this.RaisePropertyChanged(nameof(this.PopupTypeIndex));
 			}
 		}
+
+		public int PopupTypeIndex { get; set; }
 
 		public RelayCommand ExitPopupWindowView { get; private set; }
 		public PopupWindowViewModel()
@@ -55,21 +59,27 @@ namespace RDS.ViewModels
 
 		public void ShowMessage(string message)
 		{
-			this.PopupType = new System.Windows.Window().FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
-			this.PopupTypeIndex = 0;
+			this.PopupType = PopupType.ShowMessage;
 		}
 
-		public void ShowAdmin()
+		public void ShowAdministratorsLogin()
 		{
-			this.PopupType = new System.Windows.Window().FindResource(Properties.Resources.PopupWindow_Administrators).ToString();
-			this.PopupTypeIndex = 1;
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Administrators).ToString();
+			this.PopupType = PopupType.ShowAdministratorsLogin;
+		}
+
+		public void ShowInformation()
+		{
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Information).ToString();
+			this.PopupType = PopupType.ShowInformation;
 		}
 
 		public void ShowCricleProgress()
 		{
-			this.PopupType = "请稍等";
-			this.PopupTypeIndex = 3;
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Wait).ToString();
+			this.PopupType = PopupType.ShowCircleProgress;
 		}
 	}
 
@@ -85,11 +95,12 @@ namespace RDS.ViewModels
 	//	}
 	//}
 
-	//public enum PopupWindowAction
-	//{
-	//	ShowMessage = 0,
-	//	ShowAdmin = 1,
-	//	ShowAbout = 2,
-	//	ExitView = 3
-	//}
+	public enum PopupType
+	{
+		ShowMessage = 0,
+		ShowAdministratorsLogin = 1,
+		ShowAdministratorsView = 2,
+		ShowCircleProgress = 3,
+		ShowInformation = 4
+	}
 }

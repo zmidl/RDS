@@ -36,7 +36,7 @@ namespace RDS.Views
 		public MainWindow()
 		{
 			InitializeComponent();
-
+			General.InitializeMainWindow(this);
 			this.currentTaskView = new PrecheckView();
 			this.CurrentContent = this.Content;
 			this.DisplayTwoButton();

@@ -9,7 +9,7 @@
         WindowStyle="None"
         xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
         WindowStartupLocation="CenterScreen"
-        Height="600" Width="900" ResizeMode="NoResize" PreviewKeyDown="Window_PreviewKeyDown"  AllowsTransparency="True" Background="#7FFFFFFF">
+        Height="600" Width="900" ResizeMode="NoResize" AllowsTransparency="True" Background="#7FFFFFFF">
     <Window.Resources>
         <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
 
@@ -18,35 +18,55 @@
         <Border BorderBrush="White" BorderThickness="2">
             <DockPanel x:Name="DockPanel_Background" LastChildFill="True" Width="450" Height="300" Background="{StaticResource RectangleContainerBackground}">
                 <DockPanel  x:Name="StackPanel_Head" Background="{StaticResource TitleBackground}" Height="32"  LastChildFill="True" DockPanel.Dock="Top">
-                    <Path  DockPanel.Dock="Left" Margin="10,0,0,0"  Height="27" Stretch="Uniform" Fill="{StaticResource PressedForeground}" Data="M12,2A1.58,1.58 0 0,1 13.58,3.58A1.58,1.58 0 0,1 12,5.16A1.58,1.58 0 0,1 10.42,3.58A1.58,1.58 0 0,1 12,2M7.79,3.05C8.66,3.05 9.37,3.76 9.37,4.63C9.37,5.5 8.66,6.21 7.79,6.21A1.58,1.58 0 0,1 6.21,4.63A1.58,1.58 0 0,1 7.79,3.05M16.21,3.05C17.08,3.05 17.79,3.76 17.79,4.63C17.79,5.5 17.08,6.21 16.21,6.21A1.58,1.58 0 0,1 14.63,4.63A1.58,1.58 0 0,1 16.21,3.05M11.8,10.95C9.7,8.84 10.22,7.79 10.22,7.79H13.91C13.91,9.37 11.8,10.95 11.8,10.95M13.91,21.47C13.91,21.47 13.91,19.37 9.7,15.16C5.5,10.95 4.96,9.89 4.43,6.74C4.43,6.74 4.83,6.21 5.36,6.74C5.88,7.26 7.07,7.66 8.12,7.66C8.12,7.66 9.17,10.95 12.07,13.05C12.07,13.05 15.88,9.11 15.88,7.53C15.88,7.53 17.07,7.79 18.5,6.74C18.5,6.74 19.5,6.21 19.57,6.74C19.7,7.79 18.64,11.47 14.3,15.16C14.3,15.16 17.07,18.32 16.8,21.47H13.91M9.17,16.21L11.41,18.71C10.36,19.76 10.22,22 10.22,22H7.07C7.59,17.79 9.17,16.21 9.17,16.21Z"/>
-                    <TextBlock Margin="10,0,0,0" Text="RDBIO"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource PressedForeground}"/>
+                    <!--<Path  DockPanel.Dock="Left" Margin="10,0,0,0"  Height="27" Stretch="Uniform" Fill="{StaticResource PressedForeground}" Data="M12,2A1.58,1.58 0 0,1 13.58,3.58A1.58,1.58 0 0,1 12,5.16A1.58,1.58 0 0,1 10.42,3.58A1.58,1.58 0 0,1 12,2M7.79,3.05C8.66,3.05 9.37,3.76 9.37,4.63C9.37,5.5 8.66,6.21 7.79,6.21A1.58,1.58 0 0,1 6.21,4.63A1.58,1.58 0 0,1 7.79,3.05M16.21,3.05C17.08,3.05 17.79,3.76 17.79,4.63C17.79,5.5 17.08,6.21 16.21,6.21A1.58,1.58 0 0,1 14.63,4.63A1.58,1.58 0 0,1 16.21,3.05M11.8,10.95C9.7,8.84 10.22,7.79 10.22,7.79H13.91C13.91,9.37 11.8,10.95 11.8,10.95M13.91,21.47C13.91,21.47 13.91,19.37 9.7,15.16C5.5,10.95 4.96,9.89 4.43,6.74C4.43,6.74 4.83,6.21 5.36,6.74C5.88,7.26 7.07,7.66 8.12,7.66C8.12,7.66 9.17,10.95 12.07,13.05C12.07,13.05 15.88,9.11 15.88,7.53C15.88,7.53 17.07,7.79 18.5,6.74C18.5,6.74 19.5,6.21 19.57,6.74C19.7,7.79 18.64,11.47 14.3,15.16C14.3,15.16 17.07,18.32 16.8,21.47H13.91M9.17,16.21L11.41,18.71C10.36,19.76 10.22,22 10.22,22H7.07C7.59,17.79 9.17,16.21 9.17,16.21Z"/>
+                    <TextBlock Margin="10,0,0,0" Text="RDBIO"  FontSize="15" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource PressedForeground}"/>-->
                     <!--<Button  x:Name="Button_Exit" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ExitPopupWindowView}" Content="{StaticResource Path_Exit}" Width="22" Height="22" DockPanel.Dock="Right"  Margin="10,0,10,0"  FontSize="100"/>-->
-                    <TextBlock Text="{Binding PopupType}"  FontSize="14" FontWeight="Bold" Margin="-60,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextForeground2}"/>
+                    <Image Margin="10,3,0,3" DockPanel.Dock="Left" Effect="{StaticResource TitleEffect}" Source="/RDS;component/Apps/Images/RdLogo.png" />
+                    <TextBlock Text="{Binding PopupTitle}"  FontSize="16" FontWeight="Bold" Margin="-60,0,0,0" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextForeground2}"/>
                 </DockPanel>
                 <Rectangle Fill="{StaticResource MainViewTitleLine}"  Width="{Binding ElementName=DockPanel_Background,Path=Width}" Height="1" DockPanel.Dock="Top"/>
 
                 <TabControl SelectedIndex="{Binding PopupTypeIndex}" Background="{x:Null}" BorderBrush="{x:Null}">
-                    <TabItem Height="1" Width="0">
+                    <TabItem x:Name="TabItem_MessageBox" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
-                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
-                            <TextBlock DockPanel.Dock="Top"  Style="{StaticResource TextBlockStyle}" Text="{DynamicResource PopupWindow_About}" TextWrapping="Wrap"/>
+                            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextForeground}" Text="{Binding Message}" TextWrapping="Wrap"/>
                         </DockPanel>
                     </TabItem>
-                    <TabItem Height="1" Width="0">
+                    <TabItem x:Name="TabItem_AdministratorsLogin" Height="1" Width="0">
+                        <DockPanel LastChildFill="True" Width="450" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
+                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Width="100" Height="30" />
+                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Cancel}" Command="{Binding ExitPopupWindowView}" Margin="20,0,0,0"  Width="100" Height="30" />
+                            </StackPanel>
+                            <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
+                            <Canvas>
+                                <Path Canvas.Left="120" Canvas.Top="100" Fill="{StaticResource TextForeground2}" Stretch="UniformToFill" Width="20" Data="{StaticResource Password}" />
+                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Canvas.Left="160" Canvas.Top="100" Width="150" Height='30'/>
+                            </Canvas>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem x:Name="TabItem_AdministratorsView" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
                             <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
-
+                                <TextBlock Foreground="{StaticResource TextForeground}" FontSize="16" Text="英语"/>
                             </Canvas>
                         </DockPanel>
                     </TabItem>
-                    <TabItem Height="1" Width="0">
-
-                    </TabItem>
-                    <TabItem Height="1" Width="0">
+                    <TabItem x:Name="TabItem_CircleProgress" Height="1" Width="0">
                         <rdscl:RD_CircleProgress Canvas.Left="950" Canvas.Top="450" />
+                    </TabItem>
+                    <TabItem x:Name="TabItem_Information" Height="1" Width="0">
+                        <DockPanel LastChildFill="True" Width="450" >
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                            <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
+                            <Canvas>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="Information"/>
+                            </Canvas>
+                        </DockPanel>
                     </TabItem>
                 </TabControl>
             </DockPanel>

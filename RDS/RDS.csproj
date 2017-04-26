@@ -104,8 +104,9 @@
     <Compile Include="ViewModels\Common\Enumeration.cs" />
     <Compile Include="ViewModels\Common\SQLiteHelper.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
+    <Compile Include="ViewModels\FinalViewModel.cs" />
     <Compile Include="ViewModels\MaintenanceViewModel.cs" />
-    <Compile Include="ViewModels\MainViewViewModel.cs" />
+    <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PopupWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewProperties\Cell.cs" />
     <Compile Include="ViewModels\ViewProperties\CupRack.cs" />
@@ -285,6 +286,10 @@
     <Resource Include="Apps\Images\12.png" />
     <Resource Include="Apps\Images\RdLogo_H.png" />
     <Resource Include="Apps\Images\RdLogoH.png" />
+    <Resource Include="Apps\Images\13.png" />
+    <Resource Include="Apps\Images\14.png" />
+    <Resource Include="Apps\Images\15.png" />
+    <Resource Include="Apps\Images\RdLogo.png" />
     <Content Include="Apps\LisFiles\Barcode_20170329.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

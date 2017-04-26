@@ -17,10 +17,6 @@ namespace RDS.Views.Monitor
 	/// </summary>
 	public partial class MonitorView : UserControl
 	{
-		private readonly string NotSample = Properties.Resources.NotSample;
-		private readonly string PrepareSample = Properties.Resources.PrepareSample;
-		private readonly string AlreadySample = Properties.Resources.AlreadySample;
-
 
 		////C:\zhaomin\sourcecode\CppTestDll\Debug
 		//[DllImport("CppTestDll.dll", EntryPoint = "Test1")]

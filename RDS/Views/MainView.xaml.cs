@@ -20,13 +20,13 @@ namespace RDS.Views
 
 		private object PreviousContent;
 
-		public MainViewViewModel ViewModel { get { return this.DataContext as MainViewViewModel; } }
+		public MainViewModel ViewModel { get { return this.DataContext as MainViewModel; } }
 
 		public MainView()
 		{
 			InitializeComponent();
 
-			this.DataContext = new MainViewViewModel();
+			this.DataContext = new MainViewModel();
 
 			this.ContentControl_CurrentContent.Content = this.taskView;
 
@@ -36,7 +36,6 @@ namespace RDS.Views
 
 			PopupWindow popupWindow = new PopupWindow();
 			popupWindow.DataContext = this.ViewModel.PopupWindowViewModel;
-			popupWindow.Owner = Window.GetWindow(this);
 			General.InitializePopupWindow(popupWindow);
 		}
 
@@ -44,20 +43,15 @@ namespace RDS.Views
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
-			switch ((MainViewViewModel.ViewChange)e)
+			switch ((MainViewModel.ViewChange)e)
 			{
-				case MainViewViewModel.ViewChange.TaskView: { this.ContentControl_CurrentContent.Content = this.taskView; break; }
-				case MainViewViewModel.ViewChange.HistroyView: { this.ContentControl_CurrentContent.Content = this.histroyView; break; }
-				case MainViewViewModel.ViewChange.HelpView: { this.ContentControl_CurrentContent.Content = this.helpView; break; }
-				case MainViewViewModel.ViewChange.ExitApp: { Application.Current.Shutdown();/*Environment.Exit(0);*/break; }
-				case MainViewViewModel.ViewChange.AdminView: { /*General.ShowAdministratorsView();*/ break; }
+				case MainViewModel.ViewChange.TaskView: { this.ContentControl_CurrentContent.Content = this.taskView; break; }
+				case MainViewModel.ViewChange.HistroyView: { this.ContentControl_CurrentContent.Content = this.histroyView; break; }
+				case MainViewModel.ViewChange.HelpView: { this.ContentControl_CurrentContent.Content = this.helpView; break; }
+				case MainViewModel.ViewChange.ExitApp: { Application.Current.Shutdown();/*Environment.Exit(0);*/break; }
+				case MainViewModel.ViewChange.AdminView: { /*General.ShowAdministratorsView();*/ break; }
 				default: break;
 			}
-		}
-
-		private void Button_Admin_Click(object sender, RoutedEventArgs e)
-		{
-
 		}
 	}
 }

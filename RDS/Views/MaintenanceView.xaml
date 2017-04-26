@@ -11,22 +11,22 @@
                 <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
                 <TabControl x:Name="TabControl_MaintenanceWizard" SelectedIndex="{Binding WizardIndex}" Background="{x:Null}"  Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <Grid>
-                            <Image Source="/RDS;component/Apps/Images/12.png" VerticalAlignment="Top" Width="400" HorizontalAlignment="Stretch" Stretch="UniformToFill" Height="280" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                        </Grid>
+                        <DockPanel LastChildFill="True" >
+                            <Image Source="/RDS;component/Apps/Images/12.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right"  HorizontalAlignment="Stretch"/>
+                        </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Grid>
-                            <Image Source="/RDS;component/Apps/Images/10.png" VerticalAlignment="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="270" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow" Text="{DynamicResource MaintenanceView_Message2}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                        </Grid>
+                        <DockPanel LastChildFill="True" >
+                            <Image Source="/RDS;component/Apps/Images/10.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message2}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Grid>
-                            <Image Source="/RDS;component/Apps/Images/11.png" VerticalAlignment="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="270" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" TextWrapping="WrapWithOverflow" Text="{DynamicResource MaintenanceView_Message3}" Margin="0,0,0,10" VerticalAlignment="Bottom" HorizontalAlignment="Center"/>
-                        </Grid>
+                        <DockPanel LastChildFill="True" >
+                            <Image Source="/RDS;component/Apps/Images/11.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message3}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0"/>
                 </TabControl>

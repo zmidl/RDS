@@ -7,13 +7,28 @@ namespace RDS.ViewModels.Common
 {
 	static class General
     {
-		public static Window owner { get; set; }
+		private static MainWindow mainWindow;
 
 		private static PopupWindow popupWindow;
+
+		public static void ShutDown()
+		{
+			Application.Current.Shutdown();
+		}
 
 		public static void InitializePopupWindow(PopupWindow popupWindow)
 		{
 			General.popupWindow = popupWindow;
+		}
+
+		public static void InitializeMainWindow(MainWindow mainWindow)
+		{
+			General.mainWindow = mainWindow;
+		}
+
+		public static string FindResource(string resourceKey)
+		{
+			return General.mainWindow.FindResource(resourceKey).ToString();
 		}
 
 		public static void ExitPopupWindow()
@@ -27,9 +42,15 @@ namespace RDS.ViewModels.Common
 			General.popupWindow.ShowDialog();
 		}
 
-		public static void ShowAdministrators()
+		public static void ShowAdministratorsLogin()
 		{
-			General.popupWindow.ViewModel.ShowAdmin();
+			General.popupWindow.ViewModel.ShowAdministratorsLogin();
+			General.popupWindow.ShowDialog();
+		}
+
+		public static void ShowInformation()
+		{
+			General.popupWindow.ViewModel.ShowInformation();
 			General.popupWindow.ShowDialog();
 		}
 

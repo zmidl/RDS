@@ -117,9 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="AlreadySample" xml:space="preserve">
-    <value>AlreadySample</value>
-  </data>
   <data name="Chinese" xml:space="preserve">
     <value>/RDS;component/Apps/Languages/zh-CN.xaml</value>
   </data>
@@ -135,25 +132,28 @@
   <data name="FinalView_Message2" xml:space="preserve">
     <value>FinalView_Message2</value>
   </data>
+  <data name="FinalView_Message3" xml:space="preserve">
+    <value>FinalView_Message3</value>
+  </data>
   <data name="LisFileNameFormat" xml:space="preserve">
     <value>yyyyMMdd</value>
   </data>
   <data name="LisFilesPath" xml:space="preserve">
     <value>LisFilesPath</value>
   </data>
-  <data name="NotSample" xml:space="preserve">
-    <value>NotSample</value>
-  </data>
-  <data name="PopupWindow_About" xml:space="preserve">
-    <value>PopupWindow_About</value>
-  </data>
   <data name="PopupWindow_Administrators" xml:space="preserve">
     <value>PopupWindow_Administrators</value>
+  </data>
+  <data name="PopupWindow_Information" xml:space="preserve">
+    <value>PopupWindow_Information</value>
   </data>
   <data name="PopupWindow_MessageBox" xml:space="preserve">
     <value>PopupWindow_MessageBox</value>
   </data>
-  <data name="PrepareSample" xml:space="preserve">
-    <value>PrepareSample</value>
+  <data name="PopupWindow_Wait" xml:space="preserve">
+    <value>PopupWindow_Wait</value>
+  </data>
+  <data name="String" xml:space="preserve">
+    <value>FinalView_Message2</value>
   </data>
 </root>

@@ -9,6 +9,8 @@
                 <ResourceDictionary Source="Languages/zh-CN.xaml"/>
                 <ResourceDictionary Source="Languages/en-US.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+          
+
 
             <!--Brush-->
             <SolidColorBrush x:Key="PressedForeground" Color="#FF35AAF7"/>
@@ -38,6 +40,7 @@
             </LinearGradientBrush>
 
             <!--Effect-->
+            <DropShadowEffect x:Key="TitleEffect" BlurRadius="3" ShadowDepth="3" Color="#FF4B4B4B"/>
             <DropShadowEffect x:Key="ContentEffect" Direction="270" Color="#FF6A6A6A"/>
             <BlurEffect x:Key="RectangleContainerEffect" Radius="2"/>
             <DropShadowEffect x:Key="TextEffect" BlurRadius="10" ShadowDepth="2"/>
@@ -62,7 +65,7 @@
             <PathGeometry x:Key="Monitor" Figures="M21,16H3V4H21M21,2H3C1.89,2 1,2.89 1,4V16A2,2 0 0,0 3,18H10V20H8V22H16V20H14V18H21A2,2 0 0,0 23,16V4C23,2.89 22.1,2 21,2Z"/>
             <PathGeometry x:Key="Histroy" Figures="M22,21H2V3H4V19H6V10H10V19H12V6H16V19H18V14H22V21Z"/>
             <PathGeometry x:Key="Help" Figures="M19,2L14,6.5V17.5L19,13V2M6.5,5C4.55,5 2.45,5.4 1,6.5V21.16C1,21.41 1.25,21.66 1.5,21.66C1.6,21.66 1.65,21.59 1.75,21.59C3.1,20.94 5.05,20.5 6.5,20.5C8.45,20.5 10.55,20.9 12,22C13.35,21.15 15.8,20.5 17.5,20.5C19.15,20.5 20.85,20.81 22.25,21.56C22.35,21.61 22.4,21.59 22.5,21.59C22.75,21.59 23,21.34 23,21.09V6.5C22.4,6.05 21.75,5.75 21,5.5V7.5L21,13V19C19.9,18.65 18.7,18.5 17.5,18.5C15.8,18.5 13.35,19.15 12,20V13L12,8.5V6.5C10.55,5.4 8.45,5 6.5,5V5Z"/>
-
+            <PathGeometry x:Key="Password" Figures="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z"/>
 
 
 
