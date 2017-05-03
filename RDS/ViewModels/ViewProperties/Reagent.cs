@@ -69,6 +69,7 @@ namespace RDS.ViewModels.ViewProperties
 	{
 		public ISBottle(ReagentState reagentState) : base(reagentState) { }
 	}
+
 	public class OlefinBox : Reagent
 	{
 		public OlefinBox(ReagentState reagentState) : base(reagentState) { }

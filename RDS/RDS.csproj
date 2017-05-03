@@ -48,6 +48,10 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>
+    </ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core">
       <HintPath>..\..\..\document\Install\NelsonSDK\Bin\Core.dll</HintPath>
@@ -55,20 +59,27 @@
     <Reference Include="Microsoft.Expression.Drawing, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\Microsoft.Expression.Drawing.dll</HintPath>
+      <Private>False</Private>
     </Reference>
-    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
-    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Expression.Effects, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>False</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.104.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=AMD64">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Apps\Dlls\System.Data.SQLite.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>C:\Program Files (x86)\Microsoft SDKs\Expression\Blend\.NETFramework\v4.5\Libraries\System.Windows.Interactivity.dll</HintPath>
+      <Private>False</Private>
     </Reference>
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
@@ -92,8 +103,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Models\Lis\Barcode.cs" />
-    <Compile Include="Models\TestModel.cs" />
-    <Compile Include="Models\TubeDescription.cs" />
+    <Compile Include="Models\ReagentInformation.cs" />
     <Compile Include="ViewModels\Behaviors\SampleDescriptionMultiSelect.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrag.cs" />
     <Compile Include="ViewModels\Behaviors\SampleInformationDrop.cs" />
@@ -266,6 +276,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Content Include="Apps\LisFiles\Barcode_20170503.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
     <Resource Include="Apps\Images\InitializeSuppliesView1.bmp" />
     <Resource Include="Apps\Images\InitializeSuppliesView2.bmp" />
     <Resource Include="Apps\Images\InitializeSuppliesView3.bmp" />
@@ -290,9 +303,46 @@
     <Resource Include="Apps\Images\14.png" />
     <Resource Include="Apps\Images\15.png" />
     <Resource Include="Apps\Images\RdLogo.png" />
-    <Content Include="Apps\LisFiles\Barcode_20170329.xml">
+    <Content Include="Apps\Dlls\mfc110.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Content Include="Apps\Dlls\mfc110u.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\mfcm110.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\mfcm110u.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\Microsoft.Expression.Drawing.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\Microsoft.Expression.Effects.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\Microsoft.Expression.Interactions.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\msvcp110.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\msvcr110.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\MySql.Data.dll" />
+    <Content Include="Apps\Dlls\ShareDll.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\SQLite.Interop.dll" />
+    <Content Include="Apps\Dlls\System.Data.SQLite.dll" />
+    <Content Include="Apps\Dlls\System.Windows.Interactivity.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Apps\Dlls\vccorlib110.dll">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="Apps\Images\RdIcon.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -317,21 +367,6 @@
       <Project>{cd1bb68d-e713-442a-b4e9-15461e7e2f4e}</Project>
       <Name>RDSCL</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Apps\Dlls\mfc110d.dll" />
-    <Content Include="Apps\Dlls\mfc110ud.dll" />
-    <Content Include="Apps\Dlls\mfcm110d.dll" />
-    <Content Include="Apps\Dlls\mfcm110ud.dll" />
-    <Content Include="Apps\Dlls\msvcp110.dll" />
-    <Content Include="Apps\Dlls\msvcp110d.dll" />
-    <Content Include="Apps\Dlls\msvcr110.dll" />
-    <Content Include="Apps\Dlls\msvcr110d.dll" />
-    <Content Include="Apps\Dlls\ShareDll_d.dll" />
-    <Content Include="Apps\Dlls\System.Data.SQLite%28.net2.0x64%29.dll" />
-    <Content Include="Apps\Dlls\System.Data.SQLite%282.0-3.5%29.dll" />
-    <Content Include="Apps\Dlls\System.Data.SQLite%284.0%29.dll" />
-    <Content Include="Apps\Dlls\vccorlib110d.dll" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

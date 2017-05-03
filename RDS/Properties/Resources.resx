@@ -118,13 +118,13 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Chinese" xml:space="preserve">
-    <value>/RDS;component/Apps/Languages/zh-CN.xaml</value>
+    <value>Chinese</value>
   </data>
   <data name="DatabaseConnectionString" xml:space="preserve">
     <value>DatabaseConnectionString</value>
   </data>
   <data name="English" xml:space="preserve">
-    <value>/RDS;component/Apps/Languages/en-US.xaml</value>
+    <value>English</value>
   </data>
   <data name="FinalView_Message1" xml:space="preserve">
     <value>FinalView_Message1</value>
@@ -135,11 +135,44 @@
   <data name="FinalView_Message3" xml:space="preserve">
     <value>FinalView_Message3</value>
   </data>
+  <data name="InitializeSuppliesView_Message6" xml:space="preserve">
+    <value>InitializeSuppliesView_Message6</value>
+  </data>
+  <data name="InitializeSuppliesView_Message6_1" xml:space="preserve">
+    <value>InitializeSuppliesView_Message6_1</value>
+  </data>
+  <data name="InitializeSuppliesView_Message7" xml:space="preserve">
+    <value>InitializeSuppliesView_Message7</value>
+  </data>
+  <data name="InitializeSuppliesView_Message7_1" xml:space="preserve">
+    <value>InitializeSuppliesView_Message7_1</value>
+  </data>
+  <data name="InitializeSuppliesView_Message8" xml:space="preserve">
+    <value>InitializeSuppliesView_Message8</value>
+  </data>
+  <data name="InitializeSuppliesView_Message8_1" xml:space="preserve">
+    <value>InitializeSuppliesView_Message8_1</value>
+  </data>
+  <data name="InitializeSuppliesView_Message9" xml:space="preserve">
+    <value>InitializeSuppliesView_Message9</value>
+  </data>
+  <data name="InitializeSuppliesView_Message9_1" xml:space="preserve">
+    <value>InitializeSuppliesView_Message9_1</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+  </data>
+  <data name="Languages" xml:space="preserve">
+    <value>Languages</value>
+  </data>
   <data name="LisFileNameFormat" xml:space="preserve">
     <value>yyyyMMdd</value>
   </data>
   <data name="LisFilesPath" xml:space="preserve">
     <value>LisFilesPath</value>
+  </data>
+  <data name="Password" xml:space="preserve">
+    <value>Rds123</value>
   </data>
   <data name="PopupWindow_Administrators" xml:space="preserve">
     <value>PopupWindow_Administrators</value>
@@ -153,7 +186,16 @@
   <data name="PopupWindow_Wait" xml:space="preserve">
     <value>PopupWindow_Wait</value>
   </data>
-  <data name="String" xml:space="preserve">
-    <value>FinalView_Message2</value>
+  <data name="Reagents" xml:space="preserve">
+    <value>Reagents</value>
+  </data>
+  <data name="SelectedReanents" xml:space="preserve">
+    <value>SelectedReanents</value>
+  </data>
+  <data name="Separator" xml:space="preserve">
+    <value>-</value>
+  </data>
+  <data name="StartupUri" xml:space="preserve">
+    <value>/RDS;component/Views/MainWindow.xaml</value>
   </data>
 </root>

@@ -1,7 +1,10 @@
 ﻿using RDS.ViewModels;
 using RDS.ViewModels.Common;
+using System;
+using System.Runtime.InteropServices;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Interop;
 
 namespace RDS.Views
 {
@@ -10,7 +13,20 @@ namespace RDS.Views
 	/// </summary>
 	public partial class MainView : UserControl
 	{
-		//public Action<int> NotifyParentView;
+		//private delegate int Callback
+		//(
+		//	[MarshalAs(UnmanagedType.LPArray, SizeConst = 2048)]byte[] buffer,
+		//	[MarshalAs(UnmanagedType.I4)]int count,
+		//	[MarshalAs(UnmanagedType.LPTStr)]string form,
+		//	[MarshalAs(UnmanagedType.LPTStr)]string to,
+		//	[MarshalAs(UnmanagedType.SysInt)]IntPtr args
+		//);
+		private const string aaa= @"\Apps\Dlls\ShareDll.dll";
+		private delegate int Callback([MarshalAs(UnmanagedType.LPStr)]string pwszName, int count, string form, string to, IntPtr args);
+		private Callback callback;
+
+		[DllImport(aaa)]
+		extern static int Register([MarshalAs(UnmanagedType.LPWStr)]string pwszName, [MarshalAs(UnmanagedType.FunctionPtr)]Callback ReciveDataCallback, [MarshalAs(UnmanagedType.SysInt)]IntPtr pParam);
 
 		private TaskView taskView = new TaskView();
 
@@ -35,11 +51,17 @@ namespace RDS.Views
 			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
 
 			PopupWindow popupWindow = new PopupWindow();
+
 			popupWindow.DataContext = this.ViewModel.PopupWindowViewModel;
+
 			General.InitializePopupWindow(popupWindow);
-		}
+
+			this.callback = new Callback(AAA);
+			//var bytes = System.Text.Encoding.Default.GetBytes("S1");
+			//var count = bytes.Length;
 
 		
+		}
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
@@ -52,6 +74,25 @@ namespace RDS.Views
 				case MainViewModel.ViewChange.AdminView: { /*General.ShowAdministratorsView();*/ break; }
 				default: break;
 			}
+		}
+
+		public int AAA(string a, int b, string c, string d, IntPtr e)
+		{
+			this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { MessageBox.Show(""); }));
+			return 2;
+		}
+
+		private void Button_Minimize_Click(object sender, RoutedEventArgs e)
+		{
+			MessageBox.Show(Register("S1", this.callback, new WindowInteropHelper(Window.GetWindow(this)).Handle).ToString());
+		}
+
+		
+
+		private void Button_Information_Click(object sender, RoutedEventArgs e)
+		{
+			
+
 		}
 	}
 }

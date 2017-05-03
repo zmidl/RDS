@@ -169,7 +169,7 @@ namespace RDS.ViewModels
 				}
 				else { /*General.ShowAdministratorsView();*/ return; }
 			}
-			catch (Exception ex)
+			catch 
 			{
 				//General.ShowAdministratorsView();
 			}

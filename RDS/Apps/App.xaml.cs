@@ -12,33 +12,34 @@ namespace RDS.Apps
         protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
-            Application currApp = Application.Current;
-            StartupUri = new Uri("/RDS;component/Views/MainWindow.xaml", UriKind.Relative);
-            this.LoadLanguage();
+			//Application currApp = Application.Current;
+			this.StartupUri = new Uri(RDS.Properties.Resources.StartupUri, UriKind.Relative);
+            //this.LoadLanguage();
         }
-        private void LoadLanguage()
-        {
-            CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
-            ResourceDictionary languageFile = default(ResourceDictionary);
-            try
-            {
-                languageFile =
-                    Application.LoadComponent(
-                             new Uri(@"/RDS;component/Apps/Languages/" + currentCultureInfo.Name + ".xaml", UriKind.Relative))
-                    as ResourceDictionary;
-            }
-            catch
-            {
-            }
 
-            if (languageFile != null)
-            {
-                if (this.Resources.MergedDictionaries.Count > 0)
-                {
-                    this.Resources.MergedDictionaries.Clear();
-                }
-                this.Resources.MergedDictionaries.Add(languageFile);
-            }
-        }
-    }
+		private void LoadLanguage()
+		{
+			//CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
+			//ResourceDictionary languageFile = default(ResourceDictionary);
+			//try
+			//{
+			//	languageFile =
+			//		Application.LoadComponent(
+			//				 new Uri(@"/RDS;component/Apps/Languages/" + currentCultureInfo.Name + ".xaml", UriKind.Relative))
+			//		as ResourceDictionary;
+			//}
+			//catch
+			//{
+			//}
+
+			//if (languageFile != null)
+			//{
+			//	if (this.Resources.MergedDictionaries.Count > 0)
+			//	{
+			//		this.Resources.MergedDictionaries.Clear();
+			//	}
+			//	this.Resources.MergedDictionaries.Add(languageFile);
+			//}
+		}
+	}
 }

@@ -108,12 +108,8 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Release\ru\System.Windows.Interactivity.resour
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\zh-Hans\System.Windows.Interactivity.resources.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\zh-Hant\System.Windows.Interactivity.resources.dll
 C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Apps\Styles\TextBlockStyle.baml
-C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\LayoutSetting.g.cs
-C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\RdsMessageBox.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Release\GeneratedInternalTypeHelper.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Release\RDS_MarkupCompile.lref
-C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\LayoutSetting.baml
-C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\RdsMessageBox.baml
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\LisFiles\Barcode_20170329.xml
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Database\Rds.db
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Core.dll
@@ -153,3 +149,13 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Release\ru\Microsoft.Expression.Interactions.r
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\zh-Hans\Microsoft.Expression.Interactions.resources.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Release\zh-Hant\Microsoft.Expression.Interactions.resources.dll
 C:\zhaomin\sourcecode\RDS\RDS\obj\Release\RDS_Content.g.cs
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\mfc110.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\mfc110u.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\mfcm110.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\mfcm110u.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\ShareDll.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\vccorlib110.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\msvcp110.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Release\Apps\Dlls\msvcr110.dll
+C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\PopupWindow.g.cs
+C:\zhaomin\sourcecode\RDS\RDS\obj\Release\Views\PopupWindow.baml

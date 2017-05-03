@@ -17,7 +17,7 @@ namespace RDS.Views
 
 		private object CurrentContent;
 
-		private PrecheckView currentTaskView;
+		private PrecheckView taskView;
 
 		private MainView mainView = new MainView();
 
@@ -37,7 +37,7 @@ namespace RDS.Views
 		{
 			InitializeComponent();
 			General.InitializeMainWindow(this);
-			this.currentTaskView = new PrecheckView();
+			this.taskView = new PrecheckView();
 			this.CurrentContent = this.Content;
 			this.DisplayTwoButton();
 		}
@@ -46,9 +46,17 @@ namespace RDS.Views
 		{
 			Task task2 = new Task(() =>
 			{
+				try
+				{
+					
+				}
+				catch(Exception ex)
+				{
+					var ee = ex.Message;
+				}
 				//for (int i = 12; i > 0; i--)
 				//{
-				//	System.Threading.Thread.Sleep(300);
+				//System.Threading.Thread.Sleep(3000);
 				//	this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.TextBlock_count.Text = i.ToString(); }));
 				//}
 			});
@@ -58,6 +66,20 @@ namespace RDS.Views
 			});
 
 			task2.Start();
+			
+			var a1 = Properties.Resources.Language;
+			var a2= General.ReadConfiguration(a1);
+			var a3 = General.ReadConfiguration(a2);
+			ResourceDictionary resourceDictionary = Application.LoadComponent(new Uri(a3, UriKind.Relative)) as ResourceDictionary;
+			if (resourceDictionary != null)
+			{
+				if (this.Resources.MergedDictionaries.Count > 0)
+				{
+					this.Resources.MergedDictionaries.Clear();
+				}
+				this.Resources.MergedDictionaries.Add(resourceDictionary);
+			}
+			//General.WriteConfiguration(Properties.Resources.Language, "Chinese"); 
 		}
 
 		private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
@@ -76,7 +98,7 @@ namespace RDS.Views
 					ResourceDictionary langRd = null;
 					try
 					{
-						if(aa) langRd = Application.LoadComponent(new Uri(Properties.Resources.English, UriKind.Relative)) as ResourceDictionary;
+						if (aa) langRd = Application.LoadComponent(new Uri(Properties.Resources.English, UriKind.Relative)) as ResourceDictionary;
 						else langRd = Application.LoadComponent(new Uri(Properties.Resources.Chinese, UriKind.Relative)) as ResourceDictionary;
 					}
 					catch

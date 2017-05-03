@@ -14,13 +14,25 @@
             <GradientStop Color="#FF1B1B1B" Offset="0.537"/>
         </LinearGradientBrush>
         
-        <Path x:Key="Path_Task" Fill="{Binding ElementName=CheckBox_Task,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Monitor}"/>
-        <Path x:Key="Path_Histroy" Fill="{Binding ElementName=CheckBox_Histroy,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Histroy}" HorizontalAlignment="Center" VerticalAlignment="Center" />
-        <Path x:Key="Path_help" Fill="{Binding ElementName=CheckBox_Help,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Margin="86,10,0,0" Data="{StaticResource Help}"/>
         <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
         <Path x:Key="Path_Administrators" Fill="{Binding ElementName=Button_AccountSettingsVariant,Path=Foreground}" Data="{StaticResource AccountSettingsVariant}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill" Height="60" Margin="15,20,0,0"/>
         <Path x:Key="Path_Minimize" Fill="{Binding ElementName=Button_Minimize,Path=Foreground}" Data="M20,14H4V10H20" Stretch="UniformToFill" Width="60" Height="10" Margin="20,43,0,0"/>
         <Path x:Key="Path_Information" Fill="{Binding ElementName=Button_Information,Path=Foreground}" Data="{StaticResource Information}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Width="30" Height="60" Margin="33,20,0,0"/>
+
+        <StackPanel x:Key="LabelButton_Content_Task" HorizontalAlignment="Center" Orientation="Horizontal" Margin="40,10,0,0">
+            <Path Fill="{Binding ElementName=CheckBox_Task,Path=Foreground}" Stretch="Uniform" Width="80" Height="60"  Data="{StaticResource Monitor}"/>
+            <TextBlock Foreground="{Binding ElementName=CheckBox_Task,Path=Foreground}" FontSize="38" FontWeight="Bold" Text="{DynamicResource MainView_CurrentTask}" Margin="20,5,0,0"/>
+        </StackPanel>
+
+        <StackPanel x:Key="LabelButton_Content_Histroy" HorizontalAlignment="Center" Orientation="Horizontal" Margin="40,10,0,0">
+            <Path Fill="{Binding ElementName=CheckBox_Histroy,Path=Foreground}" Stretch="Uniform" Width="80" Height="60"  Data="{StaticResource Histroy}" HorizontalAlignment="Center" VerticalAlignment="Center" />
+            <TextBlock Foreground="{Binding ElementName=CheckBox_Histroy,Path=Foreground}" FontSize="38" FontWeight="Bold" Text="{DynamicResource MainView_Histroy}" Margin="20,5,0,0"/>
+        </StackPanel>
+
+        <StackPanel x:Key="LabelButton_Content_Help" HorizontalAlignment="Center" Orientation="Horizontal" Margin="40,10,0,0">
+            <Path Fill="{Binding ElementName=CheckBox_Help,Path=Foreground}" Stretch="Uniform" Width="80" Height="60" Data="{StaticResource Help}"/>
+            <TextBlock Foreground="{Binding ElementName=CheckBox_Help,Path=Foreground}" FontSize="38" FontWeight="Bold" Text="{DynamicResource MainView_Help}" Margin="20,5,0,0"/>
+        </StackPanel>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Background="{StaticResource BodyBackground}" Width="1900" Height="1000">
@@ -30,12 +42,12 @@
                     <TextBlock Text="RDBIO" Effect="{StaticResource TitleEffect}" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource PressedForeground}"/>-->
                     <Image Margin="10,3,0,3" DockPanel.Dock="Left" Effect="{StaticResource TitleEffect}" Source="/RDS;component/Apps/Images/RdLogo.png" />
                     <Button  x:Name="Button_Exit" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Path_Exit}" Command="{Binding ExitApp}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,20,0"  FontSize="100" />
-                    <Button  x:Name="Button_Minimize" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowCricleProgress}" Content="{StaticResource Path_Minimize}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"  FontSize="100" />
-                    <Button  x:Name="Button_Information" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowInformation}" Content="{StaticResource Path_Information}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" />
+                    <Button  x:Name="Button_Minimize" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowCricleProgress}" Content="{StaticResource Path_Minimize}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"  FontSize="100" Click="Button_Minimize_Click" />
+                    <Button  x:Name="Button_Information" Style="{StaticResource RD_EllipseButtonStyle}"  Content="{StaticResource Path_Information}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" Click="Button_Information_Click" />
                     <Button  x:Name="Button_AccountSettingsVariant" Command="{Binding ShowAdministratorsLogin}" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Path_Administrators}" Width="55" Height="55" DockPanel.Dock="Right"  Margin="25,0,0,0"   FontSize="100" />
-                    <CheckBox x:Name="CheckBox_Task" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsTask}" Content="{StaticResource Path_Task}" DockPanel.Dock="Left" Margin="300,0,0,0" Width="250" Height="80" />
-                    <CheckBox x:Name="CheckBox_Histroy" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHistroy}" Content="{StaticResource Path_Histroy}" DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80"/>
-                    <CheckBox x:Name="CheckBox_Help" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHelp}" Content="{StaticResource Path_help}" DockPanel.Dock="Left" Margin="50,0,0,0" Width="250" Height="80"/>
+                    <CheckBox x:Name="CheckBox_Task" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsTask}" Content="{StaticResource LabelButton_Content_Task}" DockPanel.Dock="Left" Margin="200,0,0,0" Width="350" Height="80" />
+                    <CheckBox x:Name="CheckBox_Histroy" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHistroy}" Content="{StaticResource LabelButton_Content_Histroy}" DockPanel.Dock="Left" Margin="5,0,0,0" Width="350" Height="80"/>
+                    <CheckBox x:Name="CheckBox_Help" Style="{StaticResource RD_LabelButtonStyle}" IsChecked="{Binding IsHelp}" Content="{StaticResource LabelButton_Content_Help}" DockPanel.Dock="Left" Margin="5,0,0,0" Width="350" Height="80"/>
                     <Label/>
                 </DockPanel>
                 <Rectangle Fill="{StaticResource MainViewTitleLine}" Width="1900" Height="5" DockPanel.Dock="Top"/>

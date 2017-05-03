@@ -68,6 +68,7 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Cuvette.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Border.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Hole2.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\MonitorChart.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CircleProgress.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Hole.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Strip.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_CoolDown.g.cs
@@ -92,6 +93,7 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.cache
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL_MarkupCompile.lref
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\Hole2.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\MonitorChart.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CircleProgress.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Hole.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_Strip.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\TL_CoolDown.baml
@@ -116,5 +118,3 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.Properties.Resources.resources
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.csproj.GenerateResource.Cache
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.pdb
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CircleProgress.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_CircleProgress.baml

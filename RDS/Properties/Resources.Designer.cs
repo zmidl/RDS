@@ -61,7 +61,7 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 /RDS;component/Apps/Languages/zh-CN.xaml 的本地化字符串。
+        ///   查找类似 Chinese 的本地化字符串。
         /// </summary>
         internal static string Chinese {
             get {
@@ -79,7 +79,7 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 /RDS;component/Apps/Languages/en-US.xaml 的本地化字符串。
+        ///   查找类似 English 的本地化字符串。
         /// </summary>
         internal static string English {
             get {
@@ -115,6 +115,96 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message6 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message6 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message6_1 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message6_1 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message6_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message7 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message7 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message7_1 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message7_1 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message7_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message8 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message8 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message8_1 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message8_1 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message8_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message9 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message9 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 InitializeSuppliesView_Message9_1 的本地化字符串。
+        /// </summary>
+        internal static string InitializeSuppliesView_Message9_1 {
+            get {
+                return ResourceManager.GetString("InitializeSuppliesView_Message9_1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Language 的本地化字符串。
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Languages 的本地化字符串。
+        /// </summary>
+        internal static string Languages {
+            get {
+                return ResourceManager.GetString("Languages", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 yyyyMMdd 的本地化字符串。
         /// </summary>
         internal static string LisFileNameFormat {
@@ -129,6 +219,15 @@ namespace RDS.Properties {
         internal static string LisFilesPath {
             get {
                 return ResourceManager.GetString("LisFilesPath", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Rds123 的本地化字符串。
+        /// </summary>
+        internal static string Password {
+            get {
+                return ResourceManager.GetString("Password", resourceCulture);
             }
         }
         
@@ -169,11 +268,38 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 FinalView_Message2 的本地化字符串。
+        ///   查找类似 Reagents 的本地化字符串。
         /// </summary>
-        internal static string String {
+        internal static string Reagents {
             get {
-                return ResourceManager.GetString("String", resourceCulture);
+                return ResourceManager.GetString("Reagents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 SelectedReanents 的本地化字符串。
+        /// </summary>
+        internal static string SelectedReanents {
+            get {
+                return ResourceManager.GetString("SelectedReanents", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 - 的本地化字符串。
+        /// </summary>
+        internal static string Separator {
+            get {
+                return ResourceManager.GetString("Separator", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 /RDS;component/Views/MainWindow.xaml 的本地化字符串。
+        /// </summary>
+        internal static string StartupUri {
+            get {
+                return ResourceManager.GetString("StartupUri", resourceCulture);
             }
         }
     }

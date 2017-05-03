@@ -31,28 +31,55 @@
                         <DockPanel LastChildFill="True" Width="450" >
                             <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
-                            <TextBlock DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="{StaticResource TextForeground}" Text="{Binding Message}" TextWrapping="Wrap"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}" TextWrapping="Wrap"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_AdministratorsLogin" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
-                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Width="100" Height="30" />
+                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ValidateAdministrators}"  Width="100" Height="30" />
                                 <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Cancel}" Command="{Binding ExitPopupWindowView}" Margin="20,0,0,0"  Width="100" Height="30" />
                             </StackPanel>
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
                                 <Path Canvas.Left="120" Canvas.Top="100" Fill="{StaticResource TextForeground2}" Stretch="UniformToFill" Width="20" Data="{StaticResource Password}" />
-                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Canvas.Left="160" Canvas.Top="100" Width="150" Height='30'/>
+                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding Password}" Canvas.Left="160" Canvas.Top="100" Width="150" Height='30' />
                             </Canvas>
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_AdministratorsView" Height="1" Width="0">
-                        <DockPanel LastChildFill="True" Width="450" >
-                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                        <DockPanel LastChildFill="True"  Margin="-2,-6">
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
-                                <TextBlock Foreground="{StaticResource TextForeground}" FontSize="16" Text="英语"/>
+                                <TextBlock Style="{StaticResource TextBlockStyle}"  FontSize="14" Text="当前语言" Canvas.Left="6" Canvas.Top="4"/>
+                                <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" Width="80" Canvas.Left="66" Canvas.Top="3" />
+
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{StaticResource TextForeground}"  FontSize="12" Text="{StaticResource PopupWindow_SelectReagentMessage}" Canvas.Left="310" Canvas.Top="2" />
+                                <DataGrid 
+                                    Style="{StaticResource RD_DataGridBlackStyle}" 
+                                    ItemsSource="{Binding ReagentInformations}" 
+                                    SelectedItem="{Binding SelectedReagentInformation}"
+                                    AutoGenerateColumns="False"
+                                    Canvas.Left="310"  Width="130" Height="166" Canvas.Top="20">
+                                    <DataGrid.Columns>
+                                        <DataGridTextColumn MinWidth="60" Header="{DynamicResource SampleView_Reagent}"  Binding="{Binding Name}"/>
+                                        <DataGridTemplateColumn MinWidth="40"  Header="{DynamicResource PopupWindow_SelectReagent}">
+                                            <DataGridTemplateColumn.CellTemplate>
+                                                <DataTemplate>
+                                                    <CheckBox Style="{StaticResource RD_ElipseCheckBoxStyle}"  Height="18" IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,1,0,0"/>
+                                                </DataTemplate>
+                                            </DataGridTemplateColumn.CellTemplate>
+                                        </DataGridTemplateColumn>
+                                    </DataGrid.Columns>
+                                </DataGrid>
+                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding AdditionReagentInformation}" Width="70" Height="22" Canvas.Left="310" Canvas.Top="189"/>
+                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding AddReagentInformation}" Width="25" Height="22" Canvas.Left="385" Canvas.Top="189">
+                                    <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Add}"/>
+                                </Button>
+                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding RemoveReagentInformation}" Width="25" Height="22" Canvas.Left="415" Canvas.Top="189">
+                                    <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Remove}"/>
+                                </Button>
                             </Canvas>
                         </DockPanel>
                     </TabItem>

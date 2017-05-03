@@ -21,7 +21,14 @@ namespace RDS.Views
 		protected override void OnRender(DrawingContext drawingContext)
 		{
 			base.OnRender(drawingContext);
-			this.ViewModel.ViewChanged += (s, e) => this.Hide();
+			this.ViewModel.ViewChanged += (s, e) =>
+			{
+				switch ((PopupWindowViewModel.ViewChange)e)
+				{
+					case PopupWindowViewModel.ViewChange.ExitView: { this.Hide(); break; }
+					case PopupWindowViewModel.ViewChange.AddReagentInformation: { break; }
+				}
+			};
 		}
 	}
 }

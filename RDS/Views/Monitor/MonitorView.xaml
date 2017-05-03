@@ -11,7 +11,7 @@
              mc:Ignorable="d"
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-
+        <TextBlock x:Key="TextBlock_Content_Emergency" Text="{StaticResource Button_Emergency}" FontSize="32"  Foreground="{StaticResource TextForeground2}" Canvas.Top="8" Canvas.Left="80" />
         <ImageBrush x:Key="WorkDeskBackgroundImage" ImageSource="/RDS;component/Apps/Images/WorkDesk.png"/>
 
         <DropShadowEffect x:Key="ModuleEffect" BlurRadius="5" ShadowDepth="5" Color="#FF707070"/>
@@ -88,46 +88,28 @@
                 <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
 
             </Canvas>
-            <!--<zmcl:UcCheckBox RenderTransformOrigin="0.5,0.5" Canvas.Left="1618" Canvas.Top="32" Checked="MyCheckBox_Checked" Unchecked="MyCheckBox_Unchecked" Height="54" Width="103" >
-                <zmcl:UcCheckBox.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform ScaleX="1.5" ScaleY="1.5"/>
-                        <SkewTransform/>
-                        <RotateTransform/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </zmcl:UcCheckBox.RenderTransform>
-            </zmcl:UcCheckBox>-->
-
+            
             <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="150" Fill="{StaticResource TextForeground}" Data="{StaticResource Clock}"/>
             <TextBlock Canvas.Left="220" Text="{Binding TimeCount,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
             <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="410" Canvas.Top="25"/>
 
+            <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="440" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
+            <TextBlock Canvas.Left="490" Text="50%RH" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="660" Canvas.Top="25"/>
 
-            <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="450" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
-            <TextBlock Canvas.Left="501" Text="50%RH" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="680" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="700" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="770" Text="50℃（I）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="970" Canvas.Top="25" StrokeThickness="8"/>
 
-            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="720" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
-            <TextBlock Canvas.Left="785" Text="50℃（I）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="980" Canvas.Top="25" StrokeThickness="8"/>
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="1000" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="1070" Text="50℃（E）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1270" Canvas.Top="25"/>
 
-            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="1020" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
-            <TextBlock Canvas.Left="1085" Text="50℃（E）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1280" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="50" Canvas.Top="36.33" Canvas.Left="1290"  Fill="{StaticResource TextForeground}" Data="{StaticResource Emergency}"/>
 
-            <Button Style="{StaticResource RD_ButtonStyle}" Width="200" Height="70" Canvas.Top="25" Canvas.Right="380">
-                <Button.Content>
-                    <Canvas Width="200" Height="70">
-                        <Path Stretch="UniformToFill" Width="50" Canvas.Top="8" Canvas.Left="20" Fill="{StaticResource TextForeground}" Data="{StaticResource Emergency}"/>
-                        <TextBlock Text="急诊" FontSize="40" FontWeight="Bold" Foreground="{StaticResource TextForeground}" Canvas.Top="8" Canvas.Left="80" />
-                    </Canvas>
-                </Button.Content>
-            </Button>
-            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1550" Canvas.Top="25"/>
-
-
-            <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Right="270" Fill="{StaticResource TextForeground}" Data="{StaticResource Power}"/>
+            <Button Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource TextBlock_Content_Emergency}" Command="{Binding Emergency}"  Width="190" Height="70" Canvas.Top="25" Canvas.Right="350"/>
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1570" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="50" Canvas.Top="40" Canvas.Right="260" Fill="{StaticResource TextForeground}" Data="{StaticResource PlayOrPause}"/>
             <CheckBox Width="100" Height="60" Style="{StaticResource RD_CheckBoxStyle}" Canvas.Right="150" Canvas.Top="30"/>
             <Grid Width="1900" Canvas.Bottom="22">
                 <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="Gray" FontSize="28" />

@@ -3,8 +3,11 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:system="clr-namespace:System;assembly=mscorlib">
 
+    <system:String x:Key="MainView_CurrentTask">Mission</system:String>
+    <system:String x:Key="MainView_Histroy">Histroy</system:String>
+    <system:String x:Key="MainView_Help">Help</system:String>
     <system:String x:Key="TaskView_BeginExperiment">Experiment</system:String>
-    <system:String x:Key="TaskView_BeginMaintain">Maintain</system:String>
+    <system:String x:Key="TaskView_BeginMaintain">Maintenance</system:String>
     <system:String x:Key="Button_StartP">English</system:String>
     <system:String x:Key="Button_Emergency">Emergency</system:String>
     <system:String x:Key="Button_FinishTask">Finish</system:String>
@@ -17,18 +20,22 @@
     <system:String x:Key="PrecheckView_CheckLiquid">Liquid：Whether the liquid is enough</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">Home</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">Next</system:String>
-    
+    <system:String x:Key="SampleView_Reagent">Reagent</system:String>
     <system:String x:Key="InitializeSuppliesView_Message">Please take the reagent from the fridge and defrost</system:String>
     <system:String x:Key="InitializeSuppliesView_Message2">Please place olefin here</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message3">Please place TipRacks here</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message3">Please place 300uL type TipRacks here</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message3_1">Please place 1000uL type TipRacks here</system:String>
     <system:String x:Key="InitializeSuppliesView_Message4">Please place CupRacks here</system:String>
     <system:String x:Key="InitializeSuppliesView_Message5">Select the location of the bead place</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message5-1">Left</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message5-2">Right</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message6">Please select the reagent of amplification</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message7">Please select the reagent of YX</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message8">Please select the reagent of NB</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message9">Please select the reagent of YX</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5_1">Left</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5_2">Right</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message6">please将{0}试剂放入各个项目第1组试剂槽内</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message7">please将{0}试剂放入各个项目第2组试剂槽内</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message7_1">各个项目第2组试剂槽内暂时无需放置试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message8">please将{0}试剂放入各个项目第3组试剂槽内</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message8_1">各个项目第3组试剂槽内暂时无需放置试剂</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message9">please将{0}试剂放入各个项目第4组试剂槽内</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message9_1">各个项目第4组试剂槽内暂时无需放置试剂</system:String>
     <system:String x:Key="InitializeSuppliesView_Message10">Here is the normal saline</system:String>
     <system:String x:Key="InitializeSuppliesView_Message11">Here is the stabilizer</system:String>
     <system:String x:Key="InitializeSuppliesView_Message12">Here is the mineral oil</system:String>
@@ -47,6 +54,8 @@
     <system:String x:Key="PopupWindow_Administrators">Setup</system:String>
     <system:String x:Key="PopupWindow_Information">About us</system:String>
     <system:String x:Key="PopupWindow_Wait">Please wait...</system:String>
+    <system:String x:Key="PopupWindow_SelectReagentMessage">PS:Select 1 to 4 items</system:String>
+    <system:String x:Key="PopupWindow_SelectReagent">Select</system:String>
     <system:String x:Key="App_Ok">Ok</system:String>
     <system:String x:Key="App_Cancel">Cancel</system:String>
     <system:String x:Key="MonitorView_CorporateName">ShangHai Rendu Biotechnology</system:String>

@@ -67,7 +67,7 @@ namespace RDS.ViewModels
 
 			this.InitializeTipRacks(MonitorViewModel.TIPRACKS_COUNT);
 
-			this.Emergency = new RelayCommand(() => {; }/*this.ShowSampleView*/);
+			this.Emergency = new RelayCommand(this.ShowSampleView);
 		}
 
 		private void InitializeTipRacks(int tipRacksCount)

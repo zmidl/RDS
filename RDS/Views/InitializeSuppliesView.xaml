@@ -30,7 +30,7 @@
                 <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnPreviousView}" Canvas.Left="200" Canvas.Top="414">
                     <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
                 </Button>
-                <StackPanel Canvas.Left="280" Canvas.Top="428" Orientation="Horizontal" >
+                <StackPanel Canvas.Left="260" Canvas.Top="428" Orientation="Horizontal" >
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
@@ -44,18 +44,17 @@
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard11,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard12,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard13,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard14,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
                 </StackPanel>
                 <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnNextView}" Canvas.Right="200" Canvas.Top="414">
                     <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
                 </Button>
                 <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}" Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0">
-                        <StackPanel>
-                            <Image Source="/RDS;component/Apps/Images/1.png" Width="250" Canvas.Left="100" Stretch="Uniform" Height="280" />
-                            <StackPanel Margin="0,10,0,0" >
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message}" />
-                            </StackPanel>
-                        </StackPanel>
+                        <DockPanel LastChildFill="True" >
+                            <Image Source="/RDS;component/Apps/Images/1.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Margin="0,10,20,10" Height="320" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right"  HorizontalAlignment="Stretch"/>
+                        </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
                         <Canvas Width="800" >
@@ -68,8 +67,17 @@
                     <TabItem Height="1" Width="0">
                         <Canvas Width="800">
                             <Image Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="282" Height="200" Canvas.Left="151" Canvas.Top="25" StrokeThickness="5" />
+                            <Rectangle x:Name="Rectangle_300TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="282" Height="70" Canvas.Left="151" Canvas.Top="25" StrokeThickness="5" />
                             <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="685" Canvas.Top="151"/>
+
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas Width="800">
+                            <Image Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_1000TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="282" Height="135" Canvas.Left="151" Canvas.Top="90" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3_1}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
                             <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="685" Canvas.Top="151"/>
 
                         </Canvas>
@@ -82,51 +90,16 @@
                             <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/4.png" Canvas.Left="685" Canvas.Top="151"/>
                         </Canvas>
                     </TabItem>
-                    <!--<TabItem Height="1" Width="0">
-                        <StackPanel >
-                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,90,0,0">
-                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Uu,Path=Foreground}" Text="UU"  />
-                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Text="CT" Margin="78,0,0,0" />
-                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Text="MG" Margin="78,0,0,0" />
-                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Text="NG" Margin="70,0,0,0" />
-                                <TextBlock Style="{StaticResource TextBlock}" Foreground="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Text="MP" Margin="70,0,0,0" />
-
-                            </StackPanel>
-
-                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,0">
-                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Uu,Path=Foreground}" />
-                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Ct,Path=Foreground}" Margin="96,0,0,0"/>
-                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Mg,Path=Foreground}" Margin="96,0,0,0"/>
-                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Ng,Path=Foreground}" Margin="95,0,0,0"/>
-                                <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_Mp,Path=Foreground}" Margin="92,0,0,0"/>
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Center" Orientation="Horizontal" Margin="0,10,0,0">
-                                <CheckBox x:Name="CheckBox_Uu" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsUuSelected}" Width="50"/>
-
-                                <CheckBox x:Name="CheckBox_Ct" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsCtSelected}" Width="50" Margin="70,0,0,0"/>
-
-                                <CheckBox x:Name="CheckBox_Mg" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMgSelected}" Width="50" Margin="70,0,0,0"/>
-
-                                <CheckBox x:Name="CheckBox_Ng" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsNgSelected}" Width="50" Margin="70,0,0,0"/>
-
-                                <CheckBox x:Name="CheckBox_Mp" Style="{StaticResource RD_ElipseCheckBoxStyle}" IsChecked="{Binding IsMpSelected}" Width="50" Margin="70,0,0,0"/>
-
-                            </StackPanel>
-                            <StackPanel HorizontalAlignment="Center" Orientation="Vertical" Margin="0,50,0,0">
-                                <TextBlock Text="请选择1至4项试剂" Style="{StaticResource TextBlockStyle}" />
-                            </StackPanel>
-                        </StackPanel>
-                    </TabItem>-->
                     <TabItem Height="1" Width="0">
                         <Canvas Width="800">
                             <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="UniformToFill" HorizontalAlignment="Left"/>
                             <Rectangle x:Name="Rectangle_Bead" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="61" Height="35" Canvas.Left="8" Canvas.Top="15" StrokeThickness="5" RadiusX="16" RadiusY="16" />
                             <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message5}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Left,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5-1}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="193" VerticalAlignment="Stretch"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Left,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_1}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="193" VerticalAlignment="Stretch"/>
                             <CheckBox x:Name="Left" Width="40" IsChecked="{Binding IsLeftSelected}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="735.907" Canvas.Top="185"  />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Right,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5-2}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="255.75" VerticalAlignment="Stretch"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Right,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_2}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="255.75" VerticalAlignment="Stretch"/>
                             <CheckBox x:Name="Right" Width="40" IsChecked="{Binding IsRightSelected}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="738" Canvas.Top="246.75" />
                         </Canvas>
                     </TabItem>
@@ -140,7 +113,7 @@
                             <Ellipse x:Name="Ellipse_5" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="108" StrokeThickness="5" Canvas.Left="493" />
 
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message6}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[0]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
                             <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
 
                         </Canvas>
@@ -155,7 +128,7 @@
                             <Ellipse x:Name="Ellipse_9" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="256" StrokeThickness="5" Canvas.Left="8" />
                             <Ellipse x:Name="Ellipse_10" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="120" StrokeThickness="5" Canvas.Left="493" />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message7}" FontSize="15" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[1]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
                             <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
                         </Canvas>
                     </TabItem>
@@ -167,7 +140,7 @@
                             <Ellipse x:Name="Ellipse_13" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="205" StrokeThickness="5" Canvas.Left="9" />
                             <Ellipse x:Name="Ellipse_14" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="270" StrokeThickness="5" Canvas.Left="9" />
                             <Ellipse x:Name="Ellipse_15" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="132" StrokeThickness="5" Canvas.Left="493" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message8}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[2]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
                             <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
                         </Canvas>
                     </TabItem>
@@ -180,7 +153,7 @@
                             <Ellipse x:Name="Ellipse_19" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="284" StrokeThickness="5" Canvas.Left="8" />
                             <Ellipse x:Name="Ellipse_20" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="144" StrokeThickness="5" Canvas.Left="493" />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message9}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[3]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
                             <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
                         </Canvas>
                     </TabItem >

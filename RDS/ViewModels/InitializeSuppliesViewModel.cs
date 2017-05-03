@@ -1,11 +1,30 @@
 ﻿using RDS.ViewModels.Common;
 using System;
+using System.Collections.Generic;
 using System.Windows.Media;
 
 namespace RDS.ViewModels
 {
 	public class InitializeSuppliesViewModel : ViewModel
 	{
+		public string[] Messages { get; } = new string[4];
+
+		private string[] noReagentMessages = new string[4]
+		{
+			string.Empty,
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message7_1),
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message8_1),
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message9_1)
+		};
+
+		private string[] reagentMessages = new string[4]
+		{
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message6),
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message7),
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message8),
+			General.FindResource(Properties.Resources.InitializeSuppliesView_Message9)
+		};
+
 		public enum BeadPlace
 		{
 			Neither = 0,
@@ -14,14 +33,14 @@ namespace RDS.ViewModels
 			Both = 3
 		}
 
-		private BeadPlace beadPlace=BeadPlace.Both;
+		private BeadPlace beadPlace = BeadPlace.Both;
 
 		public bool IsLeftSelected
 		{
 			get { return this.GetLeftBeadSelectionState(); }
 			set
 			{
-				if(value)
+				if (value)
 				{
 					if (this.IsRightSelected) this.beadPlace = BeadPlace.Both;
 					else this.beadPlace = BeadPlace.Left;
@@ -32,7 +51,7 @@ namespace RDS.ViewModels
 					else this.beadPlace = BeadPlace.Neither;
 				}
 				this.RaisePropertyChanged(nameof(IsLeftSelected));
-				this.OnViewChanged(new Tuple<string,object>("BeadSelectionState",this.beadPlace));
+				this.OnViewChanged(new Tuple<string, object>("BeadSelectionState", this.beadPlace));
 			}
 		}
 
@@ -68,7 +87,7 @@ namespace RDS.ViewModels
 			else return false;
 		}
 
-		private readonly int WizardSize = 12;
+		private readonly int WizardSize = 13;
 
 		private int wizardIndex;
 		public int WizardIndex
@@ -80,7 +99,6 @@ namespace RDS.ViewModels
 				else if (value > this.WizardSize) value = this.WizardSize;
 				wizardIndex = value;
 				this.RaisePropertyChanged(nameof(WizardIndex));
-				//this.TurnNextView.RaiseCanExecuteChanged();
 			}
 		}
 
@@ -98,6 +116,7 @@ namespace RDS.ViewModels
 		public bool Wizard12 { get { return this.wizardIndex == 11 ? true : false; } }
 		public bool Wizard13 { get { return this.wizardIndex == 12 ? true : false; } }
 		public bool Wizard14 { get { return this.wizardIndex == 13 ? true : false; } }
+		public bool Wizard15 { get { return this.wizardIndex == 14 ? true : false; } }
 
 		public RelayCommand TurnNextView { get; private set; }
 		public RelayCommand TurnPreviousView { get; private set; }
@@ -105,8 +124,15 @@ namespace RDS.ViewModels
 		public InitializeSuppliesViewModel()
 		{
 			this.TurnNextView = new RelayCommand(this.ExecuteTurnNextView);
-			this.TurnPreviousView = new RelayCommand(() => { this.WizardIndex --; this.RaiseWizards(); });
+			this.TurnPreviousView = new RelayCommand(() => { this.WizardIndex--; this.RaiseWizards(); });
 			this.RaiseWizards();
+
+			this.Messages[0] = string.Format(General.FindResource(Properties.Resources.InitializeSuppliesView_Message6), General.UsedReagents[0]);
+			for (int i = 0; i < 4; i++)
+			{
+				if (i > General.UsedReagents.Count - 1) this.Messages[i] = this.noReagentMessages[i];
+				else this.Messages[i] = string.Format(this.reagentMessages[i], General.UsedReagents[i]);
+			}
 		}
 
 		private void ExecuteTurnNextView()
@@ -131,6 +157,7 @@ namespace RDS.ViewModels
 			this.RaisePropertyChanged(nameof(this.Wizard12));
 			this.RaisePropertyChanged(nameof(this.Wizard13));
 			this.RaisePropertyChanged(nameof(this.Wizard14));
+			this.RaisePropertyChanged(nameof(this.Wizard15));
 		}
 	}
 }

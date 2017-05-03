@@ -22,8 +22,7 @@ namespace RDS.Views.Monitor
 		//[DllImport("CppTestDll.dll", EntryPoint = "Test1")]
 		//extern static int Test1();
 
-		//[DllImport("CppTestDll.dll", EntryPoint = "Test2")]
-		//extern static int Test2();
+		
 
 		//[DllImport("ShareDll_d.dll", EntryPoint = "InitDLL")]
 		//extern static int InitDLL(byte[] targetName);
@@ -94,15 +93,7 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"MixtureState2")
 			{
-				var lisFilesPath = string.Format(ConfigurationManager.AppSettings[Properties.Resources.LisFilesPath].ToString(), System.IO.Directory.GetCurrentDirectory(), DateTime.Now.ToString(Properties.Resources.LisFileNameFormat));
-				try
-				{
-					var dt = XmlOperation.ReadXmlFile(lisFilesPath).Tables[2];
-				}
-				catch (Exception e1)
-				{
-					MessageBox.Show(e1.Message);
-				}
+				
 			}
 			else if (e.Index == $"SampleState1")
 			{

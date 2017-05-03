@@ -99,7 +99,8 @@ namespace RDS.Views
 		private void BeginAnimation()
 		{
 			this.BeginAnimation(this.Rectangle_Olefin);
-			this.BeginAnimation(this.Rectangle_TipRacks);
+			this.BeginAnimation(this.Rectangle_300TipRacks);
+			this.BeginAnimation(this.Rectangle_1000TipRacks);
 			this.BeginAnimation(this.Rectangle_Strips);
 			this.BeginAnimation(this.Rectangle_Bead);
 
