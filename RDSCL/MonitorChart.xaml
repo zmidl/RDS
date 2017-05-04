@@ -40,10 +40,10 @@
                                 <local:RD_Reader x:Name="ReaderRack" Width="340" Canvas.Left="1448" Canvas.Top="296.5"/>
 
                                 <Canvas Canvas.Left="205" Canvas.Top="90" Width="220" Height="830" OpacityMask="#4C000000">
-                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55"  />
-                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="55"/>
-                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="110"/>
-                                    <local:SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="165"/>
+                                    <local:RD_SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55"  />
+                                    <local:RD_SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="55"/>
+                                    <local:RD_SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="110"/>
+                                    <local:RD_SampleRack SampleRackState="AlreadySample" Panel.ZIndex="1" Width="55" Canvas.Left="165"/>
                                 </Canvas>
                                 <local:RD_ShakerRack Width="170"  Canvas.Left="1490" Canvas.Top="652" OpacityMask="#4C000000"/>
                                 <local:RD_Mag Width="177" Canvas.Top="652" Canvas.Left="1660" OpacityMask="#4C000000"/>

@@ -136,13 +136,14 @@
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                 <Setter Property="Foreground" Value="{StaticResource TextForeground}"/>
                 <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="BorderBrush" Value="Black"/>
                 <Setter Property="HorizontalContentAlignment" Value="Center"/>
                 <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="Padding" Value="1"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type Button}">
-                            <Border x:Name="border" SnapsToDevicePixels="true" Background="{StaticResource DefaultBackground}" CornerRadius="5" BorderThickness="1" BorderBrush="Black">
+                            <Border x:Name="border" SnapsToDevicePixels="true" Background="{StaticResource DefaultBackground}" CornerRadius="5" BorderThickness="1" BorderBrush="{TemplateBinding BorderBrush}">
                                 <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                             </Border>
                             <ControlTemplate.Triggers>
@@ -393,7 +394,7 @@
                         <Style  TargetType="DataGridRow">
                             <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                             <Setter Property="Background" Value="#F2F2F2" />
-                            <Setter Property="Height" Value="20"/>
+                            <Setter Property="Height" Value="20.5"/>
                             <Setter Property="Foreground" Value="Black" />
                             <Style.Triggers>
                                 <!--隔行换色-->
@@ -494,6 +495,67 @@
                                         </Ellipse.Stroke>
                                     </Ellipse>
                                     <Path x:Name="Content" Visibility="Hidden" Effect="{StaticResource ContentEffect}" Stroke="{TemplateBinding Foreground }"  StrokeThickness="10" Data="M25,46 L40,60 70,30" Height="39.951" Canvas.Left="23.5" Stretch="Fill" Canvas.Top="28.5" Width="55.536"/>
+                                    <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Canvas>
+                            </Viewbox>
+                            <ControlTemplate.Triggers>
+
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <!--<Setter TargetName="Content" Property="Effect" Value="{StaticResource ContentEffect}"/>-->
+                                    <Setter TargetName="BackgroundColor" Property="Fill" Value="{StaticResource MouseOver}"/>
+                                </Trigger>
+
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="BackgroundColor" Property="Fill" Value="{x:Null}"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="true">
+                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
+                                    <Setter TargetName="Content" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="{x:Null}">
+                                    <Setter TargetName="Content" Property="Visibility" Value="Hidden"/>
+                                    <!--<Setter TargetName="Content" Property="Effect" Value="{x:Null}"/>-->
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <Style x:Key="RD_ElipseCheckBoxStyle2" TargetType="{x:Type CheckBox}">
+                <Style.Resources>
+                    <RadialGradientBrush x:Key="MouseOver" Center="0.5,0.512" GradientOrigin="0.501,0.543">
+                        <GradientStop Color="#7FAA8E65" Offset="0.972"/>
+                        <GradientStop Color="#7FECECEC" Offset="1"/>
+                        <GradientStop Color="#7FFF9700"/>
+                    </RadialGradientBrush>
+                </Style.Resources>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextForeground}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type CheckBox}">
+                            <Viewbox>
+                                <Canvas x:Name="templateRoot" Width="100" Height="100" Background="Transparent" SnapsToDevicePixels="True" Clip="M50,00 A50,50 0,1,1 40,1">
+                                    <Ellipse x:Name="BackgroundColor" Width="100" Height="100" StrokeThickness="4" >
+                                        <Ellipse.Effect>
+                                            <BlurEffect Radius="1"/>
+                                        </Ellipse.Effect>
+                                        <Ellipse.Fill>
+                                            <RadialGradientBrush Center="0.5,0.531" GradientOrigin="0.5,0.531">
+                                                <GradientStop Color="#FF151515" Offset="1"/>
+                                                <GradientStop Color="#FF2E2E2E" Offset="0.9"/>
+                                            </RadialGradientBrush>
+                                        </Ellipse.Fill>
+                                        <Ellipse.Stroke>
+                                            <LinearGradientBrush EndPoint="0.503,1" StartPoint="0.497,0.09">
+                                                <GradientStop Color="Black" Offset="0"/>
+                                                <GradientStop Color="#FF727272" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Ellipse.Stroke>
+                                    </Ellipse>
+                                    <Ellipse x:Name="Content" Visibility="Hidden" Effect="{StaticResource ContentEffect}" Fill="{StaticResource PressedForeground}"  StrokeThickness="10" Height="46" Canvas.Left="27" Stretch="Fill" Canvas.Top="27" Width="46"/>
                                     <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                 </Canvas>
                             </Viewbox>

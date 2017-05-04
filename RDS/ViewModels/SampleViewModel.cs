@@ -4,6 +4,7 @@ using RDS.ViewModels.Common;
 using RDS.ViewModels.ViewProperties;
 using System.Data;
 using System;
+using System.Linq;
 using System.Configuration;
 using System.IO;
 
@@ -11,56 +12,37 @@ namespace RDS.ViewModels
 {
 	public class SampleViewModel : ViewModel
 	{
-		public int CurrentColumnIndex { get; set; } = 0;
-
-		public enum SampleColumn
-		{
-			ColumnA = 0,
-			ColumnB = 1,
-			ColumnC = 2,
-			ColumnD = 3
-		}
+		public SampleRackIndex CurrentSampleRackIndex { get; set; } = 0;
 
 		private DataTable lisInformationTable;
 
-		public ObservableCollection<SampleRack> SampleRacks { get; set; } = new ObservableCollection<SampleRack>();
+		public ObservableCollection<SampleRackDescription> FourSampleRackDescriptions { get; set; } = new ObservableCollection<SampleRackDescription>();
 
-		public ObservableCollection<SampleInformation> SampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
+		public ObservableCollection<SampleInformation> CurrentSampleInformations { get; set; } = new ObservableCollection<SampleInformation>();
 
-		private ObservableCollection<SampleInformation>[] SampleInformationsColumns = new ObservableCollection<SampleInformation>[4];
-
-		public void MultipeSetSampleStateToEmergency()
-		{
-
-		}
+		private ObservableCollection<SampleInformation>[] FourSampleInformations = new ObservableCollection<SampleInformation>[4];
 
 		public RelayCommand ExitSampleView { get; private set; }
+
+		public RelayCommand SetMultipleEmergency { get; private set; }
 
 		public SampleViewModel()
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				this.SampleRacks.Add(new SampleRack(i));
+				this.FourSampleRackDescriptions.Add(new SampleRackDescription(i));
 			}
 
 			this.GetLisTableFromFile();
-			this.ExitSampleView = new RelayCommand(() => { this.OnViewChanged(null); this.RollBackSampleRacksState(true, this.CurrentColumnIndex); });
-			//	(() =>
-			//	{
-			//		this.SampleInformations.Add(new SampleInformation()
-			//		{
-			//			Age = "25",
-			//			Barcode = "1234567",
-			//			Birthday = "20010321",
-			//			DateTime = "20170101",
-			//			HoleName = "",
-			//			Name = "王秀娟",
-			//			Reagent = "UU",
-			//			SampleId = "123",
-			//			Sex = "女",
-			//			Type = "未知"
-			//		});
-			//	});
+			this.SetMultipleEmergency = new RelayCommand(this.ExecuteSettingMultipleEmergency);
+			this.ExitSampleView = new RelayCommand(() => { this.OnViewChanged(null); this.RollBackSampleRacksState(true, this.CurrentSampleRackIndex); });
+		}
+
+		private void ExecuteSettingMultipleEmergency()
+		{
+			var targetValue = false;
+			if(this.CurrentSampleInformations.Where(o => o.IsEmergency == true).Count()==0) targetValue = true;
+			for (int i = 0; i < 20; i++) this.CurrentSampleInformations[i].IsEmergency = targetValue;
 		}
 
 		private string GetHoleNameByNumber(int number)
@@ -85,7 +67,7 @@ namespace RDS.ViewModels
 			return result;
 		}
 
-		public void DatatableToEntity(SampleColumn sampleColumn)
+		public void DatatableToEntity(SampleRackIndex sampleColumn)
 		{
 			var sampleInformationsColumns = new ObservableCollection<SampleInformation>();
 			if (this.lisInformationTable != null)
@@ -98,7 +80,7 @@ namespace RDS.ViewModels
 						Barcode = this.lisInformationTable.Rows[i]["strBarcode"].ToString(),
 						Birthday = this.lisInformationTable.Rows[i]["strBirthday"].ToString(),
 						DateTime = this.lisInformationTable.Rows[i]["strDateTime"].ToString(),
-						HoleName = this.GetHoleNameByNumber(i + 1+(20*(int)sampleColumn)),
+						HoleName = this.GetHoleNameByNumber(i + 1 + (20 * (int)sampleColumn)),
 						Name = this.lisInformationTable.Rows[i]["strName"].ToString(),
 						Reagent = this.lisInformationTable.Rows[i]["strItem"].ToString(),
 						SampleId = this.lisInformationTable.Rows[i]["strSampleID"].ToString(),
@@ -108,12 +90,13 @@ namespace RDS.ViewModels
 					};
 					sampleInformationsColumns.Add(sampleInformation);
 				}
-				this.SampleInformations= this.SampleInformationsColumns[(int)sampleColumn] = sampleInformationsColumns;
-				this.RaisePropertyChanged(nameof(this.SampleInformations));
+				this.CurrentSampleInformations = sampleInformationsColumns;
+				this.FourSampleInformations[(int)sampleColumn] = sampleInformationsColumns;
+				this.RaisePropertyChanged(nameof(this.CurrentSampleInformations));
 			}
 			else
 			{
-				
+
 			}
 		}
 
@@ -134,20 +117,22 @@ namespace RDS.ViewModels
 
 		public void SetSampleRackState(SampleRackStateArgs args)
 		{
-			this.RollBackSampleRacksState(false,args.SampleRackIndex);
-			this.SampleRacks[args.SampleRackIndex].SampleRackState = args.SampleRackState;
-			this.SampleInformations = this.SampleInformationsColumns[args.SampleRackIndex];
-			this.RaisePropertyChanged(nameof(this.SampleInformations));
+			var sampleRackIndex = (int)args.SampleRackIndex;
+			this.RollBackSampleRacksState(false, args.SampleRackIndex);
+			this.FourSampleRackDescriptions[sampleRackIndex].SampleRackState = args.SampleRackState;
+			this.CurrentSampleInformations = this.FourSampleInformations[sampleRackIndex];
+			this.RaisePropertyChanged(nameof(this.CurrentSampleInformations));
 		}
 
-		private void RollBackSampleRacksState(bool isRollBackCurrentIndex,int currentIndex)
+		private void RollBackSampleRacksState(bool isRollBackCurrentIndex, SampleRackIndex sampleRack)
 		{
-			if (isRollBackCurrentIndex) this.SampleRacks[currentIndex].RollbackState();
+			var currentIndex = (int)sampleRack;
+			if (isRollBackCurrentIndex) this.FourSampleRackDescriptions[currentIndex].RollbackState();
 			else
 			{
-				for (int i = 0; i < this.SampleRacks.Count; i++)
+				for (int i = 0; i < this.FourSampleRackDescriptions.Count; i++)
 				{
-					if (currentIndex != i) this.SampleRacks[i].RollbackState();
+					if (currentIndex != i) this.FourSampleRackDescriptions[i].RollbackState();
 				}
 			}
 		}
@@ -159,7 +144,7 @@ namespace RDS.ViewModels
 				var lisFilesPath = string.Format
 				(
 					ConfigurationManager.AppSettings[Properties.Resources.LisFilesPath].ToString(),
-					System.IO.Directory.GetCurrentDirectory(),
+					/*Directory.GetCurrentDirectory()*/Environment.CurrentDirectory,
 					DateTime.Now.ToString(Properties.Resources.LisFileNameFormat)
 				);
 				if (File.Exists(lisFilesPath))
@@ -169,9 +154,9 @@ namespace RDS.ViewModels
 				}
 				else { /*General.ShowAdministratorsView();*/ return; }
 			}
-			catch 
+			catch
 			{
-				//General.ShowAdministratorsView();
+				General.ShowMessage("没有Lis信息");
 			}
 		}
 	}
@@ -179,10 +164,10 @@ namespace RDS.ViewModels
 
 	public class SampleRackStateArgs : EventArgs
 	{
-		public int SampleRackIndex { get; set; } = 0;
+		public SampleRackIndex SampleRackIndex { get; set; } = 0;
 		public RDSCL.SampleRackState SampleRackState { get; set; } = RDSCL.SampleRackState.NotSample;
 
-		public SampleRackStateArgs(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
+		public SampleRackStateArgs(SampleRackIndex sampleRackIndex, RDSCL.SampleRackState sampleRackState)
 		{
 			this.SampleRackIndex = sampleRackIndex;
 			this.SampleRackState = sampleRackState;

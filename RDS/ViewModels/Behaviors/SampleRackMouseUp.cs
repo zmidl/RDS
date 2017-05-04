@@ -1,4 +1,5 @@
 ﻿
+using RDS.ViewModels.Common;
 using System.Windows;
 using System.Windows.Interactivity;
 
@@ -6,13 +7,13 @@ namespace RDS.ViewModels.Behaviors
 {
 	class SampleRackMouseUp : Behavior<UIElement>
 	{
-		public int Index
+		public SampleRackIndex SampleRackIndex
 		{
-			get { return (int)GetValue(IndexProperty); }
-			set { SetValue(IndexProperty, value); }
+			get { return (SampleRackIndex)GetValue(SampleRackProperty); }
+			set { SetValue(SampleRackProperty, value); }
 		}
-		public static readonly DependencyProperty IndexProperty =
-			DependencyProperty.Register(nameof(Index), typeof(int), typeof(SampleRackMouseUp), new PropertyMetadata(0));
+		public static readonly DependencyProperty SampleRackProperty =
+			DependencyProperty.Register(nameof(SampleRackIndex), typeof(SampleRackIndex), typeof(SampleRackMouseUp), new PropertyMetadata(SampleRackIndex.RackA));
 
 		public SampleViewModel ViewModel
 		{
@@ -30,8 +31,8 @@ namespace RDS.ViewModels.Behaviors
 
 		private void AssociatedObject_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			this.ViewModel.SetSampleRackState(new SampleRackStateArgs(this.Index, RDSCL.SampleRackState.PrepareSample));
-			this.ViewModel.CurrentColumnIndex = this.Index;
+			this.ViewModel.SetSampleRackState(new SampleRackStateArgs(this.SampleRackIndex, RDSCL.SampleRackState.PrepareSample));
+			this.ViewModel.CurrentSampleRackIndex = this.SampleRackIndex;
 			//this.ViewModel.GetLisTableFromFile();
 
 			//this.ViewModel.DatatableToEntity();

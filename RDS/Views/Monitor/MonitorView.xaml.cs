@@ -61,7 +61,7 @@ namespace RDS.Views.Monitor
 			{
 				case ShowView.ShowSampleView:
 				{
-					this.ViewModel.SampleViewModel.MultipeSetSampleStateToEmergency();
+					
 
 					General.ExitView(this.currentContent, this, (IExitView)sampleView);
 					break;
@@ -178,28 +178,28 @@ namespace RDS.Views.Monitor
 				this.samples[0] = !this.samples[0];
 				if(this.samples[0]) this.ViewModel.SetSampleRackState(0, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(0, SampleRackState.NotSample);
-				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnA);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackA);
 			}
 			else if (e.Index == "Sample2")
 			{
 				this.samples[1] = !this.samples[1];
 				if (this.samples[1]) this.ViewModel.SetSampleRackState(1, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(1, SampleRackState.NotSample);
-				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnB);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackB);
 			}
 			else if (e.Index == "Sample3")
 			{
 				this.samples[2] = !this.samples[2];
 				if (this.samples[2]) this.ViewModel.SetSampleRackState(2, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(2, SampleRackState.NotSample);
-				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnC);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackC);
 			}
 			else if (e.Index == "Sample4")
 			{
 				this.samples[3] = !this.samples[3];
 				if (this.samples[3]) this.ViewModel.SetSampleRackState(3, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(3, SampleRackState.NotSample);
-				this.ViewModel.SampleViewModel.DatatableToEntity(SampleViewModel.SampleColumn.ColumnD);
+				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackD);
 			}
 		}
 

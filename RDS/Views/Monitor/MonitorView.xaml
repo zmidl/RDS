@@ -42,10 +42,10 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[0].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[0].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="200" Canvas.Top="30" />
-                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[1].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[1].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="250" Canvas.Top="30" />
-                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[2].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[2].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="300" Canvas.Top="30" />
-                <rdsc:SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.SampleRacks[3].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.SampleRacks[3].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="350" Canvas.Top="30" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[0].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.FourSampleRackDescriptions[0].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="200" Canvas.Top="30" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[1].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.FourSampleRackDescriptions[1].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="250" Canvas.Top="30" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[2].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.FourSampleRackDescriptions[2].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="300" Canvas.Top="30" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[3].SampleRackState}" SamplesContentColor="{Binding SampleViewModel.FourSampleRackDescriptions[3].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="350" Canvas.Top="30" />
 
 
                 <Canvas Canvas.Left="430" Canvas.Top="40" Width="230" Height="710">

@@ -130,9 +130,8 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\msvcp110.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\msvcr110.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\ShareDll.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\vccorlib110.dll
-C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\System.Data.SQLite.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\System.Windows.Interactivity.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Drawing.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Effects.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Interactions.dll
-C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\LisFiles\Barcode_20170503.xml
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\LisFiles\Barcode_20170504.xml

@@ -88,7 +88,7 @@ namespace RDS.ViewModels
 
 		public void SetSampleTubeState(int twentyUnionSampleIndex, int sampleIndex, SampleTubeState sampleState)
 		{
-			this.SampleViewModel.SampleRacks[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
+			this.SampleViewModel.FourSampleRackDescriptions[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
 		}
 
 		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, HoleState cellState)
@@ -123,7 +123,7 @@ namespace RDS.ViewModels
 
 		public void SetSampleRackState(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
 		{
-			this.SampleViewModel.SampleRacks[sampleRackIndex].SampleRackState = sampleRackState;
+			this.SampleViewModel.FourSampleRackDescriptions[sampleRackIndex].SampleRackState = sampleRackState;
 			//(RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
 		}
 

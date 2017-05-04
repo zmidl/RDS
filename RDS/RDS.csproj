@@ -49,8 +49,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>
-    </ApplicationIcon>
+    <ApplicationIcon>Apps\Images\Logo_Icon.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Core">
@@ -127,7 +126,7 @@
     <Compile Include="ViewModels\ViewProperties\SampleTube.cs" />
     <Compile Include="ViewModels\ViewProperties\ShakerRack.cs" />
     <Compile Include="ViewModels\ViewProperties\Strip.cs" />
-    <Compile Include="ViewModels\ViewProperties\SampleRack.cs" />
+    <Compile Include="ViewModels\ViewProperties\SampleRackDescription.cs" />
     <Compile Include="ViewModels\ViewProperties\Tip.cs" />
     <Compile Include="ViewModels\ViewProperties\TipRack.cs" />
     <Compile Include="ViewModels\ViewProperties\Heating.cs" />
@@ -276,9 +275,10 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Content Include="Apps\LisFiles\Barcode_20170503.xml">
+    <Content Include="Apps\LisFiles\Barcode_20170504.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Apps\Images\Logo_Icon.ico" />
     <Resource Include="Apps\Images\InitializeSuppliesView1.bmp" />
     <Resource Include="Apps\Images\InitializeSuppliesView2.bmp" />
     <Resource Include="Apps\Images\InitializeSuppliesView3.bmp" />
@@ -297,8 +297,6 @@
     <Resource Include="Apps\Images\10.png" />
     <Resource Include="Apps\Images\11.png" />
     <Resource Include="Apps\Images\12.png" />
-    <Resource Include="Apps\Images\RdLogo_H.png" />
-    <Resource Include="Apps\Images\RdLogoH.png" />
     <Resource Include="Apps\Images\13.png" />
     <Resource Include="Apps\Images\14.png" />
     <Resource Include="Apps\Images\15.png" />
@@ -342,7 +340,6 @@
     <Content Include="Apps\Dlls\vccorlib110.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Resource Include="Apps\Images\RdIcon.ico" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>

@@ -50,4 +50,11 @@
 		ShowReportView = 2
 	}
 
+	public enum SampleRackIndex
+	{
+		RackA = 0,
+		RackB = 1,
+		RackC = 2,
+		RackD = 3
+	}
 }

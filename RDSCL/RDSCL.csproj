@@ -104,8 +104,8 @@
     <Compile Include="TL_ReaderStripSlot.xaml.cs">
       <DependentUpon>TL_ReaderStripSlot.xaml</DependentUpon>
     </Compile>
-    <Compile Include="SampleRack.xaml.cs">
-      <DependentUpon>SampleRack.xaml</DependentUpon>
+    <Compile Include="RD_SampleRack.xaml.cs">
+      <DependentUpon>RD_SampleRack.xaml</DependentUpon>
     </Compile>
     <Compile Include="RD_ShakerRack.xaml.cs">
       <DependentUpon>RD_ShakerRack.xaml</DependentUpon>
@@ -190,7 +190,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="SampleRack.xaml">
+    <Page Include="RD_SampleRack.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
