@@ -40,9 +40,12 @@ namespace RDS.ViewModels
 
 		private void ExecuteSettingMultipleEmergency()
 		{
-			var targetValue = false;
-			if(this.CurrentSampleInformations.Where(o => o.IsEmergency == true).Count()==0) targetValue = true;
-			for (int i = 0; i < 20; i++) this.CurrentSampleInformations[i].IsEmergency = targetValue;
+			if(this.CurrentSampleInformations!=null && this.CurrentSampleInformations.Count>0)
+			{
+				var targetValue = false;
+				if (this.CurrentSampleInformations.Where(o => o.IsEmergency == true).Count() == 0) targetValue = true;
+				for (int i = 0; i < 20; i++) this.CurrentSampleInformations[i].IsEmergency = targetValue;
+			}
 		}
 
 		private string GetHoleNameByNumber(int number)

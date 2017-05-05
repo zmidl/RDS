@@ -36,13 +36,6 @@
                                                 <GradientStop Color="#FFCDCDCD"/>
                                             </LinearGradientBrush>
                                         </Path.Fill>
-                                        <!--<Path.Stroke>
-                                            <LinearGradientBrush EndPoint="1.023,0.511" StartPoint="0.328,0.512">
-                                                <GradientStop Color="#FF4B4B4B" Offset="0.215"/>
-                                                <GradientStop Color="White"/>
-                                                <GradientStop Color="#FF303030" Offset="1"/>
-                                            </LinearGradientBrush>
-                                        </Path.Stroke>-->
                                     </Path>
                                 </Canvas>
                                 <StackPanel x:Name="StackPanel_Body" Visibility="{Binding Path=BodyVisibility, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Orientation="Vertical" Canvas.Left="11" Canvas.Top="33">

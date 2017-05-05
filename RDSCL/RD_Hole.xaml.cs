@@ -9,6 +9,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -20,6 +21,8 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_Hole : UserControl
 	{
+		Storyboard storyboard;
+
 		private static SolidColorBrush DefaultContentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2AD0D0D0"));
 
 		public Brush ExcircleColor
@@ -50,6 +53,33 @@ namespace RDSCL
 
 
 
+		public bool IsTwinkle
+		{
+			get { return (bool)GetValue(IsTwinkleProperty); }
+			set { SetValue(IsTwinkleProperty, value); }
+		}
+		public static readonly DependencyProperty IsTwinkleProperty =
+			DependencyProperty.Register(nameof(IsTwinkle), typeof(bool), typeof(RD_Hole), new PropertyMetadata(false, new PropertyChangedCallback(Callback_IsTwinkle)));
+
+		private static void Callback_IsTwinkle(DependencyObject d, DependencyPropertyChangedEventArgs e)
+		{
+			var rD_Hole = (RD_Hole)d;
+
+			if (rD_Hole.storyboard == null) rD_Hole.storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
+
+			var twinkleModule = (FrameworkElement)rD_Hole;
+
+			if ((bool)e.NewValue == true)
+			{
+				rD_Hole.storyboard.RepeatBehavior = new RepeatBehavior(1);
+
+				rD_Hole.storyboard.Completed += (sender, eventArgs) =>
+				{
+					if (rD_Hole.IsTwinkle) rD_Hole.storyboard.Begin(twinkleModule);
+				};
+				rD_Hole.storyboard.Begin(twinkleModule);
+			}
+		}
 
 		public RD_Hole()
 		{

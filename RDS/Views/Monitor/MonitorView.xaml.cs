@@ -97,7 +97,7 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"SampleState1")
 			{
-				
+				this.ViewModel.SampleViewModel.FourSampleRackDescriptions[1].Samples[10].IsSampling = true;
 				this.ViewModel.Reader.EnzymeBottles[0].State = ReagentState.Full;
 				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
 				this.ViewModel.SetReaderCellState(1, 2, HoleState.Full);
@@ -138,7 +138,7 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				//this.ShakerRack_1.IsShake = false;
+				this.ViewModel.SampleViewModel.FourSampleRackDescriptions[0].Samples[10].IsSampling = false;
 				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.None);
 				this.ViewModel.SetTipState(0, 0, TipState.NoExist);
 

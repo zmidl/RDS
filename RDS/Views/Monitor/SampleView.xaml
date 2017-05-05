@@ -26,7 +26,7 @@
         </DataTemplate>
 
         <DataTemplate x:Key="DataGridTemplateHeader_Emergency">
-            <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding ViewModel.SetMultipleEmergency, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleView}}}"  Width="34" Height="23" BorderBrush="{StaticResource EmergencyBordBrush}">
+            <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding ViewModel.SetMultipleEmergency, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleView}}}"  Width="34" Height="23" >
                 <TextBlock Text="{DynamicResource SampleView_Emergency}" Foreground="{StaticResource TextForeground2}" VerticalAlignment="Center"/>
             </Button>
         </DataTemplate>
@@ -73,22 +73,22 @@
                     </DataGrid.Columns>
 
                 </DataGrid>
-                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[0].SampleRackState}" SamplesContentColor="{Binding SampleRacks[0].Samples}" Width="26" Canvas.Left="810" Canvas.Top="48">
+                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[0].SampleRackState}" Samples="{Binding FourSampleRackDescriptions[0].Samples}" Width="26" Canvas.Left="810" Canvas.Top="48">
                     <i:Interaction.Behaviors>
                         <behavior:SampleRackMouseUp SampleRackIndex="RackA"  ViewModel="{Binding Mode=OneWay}"/>
                     </i:Interaction.Behaviors>
                 </rdscl:RD_SampleRack>
-                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[1].SampleRackState}" SamplesContentColor="{Binding SampleRacks[1].Samples}" Width="26" Canvas.Left="836" Canvas.Top="48">
+                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[1].SampleRackState}" Samples="{Binding FourSampleRackDescriptions[1].Samples}" Width="26" Canvas.Left="836" Canvas.Top="48">
                     <i:Interaction.Behaviors>
                         <behavior:SampleRackMouseUp SampleRackIndex="RackB"  ViewModel="{Binding Mode=OneWay}"/>
                     </i:Interaction.Behaviors>
                 </rdscl:RD_SampleRack>
-                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[2].SampleRackState}" SamplesContentColor="{Binding SampleRacks[2].Samples}" Width="26" Canvas.Left="862" Canvas.Top="48">
+                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[2].SampleRackState}" Samples="{Binding FourSampleRackDescriptions[2].Samples}" Width="26" Canvas.Left="862" Canvas.Top="48">
                     <i:Interaction.Behaviors>
                         <behavior:SampleRackMouseUp SampleRackIndex="RackC"  ViewModel="{Binding Mode=OneWay}"/>
                     </i:Interaction.Behaviors>
                 </rdscl:RD_SampleRack>
-                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[3].SampleRackState}" SamplesContentColor="{Binding SampleRacks[3].Samples}" Width="26" Canvas.Left="888" Canvas.Top="48">
+                <rdscl:RD_SampleRack SampleRackState="{Binding FourSampleRackDescriptions[3].SampleRackState}" Samples="{Binding FourSampleRackDescriptions[3].Samples}" Width="26" Canvas.Left="888" Canvas.Top="48">
                     <i:Interaction.Behaviors>
                         <behavior:SampleRackMouseUp SampleRackIndex="RackD"  ViewModel="{Binding Mode=OneWay}"/>
                     </i:Interaction.Behaviors>

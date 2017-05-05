@@ -50,6 +50,8 @@
     <system:String x:Key="HistroyView_Name">Name</system:String>
     <system:String x:Key="HistroyView_Type">Type</system:String>
     <system:String x:Key="HistroyView_Date">Date</system:String>
+    <system:String x:Key="HistroyView_Button_Stretch">Strecth</system:String>
+    <system:String x:Key="HistroyView_Button_Import">Import</system:String>
     <system:String x:Key="PopupWindow_MessageBox">Message box</system:String>
     <system:String x:Key="PopupWindow_Administrators">Setup</system:String>
     <system:String x:Key="PopupWindow_Information">About us</system:String>

@@ -10,13 +10,14 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_SampleRack : UserControl
 	{
-		public IEnumerable SamplesContentColor
+		public IEnumerable Samples
 		{
 			get { return (IEnumerable)GetValue(SamplesContentColorProperty); }
 			set { SetValue(SamplesContentColorProperty, value); }
 		}
 		public static readonly DependencyProperty SamplesContentColorProperty =
-			DependencyProperty.Register(nameof(SamplesContentColor), typeof(IEnumerable), typeof(RD_SampleRack), new PropertyMetadata(null));
+			DependencyProperty.Register(nameof(Samples), typeof(IEnumerable), typeof(RD_SampleRack), new PropertyMetadata(null));
+
 
 		public Visibility RackVisibility
 		{

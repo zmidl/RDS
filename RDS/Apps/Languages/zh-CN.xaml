@@ -55,6 +55,8 @@
     <system:String x:Key="HistroyView_Name">姓名</system:String>
     <system:String x:Key="HistroyView_Type">类别</system:String>
     <system:String x:Key="HistroyView_Date">日期</system:String>
+    <system:String x:Key="HistroyView_Button_Stretch">查询</system:String>
+    <system:String x:Key="HistroyView_Button_Import">导入</system:String>
     <system:String x:Key="FinalView_Message1">请关闭舱门</system:String>
     <system:String x:Key="FinalView_Message2">请关闭电脑</system:String>
     <system:String x:Key="FinalView_Message3">请打开紫外灯</system:String>

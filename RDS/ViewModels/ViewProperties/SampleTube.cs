@@ -44,6 +44,16 @@ namespace RDS.ViewModels.ViewProperties
 
 		public SolidColorBrush SampleContentColor { get; set; }
 
+		private bool isSampling;
+		public bool IsSampling
+		{
+			get { return isSampling; }
+			set
+			{
+				isSampling = value;
+				this.RaisePropertyChanged(nameof(IsSampling));
+			}
+		}
 
 		public SampleTube() { }
 
@@ -63,6 +73,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			this.HoleName = holeName;
 			this.SampleState = sampleState;
+			this.IsSampling = false;
 		}
 	}
 }
