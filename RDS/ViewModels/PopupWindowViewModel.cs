@@ -39,7 +39,6 @@ namespace RDS.ViewModels
 		public ReagentInformation SelectedReagentInformation { get; set; }
 
 		public List<string> UsedReagents { get; private set; }
-		//public ObservableCollection<string> Reagents { get; set; } = new ObservableCollection<string>();
 
 		private string popupTitle = string.Empty;
 		public string PopupTitle
@@ -101,7 +100,7 @@ namespace RDS.ViewModels
 		{
 			this.ExitPopupWindowView = new RelayCommand(this.ExecuteExitPopupWindowView);
 			this.ValidateAdministrators = new RelayCommand(this.ExecuteValidateAdministrators);
-			
+
 			this.RemoveReagentInformation = new RelayCommand(this.ExecuteRemoveReagentInformation);
 			this.AddReagentInformation = new RelayCommand(this.ExecuteAddReagentInformation);
 			this.InitializeReagentInformations();
@@ -118,7 +117,7 @@ namespace RDS.ViewModels
 				var reagentInformation = new ReagentInformation(reagentInformations[i], this.UsedReagents.Exists(o => o == reagentInformations[i]));
 				reagentInformation.ViewChanged += ReagentInformation_ViewChanged;
 				this.ReagentInformations.Add(reagentInformation);
-			}                                                                                                                                                                                                                                                         
+			}
 		}
 
 		private void InitializeLanguages()
@@ -142,12 +141,12 @@ namespace RDS.ViewModels
 
 		public void ExecuteValidateAdministrators()
 		{
-			if(this.Password==Properties.Resources.Password) this.PopupType = PopupType.ShowAdministratorsView;
+			if (this.Password == Properties.Resources.Password) this.PopupType = PopupType.ShowAdministratorsView;
 		}
 
 		public void SaveConfiguration()
 		{
-			this.UsedReagents = this.ReagentInformations.Where(o => o.IsSelected == true).Select(o=>o.Name).ToList();
+			this.UsedReagents = this.ReagentInformations.Where(o => o.IsSelected == true).Select(o => o.Name).ToList();
 			General.WriteConfiguration(Properties.Resources.SelectedReanents, string.Join(this.separator.ToString(), this.UsedReagents.ToArray()));
 			General.WriteConfiguration(Properties.Resources.Language, this.SelectedLanguage);
 		}
@@ -171,6 +170,13 @@ namespace RDS.ViewModels
 			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
 			this.PopupType = PopupType.ShowMessage;
+		}
+
+		public void ShowMessage(string message,PopupType popupType)
+		{
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.Message = message;
+			this.PopupType = popupType;
 		}
 
 		public void ShowAdministratorsLogin()
@@ -198,8 +204,7 @@ namespace RDS.ViewModels
 		ShowAdministratorsLogin = 1,
 		ShowAdministratorsView = 2,
 		ShowCircleProgress = 3,
-		ShowInformation = 4
+		ShowInformation = 4,
+		ShowMessageWithYesNo = 5
 	}
-
-	
 }

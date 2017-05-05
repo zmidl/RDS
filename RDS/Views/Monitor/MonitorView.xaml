@@ -90,7 +90,7 @@
             </Canvas>
             
             <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="150" Fill="{StaticResource TextForeground}" Data="{StaticResource Clock}"/>
-            <TextBlock Canvas.Left="220" Text="{Binding TimeCount,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
+            <TextBlock Canvas.Left="220" Text="{Binding RemainingTime,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
             <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="410" Canvas.Top="25"/>
 
             <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="440" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
@@ -110,7 +110,7 @@
             <Button Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource TextBlock_Content_Emergency}" Command="{Binding Emergency}"  Width="190" Height="70" Canvas.Top="25" Canvas.Right="350"/>
             <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1570" Canvas.Top="25"/>
             <Path Stretch="UniformToFill" Width="50" Canvas.Top="40" Canvas.Right="260" Fill="{StaticResource TextForeground}" Data="{StaticResource PlayOrPause}"/>
-            <CheckBox Width="100" Height="60" Style="{StaticResource RD_CheckBoxStyle}" Canvas.Right="150" Canvas.Top="30"/>
+            <CheckBox Width="100" Height="60" IsChecked="{Binding IsStartTask}" Style="{StaticResource RD_CheckBoxStyle}" Canvas.Right="150" Canvas.Top="30"/>
             <Grid Width="1900" Canvas.Bottom="22">
                 <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="Gray" FontSize="28" />
             </Grid>

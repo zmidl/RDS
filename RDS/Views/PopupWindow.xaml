@@ -84,7 +84,7 @@
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_CircleProgress" Height="1" Width="0">
-                        <rdscl:RD_CircleProgress Canvas.Left="950" Canvas.Top="450" />
+                        <rdscl:RD_CircleProgress Width="100" Height="100"/>
                     </TabItem>
                     <TabItem x:Name="TabItem_Information" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
@@ -92,6 +92,18 @@
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Information"/>
+                            </Canvas>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem x:Name="TabItem_MessageBoxWithYesNo" Height="1" Width="0">
+                        <DockPanel LastChildFill="True" Width="450" >
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                                <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                                <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}" Margin="30,0,0,10" Width="100" Height="30" />
+                            </StackPanel>
+                            <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
+                            <Canvas>
+                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Message}"/>
                             </Canvas>
                         </DockPanel>
                     </TabItem>

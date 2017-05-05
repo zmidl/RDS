@@ -189,6 +189,9 @@
   <data name="Reagents" xml:space="preserve">
     <value>Reagents</value>
   </data>
+  <data name="RemainingTimeFormat" xml:space="preserve">
+    <value>HH:mm:ss</value>
+  </data>
   <data name="SelectedReanents" xml:space="preserve">
     <value>SelectedReanents</value>
   </data>
@@ -197,5 +200,8 @@
   </data>
   <data name="StartupUri" xml:space="preserve">
     <value>/RDS;component/Views/MainWindow.xaml</value>
+  </data>
+  <data name="TimeOut" xml:space="preserve">
+    <value>00:00:00</value>
   </data>
 </root>

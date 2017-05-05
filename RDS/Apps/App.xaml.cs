@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows;
 using System.Globalization;
+using System.Runtime.InteropServices;
 
 namespace RDS.Apps
 {
@@ -9,14 +10,23 @@ namespace RDS.Apps
 	/// </summary>
 	public partial class App : Application
     {
-        protected override void OnStartup(StartupEventArgs e)
+
+		System.Threading.Mutex mutex;
+		protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
 			//Application currApp = Application.Current;
 			this.StartupUri = new Uri(RDS.Properties.Resources.StartupUri, UriKind.Relative);
-            //this.LoadLanguage();
-        }
+			//this.LoadLanguage();
 
+			bool isArrowMore;
+			mutex = new System.Threading.Mutex(true, "ElectronicNeedleTherapySystem", out isArrowMore);
+
+			if (isArrowMore == false) Environment.Exit(0);
+			
+		}
+
+	
 		private void LoadLanguage()
 		{
 			//CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;

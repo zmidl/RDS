@@ -277,6 +277,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 HH:mm:ss 的本地化字符串。
+        /// </summary>
+        internal static string RemainingTimeFormat {
+            get {
+                return ResourceManager.GetString("RemainingTimeFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 SelectedReanents 的本地化字符串。
         /// </summary>
         internal static string SelectedReanents {
@@ -300,6 +309,15 @@ namespace RDS.Properties {
         internal static string StartupUri {
             get {
                 return ResourceManager.GetString("StartupUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 00:00:00 的本地化字符串。
+        /// </summary>
+        internal static string TimeOut {
+            get {
+                return ResourceManager.GetString("TimeOut", resourceCulture);
             }
         }
     }

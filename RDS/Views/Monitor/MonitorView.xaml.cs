@@ -18,21 +18,6 @@ namespace RDS.Views.Monitor
 	public partial class MonitorView : UserControl
 	{
 
-		////C:\zhaomin\sourcecode\CppTestDll\Debug
-		//[DllImport("CppTestDll.dll", EntryPoint = "Test1")]
-		//extern static int Test1();
-
-		
-
-		//[DllImport("ShareDll_d.dll", EntryPoint = "InitDLL")]
-		//extern static int InitDLL(byte[] targetName);
-
-		//[DllImport("ShareDll_d.dll", EntryPoint = "SendData")]
-		//extern static int SendData(byte[] dataArray, int dataArrayLength, string targetName);
-
-		//[DllImport("ShareDll_d.dll", EntryPoint = "ReciveData")]
-		//extern static int ReciveData(byte[] receivedDataArray, int dataArrayLength, string plpszSrc);
-
 		private SampleView sampleView;
 
 		private CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
@@ -48,7 +33,7 @@ namespace RDS.Views.Monitor
 			this.ViewModel.ViewChanged += ViewModel_ViewChanged;
 			this.currentContent = this.Content;
 			MainWindow.GlobalNotify += MainWindow_GlobalNotify;
-			this.ViewModel.A();
+			this.ViewModel.InitializeRemainingTimer();
 
 			this.sampleView = new SampleView();
 			this.sampleView.DataContext = this.ViewModel.SampleViewModel;
@@ -56,14 +41,17 @@ namespace RDS.Views.Monitor
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
-			var showView = (ShowView)e;
-			switch (showView)
+			var args = (MonitorViewModel.MonitorViewChangedArgs)e;
+			switch (args.Option)
 			{
-				case ShowView.ShowSampleView:
+				case MonitorViewModel.ViewChangedOption.ShowSampleView:
 				{
-					
-
 					General.ExitView(this.currentContent, this, (IExitView)sampleView);
+					break;
+				}
+				case MonitorViewModel.ViewChangedOption.TaskStop:
+				{
+					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(()=> {General.ShowMessageWithYesNo("是否结束任务"); }));
 					break;
 				}
 				default:
@@ -216,12 +204,12 @@ namespace RDS.Views.Monitor
 
 		private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
 		{
-			this.ViewModel.B();
+			this.ViewModel.StartRemainingTimer();
 		}
 
 		private void MyCheckBox_Unchecked(object sender, RoutedEventArgs e)
 		{
-			this.ViewModel.C();
+			this.ViewModel.StopRemainingTimer();
 		}
 	}
 }

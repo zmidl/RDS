@@ -11,6 +11,15 @@ namespace RDS.ViewModels
 		private const int CUPRACKS_COUNT = 3;
 		private const int TIPRACKS_COUNT = 9;
 
+		public string RemainingTime
+		{
+			get { return remainingTime.ToString(Properties.Resources.RemainingTimeFormat); }
+		}
+
+		private DateTime remainingTime = DateTime.Parse("00:00:05");
+
+		private System.Timers.Timer remainingTimer;
+
 		public SampleViewModel SampleViewModel { get; set; } = new SampleViewModel();
 
 		public ObservableCollection<CupRack> CupRacks { get; set; } = new ObservableCollection<CupRack>();
@@ -54,11 +63,42 @@ namespace RDS.ViewModels
 			}
 		}
 
+		private bool isStartTask;
+		public bool IsStartTask
+		{
+			get { return isStartTask; }
+			set
+			{
+				isStartTask = value;
+				this.RaisePropertyChanged(nameof(IsStartTask));
+				if (value) this.StartRemainingTimer();
+				else this.StopRemainingTimer();
+			}
+		}
+
+		public enum ViewChangedOption
+		{
+			ShowSampleView = 0,
+			TaskStop = 1
+		}
+
+		public class MonitorViewChangedArgs : EventArgs
+		{
+			public ViewChangedOption Option { get; set; }
+			public object Value { get; set; }
+
+			public MonitorViewChangedArgs(ViewChangedOption option, object value)
+			{
+				this.Option = option;
+				this.Value = value;
+			}
+		}
+
 		public RelayCommand Emergency { get; private set; }
 
 		public void ShowSampleView()
 		{
-			this.OnViewChanged(ShowView.ShowSampleView);
+			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.ShowSampleView,null));
 		}
 
 		public MonitorViewModel()
@@ -68,6 +108,8 @@ namespace RDS.ViewModels
 			this.InitializeTipRacks(MonitorViewModel.TIPRACKS_COUNT);
 
 			this.Emergency = new RelayCommand(this.ShowSampleView);
+
+			this.InitializeRemainingTimer();
 		}
 
 		private void InitializeTipRacks(int tipRacksCount)
@@ -132,7 +174,7 @@ namespace RDS.ViewModels
 			this.ReagentRack.ReagentBoxs[reagentBoxIndex].State = reagentState;
 		}
 
-		public void SetReagentBoxVolume(int reagentBoxIndex,int volume)
+		public void SetReagentBoxVolume(int reagentBoxIndex, int volume)
 		{
 			this.ReagentRack.ReagentBoxs[reagentBoxIndex].Volume = volume;
 		}
@@ -142,7 +184,7 @@ namespace RDS.ViewModels
 			this.ReagentRack.MBBottles[mBBottleIndex].State = reagentState;
 		}
 
-		public void SetMBBottleVolume(int mBBottleIndex,int volume)
+		public void SetMBBottleVolume(int mBBottleIndex, int volume)
 		{
 			this.ReagentRack.MBBottles[mBBottleIndex].Volume = volume;
 		}
@@ -162,40 +204,37 @@ namespace RDS.ViewModels
 			this.ReagentRack.ISBottles[iSBottleIndex].State = reagentState;
 		}
 
-		public string TimeCount
+		public void InitializeRemainingTimer()
 		{
-			get { return $"{fiveM.Hour.ToString("00")}:{ fiveM.Minute.ToString("00") }:{ fiveM.Second.ToString("00")}"; }
+			this.remainingTimer = new System.Timers.Timer(1000);
+
+			this.remainingTimer.Elapsed += Timer_Elapsed;
+
+			this.remainingTimer.AutoReset = true;
 		}
 
-		private DateTime fiveM = DateTime.Parse("00:05:00");
-		private System.Timers.Timer timer;
-
-		public void A()
+		public void StartRemainingTimer()
 		{
-			this.timer = new System.Timers.Timer(1000);
-
-			this.timer.Elapsed += Timer_Elapsed;
-
-			this.timer.AutoReset = true;
+			this.remainingTimer.Enabled = true;
+			this.remainingTimer.Start();
 		}
 
-		public void B()
+		public void StopRemainingTimer()
 		{
-			this.timer.Enabled = true;
-			this.timer.Start();
-		}
-
-		public void C()
-		{
-			this.timer.Stop();
+			this.remainingTimer.Stop();
 		}
 
 		private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
-			if (fiveM != Convert.ToDateTime("00:00:00"))
+			if (remainingTime != Convert.ToDateTime(Properties.Resources.TimeOut))
 			{
-				fiveM = fiveM.AddSeconds(-1);
-				this.RaisePropertyChanged(nameof(TimeCount));
+				remainingTime = remainingTime.AddSeconds(-1);
+				this.RaisePropertyChanged(nameof(RemainingTime));
+			}
+			else
+			{
+				this.StopRemainingTimer();
+				this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.TaskStop, null));
 			}
 		}
 	}

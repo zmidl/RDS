@@ -46,6 +46,12 @@ namespace RDS.ViewModels.Common
 			General.popupWindow.ShowDialog();
 		}
 
+		public static void ShowMessageWithYesNo(string message)
+		{
+			General.popupWindow.ViewModel.ShowMessage(message,PopupType.ShowMessageWithYesNo);
+			General.popupWindow.ShowDialog();
+		}
+
 		public static void ShowAdministratorsLogin()
 		{
 			General.popupWindow.ViewModel.ShowAdministratorsLogin();
