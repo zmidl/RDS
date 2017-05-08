@@ -111,6 +111,7 @@
     <Compile Include="Models\SampleInformatin.cs" />
     <Compile Include="ViewModels\Common\Converters.cs" />
     <Compile Include="ViewModels\Common\Enumeration.cs" />
+    <Compile Include="ViewModels\Common\SingletonWindow.cs" />
     <Compile Include="ViewModels\Common\SQLiteHelper.cs" />
     <Compile Include="ViewModels\Common\XmlOperation.cs" />
     <Compile Include="ViewModels\FinalViewModel.cs" />

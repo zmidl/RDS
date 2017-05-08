@@ -177,14 +177,23 @@
   <data name="PopupWindow_Administrators" xml:space="preserve">
     <value>PopupWindow_Administrators</value>
   </data>
+  <data name="PopupWindow_CheckInstrumentErrorMessage" xml:space="preserve">
+    <value>PopupWindow_CheckInstrumentErrorMessage</value>
+  </data>
   <data name="PopupWindow_Information" xml:space="preserve">
     <value>PopupWindow_Information</value>
   </data>
   <data name="PopupWindow_MessageBox" xml:space="preserve">
     <value>PopupWindow_MessageBox</value>
   </data>
+  <data name="PopupWindow_TaskFinishedMessage" xml:space="preserve">
+    <value>PopupWindow_TaskFinishedMessage</value>
+  </data>
   <data name="PopupWindow_Wait" xml:space="preserve">
     <value>PopupWindow_Wait</value>
+  </data>
+  <data name="PrecheckView_CheckInstrument" xml:space="preserve">
+    <value>PrecheckView_CheckInstrument</value>
   </data>
   <data name="Reagents" xml:space="preserve">
     <value>Reagents</value>
@@ -200,6 +209,9 @@
   </data>
   <data name="StartupUri" xml:space="preserve">
     <value>/RDS;component/Views/MainWindow.xaml</value>
+  </data>
+  <data name="TaskFinish" xml:space="preserve">
+    <value>TaskFinish</value>
   </data>
   <data name="TimeOut" xml:space="preserve">
     <value>00:00:00</value>

@@ -22,6 +22,9 @@ namespace RDS.Views
     /// </summary>
     public partial class PrecheckView : UserControl,IExitView
     {
+
+		private int testCount = 3;
+
         Action IExitView.ExitView { get; set; }
 
         private object PreviousContent;
@@ -36,18 +39,31 @@ namespace RDS.Views
      
         private void InitializeInstrument()
         {
+			this.ProgressBar_CheckTemperature.Value = 0;
+			this.testCount--;
             Task checkTemperature = Task.Factory.StartNew(() =>
             {
-                for (int i = 0; i < 10; i++)
+                for (int i = 0; i < 50; i++)
                 {
                     Thread.Sleep(50);
-                    this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.ProgressBar_CheckTemperature.Value += 10; }));
+                    this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.ProgressBar_CheckTemperature.Value += 2; }));
                 }
             }).ContinueWith(task =>
             {
-                this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.CheckBox_First.IsChecked=true; }));
+				var result = false;
+				if (this.testCount == 0) result = true;
+                this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+				{
+					this.CheckBox_First.IsChecked=result;
+					if(result==false) General.ShowMessageWithRetryCancel(General.FindResource(Properties.Resources.PopupWindow_CheckInstrumentErrorMessage),new Action(()=> this.InitializeInstrument()),new Action(()=> this.ExitView()));
+				}));
             });
         }
+
+		public void ExitView()
+		{
+			((IExitView)this).ExitView();
+		}
 
         private void CheckBox_Click(object sender, RoutedEventArgs e)
         {

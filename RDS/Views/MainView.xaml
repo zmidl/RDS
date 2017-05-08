@@ -13,10 +13,10 @@
             <GradientStop Color="#FF272727"/>
             <GradientStop Color="#FF1B1B1B" Offset="0.537"/>
         </LinearGradientBrush>
-        
-        <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
+
+        <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="{StaticResource Close}"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
         <Path x:Key="Path_Administrators" Fill="{Binding ElementName=Button_AccountSettingsVariant,Path=Foreground}" Data="{StaticResource AccountSettingsVariant}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="UniformToFill" Height="60" Margin="15,20,0,0"/>
-        <Path x:Key="Path_Minimize" Fill="{Binding ElementName=Button_Minimize,Path=Foreground}" Data="M20,14H4V10H20" Stretch="UniformToFill" Width="60" Height="10" Margin="20,43,0,0"/>
+        <Path x:Key="Path_Minimize" Fill="{Binding ElementName=Button_Minimize,Path=Foreground}" Data="{StaticResource Minimize}" Stretch="UniformToFill" Width="60" Height="10" Margin="20,43,0,0"/>
         <Path x:Key="Path_Information" Fill="{Binding ElementName=Button_Information,Path=Foreground}" Data="{StaticResource Information}" HorizontalAlignment="Center" VerticalAlignment="Center" Stretch="Uniform" Width="30" Height="60" Margin="33,20,0,0"/>
 
         <StackPanel x:Key="LabelButton_Content_Task" HorizontalAlignment="Center" Orientation="Horizontal" Margin="40,10,0,0">

@@ -23,11 +23,20 @@ namespace RDS.ViewModels.Common
 		public static void InitializePopupWindow(PopupWindow popupWindow)
 		{
 			General.popupWindow = popupWindow;
+			General.popupWindow.InitializeLanguage(mainWindow.ResourceDictionary);
 		}
 
 		public static void InitializeMainWindow(MainWindow mainWindow)
 		{
 			General.mainWindow = mainWindow;
+		}
+
+		public static void ChangeLanguage(ResourceDictionary resourceDictionary)
+		{
+			if (General.mainWindow.Resources.MergedDictionaries.Count > 0) General.mainWindow.Resources.MergedDictionaries.Clear();
+			if (General.popupWindow.Resources.MergedDictionaries.Count > 0) General.popupWindow.Resources.MergedDictionaries.Clear();
+			General.popupWindow.Resources.MergedDictionaries.Add(resourceDictionary);
+			General.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
 		}
 
 		public static string FindResource(string resourceKey)
@@ -46,9 +55,15 @@ namespace RDS.ViewModels.Common
 			General.popupWindow.ShowDialog();
 		}
 
-		public static void ShowMessageWithYesNo(string message)
+		public static void ShowMessageWithRetryCancel(string message, Action retryAction, Action returnAction)
 		{
-			General.popupWindow.ViewModel.ShowMessage(message,PopupType.ShowMessageWithYesNo);
+			General.popupWindow.ViewModel.ShowMessageWithRetryCancel(message, retryAction, returnAction);
+			General.popupWindow.ShowDialog();
+		}
+
+		public static void ShowMessageWithFinishContinue(string message, Action finishAction, Action continueAction)
+		{
+			General.popupWindow.ViewModel.ShowMessageWithFinishContinue(message, finishAction, continueAction);
 			General.popupWindow.ShowDialog();
 		}
 

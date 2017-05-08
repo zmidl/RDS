@@ -241,6 +241,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PopupWindow_CheckInstrumentErrorMessage 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_CheckInstrumentErrorMessage {
+            get {
+                return ResourceManager.GetString("PopupWindow_CheckInstrumentErrorMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 PopupWindow_Information 的本地化字符串。
         /// </summary>
         internal static string PopupWindow_Information {
@@ -259,11 +268,29 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PopupWindow_TaskFinishedMessage 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_TaskFinishedMessage {
+            get {
+                return ResourceManager.GetString("PopupWindow_TaskFinishedMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 PopupWindow_Wait 的本地化字符串。
         /// </summary>
         internal static string PopupWindow_Wait {
             get {
                 return ResourceManager.GetString("PopupWindow_Wait", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PrecheckView_CheckInstrument 的本地化字符串。
+        /// </summary>
+        internal static string PrecheckView_CheckInstrument {
+            get {
+                return ResourceManager.GetString("PrecheckView_CheckInstrument", resourceCulture);
             }
         }
         
@@ -309,6 +336,15 @@ namespace RDS.Properties {
         internal static string StartupUri {
             get {
                 return ResourceManager.GetString("StartupUri", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 TaskFinish 的本地化字符串。
+        /// </summary>
+        internal static string TaskFinish {
+            get {
+                return ResourceManager.GetString("TaskFinish", resourceCulture);
             }
         }
         

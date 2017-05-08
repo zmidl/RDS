@@ -13,19 +13,12 @@ namespace RDS.Views
 	/// </summary>
 	public partial class MainView : UserControl
 	{
-		//private delegate int Callback
-		//(
-		//	[MarshalAs(UnmanagedType.LPArray, SizeConst = 2048)]byte[] buffer,
-		//	[MarshalAs(UnmanagedType.I4)]int count,
-		//	[MarshalAs(UnmanagedType.LPTStr)]string form,
-		//	[MarshalAs(UnmanagedType.LPTStr)]string to,
-		//	[MarshalAs(UnmanagedType.SysInt)]IntPtr args
-		//);
-		private const string aaa= @"\Apps\Dlls\ShareDll.dll";
+
+		private const string ShareDLL_PATH= @"\Apps\Dlls\ShareDll.dll";
 		private delegate int Callback([MarshalAs(UnmanagedType.LPStr)]string pwszName, int count, string form, string to, IntPtr args);
 		private Callback callback;
 
-		[DllImport(aaa)]
+		[DllImport(ShareDLL_PATH)]
 		extern static int Register([MarshalAs(UnmanagedType.LPWStr)]string pwszName, [MarshalAs(UnmanagedType.FunctionPtr)]Callback ReciveDataCallback, [MarshalAs(UnmanagedType.SysInt)]IntPtr pParam);
 
 		private TaskView taskView = new TaskView();

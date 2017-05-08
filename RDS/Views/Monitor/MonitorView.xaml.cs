@@ -51,7 +51,10 @@ namespace RDS.Views.Monitor
 				}
 				case MonitorViewModel.ViewChangedOption.TaskStop:
 				{
-					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(()=> {General.ShowMessageWithYesNo("是否结束任务"); }));
+					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
+					{
+						General.ShowMessageWithFinishContinue(General.FindResource(Properties.Resources.PopupWindow_TaskFinishedMessage), new Action(() => { General.ExitView(this.Content, this, ((IExitView)new MaintenanceView())); }), new Action(() => {; }));
+					}));
 					break;
 				}
 				default:
@@ -81,7 +84,7 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"MixtureState2")
 			{
-				
+
 			}
 			else if (e.Index == $"SampleState1")
 			{
@@ -164,7 +167,7 @@ namespace RDS.Views.Monitor
 			else if (e.Index == "Sample1")
 			{
 				this.samples[0] = !this.samples[0];
-				if(this.samples[0]) this.ViewModel.SetSampleRackState(0, SampleRackState.AlreadySample);
+				if (this.samples[0]) this.ViewModel.SetSampleRackState(0, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(0, SampleRackState.NotSample);
 				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackA);
 			}

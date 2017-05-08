@@ -88,6 +88,8 @@ namespace RDS.ViewModels
 
 		public int PopupTypeIndex { get; set; }
 
+		public RelayCommand SaveConfigurationAndExitPopupWindowView { get; private set; }
+
 		public RelayCommand ExitPopupWindowView { get; private set; }
 
 		public RelayCommand ValidateAdministrators { get; private set; }
@@ -96,13 +98,40 @@ namespace RDS.ViewModels
 
 		public RelayCommand AddReagentInformation { get; private set; }
 
+		public RelayCommand Retry { get; private set; }
+
+		public RelayCommand Return { get; private set; }
+
+		public RelayCommand Finish { get; private set; }
+
+		public RelayCommand Continue { get; private set; }
+
+		public RelayCommand Cancel { get; private set; }
+
+		private Action RetryAction;
+
+		private Action ReturnAction;
+
+		private Action FinishAction;
+
+		private Action ContinueAction;
+
 		public PopupWindowViewModel()
 		{
+			this.SaveConfigurationAndExitPopupWindowView = new RelayCommand(this.ExecuteSaveConfiguration);
+
 			this.ExitPopupWindowView = new RelayCommand(this.ExecuteExitPopupWindowView);
 			this.ValidateAdministrators = new RelayCommand(this.ExecuteValidateAdministrators);
 
 			this.RemoveReagentInformation = new RelayCommand(this.ExecuteRemoveReagentInformation);
 			this.AddReagentInformation = new RelayCommand(this.ExecuteAddReagentInformation);
+
+			this.Retry = new RelayCommand(this.ExecuteRetry);
+			this.Return = new RelayCommand(this.ExecuteReturn);
+
+			this.Finish = new RelayCommand(this.ExecuteFinish);
+			this.Continue = new RelayCommand(this.ExecuteContinue);
+
 			this.InitializeReagentInformations();
 			this.InitializeLanguages();
 		}
@@ -130,12 +159,40 @@ namespace RDS.ViewModels
 
 		private void ReagentInformation_ViewChanged(object sender, object e)
 		{
+		}
 
+		private void ExecuteSaveConfiguration()
+		{
+			this.SaveConfiguration();
+			this.OnViewChanged(ViewChange.ExitView);
 		}
 
 		public void ExecuteExitPopupWindowView()
 		{
-			this.SaveConfiguration();
+			this.OnViewChanged(ViewChange.ExitView);
+		}
+
+		private void ExecuteReturn()
+		{
+			this.OnViewChanged(ViewChange.ExitView);
+			this.ReturnAction();
+		}
+
+		private void ExecuteRetry()
+		{
+			this.RetryAction();
+			this.OnViewChanged(ViewChange.ExitView);
+		}
+
+		private void ExecuteFinish()
+		{
+			this.FinishAction();
+			this.OnViewChanged(ViewChange.ExitView);
+		}
+
+		private void ExecuteContinue()
+		{
+			this.ContinueAction();
 			this.OnViewChanged(ViewChange.ExitView);
 		}
 
@@ -149,6 +206,12 @@ namespace RDS.ViewModels
 			this.UsedReagents = this.ReagentInformations.Where(o => o.IsSelected == true).Select(o => o.Name).ToList();
 			General.WriteConfiguration(Properties.Resources.SelectedReanents, string.Join(this.separator.ToString(), this.UsedReagents.ToArray()));
 			General.WriteConfiguration(Properties.Resources.Language, this.SelectedLanguage);
+
+
+			
+			var languagePath = General.ReadConfiguration(this.SelectedLanguage);
+			var resourceDictionary = System.Windows.Application.LoadComponent(new Uri(languagePath, UriKind.Relative)) as System.Windows.ResourceDictionary;
+			General.ChangeLanguage(resourceDictionary);
 		}
 
 		public void ExecuteRemoveReagentInformation()
@@ -172,11 +235,22 @@ namespace RDS.ViewModels
 			this.PopupType = PopupType.ShowMessage;
 		}
 
-		public void ShowMessage(string message,PopupType popupType)
+		public void ShowMessageWithRetryCancel(string message,Action retryAction,Action returnAction)
 		{
 			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
-			this.PopupType = popupType;
+			this.PopupType = PopupType.ShowMessageWithRetryCancel;
+			this.RetryAction = retryAction;
+			this.ReturnAction = returnAction;
+		}
+
+		public void ShowMessageWithFinishContinue(string message, Action finishAction, Action continueAction)
+		{
+			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.Message = message;
+			this.PopupType = PopupType.ShowMessageWithFinishContinue;
+			this.FinishAction = finishAction;
+			this.ContinueAction = continueAction;
 		}
 
 		public void ShowAdministratorsLogin()
@@ -205,6 +279,7 @@ namespace RDS.ViewModels
 		ShowAdministratorsView = 2,
 		ShowCircleProgress = 3,
 		ShowInformation = 4,
-		ShowMessageWithYesNo = 5
+		ShowMessageWithRetryCancel = 5,
+		ShowMessageWithFinishContinue = 6
 	}
 }

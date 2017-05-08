@@ -2,7 +2,6 @@
 using System.Collections.ObjectModel;
 using RDS.ViewModels.ViewProperties;
 using System;
-using System.Windows;
 
 namespace RDS.ViewModels
 {
@@ -16,7 +15,14 @@ namespace RDS.ViewModels
 			get { return remainingTime.ToString(Properties.Resources.RemainingTimeFormat); }
 		}
 
-		private DateTime remainingTime = DateTime.Parse("00:00:05");
+		private readonly int yearUnit = 1;
+		private readonly int monthUnit = 1;
+		private readonly int dateUnit = 1;
+		private int hourUnit = 0;
+		private int minuteUnit = 0;
+		private int secondUnit = 5;
+
+		private DateTime remainingTime;
 
 		private System.Timers.Timer remainingTimer;
 
@@ -110,6 +116,8 @@ namespace RDS.ViewModels
 			this.Emergency = new RelayCommand(this.ShowSampleView);
 
 			this.InitializeRemainingTimer();
+
+			this.remainingTime = new DateTime(yearUnit, monthUnit, dateUnit, hourUnit, minuteUnit, secondUnit);
 		}
 
 		private void InitializeTipRacks(int tipRacksCount)
@@ -206,6 +214,8 @@ namespace RDS.ViewModels
 
 		public void InitializeRemainingTimer()
 		{
+
+
 			this.remainingTimer = new System.Timers.Timer(1000);
 
 			this.remainingTimer.Elapsed += Timer_Elapsed;
@@ -215,6 +225,7 @@ namespace RDS.ViewModels
 
 		public void StartRemainingTimer()
 		{
+			if (remainingTime.ToString(Properties.Resources.RemainingTimeFormat) == Convert.ToDateTime(Properties.Resources.TimeOut).ToString(Properties.Resources.RemainingTimeFormat)) this.remainingTime = new DateTime(yearUnit, monthUnit, dateUnit, hourUnit, minuteUnit, secondUnit);
 			this.remainingTimer.Enabled = true;
 			this.remainingTimer.Start();
 		}
@@ -222,19 +233,19 @@ namespace RDS.ViewModels
 		public void StopRemainingTimer()
 		{
 			this.remainingTimer.Stop();
+			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.TaskStop, null));
 		}
 
 		private void Timer_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
 		{
-			if (remainingTime != Convert.ToDateTime(Properties.Resources.TimeOut))
+			if (remainingTime.ToString(Properties.Resources.RemainingTimeFormat) != Convert.ToDateTime(Properties.Resources.TimeOut).ToString(Properties.Resources.RemainingTimeFormat))
 			{
 				remainingTime = remainingTime.AddSeconds(-1);
 				this.RaisePropertyChanged(nameof(RemainingTime));
 			}
 			else
 			{
-				this.StopRemainingTimer();
-				this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.TaskStop, null));
+				this.IsStartTask = false;
 			}
 		}
 	}

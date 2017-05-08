@@ -10,11 +10,12 @@
     <system:String x:Key="TaskView_BeginMaintain">Maintenance</system:String>
     <system:String x:Key="Button_StartP">English</system:String>
     <system:String x:Key="Button_Emergency">Emergency</system:String>
-    <system:String x:Key="Button_FinishTask">Finish</system:String>
+    <system:String x:Key="Button_Finish">Finish</system:String>
+    <system:String x:Key="Button_Continue">Continue</system:String>
     <system:String x:Key="TabButton_CurrentTask">CurrentTask</system:String>
     <system:String x:Key="TabButton_HistroyData">HistroyData</system:String>
     <system:String x:Key="TabButton_HelpDocument">Help</system:String>
-    <system:String x:Key="PrecheckView_SelfTest">Instrument self-test</system:String>
+    <system:String x:Key="PrecheckView_CheckInstrument">Instrument self-test：</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBox">WasteBox：Whether the wastebox is empty</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBin">WasteBin：Whether the wastebin is empty</system:String>
     <system:String x:Key="PrecheckView_CheckLiquid">Liquid：Whether the liquid is enough</system:String>
@@ -57,7 +58,11 @@
     <system:String x:Key="PopupWindow_Information">About us</system:String>
     <system:String x:Key="PopupWindow_Wait">Please wait...</system:String>
     <system:String x:Key="PopupWindow_SelectReagentMessage">PS:Select 1 to 4 items</system:String>
+    <system:String x:Key="PopupWindow_CheckInstrumentErrorMessage">The instrument checking has not passed, please recheck the instrument carefully and then try again.</system:String>
+    <system:String x:Key="PopupWindow_TaskFinishedMessage">Current task is stopped，do you want finish your work。</system:String>
     <system:String x:Key="PopupWindow_SelectReagent">Select</system:String>
+    <system:String x:Key="PopupWindow_ButtonRetry">Retry</system:String>
+    <system:String x:Key="PopupWindow_ButtonReturn">Return</system:String>
     <system:String x:Key="App_Ok">Ok</system:String>
     <system:String x:Key="App_Cancel">Cancel</system:String>
     <system:String x:Key="MonitorView_CorporateName">ShangHai Rendu Biotechnology</system:String>

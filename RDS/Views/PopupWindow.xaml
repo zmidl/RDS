@@ -13,6 +13,54 @@
     <Window.Resources>
         <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
 
+        <StackPanel x:Key="Resource_StackPanel_Retry" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource Replay }" Fill="{Binding ElementName=Button_Retry,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Retry,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource PopupWindow_ButtonRetry}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_Return" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Close}" Fill="{Binding ElementName=Button_Return,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Return,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource PopupWindow_ButtonReturn}"/>
+        </StackPanel>
+
+
+        <StackPanel x:Key="Resource_StackPanel_Finish" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource Download }" Fill="{Binding ElementName=Button_Finish,Path=Foreground}" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="-90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <TextBlock Margin="10,0,0,0" Foreground="{Binding ElementName=Button_Finish,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource Button_Finish}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_Continue" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Upload}" Fill="{Binding ElementName=Button_Continue,Path=Foreground}" RenderTransformOrigin="0.5,0.5">
+                <Path.RenderTransform>
+                    <TransformGroup>
+                        <ScaleTransform/>
+                        <SkewTransform/>
+                        <RotateTransform Angle="90"/>
+                        <TranslateTransform/>
+                    </TransformGroup>
+                </Path.RenderTransform>
+            </Path>
+            <TextBlock Margin="10,0,0,0" Foreground="{Binding ElementName=Button_Continue,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource Button_Continue}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_Administrators_Ok" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Ok}" Fill="{Binding ElementName=Button_Administrators_Ok,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Administrators_Ok,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Ok}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_Administrators_Cancel" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Cancel}" Fill="{Binding ElementName=Button_Administrators_Cancel,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Administrators_Cancel,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Cancel}"/>
+        </StackPanel>
     </Window.Resources>
     <Viewbox Height="600" Width="900" Stretch="Fill" >
         <Border BorderBrush="White" BorderThickness="2">
@@ -29,7 +77,7 @@
                 <TabControl SelectedIndex="{Binding PopupTypeIndex}" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem x:Name="TabItem_MessageBox" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
-                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{DynamicResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <TextBlock Style="{StaticResource TextBlockStyle}" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}" TextWrapping="Wrap"/>
                         </DockPanel>
@@ -37,8 +85,8 @@
                     <TabItem x:Name="TabItem_AdministratorsLogin" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
-                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ValidateAdministrators}"  Width="100" Height="30" />
-                                <Button  Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Cancel}" Command="{Binding ExitPopupWindowView}" Margin="20,0,0,0"  Width="100" Height="30" />
+                                <Button x:Name="Button_Administrators_Ok" Content="{StaticResource Resource_StackPanel_Administrators_Ok}" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ValidateAdministrators}"  Width="100" Height="30" />
+                                <Button x:Name="Button_Administrators_Cancel" Content="{StaticResource Resource_StackPanel_Administrators_Cancel}" Style="{StaticResource RD_ButtonStyle}"  Command="{Binding ExitPopupWindowView}"  Margin="20,0,0,0"  Width="100" Height="30" />
                             </StackPanel>
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
@@ -49,7 +97,7 @@
                     </TabItem>
                     <TabItem x:Name="TabItem_AdministratorsView" Height="1" Width="0">
                         <DockPanel LastChildFill="True"  Margin="-2,-6">
-                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource App_Ok}" Command="{Binding SaveConfigurationAndExitPopupWindowView}" Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
                                 <TextBlock Style="{StaticResource TextBlockStyle}"  FontSize="14" Text="当前语言" Canvas.Left="6" Canvas.Top="4"/>
@@ -88,23 +136,35 @@
                     </TabItem>
                     <TabItem x:Name="TabItem_Information" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
-                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
+                            <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}" Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Text="Information"/>
                             </Canvas>
                         </DockPanel>
                     </TabItem>
-                    <TabItem x:Name="TabItem_MessageBoxWithYesNo" Height="1" Width="0">
+                    <TabItem x:Name="TabItem_MessageBoxWithRetryReturn" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
                             <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
-                                <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}"  Margin="0,0,0,10" Width="100" Height="30" />
-                                <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitPopupWindowView}" Margin="30,0,0,10" Width="100" Height="30" />
+                                <Button x:Name="Button_Retry" DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Retry}" Margin="0,0,0,10" Width="100" Height="30" Content="{DynamicResource Resource_StackPanel_Retry}"/>
+                                <Button x:Name="Button_Return" DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Return}" Content="{StaticResource  Resource_StackPanel_Return}" Margin="30,0,0,10" Width="100" Height="30" />
                             </StackPanel>
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
-                            <Canvas>
-                                <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Message}"/>
-                            </Canvas>
+                            <Grid>
+                                <TextBlock Margin="20,0,20,0" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" Text="{Binding Message}"/>
+                            </Grid>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem x:Name="TabItem_MessageBoxWithFinishContinue" Height="1" Width="0">
+                        <DockPanel LastChildFill="True" Width="450" >
+                            <StackPanel Orientation="Horizontal" DockPanel.Dock="Bottom" HorizontalAlignment="Center">
+                                <Button x:Name="Button_Finish" DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Finish}" Content="{StaticResource Resource_StackPanel_Finish}" Margin="0,0,0,10" Width="100" Height="30" />
+                                <Button x:Name="Button_Continue" DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Continue}" Content="{StaticResource Resource_StackPanel_Continue}" Margin="30,0,0,10" Width="100" Height="30" />
+                            </StackPanel>
+                            <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
+                            <Grid>
+                                <TextBlock Margin="20,0,20,0" TextWrapping="WrapWithOverflow" Style="{StaticResource TextBlockStyle}" Text="{Binding Message}"/>
+                            </Grid>
                         </DockPanel>
                     </TabItem>
                 </TabControl>

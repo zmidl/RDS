@@ -8,7 +8,8 @@
     <system:String x:Key="TaskView_BeginExperiment">开始实验</system:String>
     <system:String x:Key="TaskView_BeginMaintain">进入维护</system:String>
     <system:String x:Key="Button_Emergency">急诊</system:String>
-    <system:String x:Key="Button_FinishTask">结束</system:String>
+    <system:String x:Key="Button_Finish">结束</system:String>
+    <system:String x:Key="Button_Continue">继续</system:String>
     <system:String x:Key="TabButton_CurrentTask">当前任务</system:String>
     <system:String x:Key="TabButton_HistroyData">历史记录</system:String>
     <system:String x:Key="TabButton_HelpDocument">帮助文档</system:String>
@@ -22,7 +23,7 @@
     <system:String x:Key="SampleView_DateTime">采样日期</system:String>
     <system:String x:Key="SampleView_Reagent">试剂</system:String>
     <system:String x:Key="SampleView_Emergency">急诊</system:String>
-    <system:String x:Key="PrecheckView_SelfTest">仪器自检</system:String>
+    <system:String x:Key="PrecheckView_CheckInstrument">仪器自检：</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBox">废物框检查：废物框是否已清空</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBin">废液桶检查：废液桶是否已清空</system:String>
     <system:String x:Key="PrecheckView_CheckLiquid">废液液检查：系统液是否充足</system:String>
@@ -65,8 +66,16 @@
     <system:String x:Key="PopupWindow_Information">关于</system:String>
     <system:String x:Key="PopupWindow_Wait">请稍等...</system:String>
     <system:String x:Key="PopupWindow_SelectReagentMessage">提示：请选择一至四项</system:String>
+    <system:String x:Key="PopupWindow_CheckInstrumentErrorMessage">仪器自检未通过，请仔细检查仪器后重试。</system:String>
+    <system:String x:Key="PopupWindow_TaskFinishedMessage">当前任务已停止，是否结束实验工作。</system:String>
     <system:String x:Key="PopupWindow_SelectReagent">选择</system:String>
+    <system:String x:Key="PopupWindow_ButtonRetry">重试</system:String>
+    <system:String x:Key="PopupWindow_ButtonReturn">返回</system:String>
+   
+    
     <system:String x:Key="App_Ok">确认</system:String>
     <system:String x:Key="App_Cancel">取消</system:String>
+
+    
     <system:String x:Key="MonitorView_CorporateName">上海仁度生物科技</system:String>
 </ResourceDictionary>

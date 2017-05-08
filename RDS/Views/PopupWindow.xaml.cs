@@ -16,6 +16,7 @@ namespace RDS.Views
 		public PopupWindow()
 		{
 			InitializeComponent();
+			
 		}
 
 		protected override void OnRender(DrawingContext drawingContext)
@@ -29,6 +30,18 @@ namespace RDS.Views
 					case PopupWindowViewModel.ViewChange.AddReagentInformation: { break; }
 				}
 			};
+		}
+
+		public void InitializeLanguage(ResourceDictionary resourceDictionary)
+		{
+			if (resourceDictionary != null)
+			{
+				if (this.Resources.MergedDictionaries.Count > 0)
+				{
+					this.Resources.MergedDictionaries.Clear();
+				}
+				this.Resources.MergedDictionaries.Add(resourceDictionary);
+			}
 		}
 	}
 }

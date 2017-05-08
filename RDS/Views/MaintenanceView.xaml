@@ -5,6 +5,9 @@
                xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" 
            d:DesignHeight="1000" d:DesignWidth="1900">
+    <UserControl.Resources>
+        <Path x:Key="Return" Fill="{StaticResource PressedForeground}" Data="{StaticResource Replay}" Stretch="Uniform" Width="60" Height="60" Margin="18,16,0,0" StrokeThickness="2"/>
+    </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
@@ -42,9 +45,7 @@
                     <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
                 </Button>
 
-                <Button x:Name="Button_ExitView" Style="{StaticResource RD_EllipseButtonStyle}"  Width="50" Height="50" Click="Button_ExitView_Click" Canvas.Left="80" Canvas.Top="414">
-                    <Path  Fill="{StaticResource PressedForeground}" Data=" M12,5V1L7,6L12,11V7A6,6 0 0,1 18,13A6,6 0 0,1 12,19A6,6 0 0,1 6,13H4A8,8 0 0,0 12,21A8,8 0 0,0 20,13A8,8 0 0,0 12,5Z" Stretch="Uniform" Width="60" Height="60" Margin="18,16,0,0" StrokeThickness="2"/>
-                </Button>
+                <Button x:Name="Button_ExitView" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Return}" Width="50" Height="50" Click="Button_ExitView_Click" Canvas.Left="80" Canvas.Top="414"/>
 
                 <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>
             </Canvas>

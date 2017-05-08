@@ -11,7 +11,7 @@ namespace RDS.Apps
 	public partial class App : Application
     {
 
-		System.Threading.Mutex mutex;
+		//System.Threading.Mutex mutex;
 		protected override void OnStartup(StartupEventArgs e)
         {
             base.OnStartup(e);
@@ -19,14 +19,16 @@ namespace RDS.Apps
 			this.StartupUri = new Uri(RDS.Properties.Resources.StartupUri, UriKind.Relative);
 			//this.LoadLanguage();
 
-			bool isArrowMore;
-			mutex = new System.Threading.Mutex(true, "ElectronicNeedleTherapySystem", out isArrowMore);
+			//bool isArrowMore;
+			//mutex = new System.Threading.Mutex(true, "ElectronicNeedleTherapySystem", out isArrowMore);
 
-			if (isArrowMore == false) Environment.Exit(0);
-			
+			//if (isArrowMore == false) Environment.Exit(0);
+
+
+
 		}
 
-	
+
 		private void LoadLanguage()
 		{
 			//CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;

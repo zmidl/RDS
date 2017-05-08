@@ -17,9 +17,7 @@ namespace RDS.Views
 
 		private object CurrentContent;
 
-		private PrecheckView taskView;
-
-		private MainView mainView = new MainView();
+		private MainView mainView;
 
 		public static event EventHandler<GlobalNotifyArgs> GlobalNotify;
 
@@ -37,9 +35,13 @@ namespace RDS.Views
 		{
 			InitializeComponent();
 			General.InitializeMainWindow(this);
-			this.taskView = new PrecheckView();
+			this.InitializeLanguage();
+			this.mainView = new MainView();
+			//this.taskView = new PrecheckView();
 			this.CurrentContent = this.Content;
 			this.DisplayTwoButton();
+			
+			SingletonWindow.Process();
 		}
 
 		private void DisplayTwoButton()
@@ -67,19 +69,24 @@ namespace RDS.Views
 
 			task2.Start();
 			
-			var a1 = Properties.Resources.Language;
-			var a2= General.ReadConfiguration(a1);
-			var a3 = General.ReadConfiguration(a2);
-			ResourceDictionary resourceDictionary = Application.LoadComponent(new Uri(a3, UriKind.Relative)) as ResourceDictionary;
-			if (resourceDictionary != null)
+			
+			//General.WriteConfiguration(Properties.Resources.Language, "Chinese"); 
+		}
+
+		public ResourceDictionary ResourceDictionary { get; private set; }
+		private void InitializeLanguage()
+		{
+			var language = General.ReadConfiguration(Properties.Resources.Language);
+			var languagePath = General.ReadConfiguration(language);
+			this.ResourceDictionary = Application.LoadComponent(new Uri(languagePath, UriKind.Relative)) as ResourceDictionary;
+			if (this.ResourceDictionary != null)
 			{
 				if (this.Resources.MergedDictionaries.Count > 0)
 				{
 					this.Resources.MergedDictionaries.Clear();
 				}
-				this.Resources.MergedDictionaries.Add(resourceDictionary);
+				this.Resources.MergedDictionaries.Add(this.ResourceDictionary);
 			}
-			//General.WriteConfiguration(Properties.Resources.Language, "Chinese"); 
 		}
 
 		private void CommandBinding_Executed(object sender, ExecutedRoutedEventArgs e)
