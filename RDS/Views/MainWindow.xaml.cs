@@ -26,18 +26,12 @@ namespace RDS.Views
 			MainWindow.GlobalNotify?.Invoke(null, myArgs);
 		}
 
-		public static void abcde()
-		{
-			
-		}
-
 		public MainWindow()
 		{
 			InitializeComponent();
 			General.InitializeMainWindow(this);
 			this.InitializeLanguage();
 			this.mainView = new MainView();
-			//this.taskView = new PrecheckView();
 			this.CurrentContent = this.Content;
 			this.DisplayTwoButton();
 			

@@ -7,9 +7,17 @@
              xmlns:zmcl2="clr-namespace:ZMCL.MyControl;assembly=ZMCL"
              xmlns:rdscl="clr-namespace:RDSCL;assembly=RDSCL"
              mc:Ignorable="d" 
-           d:DesignHeight="1000" d:DesignWidth="1900">
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
+             d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-
+        <TransformGroup x:Key="Resource_Transform">
+            <ScaleTransform ScaleY="1" ScaleX="-1"/>
+            <SkewTransform AngleY="0" AngleX="0"/>
+            <RotateTransform Angle="0"/>
+            <TranslateTransform/>
+        </TransformGroup>
+        <Path x:Key="Resources_Wizard" Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="40" Height="50"  />
+        <system:Double x:Key="StrokeThickness" >2</system:Double>
         <PathGeometry x:Key="Tube" Figures="M7,2V4H8V18A4,4 0 0,0 12,22A4,4 0 0,0 16,18V4H17V2H7M11,16C10.4,16 10,15.6 10,15C10,14.4 10.4,14 11,14C11.6,14 12,14.4 12,15C12,15.6 11.6,16 11,16M13,12C12.4,12 12,11.6 12,11C12,10.4 12.4,10 13,10C13.6,10 14,10.4 14,11C14,11.6 13.6,12 13,12M14,7H10V4H14V7Z"/>
         <Style x:Key="TextBlock" TargetType="{x:Type TextBlock}">
             <Setter Property="Effect" Value="{StaticResource TextEffect}"/>
@@ -27,174 +35,469 @@
         <Grid Width="950" Height="500">
             <Canvas>
                 <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
-                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnPreviousView}" Canvas.Left="200" Canvas.Top="414">
-                    <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
+                <Button Width="80" Height="140" Style="{StaticResource RD_MoonButtonStyle}" RenderTransform="{StaticResource Resource_Transform}"  Command="{Binding TurnPreviousView}" Canvas.Left="50" Canvas.Top="200" RenderTransformOrigin="0.5,0.5">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="40" Height="50"  />
+                    <Button.Effect>
+                        <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10"/>
+                    </Button.Effect>
                 </Button>
-                <StackPanel Canvas.Left="260" Canvas.Top="428" Orientation="Horizontal" >
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard4,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard5,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard6,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard7,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard8,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard9,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard10,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard11,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard12,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard13,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard14,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                </StackPanel>
-                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnNextView}" Canvas.Right="200" Canvas.Top="414">
-                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
+                <!--<StackPanel Canvas.Left="340" Canvas.Top="100" Orientation="Horizontal" >
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard4,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard5,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard6,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard7,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard8,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard9,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard10,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard11,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard12,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard13,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard14,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
+                </StackPanel>-->
+                <Button Width="80" Height="140"  Style="{StaticResource RD_MoonButtonStyle}" Command="{Binding TurnNextView}" Content="{StaticResource Resources_Wizard}"  Canvas.Top="200" Canvas.Left="820">
+                    <Button.Effect>
+                        <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10"/>
+                    </Button.Effect>
+
                 </Button>
-                <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}" Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" Background="{x:Null}" BorderBrush="{x:Null}">
+                <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}" Width="650" Height="430" Canvas.Left="150" Canvas.Top="40" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0">
                         <DockPanel LastChildFill="True" >
-                            <Image Source="/RDS;component/Apps/Images/1.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Margin="0,10,20,10" Height="320" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right"  HorizontalAlignment="Stretch"/>
+                            <Image Source="/RDS;component/Apps/Images/1.png" Effect="{StaticResource IconEffect}" DockPanel.Dock="Bottom" HorizontalAlignment="Stretch" Stretch="Uniform" Margin="0,10,20,10" Height="320" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message}" TextWrapping="Wrap" DockPanel.Dock="Right"  HorizontalAlignment="Center"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800" >
-                            <Image Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView1.bmp" Height="340"/>
-                            <Rectangle x:Name="Rectangle_Olefin" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="24" Height="69" Canvas.Left="484" Canvas.Top="232" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message2}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/2.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView1.bmp" Height="340"/>
+                            <Rectangle x:Name="Rectangle_Olefin" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="24" Height="70" Canvas.Left="484" Canvas.Top="307" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message2}" VerticalAlignment="Stretch" Width="392" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="242" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/2.png" Canvas.Left="124" Canvas.Top="-9"/>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_300TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="282" Height="70" Canvas.Left="151" Canvas.Top="25" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="685" Canvas.Top="151"/>
-
-                        </Canvas>
-                    </TabItem>
-                    <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_1000TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="282" Height="135" Canvas.Left="151" Canvas.Top="90" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3_1}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas >
+                            <Image Canvas.Bottom="5" Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_300TipRacks" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="97" Height="70" Canvas.Left="151" Canvas.Top="100" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3}" VerticalAlignment="Stretch" Width="466" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="170" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="60" Canvas.Top="-10"/>
 
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView3.bmp" Height="340" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_Strips" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="283" Height="98" Canvas.Left="151" Canvas.Top="220" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message4}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/4.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Stretch="Uniform" Source="/RDS;component/Apps/Images/InitializeSuppliesView2.bmp" Height="340"  HorizontalAlignment="Left"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message3_1}" VerticalAlignment="Stretch" Width="456" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="170" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/3.png" Canvas.Left="60" Canvas.Top="-10"/>
+                            <Path x:Name="Rectangle_1000TipRacks" Data="M4,7 A5,5 0 0 1 9,2 L90,2  A5,5 0 0 0 95,-5 L95,-58 A5,5 0 0 1 100,-63 L275,-63 A5,5 0 0 1 280,-58 L280,127 A5,5 0 0 1 275,132 L9,132 A5,5 0 0 1 4,127Z" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Canvas.Left="151" Canvas.Top="165" StrokeThickness="5" />
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="UniformToFill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_Bead" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="61" Height="35" Canvas.Left="8" Canvas.Top="15" StrokeThickness="5" RadiusX="16" RadiusY="16" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message5}" VerticalAlignment="Stretch" Width="118.723" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="60" />
-
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Left,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_1}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="193" VerticalAlignment="Stretch"/>
-                            <CheckBox x:Name="Left" Width="40" IsChecked="{Binding IsLeftSelected}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="735.907" Canvas.Top="185"  />
-
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Right,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_2}" HorizontalAlignment="Stretch" Canvas.Left="671.277" Canvas.Top="255.75" VerticalAlignment="Stretch"/>
-                            <CheckBox x:Name="Right" Width="40" IsChecked="{Binding IsRightSelected}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="738" Canvas.Top="246.75" />
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView3.bmp" Height="340" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_Strips" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="283" Height="98" Canvas.Left="151" Canvas.Top="295" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message4}" VerticalAlignment="Stretch" Width="404" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="230" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="100" Source="/RDS;component/Apps/Images/4.png" Canvas.Left="120" Canvas.Top="2"/>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Ellipse x:Name="Ellipse_1" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="44" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_2" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="113" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_3" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="176" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_4" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="241" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_5" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="108" StrokeThickness="5" Canvas.Left="493" />
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="UniformToFill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_Bead" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="61" Height="35" Canvas.Left="8" Canvas.Top="90" StrokeThickness="5" RadiusX="16" RadiusY="16" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message5}" VerticalAlignment="Stretch" Width="258" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="22" Canvas.Top="20" />
+
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Both,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_3}" HorizontalAlignment="Stretch" Canvas.Left="280" Canvas.Top="20" VerticalAlignment="Stretch"/>
+                            <CheckBox x:Name="Both" Width="40" IsChecked="{Binding IsBothSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="340" Canvas.Top="14"  />
 
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[0]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Left,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_1}" HorizontalAlignment="Stretch" Canvas.Left="411" Canvas.Top="20" VerticalAlignment="Stretch"/>
+                            <CheckBox x:Name="Left" Width="40" IsChecked="{Binding IsLeftSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="460" Canvas.Top="14"  />
+
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{Binding ElementName=Right,Path=Foreground}" Text="{DynamicResource InitializeSuppliesView_Message5_2}" HorizontalAlignment="Stretch" Canvas.Left="527" Canvas.Top="20" VerticalAlignment="Stretch"/>
+                            <CheckBox x:Name="Right" Width="40" IsChecked="{Binding IsRightSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource RD_ElipseCheckBoxStyle}" Canvas.Left="593" Canvas.Top="14" />
+                        </Canvas>
+                    </TabItem>
+                    <TabItem Height="1" Width="0">
+                        <Canvas>
+
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Canvas Canvas.Top="75">
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="55" />
+                                <Path Canvas.Left="23" Canvas.Top="57.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="71" />
+                                <Path Canvas.Left="23" Canvas.Top="73.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="87" />
+                                <Path Canvas.Left="23" Canvas.Top="89.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="103" />
+                                <Path Canvas.Left="23" Canvas.Top="105.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Line X1="0" Y1="0" Y2="50" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="57"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="83"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="80.5" />
+                                <TextBlock Text="扩增检测液" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="72"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="124" />
+                                <Path Canvas.Left="21" Canvas.Top="126" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="138" />
+                                <Path Canvas.Left="21" Canvas.Top="140.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="152" />
+                                <Path Canvas.Left="21" Canvas.Top="154.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="166" />
+                                <Path Canvas.Left="21" Canvas.Top="168.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="125"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="147"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="144" />
+                                <TextBlock Text="阴性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="135"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="186" />
+                                <Path Canvas.Left="21" Canvas.Top="188" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="200" />
+                                <Path Canvas.Left="21" Canvas.Top="202.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="214" />
+                                <Path Canvas.Left="21" Canvas.Top="216.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="228" />
+                                <Path Canvas.Left="21" Canvas.Top="230.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="187"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="209"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="206" />
+                                <TextBlock Text="内标" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="198"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="251" />
+                                <Path Canvas.Left="21" Canvas.Top="253" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="265" />
+                                <Path Canvas.Left="21" Canvas.Top="267.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="279.5" />
+                                <Path Canvas.Left="21" Canvas.Top="282" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="293.5" />
+                                <Path Canvas.Left="21" Canvas.Top="296" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="252"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="275"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="273" />
+                                <TextBlock Text="阳性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="264"  />
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="116" />
+                                <Path Canvas.Left="473" Canvas.Top="118" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="128" />
+                                <Path Canvas.Left="473" Canvas.Top="130" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="140" />
+                                <Path Canvas.Left="473" Canvas.Top="142" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="152" />
+                                <Path Canvas.Left="473" Canvas.Top="154" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Line X1="0" Y1="0" Y2="38" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="472" Canvas.Top="117"/>
+                                <Line X1="0" Y1="0" X2="10" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="462" Canvas.Top="136"/>
+                                <TextBlock Text="酶" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="440" Canvas.Top="125"  />
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="458" Canvas.Top="133.5" />
+
+                                <Ellipse x:Name="Ellipse_1" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="44" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_2" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="113" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_3" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="176" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_4" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="241" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_5" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="108" StrokeThickness="5" Canvas.Left="493" />
+
+                            </Canvas>
+
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[0]}" Width="525" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="116" Canvas.Top="20" />
+                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="60"/>
 
                         </Canvas>
 
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Ellipse x:Name="Ellipse_6" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="60" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_7" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="128" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_8" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="190" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_9" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="256" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_10" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="120" StrokeThickness="5" Canvas.Left="493" />
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Canvas Canvas.Top="75">
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="55" />
+                                <Path Canvas.Left="23" Canvas.Top="57.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="71" />
+                                <Path Canvas.Left="23" Canvas.Top="73.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="87" />
+                                <Path Canvas.Left="23" Canvas.Top="89.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="103" />
+                                <Path Canvas.Left="23" Canvas.Top="105.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Line X1="0" Y1="0" Y2="50" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="57"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="83"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="80.5" />
+                                <TextBlock Text="扩增检测液" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="72"  />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[1]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="124" />
+                                <Path Canvas.Left="21" Canvas.Top="126" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="138" />
+                                <Path Canvas.Left="21" Canvas.Top="140.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="152" />
+                                <Path Canvas.Left="21" Canvas.Top="154.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="166" />
+                                <Path Canvas.Left="21" Canvas.Top="168.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="125"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="147"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="144" />
+                                <TextBlock Text="阴性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="135"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="186" />
+                                <Path Canvas.Left="21" Canvas.Top="188" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="200" />
+                                <Path Canvas.Left="21" Canvas.Top="202.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="214" />
+                                <Path Canvas.Left="21" Canvas.Top="216.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="228" />
+                                <Path Canvas.Left="21" Canvas.Top="230.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="187"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="209"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="206" />
+                                <TextBlock Text="内标" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="198"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="251" />
+                                <Path Canvas.Left="21" Canvas.Top="253" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="265" />
+                                <Path Canvas.Left="21" Canvas.Top="267.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="279.5" />
+                                <Path Canvas.Left="21" Canvas.Top="282" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="293.5" />
+                                <Path Canvas.Left="21" Canvas.Top="296" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="252"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="275"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="273" />
+                                <TextBlock Text="阳性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="264"  />
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="116" />
+                                <Path Canvas.Left="473" Canvas.Top="118" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="128" />
+                                <Path Canvas.Left="473" Canvas.Top="130" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="140" />
+                                <Path Canvas.Left="473" Canvas.Top="142" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="152" />
+                                <Path Canvas.Left="473" Canvas.Top="154" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Line X1="0" Y1="0" Y2="38" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="472" Canvas.Top="117"/>
+                                <Line X1="0" Y1="0" X2="10" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="462" Canvas.Top="136"/>
+                                <TextBlock Text="酶" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="440" Canvas.Top="125"  />
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="458" Canvas.Top="133.5" />
+
+
+                                <Ellipse x:Name="Ellipse_6" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="60" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_7" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="128" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_8" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="190" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_9" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="256" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_10" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="120" StrokeThickness="5" Canvas.Left="493" />
+
+                            </Canvas>
+
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[1]}" Width="517" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="116" Canvas.Top="20" />
+                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="60"/>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Ellipse x:Name="Ellipse_11" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="76" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_12" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="142" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_13" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="205" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_14" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="270" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_15" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="132" StrokeThickness="5" Canvas.Left="493" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[2]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Canvas Canvas.Top="75">
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="55" />
+                                <Path Canvas.Left="23" Canvas.Top="57.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="71" />
+                                <Path Canvas.Left="23" Canvas.Top="73.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="87" />
+                                <Path Canvas.Left="23" Canvas.Top="89.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="103" />
+                                <Path Canvas.Left="23" Canvas.Top="105.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Line X1="0" Y1="0" Y2="50" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="57"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="83"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="80.5" />
+                                <TextBlock Text="扩增检测液" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="72"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="124" />
+                                <Path Canvas.Left="21" Canvas.Top="126" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="138" />
+                                <Path Canvas.Left="21" Canvas.Top="140.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="152" />
+                                <Path Canvas.Left="21" Canvas.Top="154.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="166" />
+                                <Path Canvas.Left="21" Canvas.Top="168.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="125"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="147"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="144" />
+                                <TextBlock Text="阴性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="135"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="186" />
+                                <Path Canvas.Left="21" Canvas.Top="188" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="200" />
+                                <Path Canvas.Left="21" Canvas.Top="202.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="214" />
+                                <Path Canvas.Left="21" Canvas.Top="216.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="228" />
+                                <Path Canvas.Left="21" Canvas.Top="230.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="187"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="209"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="206" />
+                                <TextBlock Text="内标" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="198"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="251" />
+                                <Path Canvas.Left="21" Canvas.Top="253" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="265" />
+                                <Path Canvas.Left="21" Canvas.Top="267.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="279.5" />
+                                <Path Canvas.Left="21" Canvas.Top="282" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="293.5" />
+                                <Path Canvas.Left="21" Canvas.Top="296" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="252"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="275"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="273" />
+                                <TextBlock Text="阳性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="264"  />
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="116" />
+                                <Path Canvas.Left="473" Canvas.Top="118" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="128" />
+                                <Path Canvas.Left="473" Canvas.Top="130" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="140" />
+                                <Path Canvas.Left="473" Canvas.Top="142" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="152" />
+                                <Path Canvas.Left="473" Canvas.Top="154" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Line X1="0" Y1="0" Y2="38" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="472" Canvas.Top="117"/>
+                                <Line X1="0" Y1="0" X2="10" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="462" Canvas.Top="136"/>
+                                <TextBlock Text="酶" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="440" Canvas.Top="125"  />
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="458" Canvas.Top="133.5" />
+
+
+                                <Ellipse x:Name="Ellipse_11" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="76" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_12" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="142" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_13" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="205" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_14" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="270" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_15" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="132" StrokeThickness="5" Canvas.Left="493" />
+
+                            </Canvas>
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[2]}" Width="485" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="116" Canvas.Top="20" />
+                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="60"/>
                         </Canvas>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Ellipse x:Name="Ellipse_16" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="92" StrokeThickness="5" Canvas.Left="9" />
-                            <Ellipse x:Name="Ellipse_17" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="157" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_18" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="219" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_19" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="284" StrokeThickness="5" Canvas.Left="8" />
-                            <Ellipse x:Name="Ellipse_20" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="144" StrokeThickness="5" Canvas.Left="493" />
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView6.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Canvas Canvas.Top="75">
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="55" />
+                                <Path Canvas.Left="23" Canvas.Top="57.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="71" />
+                                <Path Canvas.Left="23" Canvas.Top="73.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="87" />
+                                <Path Canvas.Left="23" Canvas.Top="89.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="20" Canvas.Top="103" />
+                                <Path Canvas.Left="23" Canvas.Top="105.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 60,0 "/>
+                                <Line X1="0" Y1="0" Y2="50" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="57"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="83"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="80.5" />
+                                <TextBlock Text="扩增检测液" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="72"  />
 
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[3]}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="711" Canvas.Top="179"/>
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="124" />
+                                <Path Canvas.Left="21" Canvas.Top="126" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="138" />
+                                <Path Canvas.Left="21" Canvas.Top="140.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="152" />
+                                <Path Canvas.Left="21" Canvas.Top="154.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="166" />
+                                <Path Canvas.Left="21" Canvas.Top="168.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="125"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="147"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="144" />
+                                <TextBlock Text="阴性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="135"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="186" />
+                                <Path Canvas.Left="21" Canvas.Top="188" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="200" />
+                                <Path Canvas.Left="21" Canvas.Top="202.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="214" />
+                                <Path Canvas.Left="21" Canvas.Top="216.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="228" />
+                                <Path Canvas.Left="21" Canvas.Top="230.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="187"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="209"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="206" />
+                                <TextBlock Text="内标" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="198"  />
+
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="251" />
+                                <Path Canvas.Left="21" Canvas.Top="253" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="265" />
+                                <Path Canvas.Left="21" Canvas.Top="267.5" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="279.5" />
+                                <Path Canvas.Left="21" Canvas.Top="282" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="19" Canvas.Top="293.5" />
+                                <Path Canvas.Left="21" Canvas.Top="296" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 61,0 "/>
+                                <Line X1="0" Y1="0" Y2="44.2" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="252"/>
+                                <Line X1="0" Y1="0" X2="20" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="82" Canvas.Top="275"/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="100" Canvas.Top="273" />
+                                <TextBlock Text="阳性对照" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="108" Canvas.Top="264"  />
+
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="116" />
+                                <Path Canvas.Left="473" Canvas.Top="118" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="128" />
+                                <Path Canvas.Left="473" Canvas.Top="130" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="140" />
+                                <Path Canvas.Left="473" Canvas.Top="142" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="501" Canvas.Top="152" />
+                                <Path Canvas.Left="473" Canvas.Top="154" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 30,0 "/>
+                                <Line X1="0" Y1="0" Y2="38" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="472" Canvas.Top="117"/>
+                                <Line X1="0" Y1="0" X2="10" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Canvas.Left="462" Canvas.Top="136"/>
+                                <TextBlock Text="酶" Style="{StaticResource TextBlockStyle}" FontSize="16" Foreground="{StaticResource PressedForeground}" Canvas.Left="440" Canvas.Top="125"  />
+                                <Ellipse Width="5" Height="5" Fill="{StaticResource PressedForeground}" Canvas.Left="458" Canvas.Top="133.5" />
+
+
+                                <Ellipse x:Name="Ellipse_16" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="27" Height="27" Canvas.Top="92" StrokeThickness="5" Canvas.Left="9" />
+                                <Ellipse x:Name="Ellipse_17" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="157" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_18" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="219" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_19" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="25" Height="25" Canvas.Top="284" StrokeThickness="5" Canvas.Left="8" />
+                                <Ellipse x:Name="Ellipse_20" Stroke="{StaticResource TextForeground2}" StrokeDashArray="1" Width="22" Height="22" Canvas.Top="144" StrokeThickness="5" Canvas.Left="493" />
+                            </Canvas>
+
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{Binding Messages[3]}" Width="495" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="116" Canvas.Top="20" />
+                            <Path Effect="{StaticResource IconEffect}" Data="{StaticResource Tube}" Fill="{StaticResource TextForeground}" Stretch="UniformToFill" Width="30" Canvas.Left="60" />
                         </Canvas>
                     </TabItem >
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_Saline" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="75" Canvas.Left="27" Canvas.Top="41" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message10}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="60" Source="/RDS;component/Apps/Images/6.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_Saline" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="74" Canvas.Left="27" Canvas.Top="116" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message10}" Width="407" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="227" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="Fill" Width="50" Height="80" Source="/RDS;component/Apps/Images/6.png" Canvas.Left="147" Canvas.Top="-14"/>
 
                         </Canvas>
                     </TabItem >
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_Stabilizer" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="75" Canvas.Left="27" Canvas.Top="106" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message11}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="60" Source="/RDS;component/Apps/Images/7.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_Stabilizer" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="75" Canvas.Left="27" Canvas.Top="181" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message11}" Width="380" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="254" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="50" Source="/RDS;component/Apps/Images/7.png" Canvas.Left="186" Canvas.Top="-6" />
 
                         </Canvas>
                     </TabItem >
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_MineralOil" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="75" Canvas.Left="27" Canvas.Top="172" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message12}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="80" Source="/RDS;component/Apps/Images/8.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_MineralOil" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="26" Height="75" Canvas.Left="27" Canvas.Top="247" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message12}" Width="354" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="280" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="60" Source="/RDS;component/Apps/Images/8.png" Canvas.Left="200" Canvas.Top="-7"/>
 
                         </Canvas>
                     </TabItem >
                     <TabItem Height="1" Width="0">
-                        <Canvas Width="800">
-                            <Image Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
-                            <Rectangle x:Name="Rectangle_WashingLiquid" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="46" Height="75" Canvas.Left="26" Canvas.Top="237" StrokeThickness="5" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message13}" Width="126" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="668" Canvas.Top="60" />
-                            <Image Effect="{StaticResource IconEffect}" Stretch="UniformToFill" Width="60" Source="/RDS;component/Apps/Images/9.png" Canvas.Left="685" Canvas.Top="151"/>
+                        <Canvas>
+                            <Image Canvas.Bottom="5" Source="/RDS;component/Apps/Images/InitializeSuppliesView5.bmp" Height="340" Stretch="Fill" HorizontalAlignment="Left"/>
+                            <Rectangle x:Name="Rectangle_WashingLiquid" Stroke="{StaticResource TextForeground2}" RadiusX="2" RadiusY="2" StrokeDashArray="1" Width="46" Height="75" Canvas.Left="26" Canvas.Top="312" StrokeThickness="5" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource InitializeSuppliesView_Message13}" Width="299" TextWrapping="Wrap" HorizontalAlignment="Stretch" Canvas.Left="259" Canvas.Top="20" />
+                            <Image Effect="{StaticResource IconEffect}" Stretch="Fill" Width="50" Height="70" Source="/RDS;component/Apps/Images/9.png" Canvas.Left="180" Canvas.Top="-8" />
                         </Canvas>
                     </TabItem >
                     <TabItem Height="1" Width="0"/>
                 </TabControl>
-                <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>
+                <!--<Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>-->
             </Canvas>
         </Grid>
     </Viewbox>

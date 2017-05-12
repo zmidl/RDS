@@ -13,11 +13,19 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="490" Height="780" >
+                                <Rectangle  Width="490" Height="780" RadiusX="20" RadiusY="20">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#4C999999" Offset="0"/>
+                                            <GradientStop Color="#4CE0E0E0" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
                                 <StackPanel Canvas.Left="50" Canvas.Top="50" Height="680" Width="395" Orientation="Horizontal">
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding ItemsSource[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}"/>
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding ItemsSource[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding ItemsSource[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding ItemsSource[3].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding ItemsSource[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[0].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}"/>
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[1].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[2].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[3].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />
                                 </StackPanel>
                             </Canvas>
                         </Viewbox>

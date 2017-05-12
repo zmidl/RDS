@@ -61,6 +61,33 @@ namespace RDSCL.Properties {
         }
         
         /// <summary>
+        ///   查找类似 ReagentContent 的本地化字符串。
+        /// </summary>
+        internal static string ReagentContent {
+            get {
+                return ResourceManager.GetString("ReagentContent", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 ShakeAnimation 的本地化字符串。
+        /// </summary>
+        internal static string ShakeAnimation {
+            get {
+                return ResourceManager.GetString("ShakeAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 StackPanel_ShakerModule 的本地化字符串。
+        /// </summary>
+        internal static string StackPanel_ShakerModule {
+            get {
+                return ResourceManager.GetString("StackPanel_ShakerModule", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 TwinkleAnimation 的本地化字符串。
         /// </summary>
         internal static string TwinkleAnimation {

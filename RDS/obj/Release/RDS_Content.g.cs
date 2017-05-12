@@ -8,15 +8,22 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/lisfiles/barcode_20170504.xml")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110u.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfcm110.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfcm110u.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/sharedll.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/vccorlib110.dll")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/lisfiles/barcode_20170329.xml")]
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/database/rds.db")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/microsoft.expression.drawing.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/microsoft.expression.effects.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/microsoft.expression.interactions.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcp110.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/msvcr110.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mysql.data.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/sharedll.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/sqlite.interop.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/system.data.sqlite.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/system.windows.interactivity.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/vccorlib110.dll")]
+[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/database/rds.db")]
 
 

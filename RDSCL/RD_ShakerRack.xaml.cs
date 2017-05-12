@@ -9,19 +9,15 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_ShakerRack : UserControl
 	{
-		private const string SHAKE_ANIMATION_NAME = "ShakeAnimation";
-
-		private const string ANIMATION_TARGET_NAME = "StackPanel_ShakerModule";
-
 		System.Windows.Media.Animation.Storyboard storyboard;
 
-		public IEnumerable ItemsSource
+		public object DataSource
 		{
-			get { return (IEnumerable)GetValue(ItemsSourceProperty); }
-			set { SetValue(ItemsSourceProperty, value); }
+			get { return GetValue(DataSourceProperty); }
+			set { SetValue(DataSourceProperty, value); }
 		}
-		public static readonly DependencyProperty ItemsSourceProperty =
-			DependencyProperty.Register(nameof(ItemsSource), typeof(IEnumerable), typeof(RD_ShakerRack), new PropertyMetadata(null));
+		public static readonly DependencyProperty DataSourceProperty =
+			DependencyProperty.Register(nameof(DataSource), typeof(object), typeof(RD_ShakerRack), new PropertyMetadata(null));
 
 		public bool IsShake
 		{
@@ -40,9 +36,9 @@ namespace RDSCL
 		{
 			var sharkerRack = (RD_ShakerRack)d;
 
-			if (sharkerRack.storyboard == null) sharkerRack.storyboard = sharkerRack.Resources[RD_ShakerRack.SHAKE_ANIMATION_NAME] as System.Windows.Media.Animation.Storyboard;
+			if (sharkerRack.storyboard == null) sharkerRack.storyboard = sharkerRack.Resources[Properties.Resources.ShakeAnimation] as System.Windows.Media.Animation.Storyboard;
 			
-			var shakerModule = (FrameworkElement)sharkerRack.Template.FindName(RD_ShakerRack.ANIMATION_TARGET_NAME, sharkerRack);
+			var shakerModule = (FrameworkElement)sharkerRack.Template.FindName(Properties.Resources.StackPanel_ShakerModule, sharkerRack);
 
 			if ((bool)e.NewValue == true)
 			{

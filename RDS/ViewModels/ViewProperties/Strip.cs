@@ -18,26 +18,27 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<Cell> Cells { get; set; } = new ObservableCollection<Cell>();
 
-		private RDSCL.StripState state;
-		public RDSCL.StripState State
+		private bool isExist;
+		public bool IsExist
 		{
-			get { return state; }
+			get { return isExist; }
 			set
 			{
-				state = value;
-				this.RaisePropertyChanged(nameof(State));
+				isExist = value;
+				this.RaisePropertyChanged(nameof(IsExist));
 			}
 		}
 
+
 		private const int STRIP_SIZE = 6;
 
-		public Strip(int number, RDSCL.StripState stripState)
+		public Strip(int number, bool isExist)
 		{
 			this.Number = number;
 
-			this.State = stripState;
+			this.IsExist = isExist;
 
-			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(HoleState.None)); }
+			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(false)); }
 		}
 	}
 }

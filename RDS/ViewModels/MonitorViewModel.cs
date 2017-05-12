@@ -75,17 +75,34 @@ namespace RDS.ViewModels
 			get { return isStartTask; }
 			set
 			{
-				isStartTask = value;
-				this.RaisePropertyChanged(nameof(IsStartTask));
-				if (value) this.StartRemainingTimer();
-				else this.StopRemainingTimer();
+				if (value)
+				{
+					if (this.SamplingResult == true)
+					{
+						this.StartRemainingTimer();
+						isStartTask = value;
+						this.RaisePropertyChanged(nameof(IsStartTask));
+					}
+					else General.ShowMessage("开始前请确保上样完成。");
+				}
+
+				else
+				{
+					this.StopRemainingTimer();
+					isStartTask = value;
+					this.RaisePropertyChanged(nameof(IsStartTask));
+				}
 			}
 		}
+
+		public bool? SamplingResult { get; private set; } = false;
+
 
 		public enum ViewChangedOption
 		{
 			ShowSampleView = 0,
-			TaskStop = 1
+			TaskStop = 1,
+			NotifySamplingResult = 2
 		}
 
 		public class MonitorViewChangedArgs : EventArgs
@@ -102,11 +119,6 @@ namespace RDS.ViewModels
 
 		public RelayCommand Emergency { get; private set; }
 
-		public void ShowSampleView()
-		{
-			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.ShowSampleView,null));
-		}
-
 		public MonitorViewModel()
 		{
 			this.InitializeCupRacks(MonitorViewModel.CUPRACKS_COUNT);
@@ -118,6 +130,11 @@ namespace RDS.ViewModels
 			this.InitializeRemainingTimer();
 
 			this.remainingTime = new DateTime(yearUnit, monthUnit, dateUnit, hourUnit, minuteUnit, secondUnit);
+
+			
+			//this.Heating.Strips[0].IsExist = false;
+			//this.Heating.Strips[1].IsExist = false;
+			//this.Heating.Strips[2].IsExist = false;
 		}
 
 		private void InitializeTipRacks(int tipRacksCount)
@@ -136,19 +153,30 @@ namespace RDS.ViewModels
 			}
 		}
 
+		public void ShowSampleView()
+		{
+			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.ShowSampleView, null));
+		}
+
+		public void SetSamplingResult(bool samplingResult)
+		{
+			this.SamplingResult = samplingResult;
+			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.NotifySamplingResult, samplingResult));
+		}
+
 		public void SetSampleTubeState(int twentyUnionSampleIndex, int sampleIndex, SampleTubeState sampleState)
 		{
 			this.SampleViewModel.FourSampleRackDescriptions[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
 		}
 
-		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, HoleState cellState)
+		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, bool isLoaded)
 		{
-			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].State = cellState;
+			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
 		}
 
-		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, HoleState cellState)
+		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, bool isLoaded)
 		{
-			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].State = cellState;
+			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
 		}
 
 		public void SetTipState(int tipRacksIndex, int tipsIndex, TipState tipState)
@@ -156,9 +184,9 @@ namespace RDS.ViewModels
 			this.TipRacks[tipRacksIndex].Tips[tipsIndex].TipState = tipState;
 		}
 
-		public void SetReaderCellState(int stripsIndex, int cellsIndex, HoleState cellState)
+		public void SetReaderCellState(int stripsIndex, int cellsIndex, bool isLoaded)
 		{
-			this.Reader.Strips[stripsIndex].Cells[cellsIndex].State = cellState;
+			this.Reader.Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
 		}
 
 		public void SetReaderEnzymeBottlesValue(int enzymeIndex, int value)
@@ -166,10 +194,7 @@ namespace RDS.ViewModels
 			this.Reader.EnzymeBottles[enzymeIndex].Volume += value;
 		}
 
-		public void SetReaderEnzymeBottlesState(int enzymeIndex, HoleState holeSstate)
-		{
-			this.Reader.EnzymeBottles[enzymeIndex].State = ReagentState.Full;
-		}
+
 
 		public void SetSampleRackState(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
 		{
@@ -177,39 +202,15 @@ namespace RDS.ViewModels
 			//(RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
 		}
 
-		public void SetReagentBoxState(int reagentBoxIndex, ReagentState reagentState)
-		{
-			this.ReagentRack.ReagentBoxs[reagentBoxIndex].State = reagentState;
-		}
-
 		public void SetReagentBoxVolume(int reagentBoxIndex, int volume)
 		{
 			this.ReagentRack.ReagentBoxs[reagentBoxIndex].Volume = volume;
 		}
 
-		public void SetMBBottleState(int mBBottleIndex, ReagentState reagentState)
-		{
-			this.ReagentRack.MBBottles[mBBottleIndex].State = reagentState;
-		}
 
 		public void SetMBBottleVolume(int mBBottleIndex, int volume)
 		{
 			this.ReagentRack.MBBottles[mBBottleIndex].Volume = volume;
-		}
-
-		public void SetAMPBottleState(int aMPBottleIndex, ReagentState reagentState)
-		{
-			this.ReagentRack.AMPBottles[aMPBottleIndex].State = reagentState;
-		}
-
-		public void SetNPBottleState(int nPBottleIndex, ReagentState reagentState)
-		{
-			this.ReagentRack.PNBottles[nPBottleIndex].State = reagentState;
-		}
-
-		public void SetISBottleState(int iSBottleIndex, ReagentState reagentState)
-		{
-			this.ReagentRack.ISBottles[iSBottleIndex].State = reagentState;
 		}
 
 		public void InitializeRemainingTimer()

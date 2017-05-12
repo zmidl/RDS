@@ -9,13 +9,6 @@
 		Sampled = 4
 	}
 
-	public enum HoleState
-	{
-		None = 0,
-		Empty = 1,
-		Full = 2
-	}
-
 	public enum SixUnionState
 	{
 		Inexistence = 0,
@@ -33,14 +26,6 @@
 	{
 		NoExist = 0,
 		Exist = 1
-	}
-
-	public enum ReagentState
-	{
-		Empty = 0,
-		Few = 1,
-		Normal = 2,
-		Full = 3
 	}
 
 	public enum ShowView

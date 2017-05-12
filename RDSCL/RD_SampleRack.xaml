@@ -24,9 +24,44 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
-                            <Canvas Width="120" Height="1800">
-                                <Border x:Name="Border_Slot" Width="120" Height="1760" Canvas.Top="20"  Background="#0F000000"/>
-                                <Border Canvas.Left="20" Width="80" Height="1760" Canvas.Top="20" BorderBrush="Gray" BorderThickness="10" CornerRadius="40"/>
+                            <Canvas Width="120" Height="1800" >
+                                <Canvas Opacity="0.4" Width="120" Height="1800">
+                                    <Rectangle Width="120" Height="1800" StrokeThickness="5" RadiusX="20" RadiusY="20" Stroke="#FF444444" >
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1.5" StartPoint="0.5,0">
+                                                <GradientStop Color="#FFB4B4B4"/>
+                                                <GradientStop Color="White" Offset="1"/>
+                                                <GradientStop Color="#FF7E7E7E" Offset="0.411"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                    <StackPanel Orientation="Vertical" Height="1600" Canvas.Left="30" Canvas.Top="100">
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="Gray" />
+                                    </StackPanel>
+                                </Canvas>
+
+                                <!--<Border x:Name="Border_Slot" Width="120" Height="1760" Canvas.Top="20"  Background="#0F000000"/>
+                                <Border Canvas.Left="20" Width="80" Height="1760" Canvas.Top="20" BorderBrush="Gray" BorderThickness="10" CornerRadius="40"/>-->
                                 <Canvas x:Name="Canvas_Rack" Visibility="{Binding RackVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" Width="120" Height="1800">
                                     <Rectangle Width="120" Height="1800" StrokeThickness="5" RadiusX="20" RadiusY="20" Stroke="#FF444444" >
                                         <Rectangle.Fill>
@@ -37,8 +72,8 @@
                                             </LinearGradientBrush>
                                         </Rectangle.Fill>
                                     </Rectangle>
-                                    <StackPanel Orientation="Vertical" Height="2400" Canvas.Left="30" Canvas.Top="0">
-                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,120,0,0" ContentColor="{Binding Samples[0].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[0].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
+                                    <StackPanel Orientation="Vertical" Height="1700" Canvas.Left="30" Canvas.Top="0">
+                                        <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,120,0,0" ContentColor="{Binding Samples[0].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding Samples[1].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[1].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding Samples[2].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[2].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding Samples[3].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[3].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
@@ -61,6 +96,7 @@
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding Samples[19].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[19].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
                                     </StackPanel>
                                 </Canvas>
+
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>

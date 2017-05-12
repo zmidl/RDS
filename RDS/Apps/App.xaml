@@ -297,6 +297,74 @@
                 </Setter>
             </Style>
 
+            <Style x:Key="RD_MoonButtonStyle" TargetType="{x:Type Button}">
+                <Style.Resources>
+                    <PathGeometry x:Key="Frame" 
+                              Figures="
+                              M30,0 
+                              A49,49 0 1 1 30 100  
+                              A25,25 0 0 1 7,80 
+                              20,90 0 0 0 7 20 
+                              A25,25 0 0 1 30,0z"/>
+                    <RadialGradientBrush x:Key="Default" Center="0.109,0.514" GradientOrigin="0.109,0.514" RadiusY="0.502" RadiusX="0.904">
+                        <GradientStop Color="#FF636363" Offset="0.962"/>
+                        <GradientStop Color="#FFECECEC" Offset="1"/>
+                        <GradientStop Color="#FF636363"/>
+                    </RadialGradientBrush>
+
+                    <RadialGradientBrush x:Key="MouseOver" Center="0.086,0.518" GradientOrigin="0.087,0.549" RadiusX="0.93">
+                        <GradientStop Color="#FFAA8E65" Offset="0.972"/>
+                        <GradientStop Color="#FFECECEC" Offset="1"/>
+                        <GradientStop Color="#FFFF9700"/>
+                    </RadialGradientBrush>
+
+
+                </Style.Resources>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="Foreground" Value="{StaticResource TextForeground}"/>
+                <Setter Property="BorderThickness" Value="2"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Padding" Value="1"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Viewbox Stretch="Fill">
+                                <Grid >
+                                    <Path x:Name="border" Fill="{StaticResource Default}" Stroke="Black" StrokeThickness="2"  Data="{StaticResource Frame}" Stretch="Fill" Width="70" Canvas.Left="30"/>
+                                    <Path Data="{StaticResource Frame}" Stretch="Fill" Width="70" Canvas.Left="30">
+                                        <Path.Fill>
+                                            <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
+                                                <GradientStop Color="#195B5B5B"/>
+                                                <GradientStop Color="#CC232323" Offset="1"/>
+                                                <GradientStop Color="#99444444" Offset="0.465"/>
+                                            </LinearGradientBrush>
+                                        </Path.Fill>
+                                    </Path>
+                                    <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+
+                                </Grid>
+                            </Viewbox>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsDefaulted" Value="true">
+                                    <Setter TargetName="border" Property="Fill" Value="{StaticResource Default}"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="border" Property="Fill" Value="{StaticResource MouseOver}"/>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="border" Property="Fill" Value="{x:Null}"/>
+                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
             <Style x:Key="RD_DataGridBlackStyle" TargetType="{x:Type DataGrid}">
                 <Setter Property="VerticalAlignment" Value="Top"/>
                 <Setter Property="CanUserSortColumns" Value="False"/>

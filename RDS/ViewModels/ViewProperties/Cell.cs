@@ -10,31 +10,25 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Cell:ViewModel
 	{
-		private HoleState state;
-		public HoleState State
+		private bool isLoaded;
+		public bool IsLoaded
 		{
-			get { return state; }
+			get { return isLoaded; }
 			set
 			{
-				state = value;
-				this.RaisePropertyChanged(nameof(State));
-
-				switch (value)
-				{
-					case HoleState.None: { this.Color = new SolidColorBrush(Colors.WhiteSmoke); break; }
-					case HoleState.Empty: { this.Color = new SolidColorBrush(Colors.Yellow); break; }
-					case HoleState.Full: { this.Color = new SolidColorBrush(Colors.Brown); break; }
-					default: break;
-				}
+				isLoaded = value;
+				this.RaisePropertyChanged(nameof(IsLoaded));
+				if (value) this.Color = new SolidColorBrush(Colors.White);
+				else this.Color = new SolidColorBrush(Colors.Gray);
 				this.RaisePropertyChanged(nameof(this.Color));
 			}
 		}
 
 		public SolidColorBrush Color { get; set; }
 
-		public Cell(HoleState cellState)
+		public Cell(bool isloaded)
 		{
-			this.State = cellState;
+			this.IsLoaded = isloaded;
 		}
 	}
 }

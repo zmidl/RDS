@@ -6,7 +6,7 @@ using System.Windows.Input;
 using RDS.ViewModels.Common;
 using System.Threading;
 using RDS.ViewModels;
-using System.Runtime.InteropServices;
+using System.Windows.Media.Animation;
 using System.Configuration;
 using RDSCL;
 
@@ -37,6 +37,8 @@ namespace RDS.Views.Monitor
 
 			this.sampleView = new SampleView();
 			this.sampleView.DataContext = this.ViewModel.SampleViewModel;
+
+			this.ViewModel.SetSamplingResult(false);
 		}
 
 		private void ViewModel_ViewChanged(object sender, object e)
@@ -53,8 +55,26 @@ namespace RDS.Views.Monitor
 				{
 					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
 					{
-						General.ShowMessageWithFinishContinue(General.FindResource(Properties.Resources.PopupWindow_TaskFinishedMessage), new Action(() => { General.ExitView(this.Content, this, ((IExitView)new MaintenanceView())); }), new Action(() => {; }));
+						General.ShowMessageWithFinishContinue(General.FindStringResource(Properties.Resources.PopupWindow_TaskFinishedMessage), new Action(() => { General.ExitView(this.Content, this, ((IExitView)new MaintenanceView())); }), new Action(() => {; }));
 					}));
+					break;
+				}
+				case MonitorViewModel.ViewChangedOption.NotifySamplingResult:
+				{
+					var storyboard = this.FindResource(Properties.Resources.TwinkleAnimation) as Storyboard;
+
+					var twinkleModule = (FrameworkElement)this.Rectangle_Prompt;
+
+					if ((bool)args.Value == false)
+					{
+						storyboard.RepeatBehavior = new RepeatBehavior(1);
+
+						storyboard.Completed += (storyboardSender, eventArgs) =>
+						{
+							if (this.ViewModel.SamplingResult == false) storyboard.Begin(twinkleModule);
+						};
+						storyboard.Begin(twinkleModule);
+					}
 					break;
 				}
 				default:
@@ -72,74 +92,83 @@ namespace RDS.Views.Monitor
 
 			if (e.Index == $"MixtureState1")
 			{
-				string connectionString = string.Format
-					(
-						ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
-						System.IO.Directory.GetCurrentDirectory()
-					);
+				//string connectionString = string.Format
+				//	(
+				//		ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
+				//		System.IO.Directory.GetCurrentDirectory()
+				//	);
 
-				SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
-				System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
-				MessageBox.Show(dt.Rows[0][1].ToString());
+				//SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
+				//System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
+				//MessageBox.Show(dt.Rows[0][1].ToString());
+				this.ViewModel.SetSamplingResult(true);
 			}
 			else if (e.Index == $"MixtureState2")
 			{
-
+				this.ViewModel.SetSamplingResult(false);
 			}
 			else if (e.Index == $"SampleState1")
 			{
-				this.ViewModel.SampleViewModel.FourSampleRackDescriptions[1].Samples[10].IsSampling = true;
-				this.ViewModel.Reader.EnzymeBottles[0].State = ReagentState.Full;
-				this.ViewModel.Reader.Strips[0].State = StripState.Leaving;
-				this.ViewModel.SetReaderCellState(1, 2, HoleState.Full);
+				this.ViewModel.Heating.Strips[1].IsExist = true;
+
+				this.ViewModel.Heating.OlefinBox.Volume = 10;
+
+				this.ViewModel.ShakerRack.IsShark = true;
+				this.ViewModel.ShakerRack.Strips[0].IsExist = true;
+
+				this.ViewModel.ReagentRack.AMPBottles[0].Volume = 0;
+				this.ViewModel.ReagentRack.AMPBottles[1].Volume = 3;
+
+				this.ViewModel.Reader.Strips[0].IsExist = true;
+				this.ViewModel.Reader.Strips[1].IsExist = true;
+				this.ViewModel.Reader.Strips[2].IsExist = true;
+
+
+				this.ViewModel.SetReaderCellState(1, 2, true);
 				this.ViewModel.SetReaderEnzymeBottlesValue(3, 45);
 				//this.ShakerRack_1.IsShake = true;
 				this.ViewModel.SetTipState(0, 1, TipState.Exist);
 
 				this.ViewModel.SetTipState(1, 1, TipState.Exist);
 
-				this.ViewModel.SetReagentBoxState(0, ReagentState.Full);
-				this.ViewModel.SetReagentBoxState(7, ReagentState.Few);
+				this.ViewModel.SetReagentBoxVolume(0, 3);
+				this.ViewModel.SetReagentBoxVolume(1, 0);
 
-				this.ViewModel.SetMBBottleState(0, ReagentState.Normal);
-				this.ViewModel.SetMBBottleState(1, ReagentState.Few);
-				this.ViewModel.SetAMPBottleState(0, ReagentState.Full);
-				this.ViewModel.SetNPBottleState(1, ReagentState.Few);
-				this.ViewModel.SetISBottleState(2, ReagentState.Full);
-				this.ViewModel.SetNPBottleState(7, ReagentState.Normal);
 
-				this.ViewModel.Heating.OlefinBox.State = ReagentState.Full;
-				//this.ViewModel.SampleViewModel.TwentyUnionSampleHoles[0].Samples[0].SampleState = SampleState.Emergency;
-				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Sampled);
-				this.ViewModel.SetSampleTubeState(3, 5, SampleTubeState.Sampled);
+				this.ViewModel.CupRacks[0].Strips[0].Cells[0].IsLoaded = true;
+				this.ViewModel.CupRacks[0].Strips[0].Cells[1].IsLoaded = true;
 
-				this.ViewModel.CupRacks[0].Strips[0].Cells[0].State = HoleState.Full;
-				this.ViewModel.CupRacks[0].Strips[0].Cells[1].State = HoleState.Full;
+				this.ViewModel.CupRacks[0].Strips[0].IsExist = true;
+				this.ViewModel.Heating.Strips[0].IsExist = true;
+				this.ViewModel.Heating.Strips[0].Cells[0].IsLoaded = true;
 
-				this.ViewModel.CupRacks[0].Strips[0].State = StripState.Leaving;
-				this.ViewModel.Heating.Strips[0].State = StripState.Inexistence;
-				this.ViewModel.Heating.Strips[0].Cells[0].State = HoleState.Full;
-
-				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.Full);
+				this.ViewModel.SetShakerRackCellState(1, 2, true);
 
 				for (int i = 0; i < 2; i++)
 				{
-					this.ViewModel.CupRacks[2].Strips[i].State = StripState.Inexistence;
+					this.ViewModel.CupRacks[2].Strips[i].IsExist = true;
 				}
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				this.ViewModel.SampleViewModel.FourSampleRackDescriptions[0].Samples[10].IsSampling = false;
-				this.ViewModel.SetShakerRackCellState(1, 2, HoleState.None);
+				this.ViewModel.Heating.Strips[1].IsExist = false;
+				this.ViewModel.Heating.OlefinBox.Volume = 0;
+				this.ViewModel.ShakerRack.IsShark = false;
+				this.ViewModel.ShakerRack.Strips[0].IsExist = false;
+				this.ViewModel.ReagentRack.AMPBottles[0].Volume = 10;
+				this.ViewModel.ReagentRack.AMPBottles[1].Volume = 15;
+				this.ViewModel.SetReagentBoxVolume(0, 30);
+
+
 				this.ViewModel.SetTipState(0, 0, TipState.NoExist);
 
 
 				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Normal);
-				this.ViewModel.CupRacks[0].Strips[0].Cells[0].State = HoleState.Empty;
-				this.ViewModel.CupRacks[0].Strips[0].State = StripState.Existence;
+				this.ViewModel.CupRacks[0].Strips[0].Cells[0].IsLoaded = false;
+				this.ViewModel.CupRacks[0].Strips[0].IsExist = false;
 
-				this.ViewModel.Heating.Strips[0].State = StripState.Leaving;
-				this.ViewModel.Heating.Strips[0].Cells[0].State = HoleState.Empty;
+				this.ViewModel.Heating.Strips[0].IsExist = false;
+				this.ViewModel.Heating.Strips[0].Cells[0].IsLoaded = false;
 			}
 			else if (e.Index == $"SampleState3")
 			{
@@ -152,17 +181,25 @@ namespace RDS.Views.Monitor
 			else if (e.Index == $"Enzyme+")
 			{
 				v++;
+				this.ViewModel.Reader.EnzymeBottles[0].Volume += v;
+
 				this.ViewModel.ReagentRack.MBBottles[0].Volume += v;
 				this.ViewModel.ReagentRack.MBBottles[1].Volume += v * 2;
 
 				this.ViewModel.Reader.Temperature += v;
 				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
+
+				this.ViewModel.Heating.OlefinBox.Volume += v;
+				this.ViewModel.Heating.Temperature += v;
 			}
 			else if (e.Index == $"Enzyme-")
 			{
 				v--;
+				this.ViewModel.Reader.EnzymeBottles[0].Volume += v;
 				this.ViewModel.Reader.Temperature += v;
+				this.ViewModel.Heating.Temperature += v;
 				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
+				this.ViewModel.Heating.OlefinBox.Volume += v;
 			}
 			else if (e.Index == "Sample1")
 			{

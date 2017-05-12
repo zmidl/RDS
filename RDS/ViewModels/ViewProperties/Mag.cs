@@ -17,7 +17,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			for (int i = 0; i < Mag.MAG_SIZE; i++)
 			{
-				this.Strips.Add(new Strip(Mag.NUMBER_OFSET + i, RDSCL.StripState.Existence));
+				this.Strips.Add(new Strip(Mag.NUMBER_OFSET + i, false));
 			}
 		}
 	}

@@ -81,7 +81,6 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_Mag.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_Reader.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ReagentBox.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ReagentRack.g.cs
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\SampleRack.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ShakerRack.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TipRack_1000uL.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TipRack_300uL.g.cs
@@ -93,7 +92,6 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_Mag.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_Reader.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ReagentBox.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ReagentRack.baml
-C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\SampleRack.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_ShakerRack.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TipRack_1000uL.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TipRack_300uL.baml
@@ -118,3 +116,6 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TL_Reader.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TL_ReaderStripSlot.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TL_Hole.baml
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\TL_Strip.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RDSCL.csprojResolveAssemblyReference.cache
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_SampleRack.g.cs
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Release\RD_SampleRack.baml

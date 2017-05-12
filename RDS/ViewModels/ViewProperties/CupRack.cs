@@ -16,7 +16,7 @@ namespace RDS.ViewModels.ViewProperties
 
 			for (int i = 1; i <= CupRack.CUP_RACK_SIZE; i++)
 			{
-				this.Strips.Add(new Strip(this.ColumnNumber * CUP_RACK_SIZE + i,RDSCL.StripState.Existence));
+				this.Strips.Add(new Strip(this.ColumnNumber * CUP_RACK_SIZE + i,true));
 			}
 		}
 	}

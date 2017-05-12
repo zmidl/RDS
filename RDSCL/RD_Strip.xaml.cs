@@ -29,6 +29,18 @@ namespace RDSCL
 		public static readonly DependencyProperty NumberValueProperty =
 			DependencyProperty.Register(nameof(Number), typeof(string), typeof(RD_Strip), new PropertyMetadata("0"));
 
+		public Visibility NumberVisibility
+		{
+			get { return (Visibility)GetValue(NumberVisibilityProperty); }
+			set { SetValue(NumberVisibilityProperty, value); }
+		}
+
+		// Using a DependencyProperty as the backing store for NumberVisibility.  This enables animation, styling, binding, etc...
+		public static readonly DependencyProperty NumberVisibilityProperty =
+			DependencyProperty.Register("NumberVisibility", typeof(Visibility), typeof(RD_Strip), new PropertyMetadata(Visibility.Hidden));
+
+
+
 		public IEnumerable Cells
 		{
 			get { return (IEnumerable)GetValue(CellsProperty); }
@@ -37,25 +49,24 @@ namespace RDSCL
 		public static readonly DependencyProperty CellsProperty =
 			DependencyProperty.Register(nameof(Cells), typeof(IEnumerable), typeof(RD_Strip), new PropertyMetadata(null));
 
-		public StripState CurrentState
+		public bool? CurrentState
 		{
-			get { return (StripState)GetValue(CurrentStateProperty); }
+			get { return (bool)GetValue(CurrentStateProperty); }
 			set { SetValue(CurrentStateProperty, value); }
 		}
 		public static readonly DependencyProperty CurrentStateProperty =
-			DependencyProperty.Register(nameof(CurrentState), typeof(StripState), typeof(RD_Strip), new PropertyMetadata(StripState.Leaving, new PropertyChangedCallback(Callback_CurrentState)));
+			DependencyProperty.Register(nameof(CurrentState), typeof(bool?), typeof(RD_Strip), new PropertyMetadata(null, new PropertyChangedCallback(Callback_CurrentState)));
 
 		private static void Callback_CurrentState(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			if (e.NewValue != null)
 			{
 				var strip = d as RD_Strip;
-				var currentState = (StripState)e.NewValue;
+				var currentState = (bool)e.NewValue;
 				switch (currentState)
 				{
-					case StripState.Existence: { strip.Visibility = Visibility.Visible; strip.Opacity = 1.0; break; }
-					case StripState.Inexistence: { strip.Visibility = Visibility.Hidden; break; }
-					case StripState.Leaving: { strip.Visibility = Visibility.Visible; strip.Opacity = 0.4; break; }
+					case true: { strip.Visibility = Visibility.Visible; strip.Opacity = 1.0; strip.NumberVisibility = Visibility.Visible; break; }
+					case false: { strip.Visibility = Visibility.Visible; strip.Opacity = 0.4; strip.NumberVisibility = Visibility.Hidden; break; }
 					default: { break; }
 				}
 			}

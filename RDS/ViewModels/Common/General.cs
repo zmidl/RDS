@@ -39,9 +39,14 @@ namespace RDS.ViewModels.Common
 			General.mainWindow.Resources.MergedDictionaries.Add(resourceDictionary);
 		}
 
-		public static string FindResource(string resourceKey)
+		public static string FindStringResource(string resourceKey)
 		{
 			return General.mainWindow.FindResource(resourceKey).ToString();
+		}
+
+		public static ResourceDictionary FindResource(string resourceKey)
+		{
+			return General.mainWindow.FindResource(resourceKey) as ResourceDictionary;
 		}
 
 		public static void ExitPopupWindow()
@@ -93,7 +98,8 @@ namespace RDS.ViewModels.Common
 
 		public static string ReadConfiguration(string configurationKey)
 		{
-			return ConfigurationManager.AppSettings[configurationKey].ToString();
+			var a= ConfigurationManager.AppSettings[configurationKey].ToString();
+			return a;
 		}
 
 		public static bool WriteConfiguration(string configurationKey, string value)

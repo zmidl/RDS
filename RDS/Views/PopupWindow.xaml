@@ -132,7 +132,7 @@
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_CircleProgress" Height="1" Width="0">
-                        <rdscl:RD_CircleProgress Width="100" Height="100"/>
+                        <rdscl:RD_CircleProgress Width="80" Height="80"/>
                     </TabItem>
                     <TabItem x:Name="TabItem_Information" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >

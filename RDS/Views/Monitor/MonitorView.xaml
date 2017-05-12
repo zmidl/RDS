@@ -20,21 +20,24 @@
         <Style x:Key="TipStyle" TargetType="{x:Type Ellipse}">
             <Setter Property="Width" Value="5"/>
             <Setter Property="Height" Value="5"/>
-
             <Setter Property="Margin" Value="1.5,0,0,0"/>
         </Style>
 
+        <Storyboard x:Key="TwinkleAnimation">
+            <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:0.5" AutoReverse="True" />
+        </Storyboard>
+        
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="1900" Height="1000">
-            <TextBox Style="{StaticResource RD_TextBoxStyle2}" Focusable="False" Width="1700" Height="100" Canvas.Left="100" Canvas.Top="10"/>
-            <Rectangle  Width="1700" Height="800" Canvas.Left="100" Canvas.Bottom="80"  RadiusX="20" RadiusY="20" Fill="Black">
+            <TextBox Style="{StaticResource RD_TextBoxStyle2}" Focusable="False" Width="1750" Height="100" Canvas.Left="70" Canvas.Top="10"/>
+            <Rectangle  Width="1750" Height="800" Canvas.Left="70" Canvas.Bottom="80"  RadiusX="20" RadiusY="20" Fill="Black">
                 <Rectangle.Effect>
                     <DropShadowEffect BlurRadius="20" ShadowDepth="20"/>
                 </Rectangle.Effect>
             </Rectangle>
-            <Canvas Width="1700" Height="800" Canvas.Left="100" Canvas.Bottom="80" Background="{StaticResource WorkDeskBackgroundImage}" >
-                <Rectangle Width="1700" Height="800" RadiusX="20" RadiusY="20" >
+            <Canvas Width="1750" Height="800" Canvas.Left="70" Canvas.Bottom="80" Background="{StaticResource WorkDeskBackgroundImage}" >
+                <Rectangle Width="1750" Height="800" RadiusX="20" RadiusY="20" >
                     <Rectangle.Fill>
                         <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
                             <GradientStop Color="#4C000000" Offset="1"/>
@@ -46,7 +49,7 @@
                 <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[1].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[1].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="250" Canvas.Top="30" />
                 <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[2].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[2].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="300" Canvas.Top="30" />
                 <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[3].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[3].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="350" Canvas.Top="30" />
-
+                <Rectangle x:Name="Rectangle_Prompt" Effect="{StaticResource ContentEffect}" StrokeThickness="5" StrokeDashArray="3" Stroke="{StaticResource TextForeground}" RadiusY="10" RadiusX="10" Canvas.Left="190" Canvas.Top="23" Width="216" Height="736" />
 
                 <Canvas Canvas.Left="430" Canvas.Top="40" Width="230" Height="710">
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
@@ -55,7 +58,7 @@
                     <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220"  Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
-                    <rdsc:RD_CupRack x:Name="CupRack"  ItemsSource="{Binding CupRacks[0].Strips}" Width="220"  Canvas.Left="5"  Canvas.Top="490" Foreground="{x:Null}"/>
+                    <rdsc:RD_CupRack x:Name="CupRack" Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding CupRacks[0].Strips}" Width="220"  Canvas.Left="5"  Canvas.Top="490" Foreground="{x:Null}"/>
 
                 </Canvas>
 
@@ -63,47 +66,47 @@
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
-                    <rdsc:RD_CupRack  ItemsSource="{Binding CupRacks[1].Strips}" Width="220"  Canvas.Left="5" Canvas.Top="490"/>
+                    <rdsc:RD_CupRack Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding CupRacks[1].Strips}" Width="220"  Canvas.Left="5" Canvas.Top="490"/>
                 </Canvas>
 
                 <Canvas Canvas.Left="910" Canvas.Top="40" Width="230" Height="710">
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
                     <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
                     <rdsc:TipRack_1000uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
-                    <rdsc:RD_CupRack  ItemsSource="{Binding CupRacks[2].Strips}" Width="220" Canvas.Left="5"  Canvas.Top="490"/>
+                    <rdsc:RD_CupRack Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding CupRacks[2].Strips}" Width="220" Canvas.Left="5"  Canvas.Top="490"/>
                 </Canvas>
 
                 <rdsc:RD_ReagentRack Effect="{StaticResource ModuleEffect}"  DataSource="{Binding ReagentRack}" Width="120" Panel.ZIndex="3" Canvas.Top="10"  Canvas.Left="60" />
-                <rdsc:RD_Heating  DataSource="{Binding Heating}" Width="205"  Canvas.Top="512" Canvas.Left="1163" />
-                <rdsc:RD_ShakerRack  ItemsSource="{Binding ShakerRack.Strips}" Width="150"  Canvas.Left="1357" Canvas.Top="512"/>
-                <rdsc:RD_Mag Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding Mag.Strips}" Width="157" Canvas.Top="511" Canvas.Left="1500"/>
+                <rdsc:RD_Heating IsTwinkle="{Binding Heating.OlefinBox.IsTwinkle,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Effect="{StaticResource ReaderModuleEffect}" DataSource="{Binding Heating}" Width="205"  Canvas.Top="512" Canvas.Left="1163" />
+                <rdsc:RD_ShakerRack Effect="{StaticResource ReaderModuleEffect}" IsShake="{Binding ShakerRack.IsShark}"  DataSource="{Binding ShakerRack}" Width="150"  Canvas.Left="1380" Canvas.Top="512"/>
+                <rdsc:RD_Mag Effect="{StaticResource ReaderModuleEffect}" DataSource="{Binding Mag}" Width="157" Canvas.Top="511" Canvas.Left="1545"/>
 
-                <rdsc:RD_Reader  Effect="{StaticResource ReaderModuleEffect}"  DataSource="{Binding Reader}" Width="300" Canvas.Left="1320" Canvas.Top="180" />
+                <rdsc:RD_Reader  Effect="{StaticResource ReaderModuleEffect}"  DataSource="{Binding Reader}" Width="300" Canvas.Left="1330" Canvas.Top="160" />
                 <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
 
             </Canvas>
             
-            <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="150" Fill="{StaticResource TextForeground}" Data="{StaticResource Clock}"/>
-            <TextBlock Canvas.Left="220" Text="{Binding RemainingTime,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="410" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="120" Fill="{StaticResource TextForeground}" Data="{StaticResource Clock}"/>
+            <TextBlock Canvas.Left="180" Text="{Binding RemainingTime,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="360" Canvas.Top="25"/>
 
-            <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="440" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
-            <TextBlock Canvas.Left="490" Text="50%RH" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="660" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="32" Canvas.Top="38.332" Canvas.Left="390" Fill="{StaticResource TextForeground}" Data="{StaticResource Water}"/>
+            <TextBlock Canvas.Left="430" Text="50%RH" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="600" Canvas.Top="25"/>
 
-            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="700" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
-            <TextBlock Canvas.Left="770" Text="50℃（I）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="970" Canvas.Top="25" StrokeThickness="8"/>
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="630" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="690" Text="50℃_I" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" Y1="0" Y2="72" Canvas.Left="840" Canvas.Top="25" StrokeThickness="8"/>
 
-            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="1000" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
-            <TextBlock Canvas.Left="1070" Text="50℃（E）" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
-            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1270" Canvas.Top="25"/>
+            <Path Stretch="UniformToFill" Width="46" Canvas.Top="36.33" Canvas.Left="870" Fill="{StaticResource TextForeground}" Data="{StaticResource ExternalTemperature}"/>
+            <TextBlock Canvas.Left="930" Text="50℃_E" Foreground="{StaticResource TextForeground2}"    FontSize="40" TextWrapping="WrapWithOverflow"  Canvas.Top="34" />
+            <Line Style="{StaticResource LineStyle}" StrokeThickness="8" Y1="0" Y2="72" Canvas.Left="1080" Canvas.Top="25"/>
 
             <Path Stretch="UniformToFill" Width="50" Canvas.Top="36.33" Canvas.Left="1290"  Fill="{StaticResource TextForeground}" Data="{StaticResource Emergency}"/>
 

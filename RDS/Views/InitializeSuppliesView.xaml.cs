@@ -31,56 +31,51 @@ namespace RDS.Views
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
-			var result = (Tuple<string, object>)e;
-			if (result.Item1 == string.Empty)
+			var args = (ViewModels.InitializeSuppliesViewModel.InitializeSuppliesViewChangedArgs)e;
+			switch (args.Option)
 			{
-				
-				Monitor.MonitorView monitorView = new Monitor.MonitorView();
-				General.ShowCricleProgress();
+				case ViewModels.InitializeSuppliesViewModel.ViewChangedOption.EnterMonitorView:
+				{
+					Monitor.MonitorView monitorView = new Monitor.MonitorView();
+					General.ShowCricleProgress();
 
-				Task task2 = new Task(() =>
+					Task task2 = new Task(() =>
+					{
+						Thread.Sleep(500);
+						this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { this.Content = monitorView; General.HideCircleProgress(); }));
+					});
+					task2.Start();
+					break;
+				}
+				case ViewModels.InitializeSuppliesViewModel.ViewChangedOption.ChangeBeadSelectionState:
 				{
-					Thread.Sleep(500);
-					this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(() => { this.Content = monitorView; General.HideCircleProgress(); }));
-				});
-				//task2.ContinueWith(t =>
-				//{
-				//	this.Dispatcher.BeginInvoke(DispatcherPriority.Normal, new Action(()=>{  General.HideCircleProgress();}));
-				//});
-				task2.Start();
-			}
-			else
-			{
-				var state = (ViewModels.InitializeSuppliesViewModel.BeadPlace)result.Item2;
-				switch (state)
-				{
-					case ViewModels.InitializeSuppliesViewModel.BeadPlace.Neither:
+					var state = (ViewModels.InitializeSuppliesViewModel.BeadPlace)args.Value;
+					switch (state)
 					{
-						this.Rectangle_Bead.Visibility = Visibility.Hidden;
-						break;
+						case ViewModels.InitializeSuppliesViewModel.BeadPlace.Left:
+						{
+							this.Rectangle_Bead.Visibility = Visibility.Visible;
+							this.Rectangle_Bead.Width = 35;
+							Canvas.SetLeft(this.Rectangle_Bead, 8);
+							break;
+						}
+						case ViewModels.InitializeSuppliesViewModel.BeadPlace.Right:
+						{
+							this.Rectangle_Bead.Visibility = Visibility.Visible;
+							this.Rectangle_Bead.Width = 35;
+							Canvas.SetLeft(this.Rectangle_Bead, 33);
+							break;
+						}
+						case ViewModels.InitializeSuppliesViewModel.BeadPlace.Both:
+						{
+							this.Rectangle_Bead.Visibility = Visibility.Visible;
+							this.Rectangle_Bead.Width = 61;
+							Canvas.SetLeft(this.Rectangle_Bead, 8);
+							break;
+						}
+						default: break;
 					}
-					case ViewModels.InitializeSuppliesViewModel.BeadPlace.Left:
-					{
-						this.Rectangle_Bead.Visibility = Visibility.Visible;
-						this.Rectangle_Bead.Width = 35;
-						Canvas.SetLeft(this.Rectangle_Bead, 8);
-						break;
-					}
-					case ViewModels.InitializeSuppliesViewModel.BeadPlace.Right:
-					{
-						this.Rectangle_Bead.Visibility = Visibility.Visible;
-						this.Rectangle_Bead.Width = 35;
-						Canvas.SetLeft(this.Rectangle_Bead, 33);
-						break;
-					}
-					case ViewModels.InitializeSuppliesViewModel.BeadPlace.Both:
-					{
-						this.Rectangle_Bead.Visibility = Visibility.Visible;
-						this.Rectangle_Bead.Width = 61;
-						Canvas.SetLeft(this.Rectangle_Bead, 8);
-						break;
-					}
-					default: break;
+					break;
 				}
 			}
 		}

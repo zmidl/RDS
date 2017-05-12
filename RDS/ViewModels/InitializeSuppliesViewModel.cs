@@ -1,7 +1,5 @@
 ﻿using RDS.ViewModels.Common;
 using System;
-using System.Collections.Generic;
-using System.Windows.Media;
 
 namespace RDS.ViewModels
 {
@@ -12,79 +10,92 @@ namespace RDS.ViewModels
 		private string[] noReagentMessages = new string[4]
 		{
 			string.Empty,
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message7_1),
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message8_1),
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message9_1)
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message7_1),
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message8_1),
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message9_1)
 		};
 
 		private string[] reagentMessages = new string[4]
 		{
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message6),
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message7),
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message8),
-			General.FindResource(Properties.Resources.InitializeSuppliesView_Message9)
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message6),
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message7),
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message8),
+			General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message9)
 		};
 
 		public enum BeadPlace
 		{
-			Neither = 0,
+			Both = 0,
 			Left = 1,
-			Right = 2,
-			Both = 3
+			Right = 2
 		}
 
 		private BeadPlace beadPlace = BeadPlace.Both;
 
+		public enum ViewChangedOption
+		{
+			ChangeBeadSelectionState = 0,
+			EnterMonitorView = 1
+		}
+
+		public class InitializeSuppliesViewChangedArgs : EventArgs
+		{
+			public ViewChangedOption Option { get; set; }
+			public object Value { get; set; }
+
+			public InitializeSuppliesViewChangedArgs(ViewChangedOption option, object value)
+			{
+				this.Option = option;
+				this.Value = value;
+			}
+		}
+
 		public bool IsLeftSelected
 		{
-			get { return this.GetLeftBeadSelectionState(); }
+			get { return this.beadPlace == BeadPlace.Left ? true : false; }
 			set
 			{
 				if (value)
 				{
-					if (this.IsRightSelected) this.beadPlace = BeadPlace.Both;
-					else this.beadPlace = BeadPlace.Left;
-				}
-				else
-				{
-					if (this.IsRightSelected) this.beadPlace = BeadPlace.Right;
-					else this.beadPlace = BeadPlace.Neither;
+					this.beadPlace = BeadPlace.Left;
+					this.IsRightSelected = false;
+					this.IsBothSelected = false;
+					this.OnViewChanged(new InitializeSuppliesViewChangedArgs(ViewChangedOption.ChangeBeadSelectionState,this.beadPlace));
 				}
 				this.RaisePropertyChanged(nameof(IsLeftSelected));
-				this.OnViewChanged(new Tuple<string, object>("BeadSelectionState", this.beadPlace));
 			}
 		}
 
 		public bool IsRightSelected
 		{
-			get { return this.GetRightBeadSelectionState(); }
+			get { return this.beadPlace == BeadPlace.Right ? true : false; }
 			set
 			{
 				if (value)
 				{
-					if (this.IsLeftSelected) this.beadPlace = BeadPlace.Both;
-					else this.beadPlace = BeadPlace.Right;
-				}
-				else
-				{
-					if (this.IsLeftSelected) this.beadPlace = BeadPlace.Left;
-					else this.beadPlace = BeadPlace.Neither;
+					this.beadPlace = BeadPlace.Right;
+					this.IsLeftSelected = false;
+					this.IsBothSelected = false;
+					this.OnViewChanged(new InitializeSuppliesViewChangedArgs(ViewChangedOption.ChangeBeadSelectionState, this.beadPlace));
 				}
 				this.RaisePropertyChanged(nameof(IsRightSelected));
-				this.OnViewChanged(new Tuple<string, object>("BeadSelectionState", this.beadPlace));
 			}
 		}
 
-		private bool GetLeftBeadSelectionState()
+		public bool IsBothSelected
 		{
-			if (this.beadPlace == BeadPlace.Left || this.beadPlace == BeadPlace.Both) return true;
-			else return false;
-		}
-
-		private bool GetRightBeadSelectionState()
-		{
-			if (this.beadPlace == BeadPlace.Right || this.beadPlace == BeadPlace.Both) return true;
-			else return false;
+			get { return this.beadPlace == BeadPlace.Both ? true : false; }
+			set
+			{
+				if (value)
+				{
+					this.beadPlace = BeadPlace.Both;
+					this.IsLeftSelected = false;
+					this.IsRightSelected = false;
+					this.OnViewChanged(new InitializeSuppliesViewChangedArgs(ViewChangedOption.ChangeBeadSelectionState, this.beadPlace));
+				}
+				this.RaisePropertyChanged(nameof(IsBothSelected));
+			}
 		}
 
 		private readonly int WizardSize = 13;
@@ -127,7 +138,7 @@ namespace RDS.ViewModels
 			this.TurnPreviousView = new RelayCommand(() => { this.WizardIndex--; this.RaiseWizards(); });
 			this.RaiseWizards();
 
-			this.Messages[0] = string.Format(General.FindResource(Properties.Resources.InitializeSuppliesView_Message6), General.UsedReagents[0]);
+			this.Messages[0] = string.Format(General.FindStringResource(Properties.Resources.InitializeSuppliesView_Message6), General.UsedReagents[0]);
 			for (int i = 0; i < 4; i++)
 			{
 				if (i > General.UsedReagents.Count - 1) this.Messages[i] = this.noReagentMessages[i];
@@ -137,7 +148,7 @@ namespace RDS.ViewModels
 
 		private void ExecuteTurnNextView()
 		{
-			if (this.WizardIndex++ == this.WizardSize) { this.OnViewChanged(new Tuple<string, object>(string.Empty, null)); };
+			if (this.WizardIndex++ == this.WizardSize) { this.OnViewChanged(new InitializeSuppliesViewChangedArgs(ViewChangedOption.EnterMonitorView, null)); };
 			this.RaiseWizards();
 		}
 

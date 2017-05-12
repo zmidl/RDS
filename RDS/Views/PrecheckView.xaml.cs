@@ -23,7 +23,7 @@ namespace RDS.Views
     public partial class PrecheckView : UserControl,IExitView
     {
 
-		private int testCount = 3;
+		private int testCount = 1;
 
         Action IExitView.ExitView { get; set; }
 
@@ -45,7 +45,7 @@ namespace RDS.Views
             {
                 for (int i = 0; i < 50; i++)
                 {
-                    Thread.Sleep(50);
+                    Thread.Sleep(10);
                     this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.ProgressBar_CheckTemperature.Value += 2; }));
                 }
             }).ContinueWith(task =>
@@ -55,7 +55,7 @@ namespace RDS.Views
                 this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
 				{
 					this.CheckBox_First.IsChecked=result;
-					if(result==false) General.ShowMessageWithRetryCancel(General.FindResource(Properties.Resources.PopupWindow_CheckInstrumentErrorMessage),new Action(()=> this.InitializeInstrument()),new Action(()=> this.ExitView()));
+					if(result==false) General.ShowMessageWithRetryCancel(General.FindStringResource(Properties.Resources.PopupWindow_CheckInstrumentErrorMessage),new Action(()=> this.InitializeInstrument()),new Action(()=> this.ExitView()));
 				}));
             });
         }

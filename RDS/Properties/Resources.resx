@@ -117,8 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="A" xml:space="preserve">
+    <value>A</value>
+  </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
+  <data name="C" xml:space="preserve">
+    <value>C</value>
+  </data>
   <data name="Chinese" xml:space="preserve">
     <value>Chinese</value>
+  </data>
+  <data name="D" xml:space="preserve">
+    <value>D</value>
   </data>
   <data name="DatabaseConnectionString" xml:space="preserve">
     <value>DatabaseConnectionString</value>
@@ -171,6 +183,33 @@
   <data name="LisFilesPath" xml:space="preserve">
     <value>LisFilesPath</value>
   </data>
+  <data name="LisInfo_Age" xml:space="preserve">
+    <value>strAge</value>
+  </data>
+  <data name="LisInfo_Barcode" xml:space="preserve">
+    <value>strBarcode</value>
+  </data>
+  <data name="LisInfo_Birthday" xml:space="preserve">
+    <value>strBirthday</value>
+  </data>
+  <data name="LisInfo_DateTime" xml:space="preserve">
+    <value>strDateTime</value>
+  </data>
+  <data name="LisInfo_Item" xml:space="preserve">
+    <value>strItem</value>
+  </data>
+  <data name="LisInfo_Name" xml:space="preserve">
+    <value>strName</value>
+  </data>
+  <data name="LisInfo_SampleID" xml:space="preserve">
+    <value>strSampleID</value>
+  </data>
+  <data name="LisInfo_SampleType" xml:space="preserve">
+    <value>strSampleType</value>
+  </data>
+  <data name="LisInfo_Sex" xml:space="preserve">
+    <value>strSex</value>
+  </data>
   <data name="Password" xml:space="preserve">
     <value>Rds123</value>
   </data>
@@ -215,5 +254,8 @@
   </data>
   <data name="TimeOut" xml:space="preserve">
     <value>00:00:00</value>
+  </data>
+  <data name="TwinkleAnimation" xml:space="preserve">
+    <value>TwinkleAnimation</value>
   </data>
 </root>

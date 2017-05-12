@@ -116,6 +116,8 @@ namespace RDS.ViewModels
 
 		private Action ContinueAction;
 
+		private Action[] Actions;
+
 		public PopupWindowViewModel()
 		{
 			this.SaveConfigurationAndExitPopupWindowView = new RelayCommand(this.ExecuteSaveConfiguration);
@@ -176,6 +178,7 @@ namespace RDS.ViewModels
 		{
 			this.OnViewChanged(ViewChange.ExitView);
 			this.ReturnAction();
+			this.Actions[0]();
 		}
 
 		private void ExecuteRetry()
@@ -228,16 +231,21 @@ namespace RDS.ViewModels
 			}
 		}
 
+		public void PopupWindow(PopupType popupType)
+		{
+		
+		}
+
 		public void ShowMessage(string message)
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
 			this.PopupType = PopupType.ShowMessage;
 		}
 
 		public void ShowMessageWithRetryCancel(string message,Action retryAction,Action returnAction)
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
 			this.PopupType = PopupType.ShowMessageWithRetryCancel;
 			this.RetryAction = retryAction;
@@ -246,7 +254,7 @@ namespace RDS.ViewModels
 
 		public void ShowMessageWithFinishContinue(string message, Action finishAction, Action continueAction)
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
 			this.Message = message;
 			this.PopupType = PopupType.ShowMessageWithFinishContinue;
 			this.FinishAction = finishAction;
@@ -255,19 +263,19 @@ namespace RDS.ViewModels
 
 		public void ShowAdministratorsLogin()
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Administrators).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Administrators).ToString();
 			this.PopupType = PopupType.ShowAdministratorsLogin;
 		}
 
 		public void ShowInformation()
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Information).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Information).ToString();
 			this.PopupType = PopupType.ShowInformation;
 		}
 
 		public void ShowCricleProgress()
 		{
-			this.PopupTitle = General.FindResource(Properties.Resources.PopupWindow_Wait).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Wait).ToString();
 			this.PopupType = PopupType.ShowCircleProgress;
 		}
 	}

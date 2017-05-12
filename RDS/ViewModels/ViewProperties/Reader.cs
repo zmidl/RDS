@@ -30,13 +30,13 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<Strip> Strips { get; set; } = new ObservableCollection<Strip>();
 
-		public ObservableCollection<EnzymeBottle> EnzymeBottles { get; set; } = new ObservableCollection<EnzymeBottle>();
+		public ObservableCollection<Reagent> EnzymeBottles { get; set; } = new ObservableCollection<Reagent>();
 
 		public Reader()
 		{
-			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(Reader.NUMBER_OFSET + i, RDSCL.StripState.Existence));
+			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(Reader.NUMBER_OFSET + i, false));
 
-			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new EnzymeBottle(ReagentState.Empty));
+			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new Reagent(0,5));
 		}
 	}
 }

@@ -27,9 +27,10 @@
     <system:String x:Key="InitializeSuppliesView_Message3">Please place 300uL type TipRacks here</system:String>
     <system:String x:Key="InitializeSuppliesView_Message3_1">Please place 1000uL type TipRacks here</system:String>
     <system:String x:Key="InitializeSuppliesView_Message4">Please place CupRacks here</system:String>
-    <system:String x:Key="InitializeSuppliesView_Message5">Select the location of the bead place</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5">Please set bead place</system:String>
     <system:String x:Key="InitializeSuppliesView_Message5_1">Left</system:String>
     <system:String x:Key="InitializeSuppliesView_Message5_2">Right</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5_3">Both</system:String>
     <system:String x:Key="InitializeSuppliesView_Message6">please将{0}试剂放入各个项目第1组试剂槽内</system:String>
     <system:String x:Key="InitializeSuppliesView_Message7">please将{0}试剂放入各个项目第2组试剂槽内</system:String>
     <system:String x:Key="InitializeSuppliesView_Message7_1">各个项目第2组试剂槽内暂时无需放置试剂</system:String>
@@ -59,7 +60,8 @@
     <system:String x:Key="PopupWindow_Wait">Please wait...</system:String>
     <system:String x:Key="PopupWindow_SelectReagentMessage">PS:Select 1 to 4 items</system:String>
     <system:String x:Key="PopupWindow_CheckInstrumentErrorMessage">The instrument checking has not passed, please recheck the instrument carefully and then try again.</system:String>
-    <system:String x:Key="PopupWindow_TaskFinishedMessage">Current task is stopped，do you want finish your work。</system:String>
+    <system:String x:Key="PopupWindow_TaskFinishedMessage">Current task is stopped，do you want finish your work.</system:String>
+    <system:String x:Key="PopupWindow_TaskStartingMessage">Please confirm that sampling is successful.</system:String>
     <system:String x:Key="PopupWindow_SelectReagent">Select</system:String>
     <system:String x:Key="PopupWindow_ButtonRetry">Retry</system:String>
     <system:String x:Key="PopupWindow_ButtonReturn">Return</system:String>

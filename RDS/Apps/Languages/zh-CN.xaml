@@ -26,7 +26,7 @@
     <system:String x:Key="PrecheckView_CheckInstrument">仪器自检：</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBox">废物框检查：废物框是否已清空</system:String>
     <system:String x:Key="PrecheckView_CheckWasteBin">废液桶检查：废液桶是否已清空</system:String>
-    <system:String x:Key="PrecheckView_CheckLiquid">废液液检查：系统液是否充足</system:String>
+    <system:String x:Key="PrecheckView_CheckLiquid">系统液检查：系统液是否充足</system:String>
     <system:String x:Key="InitializeSuppliesView_Home">第一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Next">下一步</system:String>
     <system:String x:Key="InitializeSuppliesView_Message">请从冰箱里拿出试剂并解冻</system:String>
@@ -37,6 +37,7 @@
     <system:String x:Key="InitializeSuppliesView_Message5">请选择磁珠放置的位置</system:String>
     <system:String x:Key="InitializeSuppliesView_Message5_1">左边</system:String>
     <system:String x:Key="InitializeSuppliesView_Message5_2">右边</system:String>
+    <system:String x:Key="InitializeSuppliesView_Message5_3">两边</system:String>
     <system:String x:Key="InitializeSuppliesView_Message6">请将{0}试剂放入各个项目第1组试剂槽内</system:String>
     <system:String x:Key="InitializeSuppliesView_Message7">请将{0}试剂放入各个项目第2组试剂槽内</system:String>
     <system:String x:Key="InitializeSuppliesView_Message7_1">各个项目第2组试剂槽内暂时无需放置试剂</system:String>
@@ -68,14 +69,11 @@
     <system:String x:Key="PopupWindow_SelectReagentMessage">提示：请选择一至四项</system:String>
     <system:String x:Key="PopupWindow_CheckInstrumentErrorMessage">仪器自检未通过，请仔细检查仪器后重试。</system:String>
     <system:String x:Key="PopupWindow_TaskFinishedMessage">当前任务已停止，是否结束实验工作。</system:String>
+    <system:String x:Key="PopupWindow_TaskStartingMessage">请确认上样成功后才能启动任务。</system:String>
     <system:String x:Key="PopupWindow_SelectReagent">选择</system:String>
     <system:String x:Key="PopupWindow_ButtonRetry">重试</system:String>
     <system:String x:Key="PopupWindow_ButtonReturn">返回</system:String>
-   
-    
     <system:String x:Key="App_Ok">确认</system:String>
     <system:String x:Key="App_Cancel">取消</system:String>
-
-    
     <system:String x:Key="MonitorView_CorporateName">上海仁度生物科技</system:String>
 </ResourceDictionary>

@@ -61,11 +61,47 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 A 的本地化字符串。
+        /// </summary>
+        internal static string A {
+            get {
+                return ResourceManager.GetString("A", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 B 的本地化字符串。
+        /// </summary>
+        internal static string B {
+            get {
+                return ResourceManager.GetString("B", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 C 的本地化字符串。
+        /// </summary>
+        internal static string C {
+            get {
+                return ResourceManager.GetString("C", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Chinese 的本地化字符串。
         /// </summary>
         internal static string Chinese {
             get {
                 return ResourceManager.GetString("Chinese", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 D 的本地化字符串。
+        /// </summary>
+        internal static string D {
+            get {
+                return ResourceManager.GetString("D", resourceCulture);
             }
         }
         
@@ -223,6 +259,87 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 strAge 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Age {
+            get {
+                return ResourceManager.GetString("LisInfo_Age", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strBarcode 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Barcode {
+            get {
+                return ResourceManager.GetString("LisInfo_Barcode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strBirthday 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Birthday {
+            get {
+                return ResourceManager.GetString("LisInfo_Birthday", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strDateTime 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_DateTime {
+            get {
+                return ResourceManager.GetString("LisInfo_DateTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strItem 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Item {
+            get {
+                return ResourceManager.GetString("LisInfo_Item", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strName 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Name {
+            get {
+                return ResourceManager.GetString("LisInfo_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strSampleID 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_SampleID {
+            get {
+                return ResourceManager.GetString("LisInfo_SampleID", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strSampleType 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_SampleType {
+            get {
+                return ResourceManager.GetString("LisInfo_SampleType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 strSex 的本地化字符串。
+        /// </summary>
+        internal static string LisInfo_Sex {
+            get {
+                return ResourceManager.GetString("LisInfo_Sex", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Rds123 的本地化字符串。
         /// </summary>
         internal static string Password {
@@ -354,6 +471,15 @@ namespace RDS.Properties {
         internal static string TimeOut {
             get {
                 return ResourceManager.GetString("TimeOut", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 TwinkleAnimation 的本地化字符串。
+        /// </summary>
+        internal static string TwinkleAnimation {
+            get {
+                return ResourceManager.GetString("TwinkleAnimation", resourceCulture);
             }
         }
     }

@@ -5,79 +5,38 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Reagent : ViewModel
 	{
+		private int alarmVolume = 0;
+
 		private int volume = 0;
 		public int Volume
 		{
 			get { return volume; }
 			set
 			{
-				volume = value;
-				this.RaisePropertyChanged(nameof(Volume));
-			}
-		}
-
-		private ReagentState state;
-		public ReagentState State
-		{
-			get { return state; }
-			set
-			{
-				state = value;
-				this.RaisePropertyChanged(nameof(State));
-
-				switch (value)
+				if (value >= 0 && value <= 100)
 				{
-					case ReagentState.Empty: { this.Color = new SolidColorBrush(Colors.Gray); break; }
-					case ReagentState.Few: { this.Color = new SolidColorBrush(Colors.Yellow); break; }
-					case ReagentState.Normal: { this.Color = new SolidColorBrush(Colors.Brown); break; }
-					case ReagentState.Full: { this.Color = new SolidColorBrush(Colors.Green); break; }
-					default: break;
+					volume = value;
+					this.RaisePropertyChanged(nameof(Volume));
+					if (value <= this.alarmVolume && value > 0) this.IsTwinkle = true;
+					else this.IsTwinkle = false;
+
+					if (value > 0) this.Color = new SolidColorBrush(Colors.White);
+					else this.Color = new SolidColorBrush(Colors.Gray);
+
+					this.RaisePropertyChanged(nameof(this.IsTwinkle));
+					this.RaisePropertyChanged(nameof(this.Color));
 				}
-				this.RaisePropertyChanged(nameof(this.Color));
 			}
 		}
+
+		public bool IsTwinkle { get; set; }
 
 		public SolidColorBrush Color { get; set; }
 
-		public Reagent(ReagentState reagentBoxState)
+		public Reagent(int volume = 0, int alarmVolume = 0)
 		{
-			this.State = reagentBoxState;
+			this.Volume = volume;
+			this.alarmVolume = alarmVolume;
 		}
 	}
-
-	public class ReagentBox : Reagent
-	{
-		public ReagentBox(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class MBBottle : Reagent
-	{
-		public MBBottle(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class AMPBottle : Reagent
-	{
-		public AMPBottle(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class PNBottle : Reagent
-	{
-		public PNBottle(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class ISBottle : Reagent
-	{
-		public ISBottle(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class OlefinBox : Reagent
-	{
-		public OlefinBox(ReagentState reagentState) : base(reagentState) { }
-	}
-
-	public class EnzymeBottle : Reagent
-	{
-		public EnzymeBottle(ReagentState reagentState) : base(reagentState) { }
-	}
-
 }

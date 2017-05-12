@@ -1,18 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Animation;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace RDSCL
 {
@@ -63,21 +52,40 @@ namespace RDSCL
 
 		private static void Callback_IsTwinkle(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
+			//var rD_Hole = (RD_Hole)d;
+
+			//if (rD_Hole.storyboard == null) rD_Hole.storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
+
+			//var twinkleModule = (Canvas)rD_Hole.Template.FindName(Properties.Resources.ReagentContent, rD_Hole);
+
+			//if ((bool)e.NewValue == true)
+			//{
+			//	rD_Hole.storyboard.RepeatBehavior = new RepeatBehavior(1);
+
+			//	rD_Hole.storyboard.Completed += (sender, eventArgs) =>
+			//	{
+			//		if (rD_Hole.IsTwinkle) rD_Hole.storyboard.Begin(twinkleModule);
+			//	};
+			//	rD_Hole.storyboard.Begin(twinkleModule);
+			//}
+
+
+			
 			var rD_Hole = (RD_Hole)d;
 
-			if (rD_Hole.storyboard == null) rD_Hole.storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
+			var storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
 
-			var twinkleModule = (FrameworkElement)rD_Hole;
+			var twinkleModule = (Canvas)rD_Hole.Template.FindName(Properties.Resources.ReagentContent, rD_Hole);
 
 			if ((bool)e.NewValue == true)
 			{
-				rD_Hole.storyboard.RepeatBehavior = new RepeatBehavior(1);
+				storyboard.RepeatBehavior = new RepeatBehavior(1);
 
-				rD_Hole.storyboard.Completed += (sender, eventArgs) =>
+				storyboard.Completed += (sender, eventArgs) =>
 				{
-					if (rD_Hole.IsTwinkle) rD_Hole.storyboard.Begin(twinkleModule);
+					if (rD_Hole.IsTwinkle) storyboard.Begin(twinkleModule);
 				};
-				rD_Hole.storyboard.Begin(twinkleModule);
+				storyboard.Begin(twinkleModule);
 			}
 		}
 

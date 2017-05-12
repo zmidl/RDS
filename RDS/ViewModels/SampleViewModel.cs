@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿
+using System.Collections.ObjectModel;
 using RDS.Models;
 using RDS.ViewModels.Common;
 using RDS.ViewModels.ViewProperties;
@@ -7,12 +8,16 @@ using System;
 using System.Linq;
 using System.Configuration;
 using System.IO;
+using System.Text;
 
 namespace RDS.ViewModels
 {
+
 	public class SampleViewModel : ViewModel
 	{
 		public SampleRackIndex CurrentSampleRackIndex { get; set; } = 0;
+
+		private readonly string[] columnNames = new string[4] { Properties.Resources.A, Properties.Resources.B, Properties.Resources.C, Properties.Resources.D };
 
 		private DataTable lisInformationTable;
 
@@ -40,7 +45,7 @@ namespace RDS.ViewModels
 
 		private void ExecuteSettingMultipleEmergency()
 		{
-			if(this.CurrentSampleInformations!=null && this.CurrentSampleInformations.Count>0)
+			if (this.CurrentSampleInformations != null && this.CurrentSampleInformations.Count > 0)
 			{
 				var targetValue = false;
 				if (this.CurrentSampleInformations.Where(o => o.IsEmergency == true).Count() == 0) targetValue = true;
@@ -50,24 +55,13 @@ namespace RDS.ViewModels
 
 		private string GetHoleNameByNumber(int number)
 		{
-			var result = string.Empty;
+			var result = new StringBuilder();
 			var quotient = number / 20;
 			var remainder = number % 20;
-
-			if (remainder == 0)
-			{
-				remainder = 20;
-				quotient -= 1;
-			}
-			switch (quotient)
-			{
-				case 0: { result = $"A{remainder}"; break; }
-				case 1: { result = $"B{remainder}"; break; }
-				case 2: { result = $"C{remainder}"; break; }
-				case 3: { result = $"D{remainder}"; break; }
-				default: break;
-			}
-			return result;
+			if (remainder == 0) { remainder = 20; quotient -= 1; }
+			result.Append(columnNames[quotient]);
+			result.Append(remainder);
+			return result.ToString();
 		}
 
 		public void DatatableToEntity(SampleRackIndex sampleColumn)
@@ -79,16 +73,16 @@ namespace RDS.ViewModels
 				{
 					var sampleInformation = new SampleInformation()
 					{
-						Age = this.lisInformationTable.Rows[i]["strAge"].ToString(),
-						Barcode = this.lisInformationTable.Rows[i]["strBarcode"].ToString(),
-						Birthday = this.lisInformationTable.Rows[i]["strBirthday"].ToString(),
-						DateTime = this.lisInformationTable.Rows[i]["strDateTime"].ToString(),
+						Age = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Age].ToString(),
+						Barcode = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Barcode].ToString(),
+						Birthday = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Birthday].ToString(),
+						DateTime = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_DateTime].ToString(),
 						HoleName = this.GetHoleNameByNumber(i + 1 + (20 * (int)sampleColumn)),
-						Name = this.lisInformationTable.Rows[i]["strName"].ToString(),
-						Reagent = this.lisInformationTable.Rows[i]["strItem"].ToString(),
-						SampleId = this.lisInformationTable.Rows[i]["strSampleID"].ToString(),
-						Sex = this.lisInformationTable.Rows[i]["strSex"].ToString(),
-						Type = this.lisInformationTable.Rows[i]["strSampleType"].ToString(),
+						Name = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Name].ToString(),
+						Reagent = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Item].ToString(),
+						SampleId = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_SampleID].ToString(),
+						Sex = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_Sex].ToString(),
+						Type = this.lisInformationTable.Rows[i][Properties.Resources.LisInfo_SampleType].ToString(),
 						IsEmergency = i % 2 == 0 ? true : false
 					};
 					sampleInformationsColumns.Add(sampleInformation);
@@ -140,16 +134,27 @@ namespace RDS.ViewModels
 			}
 		}
 
+		private string FileName = string.Empty;
+
 		public void GetLisTableFromFile()
 		{
 			try
 			{
+				string dateTime = string.Empty;
+
+#if DEBUG
+				dateTime = "20170504";
+#else
+				dateTime=DateTime.Now.ToString(Properties.Resources.LisFileNameFormat);
+#endif
 				var lisFilesPath = string.Format
 				(
 					ConfigurationManager.AppSettings[Properties.Resources.LisFilesPath].ToString(),
-					/*Directory.GetCurrentDirectory()*/Environment.CurrentDirectory,
-					DateTime.Now.ToString(Properties.Resources.LisFileNameFormat)
+					/*Directory.GetCurrentDirectory()*/
+					Environment.CurrentDirectory,
+					dateTime
 				);
+
 				if (File.Exists(lisFilesPath))
 				{
 					this.lisInformationTable = XmlOperation.ReadXmlFile(lisFilesPath).Tables[2];

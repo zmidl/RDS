@@ -16,8 +16,6 @@ namespace RDS.Views
         {
             InitializeComponent();
             this.PreviousContent = this.Content;
-
-
         }
 
         private void Button_NewExperiment_Click(object sender, RoutedEventArgs e)
@@ -27,7 +25,6 @@ namespace RDS.Views
 
         private void Button_Maintenance_Click(object sender, RoutedEventArgs e)
         {
-			
 			General.ExitView(this.PreviousContent, this, ((IExitView)new MaintenanceView()));
 		}
     }

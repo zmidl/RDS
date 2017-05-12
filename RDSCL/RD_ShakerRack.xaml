@@ -32,22 +32,21 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="UserControl">
                         <ControlTemplate.Resources>
-                            <!--<Storyboard x:Key="Shake">
-                                <ThicknessAnimationUsingKeyFrames BeginTime="00:00:00" Storyboard.TargetName="test" Storyboard.TargetProperty="(FrameworkElement.Margin)">
-                                    <SplineThicknessKeyFrame KeyTime="00:00:00.00" Value="0,0,0,0" />
-                                    <SplineThicknessKeyFrame KeyTime="00:00:00.01" Value="2,0,0,0" />
-                                    <SplineThicknessKeyFrame KeyTime="00:00:00.02" Value="4,0,0,0" />
-                                    <SplineThicknessKeyFrame KeyTime="00:00:00.04" Value="6,0,0,0" />
-                                    <SplineThicknessKeyFrame KeyTime="00:00:00.06" Value="8,0,0,0" />
-                                </ThicknessAnimationUsingKeyFrames>
-                            </Storyboard>-->
                         </ControlTemplate.Resources>
                         <Viewbox Stretch="Fill">
                             <Canvas Width="470" Height="780" >
+                                <Rectangle  Width="470" Height="780" RadiusX="20" RadiusY="20">
+                                    <Rectangle.Fill>
+                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                            <GradientStop Color="#4C999999" Offset="0"/>
+                                            <GradientStop Color="#4CE0E0E0" Offset="1"/>
+                                        </LinearGradientBrush>
+                                    </Rectangle.Fill>
+                                </Rectangle>
                                 <StackPanel x:Name="StackPanel_ShakerModule" Canvas.Left="70" Canvas.Top="50" Height="680" Width="330" Orientation="Horizontal">
-                                    <local:RD_Strip  Width="90" Number="{Binding ItemsSource[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding ItemsSource[0].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding ItemsSource[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}"/>
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding ItemsSource[1].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding ItemsSource[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Margin="30,0,0,0" />
-                                    <local:RD_Strip Width="90" Number="{Binding ItemsSource[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding ItemsSource[2].State, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding ItemsSource[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Margin="30,0,0,0" />
+                                    <local:RD_Strip  Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding DataSource.Strips[0].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}"/>
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding DataSource.Strips[1].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Margin="30,0,0,0" />
+                                    <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" CurrentState="{Binding DataSource.Strips[2].IsExist, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Cells="{Binding DataSource.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ShakerRack}}}" Margin="30,0,0,0" />
                                 </StackPanel>
                             </Canvas>
                         </Viewbox>

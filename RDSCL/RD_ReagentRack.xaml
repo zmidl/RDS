@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              xmlns:local="clr-namespace:RDSCL"
              xmlns:ed="http://schemas.microsoft.com/expression/2010/drawing"
-              xmlns:system="clr-namespace:System;assembly=mscorlib"
+             xmlns:system="clr-namespace:System;assembly=mscorlib"
              mc:Ignorable="d" 
              d:DesignHeight="550" d:DesignWidth="90">
     <UserControl.Resources>
@@ -47,8 +47,8 @@
                                 <local:RD_Hole x:Name="RD_MBBottle1" ContentColor="{Binding DataSource.MBBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
                                 <local:RD_Hole x:Name="RD_MBBottle2" ContentColor="{Binding DataSource.MBBottles[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="38" Canvas.Left="40" Canvas.Top="20"/>
 
-                                <local:RD_Hole x:Name="RD_AMPBottle1" ContentColor="{Binding DataSource.AMPBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
-                                <local:RD_Hole x:Name="RD_AMPBottle2" ContentColor="{Binding DataSource.AMPBottles[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle1" IsTwinkle="{Binding DataSource.AMPBottles[0].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ContentColor="{Binding DataSource.AMPBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="72"/>
+                                <local:RD_Hole x:Name="RD_AMPBottle2" IsTwinkle="{Binding DataSource.AMPBottles[1].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ContentColor="{Binding DataSource.AMPBottles[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="100"/>
                                 <local:RD_Hole x:Name="RD_AMPBottle3" ContentColor="{Binding DataSource.AMPBottles[2].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="128"/>
                                 <local:RD_Hole x:Name="RD_AMPBottle4" ContentColor="{Binding DataSource.AMPBottles[3].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="25" Canvas.Left="-4" Canvas.Top="156"/>
 
@@ -68,7 +68,7 @@
                                 <local:RD_Hole x:Name="RD_PNBottle7" ContentColor="{Binding DataSource.PNBottles[6].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="470"/>
                                 <local:RD_Hole x:Name="RD_PNBottle8" ContentColor="{Binding DataSource.PNBottles[7].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="20" Canvas.Left="-4" Canvas.Top="495"/>
 
-                                <local:RD_ReagentBox ContentColor="{Binding DataSource.ReagentBoxs[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="28" Height="112" Canvas.Left="27" Canvas.Top="64" />
+                                <local:RD_ReagentBox IsTwinkle="{Binding DataSource.ReagentBoxs[0].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}"  ContentColor="{Binding DataSource.ReagentBoxs[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="28" Height="112" Canvas.Left="27" Canvas.Top="64" />
                                 <local:RD_ReagentBox ContentColor="{Binding DataSource.ReagentBoxs[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="28" Height="112" Canvas.Left="57" Canvas.Top="64" />
 
                                 <local:RD_ReagentBox ContentColor="{Binding DataSource.ReagentBoxs[2].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="28" Height="112" Canvas.Left="27" Canvas.Top="180" />

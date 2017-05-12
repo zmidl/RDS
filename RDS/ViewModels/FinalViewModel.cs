@@ -34,7 +34,7 @@ namespace RDS.ViewModels
 			{
 				case 0:
 				{
-					General.ShowMessage(General.FindResource(Properties.Resources.FinalView_Message3));
+					General.ShowMessage(General.FindStringResource(Properties.Resources.FinalView_Message3));
 					this.WizardIndex++;
 					break;
 				}
