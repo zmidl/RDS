@@ -34,7 +34,7 @@ namespace RDS.ViewModels
 			{
 				case 0:
 				{
-					General.ShowMessage(General.FindStringResource(Properties.Resources.FinalView_Message3));
+					General.PopupWindow(PopupType.ShowMessage, General.FindStringResource(Properties.Resources.FinalView_Message3), null);
 					this.WizardIndex++;
 					break;
 				}

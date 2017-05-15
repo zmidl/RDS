@@ -53,9 +53,11 @@ namespace RDS.Views.Monitor
 				}
 				case MonitorViewModel.ViewChangedOption.TaskStop:
 				{
+					var actions = new Action[3];
+					actions[0] = new Action(() => { General.ExitView(this.Content, this, ((IExitView)new MaintenanceView())); });
 					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
 					{
-						General.ShowMessageWithFinishContinue(General.FindStringResource(Properties.Resources.PopupWindow_TaskFinishedMessage), new Action(() => { General.ExitView(this.Content, this, ((IExitView)new MaintenanceView())); }), new Action(() => {; }));
+						General.PopupWindow(PopupType.ShowMessageWithFinishContinue,General.FindStringResource(Properties.Resources.PopupWindow_TaskFinishedMessage),actions);
 					}));
 					break;
 				}
@@ -92,16 +94,18 @@ namespace RDS.Views.Monitor
 
 			if (e.Index == $"MixtureState1")
 			{
-				//string connectionString = string.Format
-				//	(
-				//		ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
-				//		System.IO.Directory.GetCurrentDirectory()
-				//	);
+				string connectionString = string.Format
+					(
+						ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
+						System.IO.Directory.GetCurrentDirectory()
+					);
 
-				//SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
-				//System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
-				//MessageBox.Show(dt.Rows[0][1].ToString());
-				this.ViewModel.SetSamplingResult(true);
+				SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
+				System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
+				MessageBox.Show(dt.Rows[0][1].ToString());
+
+
+				//this.ViewModel.SetSamplingResult(true);
 			}
 			else if (e.Index == $"MixtureState2")
 			{

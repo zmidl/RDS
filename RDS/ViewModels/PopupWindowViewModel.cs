@@ -11,11 +11,7 @@ namespace RDS.ViewModels
 {
 	public class PopupWindowViewModel : ViewModel
 	{
-		public enum ViewChange
-		{
-			ExitView = 0,
-			AddReagentInformation = 1
-		}
+	
 
 		private readonly char separator = '-';
 
@@ -86,56 +82,40 @@ namespace RDS.ViewModels
 			}
 		}
 
+		private readonly string[] popupWindowTitle;
+
 		public int PopupTypeIndex { get; set; }
-
-		public RelayCommand SaveConfigurationAndExitPopupWindowView { get; private set; }
-
-		public RelayCommand ExitPopupWindowView { get; private set; }
-
-		public RelayCommand ValidateAdministrators { get; private set; }
 
 		public RelayCommand RemoveReagentInformation { get; private set; }
 
 		public RelayCommand AddReagentInformation { get; private set; }
 
-		public RelayCommand Retry { get; private set; }
-
-		public RelayCommand Return { get; private set; }
-
-		public RelayCommand Finish { get; private set; }
-
-		public RelayCommand Continue { get; private set; }
-
-		public RelayCommand Cancel { get; private set; }
-
-		private Action RetryAction;
-
-		private Action ReturnAction;
-
-		private Action FinishAction;
-
-		private Action ContinueAction;
-
 		private Action[] Actions;
+
+		public RelayCommand Command { get; private set; }
 
 		public PopupWindowViewModel()
 		{
-			this.SaveConfigurationAndExitPopupWindowView = new RelayCommand(this.ExecuteSaveConfiguration);
-
-			this.ExitPopupWindowView = new RelayCommand(this.ExecuteExitPopupWindowView);
-			this.ValidateAdministrators = new RelayCommand(this.ExecuteValidateAdministrators);
+			this.Command = new RelayCommand(this.ExecuteCommand);
 
 			this.RemoveReagentInformation = new RelayCommand(this.ExecuteRemoveReagentInformation);
+
 			this.AddReagentInformation = new RelayCommand(this.ExecuteAddReagentInformation);
 
-			this.Retry = new RelayCommand(this.ExecuteRetry);
-			this.Return = new RelayCommand(this.ExecuteReturn);
-
-			this.Finish = new RelayCommand(this.ExecuteFinish);
-			this.Continue = new RelayCommand(this.ExecuteContinue);
-
 			this.InitializeReagentInformations();
+
 			this.InitializeLanguages();
+
+			this.popupWindowTitle = new string[7]
+			{
+				Properties.Resources.PopupWindow_Title_MessageBox,
+				Properties.Resources.PopupWindow_Title_Administrators,
+				Properties.Resources.PopupWindow_Title_Administrators,
+				Properties.Resources.PopupWindow_Title_Wait,
+				Properties.Resources.PopupWindow_Title_Information,
+				Properties.Resources.PopupWindow_Title_MessageBox,
+				Properties.Resources.PopupWindow_Title_MessageBox
+			};
 		}
 
 		private void InitializeReagentInformations()
@@ -163,45 +143,39 @@ namespace RDS.ViewModels
 		{
 		}
 
-		private void ExecuteSaveConfiguration()
+		public enum ViewChangedOption
 		{
-			this.SaveConfiguration();
-			this.OnViewChanged(ViewChange.ExitView);
+			ExitView = 0,
 		}
 
-		public void ExecuteExitPopupWindowView()
+		public class PopupWindowViewChangedArgs : EventArgs
 		{
-			this.OnViewChanged(ViewChange.ExitView);
+			public ViewChangedOption Option { get; set; }
+			public object Value { get; set; }
+
+			public PopupWindowViewChangedArgs(ViewChangedOption option, object value)
+			{
+				this.Option = option;
+				this.Value = value;
+			}
 		}
 
-		private void ExecuteReturn()
+		private void ExecuteCommand(object actionIndex)
 		{
-			this.OnViewChanged(ViewChange.ExitView);
-			this.ReturnAction();
-			this.Actions[0]();
+			if (this.PopupType != PopupType.ShowAdministratorsLogin) this.OnViewChanged(new PopupWindowViewChangedArgs(ViewChangedOption.ExitView, null));
+			int index = int.Parse(actionIndex.ToString());
+			if (this.Actions[index] == null) this.Actions[index] = new Action(() => {; });
+			this.Actions[index]();
 		}
 
-		private void ExecuteRetry()
+		public void ValidateAdministrators()
 		{
-			this.RetryAction();
-			this.OnViewChanged(ViewChange.ExitView);
-		}
-
-		private void ExecuteFinish()
-		{
-			this.FinishAction();
-			this.OnViewChanged(ViewChange.ExitView);
-		}
-
-		private void ExecuteContinue()
-		{
-			this.ContinueAction();
-			this.OnViewChanged(ViewChange.ExitView);
-		}
-
-		public void ExecuteValidateAdministrators()
-		{
-			if (this.Password == Properties.Resources.Password) this.PopupType = PopupType.ShowAdministratorsView;
+			if (this.Password == Properties.Resources.Password)
+			{
+				this.PopupType = PopupType.ShowAdministratorsView;
+				this.Actions = new Action[3];
+				this.Actions[0] = new Action(this.SaveConfiguration);
+			}
 		}
 
 		public void SaveConfiguration()
@@ -210,8 +184,6 @@ namespace RDS.ViewModels
 			General.WriteConfiguration(Properties.Resources.SelectedReanents, string.Join(this.separator.ToString(), this.UsedReagents.ToArray()));
 			General.WriteConfiguration(Properties.Resources.Language, this.SelectedLanguage);
 
-
-			
 			var languagePath = General.ReadConfiguration(this.SelectedLanguage);
 			var resourceDictionary = System.Windows.Application.LoadComponent(new Uri(languagePath, UriKind.Relative)) as System.Windows.ResourceDictionary;
 			General.ChangeLanguage(resourceDictionary);
@@ -231,53 +203,36 @@ namespace RDS.ViewModels
 			}
 		}
 
-		public void PopupWindow(PopupType popupType)
+		public void PopupWindow(PopupType popupType, string message, Action[] actions)
 		{
-		
-		}
-
-		public void ShowMessage(string message)
-		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
+			this.PopupType = popupType;
 			this.Message = message;
-			this.PopupType = PopupType.ShowMessage;
-		}
-
-		public void ShowMessageWithRetryCancel(string message,Action retryAction,Action returnAction)
-		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
-			this.Message = message;
-			this.PopupType = PopupType.ShowMessageWithRetryCancel;
-			this.RetryAction = retryAction;
-			this.ReturnAction = returnAction;
-		}
-
-		public void ShowMessageWithFinishContinue(string message, Action finishAction, Action continueAction)
-		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_MessageBox).ToString();
-			this.Message = message;
-			this.PopupType = PopupType.ShowMessageWithFinishContinue;
-			this.FinishAction = finishAction;
-			this.ContinueAction = continueAction;
+			this.Actions = actions;
+			this.PopupTitle = General.FindStringResource(this.popupWindowTitle[(int)popupType]);
+			if (popupType == PopupType.ShowAdministratorsLogin)
+			{
+				this.Actions = new Action[3];
+				this.Actions[0] = new Action(this.ValidateAdministrators);
+			}
 		}
 
 		public void ShowAdministratorsLogin()
 		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Administrators).ToString();
+			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Title_Administrators).ToString();
 			this.PopupType = PopupType.ShowAdministratorsLogin;
 		}
 
-		public void ShowInformation()
-		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Information).ToString();
-			this.PopupType = PopupType.ShowInformation;
-		}
+		//public void ShowInformation()
+		//{
+		//	this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Title_Information).ToString();
+		//	this.PopupType = PopupType.ShowInformation;
+		//}
 
-		public void ShowCricleProgress()
-		{
-			this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Wait).ToString();
-			this.PopupType = PopupType.ShowCircleProgress;
-		}
+		//public void ShowCricleProgress()
+		//{
+		//	this.PopupTitle = General.FindStringResource(Properties.Resources.PopupWindow_Title_Wait).ToString();
+		//	this.PopupType = PopupType.ShowCircleProgress;
+		//}
 	}
 
 	public enum PopupType

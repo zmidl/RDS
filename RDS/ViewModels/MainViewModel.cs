@@ -64,7 +64,7 @@ namespace RDS.ViewModels
 		public PopupWindowViewModel PopupWindowViewModel { get; set; } = new PopupWindowViewModel();
 
 		public RelayCommand ExitApp { get; private set; }
-		public RelayCommand ExitPopupWindow { get; private set; }
+	
 		public RelayCommand ShowAdministratorsLogin { get; private set; }
 		public RelayCommand ShowAdministratorsView { get; private set; }
 		public RelayCommand ShowMessageView { get; private set; }
@@ -72,9 +72,9 @@ namespace RDS.ViewModels
 		public RelayCommand ShowCricleProgress { get; private set; }
 		public MainViewModel()
 		{
-			this.ShowInformation = new RelayCommand(() => General.ShowInformation());
-			this.ShowAdministratorsLogin = new RelayCommand(()=>General.ShowAdministratorsLogin());
-			this.ExitPopupWindow = new RelayCommand(() => General.ExitPopupWindow());
+			this.ShowInformation = new RelayCommand(() => General.PopupWindow(PopupType.ShowInformation,General.FindStringResource(Properties.Resources.PopupWindow_Title_Information),null));
+			this.ShowAdministratorsLogin = new RelayCommand(()=>General.PopupWindow(PopupType.ShowAdministratorsLogin,string.Empty,null));
+		
 			this.ExitApp = new RelayCommand(this.ExecuteExitApp);
 			this.IsTask = true;
 		}

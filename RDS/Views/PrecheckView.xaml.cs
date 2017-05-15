@@ -1,29 +1,19 @@
-﻿ using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 using System.Threading;
 using RDS.ViewModels.Common;
 
 namespace RDS.Views
 {
-    /// <summary>
-    /// PrecheckView.xaml 的交互逻辑
-    /// </summary>
-    public partial class PrecheckView : UserControl,IExitView
+	/// <summary>
+	/// PrecheckView.xaml 的交互逻辑
+	/// </summary>
+	public partial class PrecheckView : UserControl,IExitView
     {
 
-		private int testCount = 1;
+		private int testCount = 3;
 
         Action IExitView.ExitView { get; set; }
 
@@ -55,7 +45,10 @@ namespace RDS.Views
                 this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() =>
 				{
 					this.CheckBox_First.IsChecked=result;
-					if(result==false) General.ShowMessageWithRetryCancel(General.FindStringResource(Properties.Resources.PopupWindow_CheckInstrumentErrorMessage),new Action(()=> this.InitializeInstrument()),new Action(()=> this.ExitView()));
+					var actions = new Action[3];
+					actions[0] = new Action(() => this.InitializeInstrument());
+					actions[1] = new Action(() => this.ExitView());
+					if (result==false) General.PopupWindow(ViewModels.PopupType.ShowMessageWithRetryCancel,General.FindStringResource(Properties.Resources.PopupWindow_CheckInstrumentErrorMessage),actions);
 				}));
             });
         }

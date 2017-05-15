@@ -37,7 +37,7 @@ namespace RDS.Views
 				case ViewModels.InitializeSuppliesViewModel.ViewChangedOption.EnterMonitorView:
 				{
 					Monitor.MonitorView monitorView = new Monitor.MonitorView();
-					General.ShowCricleProgress();
+					General.PopupWindow(ViewModels.PopupType.ShowCircleProgress, string.Empty, null);
 
 					Task task2 = new Task(() =>
 					{

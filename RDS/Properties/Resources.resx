@@ -213,23 +213,29 @@
   <data name="Password" xml:space="preserve">
     <value>Rds123</value>
   </data>
-  <data name="PopupWindow_Administrators" xml:space="preserve">
-    <value>PopupWindow_Administrators</value>
-  </data>
   <data name="PopupWindow_CheckInstrumentErrorMessage" xml:space="preserve">
     <value>PopupWindow_CheckInstrumentErrorMessage</value>
   </data>
-  <data name="PopupWindow_Information" xml:space="preserve">
-    <value>PopupWindow_Information</value>
+  <data name="PopupWindow_Message1" xml:space="preserve">
+    <value>PopupWindow_Message1</value>
   </data>
-  <data name="PopupWindow_MessageBox" xml:space="preserve">
-    <value>PopupWindow_MessageBox</value>
+  <data name="PopupWindow_Message2" xml:space="preserve">
+    <value>PopupWindow_Message2</value>
   </data>
   <data name="PopupWindow_TaskFinishedMessage" xml:space="preserve">
     <value>PopupWindow_TaskFinishedMessage</value>
   </data>
-  <data name="PopupWindow_Wait" xml:space="preserve">
-    <value>PopupWindow_Wait</value>
+  <data name="PopupWindow_Title_Administrators" xml:space="preserve">
+    <value>PopupWindow_Title_Administrators</value>
+  </data>
+  <data name="PopupWindow_Title_Information" xml:space="preserve">
+    <value>PopupWindow_Title_Information</value>
+  </data>
+  <data name="PopupWindow_Title_MessageBox" xml:space="preserve">
+    <value>PopupWindow_Title_MessageBox</value>
+  </data>
+  <data name="PopupWindow_Title_Wait" xml:space="preserve">
+    <value>PopupWindow_Title_Wait</value>
   </data>
   <data name="PrecheckView_CheckInstrument" xml:space="preserve">
     <value>PrecheckView_CheckInstrument</value>

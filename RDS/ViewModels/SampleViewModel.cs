@@ -164,7 +164,7 @@ namespace RDS.ViewModels
 			}
 			catch
 			{
-				General.ShowMessage("没有Lis信息");
+				General.PopupWindow(PopupType.ShowMessage,General.FindStringResource(Properties.Resources.PopupWindow_Message1),null);
 			}
 		}
 	}

@@ -49,46 +49,12 @@ namespace RDS.ViewModels.Common
 			return General.mainWindow.FindResource(resourceKey) as ResourceDictionary;
 		}
 
-		public static void ExitPopupWindow()
+		public static void PopupWindow(PopupType popupType, string message, Action[] actions)
 		{
-			General.popupWindow.ViewModel.ExecuteExitPopupWindowView();
-		}
-
-		public static void ShowMessage(string message)
-		{
-			General.popupWindow.ViewModel.ShowMessage(message);
-			General.popupWindow.ShowDialog();
-		}
-
-		public static void ShowMessageWithRetryCancel(string message, Action retryAction, Action returnAction)
-		{
-			General.popupWindow.ViewModel.ShowMessageWithRetryCancel(message, retryAction, returnAction);
-			General.popupWindow.ShowDialog();
-		}
-
-		public static void ShowMessageWithFinishContinue(string message, Action finishAction, Action continueAction)
-		{
-			General.popupWindow.ViewModel.ShowMessageWithFinishContinue(message, finishAction, continueAction);
-			General.popupWindow.ShowDialog();
-		}
-
-		public static void ShowAdministratorsLogin()
-		{
-			General.popupWindow.ViewModel.ShowAdministratorsLogin();
-			General.popupWindow.ShowDialog();
-		}
-
-		public static void ShowInformation()
-		{
-			General.popupWindow.ViewModel.ShowInformation();
-			General.popupWindow.ShowDialog();
-		}
-
-		public static void ShowCricleProgress()
-		{
-			General.popupWindow.ViewModel.ShowCricleProgress();
-
-			General.popupWindow.Show();
+			if (actions == null) actions = new Action[3];
+			General.popupWindow.ViewModel.PopupWindow(popupType, message, actions);
+			if (popupType == PopupType.ShowCircleProgress) General.popupWindow.Show();
+			else General.popupWindow.ShowDialog();
 		}
 
 		public static void HideCircleProgress()
@@ -98,7 +64,7 @@ namespace RDS.ViewModels.Common
 
 		public static string ReadConfiguration(string configurationKey)
 		{
-			var a= ConfigurationManager.AppSettings[configurationKey].ToString();
+			var a = ConfigurationManager.AppSettings[configurationKey].ToString();
 			return a;
 		}
 

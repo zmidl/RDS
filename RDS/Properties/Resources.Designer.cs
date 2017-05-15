@@ -349,15 +349,6 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 PopupWindow_Administrators 的本地化字符串。
-        /// </summary>
-        internal static string PopupWindow_Administrators {
-            get {
-                return ResourceManager.GetString("PopupWindow_Administrators", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 PopupWindow_CheckInstrumentErrorMessage 的本地化字符串。
         /// </summary>
         internal static string PopupWindow_CheckInstrumentErrorMessage {
@@ -367,20 +358,20 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 PopupWindow_Information 的本地化字符串。
+        ///   查找类似 PopupWindow_Message1 的本地化字符串。
         /// </summary>
-        internal static string PopupWindow_Information {
+        internal static string PopupWindow_Message1 {
             get {
-                return ResourceManager.GetString("PopupWindow_Information", resourceCulture);
+                return ResourceManager.GetString("PopupWindow_Message1", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   查找类似 PopupWindow_MessageBox 的本地化字符串。
+        ///   查找类似 PopupWindow_Message2 的本地化字符串。
         /// </summary>
-        internal static string PopupWindow_MessageBox {
+        internal static string PopupWindow_Message2 {
             get {
-                return ResourceManager.GetString("PopupWindow_MessageBox", resourceCulture);
+                return ResourceManager.GetString("PopupWindow_Message2", resourceCulture);
             }
         }
         
@@ -394,11 +385,38 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 PopupWindow_Wait 的本地化字符串。
+        ///   查找类似 PopupWindow_Title_Administrators 的本地化字符串。
         /// </summary>
-        internal static string PopupWindow_Wait {
+        internal static string PopupWindow_Title_Administrators {
             get {
-                return ResourceManager.GetString("PopupWindow_Wait", resourceCulture);
+                return ResourceManager.GetString("PopupWindow_Title_Administrators", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_Title_Information 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_Title_Information {
+            get {
+                return ResourceManager.GetString("PopupWindow_Title_Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_Title_MessageBox 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_Title_MessageBox {
+            get {
+                return ResourceManager.GetString("PopupWindow_Title_MessageBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 PopupWindow_Title_Wait 的本地化字符串。
+        /// </summary>
+        internal static string PopupWindow_Title_Wait {
+            get {
+                return ResourceManager.GetString("PopupWindow_Title_Wait", resourceCulture);
             }
         }
         

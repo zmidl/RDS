@@ -16,9 +16,8 @@
         <Record strBarcode="2009177455" strItem="CT,NG,UU" strSampleID="20141225CEH014" strName="高轶凡" strBirthday="19821006" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="32" />
         <Record strBarcode="2009170170" strItem="CT,NG" strSampleID="20141225CEH015" strName="罗亚琴" strBirthday="19780717" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="36" />
         <Record strBarcode="2009177997" strItem="CT,NG,UU" strSampleID="20141225CEH016" strName="梁玉柱" strBirthday="19680301" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="46" />
- <Record strBarcode="2009179845" strItem="CT,NG,UU" strSampleID="20141225CEH013" strName="梁超" strBirthday="19751128" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="39" />
+        <Record strBarcode="2009179845" strItem="CT,NG,UU" strSampleID="20141225CEH013" strName="梁超" strBirthday="19751128" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="39" />
         <Record strBarcode="2009177455" strItem="CT,NG,UU" strSampleID="20141225CEH014" strName="高轶凡" strBirthday="19821006" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="32" />
         <Record strBarcode="2009170170" strItem="CT,NG" strSampleID="20141225CEH015" strName="罗亚琴" strBirthday="19780717" strSex="女" strSampleType="尿液" strDateTime="20141225092145" strAge="36" />
-        <Record strBarcode="2009177997" strItem="CT,NG,UU" strSampleID="20141225CEH016" strName="梁玉柱" strBirthday="19680301" strSex="男" strSampleType="尿液" strDateTime="20141225092145" strAge="46" />
     </Records>
 </Barcode>

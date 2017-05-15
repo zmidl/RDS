@@ -1,7 +1,5 @@
 ﻿using RDS.ViewModels;
-using System;
 using System.Windows;
-using System.Windows.Input;
 using System.Windows.Media;
 
 namespace RDS.Views
@@ -16,7 +14,6 @@ namespace RDS.Views
 		public PopupWindow()
 		{
 			InitializeComponent();
-			
 		}
 
 		protected override void OnRender(DrawingContext drawingContext)
@@ -24,10 +21,10 @@ namespace RDS.Views
 			base.OnRender(drawingContext);
 			this.ViewModel.ViewChanged += (s, e) =>
 			{
-				switch ((PopupWindowViewModel.ViewChange)e)
+				switch (((PopupWindowViewModel.PopupWindowViewChangedArgs)e).Option)
 				{
-					case PopupWindowViewModel.ViewChange.ExitView: { this.Hide(); break; }
-					case PopupWindowViewModel.ViewChange.AddReagentInformation: { break; }
+					case PopupWindowViewModel.ViewChangedOption.ExitView: { this.Hide(); break; }
+					default: { break; }
 				}
 			};
 		}

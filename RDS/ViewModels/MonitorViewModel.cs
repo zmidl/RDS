@@ -83,7 +83,7 @@ namespace RDS.ViewModels
 						isStartTask = value;
 						this.RaisePropertyChanged(nameof(IsStartTask));
 					}
-					else General.ShowMessage("开始前请确保上样完成。");
+					else General.PopupWindow(PopupType.ShowMessage,General.FindStringResource(Properties.Resources.PopupWindow_Message2), null);
 				}
 
 				else
