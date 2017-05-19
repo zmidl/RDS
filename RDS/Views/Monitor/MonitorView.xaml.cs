@@ -65,7 +65,8 @@ namespace RDS.Views.Monitor
 				{
 					var storyboard = this.FindResource(Properties.Resources.TwinkleAnimation) as Storyboard;
 
-					var twinkleModule = (FrameworkElement)this.Rectangle_Prompt;
+					var twinkleModule = (FrameworkElement)this.Canvas_TwinkleModule;
+					//var twinkleModule2 = (FrameworkElement)this.Path_Hand;
 
 					if ((bool)args.Value == false)
 					{
@@ -73,9 +74,14 @@ namespace RDS.Views.Monitor
 
 						storyboard.Completed += (storyboardSender, eventArgs) =>
 						{
-							if (this.ViewModel.SamplingResult == false) storyboard.Begin(twinkleModule);
+							if (this.ViewModel.SamplingResult == false)
+							{
+								storyboard.Begin(twinkleModule);
+								//storyboard.Begin(twinkleModule2);
+							}
 						};
 						storyboard.Begin(twinkleModule);
+						//storyboard.Begin(twinkleModule2);
 					}
 					break;
 				}
@@ -88,9 +94,10 @@ namespace RDS.Views.Monitor
 
 		bool[] samples = new bool[4];
 
+		int v = 0;
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
 		{
-			var v = 0;
+			
 
 			if (e.Index == $"MixtureState1")
 			{
@@ -105,7 +112,7 @@ namespace RDS.Views.Monitor
 				MessageBox.Show(dt.Rows[0][1].ToString());
 
 
-				//this.ViewModel.SetSamplingResult(true);
+				this.ViewModel.SetSamplingResult(true);
 			}
 			else if (e.Index == $"MixtureState2")
 			{
@@ -113,97 +120,75 @@ namespace RDS.Views.Monitor
 			}
 			else if (e.Index == $"SampleState1")
 			{
-				this.ViewModel.Heating.Strips[1].IsExist = true;
-
-				this.ViewModel.Heating.OlefinBox.Volume = 10;
-
+				this.ViewModel.SetCupRackStripState(0, 0, true,1);
+				this.ViewModel.SetCupRackStripState(0, 2, true,3);
+				this.ViewModel.SetCupRackStripState(0, 4, true,5);
+				this.ViewModel.SetCupRackStripState(0, 6, true,7);
+				
+		
+				this.ViewModel.SetCupRackMixtureState(0, 0, 1, true);
+				this.ViewModel.SetCupRackMixtureState(0, 0, 3, true);
+				this.ViewModel.SetCupRackMixtureState(0, 0, 5, true);
 				this.ViewModel.ShakerRack.IsShark = true;
-				this.ViewModel.ShakerRack.Strips[0].IsExist = true;
+			
 
 				this.ViewModel.ReagentRack.AMPBottles[0].Volume = 0;
 				this.ViewModel.ReagentRack.AMPBottles[1].Volume = 3;
 
-				this.ViewModel.Reader.Strips[0].IsExist = true;
-				this.ViewModel.Reader.Strips[1].IsExist = true;
-				this.ViewModel.Reader.Strips[2].IsExist = true;
+				this.ViewModel.SetReaderEnzymeBottleVolume(3, 45);
 
-
-				this.ViewModel.SetReaderCellState(1, 2, true);
-				this.ViewModel.SetReaderEnzymeBottlesValue(3, 45);
-				//this.ShakerRack_1.IsShake = true;
-				this.ViewModel.SetTipState(0, 1, TipState.Exist);
-
-				this.ViewModel.SetTipState(1, 1, TipState.Exist);
+				this.ViewModel.SetTipState(0, 1, true);
+				this.ViewModel.SetTipState(1, 1, true);
 
 				this.ViewModel.SetReagentBoxVolume(0, 3);
 				this.ViewModel.SetReagentBoxVolume(1, 0);
-
-
-				this.ViewModel.CupRacks[0].Strips[0].Cells[0].IsLoaded = true;
-				this.ViewModel.CupRacks[0].Strips[0].Cells[1].IsLoaded = true;
-
-				this.ViewModel.CupRacks[0].Strips[0].IsExist = true;
-				this.ViewModel.Heating.Strips[0].IsExist = true;
-				this.ViewModel.Heating.Strips[0].Cells[0].IsLoaded = true;
-
-				this.ViewModel.SetShakerRackCellState(1, 2, true);
-
-				for (int i = 0; i < 2; i++)
-				{
-					this.ViewModel.CupRacks[2].Strips[i].IsExist = true;
-				}
 			}
 			else if (e.Index == $"SampleState2")
 			{
-				this.ViewModel.Heating.Strips[1].IsExist = false;
 				this.ViewModel.Heating.OlefinBox.Volume = 0;
 				this.ViewModel.ShakerRack.IsShark = false;
-				this.ViewModel.ShakerRack.Strips[0].IsExist = false;
+
 				this.ViewModel.ReagentRack.AMPBottles[0].Volume = 10;
 				this.ViewModel.ReagentRack.AMPBottles[1].Volume = 15;
 				this.ViewModel.SetReagentBoxVolume(0, 30);
 
+				this.ViewModel.SetTipState(0, 0,false);
 
-				this.ViewModel.SetTipState(0, 0, TipState.NoExist);
-
-
-				this.ViewModel.SetSampleTubeState(0, 0, SampleTubeState.Normal);
+				this.ViewModel.SetSampleState(0, 0, true);
 				this.ViewModel.CupRacks[0].Strips[0].Cells[0].IsLoaded = false;
-				this.ViewModel.CupRacks[0].Strips[0].IsExist = false;
-
-				this.ViewModel.Heating.Strips[0].IsExist = false;
-				this.ViewModel.Heating.Strips[0].Cells[0].IsLoaded = false;
+				this.ViewModel.CupRacks[0].Strips[0].IsLoaded = false;
 			}
 			else if (e.Index == $"SampleState3")
 			{
-				this.ViewModel.SetSampleTubeState(1, 1, SampleTubeState.Emergency);
+				this.ViewModel.SetSampleState(1, 1, false);
 			}
 			else if (e.Index == $"SampleState4")
 			{
-				this.ViewModel.SetSampleTubeState(2, 1, SampleTubeState.Sampling);
+				this.ViewModel.SetSampleState(2, 1, false);
 			}
 			else if (e.Index == $"Enzyme+")
 			{
 				v++;
-				this.ViewModel.Reader.EnzymeBottles[0].Volume += v;
+				this.ViewModel.SetOlefinBoxVolume(v);
+				this.ViewModel.SetHeatingTemperature(v);
+
+				this.ViewModel.SetReaderEnzymeBottleVolume(1, v + 1);
+				this.ViewModel.SetReaderTemperature(v);
 
 				this.ViewModel.ReagentRack.MBBottles[0].Volume += v;
 				this.ViewModel.ReagentRack.MBBottles[1].Volume += v * 2;
 
-				this.ViewModel.Reader.Temperature += v;
-				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
 
-				this.ViewModel.Heating.OlefinBox.Volume += v;
-				this.ViewModel.Heating.Temperature += v;
 			}
 			else if (e.Index == $"Enzyme-")
 			{
 				v--;
-				this.ViewModel.Reader.EnzymeBottles[0].Volume += v;
-				this.ViewModel.Reader.Temperature += v;
-				this.ViewModel.Heating.Temperature += v;
-				this.ViewModel.SetReaderEnzymeBottlesValue(0, v);
-				this.ViewModel.Heating.OlefinBox.Volume += v;
+				this.ViewModel.SetOlefinBoxVolume(v);
+				this.ViewModel.SetHeatingTemperature(v);
+
+				this.ViewModel.SetReaderEnzymeBottleVolume(1, v - 1);
+				this.ViewModel.SetReaderTemperature(v);
+
 			}
 			else if (e.Index == "Sample1")
 			{
@@ -225,9 +210,13 @@ namespace RDS.Views.Monitor
 				if (this.samples[2]) this.ViewModel.SetSampleRackState(2, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(2, SampleRackState.NotSample);
 				this.ViewModel.SampleViewModel.DatatableToEntity(SampleRackIndex.RackC);
+				this.ViewModel.CupRacks[0].IsTwinkle = true;
+				this.ViewModel.TipRacks[3].IsTwinkle = true;
 			}
 			else if (e.Index == "Sample4")
 			{
+				this.ViewModel.CupRacks[0].IsTwinkle = false;
+				this.ViewModel.TipRacks[3].IsTwinkle = false;
 				this.samples[3] = !this.samples[3];
 				if (this.samples[3]) this.ViewModel.SetSampleRackState(3, SampleRackState.AlreadySample);
 				else this.ViewModel.SetSampleRackState(3, SampleRackState.NotSample);
@@ -254,6 +243,11 @@ namespace RDS.Views.Monitor
 		private void MyCheckBox_Unchecked(object sender, RoutedEventArgs e)
 		{
 			this.ViewModel.StopRemainingTimer();
+		}
+
+		private void Button_Click(object sender, RoutedEventArgs e)
+		{
+			
 		}
 	}
 }

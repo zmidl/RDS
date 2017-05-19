@@ -118,3 +118,4 @@ C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.dll
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.pdb
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_SampleRack.g.cs
 C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RD_SampleRack.baml
+C:\zhaomin\sourcecode\RDS\RDSCL\obj\Debug\RDSCL.csprojResolveAssemblyReference.cache

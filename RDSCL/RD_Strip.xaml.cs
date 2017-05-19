@@ -27,19 +27,15 @@ namespace RDSCL
 			set { SetValue(NumberValueProperty, value); }
 		}
 		public static readonly DependencyProperty NumberValueProperty =
-			DependencyProperty.Register(nameof(Number), typeof(string), typeof(RD_Strip), new PropertyMetadata("0"));
+			DependencyProperty.Register(nameof(Number), typeof(string), typeof(RD_Strip), new PropertyMetadata(Properties.Resources.StringZero));
 
 		public Visibility NumberVisibility
 		{
 			get { return (Visibility)GetValue(NumberVisibilityProperty); }
 			set { SetValue(NumberVisibilityProperty, value); }
 		}
-
-		// Using a DependencyProperty as the backing store for NumberVisibility.  This enables animation, styling, binding, etc...
 		public static readonly DependencyProperty NumberVisibilityProperty =
-			DependencyProperty.Register("NumberVisibility", typeof(Visibility), typeof(RD_Strip), new PropertyMetadata(Visibility.Hidden));
-
-
+			DependencyProperty.Register(nameof(NumberVisibility), typeof(Visibility), typeof(RD_Strip), new PropertyMetadata(Visibility.Hidden));
 
 		public IEnumerable Cells
 		{

@@ -13,7 +13,7 @@ namespace RDS.ViewModels.Common
 
 		private static PopupWindow popupWindow;
 
-		public static List<string> UsedReagents { get { return General.popupWindow.ViewModel.UsedReagents; } }
+		public static List<string> UsedReagents { get { return General.popupWindow.ViewModel.UsedReagentItems; } }
 
 		public static void ShutDown()
 		{

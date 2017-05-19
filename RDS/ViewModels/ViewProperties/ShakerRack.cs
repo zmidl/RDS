@@ -5,8 +5,6 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class ShakerRack:ViewModel
 	{
-		private const int NUMBER_OFSET = 26;
-
 		public ObservableCollection<Strip> Strips { get; set; } = new ObservableCollection<Strip>();
 
 		private bool isShark;
@@ -24,7 +22,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			for (int i = 0; i < 3; i++)
 			{
-				this.Strips.Add(new Strip(ShakerRack.NUMBER_OFSET + i, false));
+				this.Strips.Add(new Strip(0, false));
 			}
 		}
 	}

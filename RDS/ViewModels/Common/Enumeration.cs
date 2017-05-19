@@ -1,14 +1,5 @@
 ﻿namespace RDS.ViewModels.Common
 {
-	public enum SampleTubeState
-	{
-		NoSampleTube = 0,
-		Normal = 1,
-		Emergency = 2,
-		Sampling = 3,
-		Sampled = 4
-	}
-
 	public enum SixUnionState
 	{
 		Inexistence = 0,
@@ -20,12 +11,6 @@
 	{
 		_300uL = 300,
 		_1000uL = 1000,
-	}
-
-	public enum TipState
-	{
-		NoExist = 0,
-		Exist = 1
 	}
 
 	public enum ShowView

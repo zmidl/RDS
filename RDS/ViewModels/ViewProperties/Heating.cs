@@ -5,8 +5,6 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Heating:ViewModel
 	{
-		private const int NUMBER_OFSET = 22;
-
 		public ObservableCollection<Strip> Strips { get; set; } = new ObservableCollection<Strip>();
 
 		public Reagent OlefinBox { get; set; }
@@ -35,7 +33,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			for (int i = 0; i < 4; i++)
 			{
-				this.Strips.Add(new Strip(Heating.NUMBER_OFSET + i,false));
+				this.Strips.Add(new Strip(0,false));
 			}
 
 			this.OlefinBox = new Reagent(0,5);

@@ -13,7 +13,7 @@ namespace RDS.Views
 	public partial class PrecheckView : UserControl,IExitView
     {
 
-		private int testCount = 3;
+		private int testCount = 1;
 
         Action IExitView.ExitView { get; set; }
 

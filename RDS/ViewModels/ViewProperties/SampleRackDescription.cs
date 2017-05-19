@@ -28,8 +28,6 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<SampleTube> Samples { get; set; } = new ObservableCollection<SampleTube>();
 
-		public ICollection<SampleTubeState> SamplesState { get { return this.Samples.Select(o => o.SampleState).ToList(); } }
-
 		public SampleRackDescription(int columnIndex)
 		{
 			this.InitializeSampleHoles(columnIndex);
@@ -43,7 +41,7 @@ namespace RDS.ViewModels.ViewProperties
 			for (int i = 1; i <= 20; i++)
 			{
 				var sample = new SampleTube(this.GetHoleNameByNumber(columnIndex + i));
-				sample.NotifyRaiseProperty = new Action(() => { this.RaisePropertyChanged(nameof(SamplesState)); });
+				
 				this.Samples.Add(sample);
 			}
 		}

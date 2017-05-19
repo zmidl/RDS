@@ -4,17 +4,17 @@ using System.Windows.Media;
 
 namespace RDS.ViewModels.ViewProperties
 {
-	public class Tip:ViewModel
+	public class Tip : ViewModel
 	{
-		private TipState tipState;
-		public TipState TipState
+		private bool isLoaded;
+		public bool IsLoaded
 		{
-			get { return tipState; }
+			get { return isLoaded; }
 			set
 			{
-				tipState = value;
-				this.RaisePropertyChanged(nameof(TipState));
-				if (value == TipState.NoExist) this.TipContentColor = new SolidColorBrush(Colors.WhiteSmoke);
+				isLoaded = value;
+				this.RaisePropertyChanged(nameof(IsLoaded));
+				if (value) this.TipContentColor = new SolidColorBrush(Colors.White);
 				else this.TipContentColor = new SolidColorBrush(Colors.Gray);
 				this.RaisePropertyChanged(nameof(this.TipContentColor));
 			}
@@ -22,9 +22,9 @@ namespace RDS.ViewModels.ViewProperties
 
 		public SolidColorBrush TipContentColor { get; set; }
 
-		public Tip(TipState tipState)
+		public Tip()
 		{
-			this.TipState = tipState;
+			this.IsLoaded = false;
 		}
 	}
 }

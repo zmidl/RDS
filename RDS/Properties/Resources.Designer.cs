@@ -439,6 +439,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 ReagentSeries 的本地化字符串。
+        /// </summary>
+        internal static string ReagentSeries {
+            get {
+                return ResourceManager.GetString("ReagentSeries", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 HH:mm:ss 的本地化字符串。
         /// </summary>
         internal static string RemainingTimeFormat {

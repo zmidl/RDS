@@ -18,26 +18,32 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<Cell> Cells { get; set; } = new ObservableCollection<Cell>();
 
-		private bool isExist;
-		public bool IsExist
+		private bool? isLoaded;
+		public bool? IsLoaded
 		{
-			get { return isExist; }
+			get { return isLoaded; }
 			set
 			{
-				isExist = value;
-				this.RaisePropertyChanged(nameof(IsExist));
+				isLoaded = value;
+				this.RaisePropertyChanged(nameof(IsLoaded));
 			}
 		}
 
-
 		private const int STRIP_SIZE = 6;
 
-		public Strip(int number, bool isExist)
+		public Strip(int number, bool isLoaded)
 		{
 			this.Number = number;
 
-			this.IsExist = isExist;
+			this.IsLoaded = isLoaded;
 
+			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(false)); }
+		}
+
+		public Strip()
+		{
+			this.Number = 0;
+			this.IsLoaded = false;
 			for (int i = 0; i < Strip.STRIP_SIZE; i++) { this.Cells.Add(new Cell(false)); }
 		}
 	}

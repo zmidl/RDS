@@ -10,7 +10,7 @@ namespace RDSCL
 	/// </summary>
 	public partial class RD_Hole : UserControl
 	{
-		Storyboard storyboard;
+		//Storyboard storyboard;
 
 		private static SolidColorBrush DefaultContentColor = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#2AD0D0D0"));
 

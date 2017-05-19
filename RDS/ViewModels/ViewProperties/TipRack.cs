@@ -10,6 +10,17 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ObservableCollection<Tip> Tips { get; set; } = new ObservableCollection<Tip>();
 
+		private bool isTwinkle;
+		public bool IsTwinkle
+		{
+			get { return isTwinkle; }
+			set
+			{
+				isTwinkle = value;
+				this.RaisePropertyChanged(nameof(IsTwinkle));
+			}
+		}
+
 		private TipType tipType;
 
 		[SStreamableAttribute]
@@ -29,7 +40,7 @@ namespace RDS.ViewModels.ViewProperties
 
 			for (int i = 0; i < TipRack.TIPRACK_SIZE; i++)
 			{
-				this.Tips.Add(new Tip(TipState.NoExist));
+				this.Tips.Add(new Tip());
 			}
 		}
 	}

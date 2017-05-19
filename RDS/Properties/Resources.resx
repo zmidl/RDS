@@ -243,6 +243,9 @@
   <data name="Reagents" xml:space="preserve">
     <value>Reagents</value>
   </data>
+  <data name="ReagentSeries" xml:space="preserve">
+    <value>ReagentSeries</value>
+  </data>
   <data name="RemainingTimeFormat" xml:space="preserve">
     <value>HH:mm:ss</value>
   </data>

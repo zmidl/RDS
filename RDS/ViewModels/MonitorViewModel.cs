@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using RDS.ViewModels.ViewProperties;
 using System;
+using System.Collections.Generic;
 
 namespace RDS.ViewModels
 {
@@ -26,6 +27,8 @@ namespace RDS.ViewModels
 
 		private System.Timers.Timer remainingTimer;
 
+		private ObservableCollection<Strip>[] StripGroups = new ObservableCollection<Strip>[7];
+
 		public SampleViewModel SampleViewModel { get; set; } = new SampleViewModel();
 
 		public ObservableCollection<CupRack> CupRacks { get; set; } = new ObservableCollection<CupRack>();
@@ -34,40 +37,13 @@ namespace RDS.ViewModels
 
 		public ReagentRack ReagentRack { get; set; } = new ReagentRack();
 
-		private Heating heating = new Heating();
-		public Heating Heating
-		{
-			get { return heating; }
-			set
-			{
-				heating = value;
-				this.RaisePropertyChanged(nameof(Heating));
-			}
-		}
+		public Heating Heating { get; set; } = new Heating();
 
 		public ShakerRack ShakerRack { get; set; } = new ShakerRack();
 
-		private Mag mag = new Mag();
-		public Mag Mag
-		{
-			get { return mag; }
-			set
-			{
-				mag = value;
-				this.RaisePropertyChanged(nameof(Mag));
-			}
-		}
+		public Mag Mag { get; set; } = new Mag();
 
-		private Reader reader = new Reader();
-		public Reader Reader
-		{
-			get { return reader; }
-			set
-			{
-				reader = value;
-				this.RaisePropertyChanged(nameof(Reader));
-			}
-		}
+		public Reader Reader { get; set; } = new Reader();
 
 		private bool isStartTask;
 		public bool IsStartTask
@@ -83,7 +59,7 @@ namespace RDS.ViewModels
 						isStartTask = value;
 						this.RaisePropertyChanged(nameof(IsStartTask));
 					}
-					else General.PopupWindow(PopupType.ShowMessage,General.FindStringResource(Properties.Resources.PopupWindow_Message2), null);
+					else General.PopupWindow(PopupType.ShowMessage, General.FindStringResource(Properties.Resources.PopupWindow_Message2), null);
 				}
 
 				else
@@ -96,7 +72,6 @@ namespace RDS.ViewModels
 		}
 
 		public bool? SamplingResult { get; private set; } = false;
-
 
 		public enum ViewChangedOption
 		{
@@ -131,10 +106,18 @@ namespace RDS.ViewModels
 
 			this.remainingTime = new DateTime(yearUnit, monthUnit, dateUnit, hourUnit, minuteUnit, secondUnit);
 
-			
-			//this.Heating.Strips[0].IsExist = false;
-			//this.Heating.Strips[1].IsExist = false;
-			//this.Heating.Strips[2].IsExist = false;
+			this.InitializeStripGroups();
+		}
+
+		private void InitializeStripGroups()
+		{
+			this.StripGroups[0] = this.CupRacks[0].Strips;
+			this.StripGroups[1] = this.CupRacks[1].Strips;
+			this.StripGroups[2] = this.CupRacks[2].Strips;
+			this.StripGroups[3] = this.Heating.Strips;
+			this.StripGroups[4] = this.ShakerRack.Strips;
+			this.StripGroups[5] = this.Mag.Strips;
+			this.StripGroups[6] = this.Reader.Strips;
 		}
 
 		private void InitializeTipRacks(int tipRacksCount)
@@ -164,49 +147,57 @@ namespace RDS.ViewModels
 			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.NotifySamplingResult, samplingResult));
 		}
 
-		public void SetSampleTubeState(int twentyUnionSampleIndex, int sampleIndex, SampleTubeState sampleState)
+		public void SetSampleState(int twentyUnionSampleIndex, int sampleIndex, bool isLoaded)
 		{
-			this.SampleViewModel.FourSampleRackDescriptions[twentyUnionSampleIndex].Samples[sampleIndex].SampleState = sampleState;
+			this.SampleViewModel.FourSampleRackDescriptions[twentyUnionSampleIndex].Samples[sampleIndex].IsLoaded = isLoaded;
 		}
 
-		public void SetCupRackCellState(int cupRacksIndex, int stripsIndex, int cellsIndex, bool isLoaded)
+		public void SetCupRackMixtureState(int cupRacksIndex, int stripsIndex, int mixtureIndex, bool isLoaded)
 		{
-			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
+			this.CupRacks[cupRacksIndex].Strips[stripsIndex].Cells[mixtureIndex].IsLoaded = isLoaded;
 		}
 
-		public void SetShakerRackCellState(int stripsIndex, int cellsIndex, bool isLoaded)
+		public void SetCupRackStripState(int cupRacksIndex, int stripsIndex, bool isLoaded, int number = 0)
 		{
-			this.ShakerRack.Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
+			var strip = this.CupRacks[cupRacksIndex].Strips[stripsIndex];
+			strip.IsLoaded = isLoaded;
+			strip.Number = number;
 		}
 
-		public void SetTipState(int tipRacksIndex, int tipsIndex, TipState tipState)
+		public void SetTipState(int tipRacksIndex, int tipsIndex, bool isLoaded)
 		{
-			this.TipRacks[tipRacksIndex].Tips[tipsIndex].TipState = tipState;
+			this.TipRacks[tipRacksIndex].Tips[tipsIndex].IsLoaded = isLoaded;
 		}
 
-		public void SetReaderCellState(int stripsIndex, int cellsIndex, bool isLoaded)
+		public void SetReaderEnzymeBottleVolume(int enzymeIndex, int volume)
 		{
-			this.Reader.Strips[stripsIndex].Cells[cellsIndex].IsLoaded = isLoaded;
+			this.Reader.EnzymeBottles[enzymeIndex].Volume += volume;
 		}
 
-		public void SetReaderEnzymeBottlesValue(int enzymeIndex, int value)
+		public void SetReaderTemperature(int temperature)
 		{
-			this.Reader.EnzymeBottles[enzymeIndex].Volume += value;
+			this.Reader.Temperature = temperature;
 		}
-
-
 
 		public void SetSampleRackState(int sampleRackIndex, RDSCL.SampleRackState sampleRackState)
 		{
 			this.SampleViewModel.FourSampleRackDescriptions[sampleRackIndex].SampleRackState = sampleRackState;
-			//(RDSCL.SampleRackState)Enum.Parse(typeof(RDSCL.SampleRackState), stateDescription);
+		}
+
+		public void SetOlefinBoxVolume(int volume)
+		{
+			this.Heating.OlefinBox.Volume = volume;
+		}
+
+		public void SetHeatingTemperature(int temperature)
+		{
+			this.Heating.Temperature = temperature;
 		}
 
 		public void SetReagentBoxVolume(int reagentBoxIndex, int volume)
 		{
 			this.ReagentRack.ReagentBoxs[reagentBoxIndex].Volume = volume;
 		}
-
 
 		public void SetMBBottleVolume(int mBBottleIndex, int volume)
 		{
@@ -248,6 +239,30 @@ namespace RDS.ViewModels
 			{
 				this.IsStartTask = false;
 			}
+		}
+
+		public void CarryStrip(int from, int to)
+		{
+			var pointFrom = this.GetStripLocation(from);
+			var pointTo = this.GetStripLocation(to);
+			this.StripGroups[pointTo.Item1][pointTo.Item2] = this.StripGroups[pointFrom.Item1][pointFrom.Item2];
+			this.StripGroups[pointFrom.Item1][pointFrom.Item2] = new Strip();
+		}
+
+		private Tuple<int, int> GetStripLocation(int index)
+		{
+			if (index < 1) index = 1;
+			else if (index > 37) index = 37;
+			int tenth = 0;
+			int units = 0;
+			if (index > 32) { tenth = 6; units = index % 33; }
+			else if (index > 28) { tenth = 5; units = index % 29; }
+			else if (index > 25) { tenth = 4; units = index % 26; }
+			else if (index > 21) { tenth = 3; units = index % 22; }
+			else if (index > 14) { tenth = 2; units = index % 15; }
+			else if (index > 7) { tenth = 1; units = index % 8; }
+			else { tenth = 0; units = index - 1; }
+			return new Tuple<int, int>(tenth, units);
 		}
 	}
 }

@@ -18,10 +18,10 @@ namespace RDS.ViewModels.ViewProperties
 
 		public ReagentRack()
 		{
-			this.Initialize();
+			this.InitializeReagents();
 		}
 
-		private void Initialize()
+		private void InitializeReagents()
 		{
 			for (int i = 0; i < this.ReagentBoxCount; i++) this.ReagentBoxs.Add(new Reagent(10,5));
 			for (int i = 0; i < this.MBBottleCount; i++) this.MBBottles.Add(new Reagent(10, 5));

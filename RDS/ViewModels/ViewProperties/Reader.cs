@@ -5,8 +5,6 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Reader : ViewModel
 	{
-		private const int NUMBER_OFSET = 33;
-
 		private const int STRIPS_COUNT = 5;
 
 		private readonly int EnzymeBottlesCount = 6;
@@ -34,7 +32,7 @@ namespace RDS.ViewModels.ViewProperties
 
 		public Reader()
 		{
-			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(Reader.NUMBER_OFSET + i, false));
+			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(0, false));
 
 			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new Reagent(0,5));
 		}

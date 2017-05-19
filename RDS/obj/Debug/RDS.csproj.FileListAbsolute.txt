@@ -135,3 +135,5 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Drawing.d
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Effects.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Interactions.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\LisFiles\Barcode_20170504.xml
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\System.Data.SQLite.dll
+C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\App.config

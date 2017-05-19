@@ -24,6 +24,12 @@ namespace RDS.Views
 				switch (((PopupWindowViewModel.PopupWindowViewChangedArgs)e).Option)
 				{
 					case PopupWindowViewModel.ViewChangedOption.ExitView: { this.Hide(); break; }
+					case PopupWindowViewModel.ViewChangedOption.EnterAdministratorsView:
+					{
+						if (this.PasswordBox1.Password == Properties.Resources.Password) this.ViewModel.EnterAdministratorsView();
+						else { this.PasswordBox1.Password = string.Empty; this.ViewModel.PasswordMessage = "密码错误"; }
+						break;
+					}
 					default: { break; }
 				}
 			};
@@ -39,6 +45,13 @@ namespace RDS.Views
 				}
 				this.Resources.MergedDictionaries.Add(resourceDictionary);
 			}
+		}
+
+		private void Button_ClearPassword_Click(object sender, RoutedEventArgs e)
+		{
+			this.PasswordBox1.Focus();
+			this.PasswordBox1.Password = string.Empty;
+			this.ViewModel.PasswordMessage = "请输入密码";
 		}
 	}
 }

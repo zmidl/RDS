@@ -9,7 +9,6 @@ namespace RDS.ViewModels.ViewProperties
 {
 	public class Mag
 	{
-		private const int NUMBER_OFSET = 29;
 		private const int MAG_SIZE = 4;
 		public ObservableCollection<Strip> Strips { get; set; } = new ObservableCollection<Strip>();
 
@@ -17,7 +16,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			for (int i = 0; i < Mag.MAG_SIZE; i++)
 			{
-				this.Strips.Add(new Strip(Mag.NUMBER_OFSET + i, false));
+				this.Strips.Add(new Strip(0, false));
 			}
 		}
 	}

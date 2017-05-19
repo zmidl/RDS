@@ -29,7 +29,7 @@
                     <DockPanel LastChildFill="True">
                         <Path Style="{StaticResource Path}" Fill="{Binding ElementName=CheckBox_First,Path=Foreground}" Data="{StaticResource Instrument}"/>
                         <TextBlock Style="{StaticResource TextBlock}" Text="{DynamicResource PrecheckView_CheckInstrument}" />
-                        <CheckBox x:Name="CheckBox_First" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" />
+                        <CheckBox x:Name="CheckBox_First" IsEnabled="False" Margin="20,0,0,0" DockPanel.Dock="Right" Style="{DynamicResource RD_ElipseCheckBoxStyle}" Width="50" />
                         <ProgressBar x:Name="ProgressBar_CheckTemperature" Width="300" Visibility="Visible" Margin="20,0,0,0" SmallChange="1" Maximum="100"/>
                     </DockPanel>
                     <DockPanel LastChildFill="True"  Margin="0,50,0,0">

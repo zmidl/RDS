@@ -88,6 +88,78 @@ namespace RDSCL.Properties {
         }
         
         /// <summary>
+        ///   查找类似 &quot;0&quot; 的本地化字符串。
+        /// </summary>
+        internal static string StringZero {
+            get {
+                return ResourceManager.GetString("StringZero", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip0 的本地化字符串。
+        /// </summary>
+        internal static string Strip0 {
+            get {
+                return ResourceManager.GetString("Strip0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip1 的本地化字符串。
+        /// </summary>
+        internal static string Strip1 {
+            get {
+                return ResourceManager.GetString("Strip1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip2 的本地化字符串。
+        /// </summary>
+        internal static string Strip2 {
+            get {
+                return ResourceManager.GetString("Strip2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip3 的本地化字符串。
+        /// </summary>
+        internal static string Strip3 {
+            get {
+                return ResourceManager.GetString("Strip3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip4 的本地化字符串。
+        /// </summary>
+        internal static string Strip4 {
+            get {
+                return ResourceManager.GetString("Strip4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip5 的本地化字符串。
+        /// </summary>
+        internal static string Strip5 {
+            get {
+                return ResourceManager.GetString("Strip5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Strip6 的本地化字符串。
+        /// </summary>
+        internal static string Strip6 {
+            get {
+                return ResourceManager.GetString("Strip6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 TwinkleAnimation 的本地化字符串。
         /// </summary>
         internal static string TwinkleAnimation {

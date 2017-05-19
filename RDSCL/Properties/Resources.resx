@@ -126,6 +126,30 @@
   <data name="StackPanel_ShakerModule" xml:space="preserve">
     <value>StackPanel_ShakerModule</value>
   </data>
+  <data name="StringZero" xml:space="preserve">
+    <value>"0"</value>
+  </data>
+  <data name="Strip0" xml:space="preserve">
+    <value>Strip0</value>
+  </data>
+  <data name="Strip1" xml:space="preserve">
+    <value>Strip1</value>
+  </data>
+  <data name="Strip2" xml:space="preserve">
+    <value>Strip2</value>
+  </data>
+  <data name="Strip3" xml:space="preserve">
+    <value>Strip3</value>
+  </data>
+  <data name="Strip4" xml:space="preserve">
+    <value>Strip4</value>
+  </data>
+  <data name="Strip5" xml:space="preserve">
+    <value>Strip5</value>
+  </data>
+  <data name="Strip6" xml:space="preserve">
+    <value>Strip6</value>
+  </data>
   <data name="TwinkleAnimation" xml:space="preserve">
     <value>TwinkleAnimation</value>
   </data>

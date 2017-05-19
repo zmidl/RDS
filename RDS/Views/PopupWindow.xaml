@@ -11,6 +11,22 @@
         WindowStartupLocation="CenterScreen"
         Height="600" Width="900" ResizeMode="NoResize" AllowsTransparency="True" Background="#7FFFFFFF">
     <Window.Resources>
+        <HierarchicalDataTemplate x:Key="RD_TreeViewItemTemplate" ItemsSource="{Binding ReagentItems}">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2,0,0,0">
+                <TextBlock Foreground="{StaticResource TextForeground3}" Effect="{StaticResource TreeViewEffect}"  Text="{Binding Name}" />
+            </StackPanel>
+            <HierarchicalDataTemplate.ItemTemplate >
+                <DataTemplate >
+                    <Border >
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
+                            <CheckBox Style="{StaticResource RD_ElipseCheckBoxStyle}" Margin="3" IsChecked="{Binding IsUsed}" />
+                            <TextBlock  Foreground="{StaticResource TextForeground}" VerticalAlignment="Center" Effect="{StaticResource TreeViewEffect}" Text="{Binding Name}" />
+                        </StackPanel>
+                    </Border>
+                </DataTemplate>
+            </HierarchicalDataTemplate.ItemTemplate>
+        </HierarchicalDataTemplate>
+
         <Path x:Key="Path_Exit" Fill="{Binding ElementName=Button_Exit,Path=Foreground}" Data="M13.46,12L19,17.54V19H17.54L12,13.46L6.46,19H5V17.54L10.54,12L5,6.46V5H6.46L12,10.54L17.54,5H19V6.46L13.46,12Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
 
         <StackPanel x:Key="Resource_StackPanel_Retry" Orientation="Horizontal">
@@ -52,15 +68,29 @@
             <TextBlock Margin="10,0,0,0" Foreground="{Binding ElementName=Button_Continue,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource Button_Continue}"/>
         </StackPanel>
 
-        <StackPanel x:Key="Resource_StackPanel_Administrators_Ok" Orientation="Horizontal">
-            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Ok}" Fill="{Binding ElementName=Button_Administrators_Ok,Path=Foreground}"/>
-            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Administrators_Ok,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Ok}"/>
+        <StackPanel x:Key="Resource_StackPanel_AdministratorsLogin_Ok" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Ok}" Fill="{Binding ElementName=Button_AdministratorsLogin_Ok,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_AdministratorsLogin_Ok,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Ok}"/>
         </StackPanel>
 
-        <StackPanel x:Key="Resource_StackPanel_Administrators_Cancel" Orientation="Horizontal">
-            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Cancel}" Fill="{Binding ElementName=Button_Administrators_Cancel,Path=Foreground}"/>
-            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_Administrators_Cancel,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Cancel}"/>
+        <StackPanel x:Key="Resource_StackPanel_AdministratorsLogin_Cancel" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Cancel}" Fill="{Binding ElementName=Button_AdministratorsLogin_Cancel,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_AdministratorsLogin_Cancel,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Cancel}"/>
         </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_AdministratorsSave_Ok" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Ok}" Fill="{Binding ElementName=Button_AdministratorsSave_Ok,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_AdministratorsSave_Ok,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Ok}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_AdministratorsSave_Cancel" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Cancel}" Fill="{Binding ElementName=Button_AdministratorsSave_Cancel,Path=Foreground}"/>
+            <TextBlock Margin="6,0,0,0" Foreground="{Binding ElementName=Button_AdministratorsSave_Cancel,Path=Foreground}" VerticalAlignment="Center" Text="{DynamicResource App_Cancel}"/>
+        </StackPanel>
+
+        <StackPanel x:Key="Resource_StackPanel_ClearPassword" Orientation="Horizontal">
+            <Path Stretch="Uniform" Width="15" Data="{StaticResource  Eraser}" Fill="{Binding ElementName=Button_ClearPassword,Path=Foreground}"/>
+         </StackPanel>
     </Window.Resources>
     <Viewbox Height="600" Width="900" Stretch="Fill" >
         <Border BorderBrush="White" BorderThickness="2">
@@ -85,46 +115,38 @@
                     <TabItem x:Name="TabItem_AdministratorsLogin" Height="1" Width="0">
                         <DockPanel LastChildFill="True" Width="450" >
                             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
-                                <Button x:Name="Button_Administrators_Ok" Content="{StaticResource Resource_StackPanel_Administrators_Ok}" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Command}" CommandParameter="0"  Width="100" Height="30" />
-                                <Button x:Name="Button_Administrators_Cancel" Content="{StaticResource Resource_StackPanel_Administrators_Cancel}" Style="{StaticResource RD_ButtonStyle}"  Command="{Binding Command}" CommandParameter="1" Margin="20,0,0,0"  Width="100" Height="30" />
+                                <Button x:Name="Button_AdministratorsLogin_Ok" Content="{StaticResource Resource_StackPanel_AdministratorsLogin_Ok}" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Command}" CommandParameter="0"  Width="100" Height="30" />
+                                <Button x:Name="Button_AdministratorsLogin_Cancel" Content="{StaticResource Resource_StackPanel_AdministratorsLogin_Cancel}" Style="{StaticResource RD_ButtonStyle}"  Command="{Binding Command}" CommandParameter="1" Margin="20,0,0,0"  Width="100" Height="30" />
                             </StackPanel>
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
-                                <Path Canvas.Left="120" Canvas.Top="100" Fill="{StaticResource TextForeground2}" Stretch="UniformToFill" Width="20" Data="{StaticResource Password}" />
-                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding Password}" Canvas.Left="160" Canvas.Top="100" Width="150" Height='30' />
+                                <TextBlock Effect="{StaticResource TreeViewEffect}" Foreground="{StaticResource TextForeground3}" FontSize="18" FontWeight="Bold" Text="{Binding PasswordMessage}" Canvas.Left="173" Canvas.Top="70"/>
+                                <Path Canvas.Left="120" Canvas.Top="110" Fill="{StaticResource TextForeground2}" Stretch="UniformToFill" Width="20" Data="{StaticResource Password}" />
+                                <PasswordBox x:Name="PasswordBox1" Style="{StaticResource RD_PasswordBoxStyle}"  Canvas.Left="157" Canvas.Top="110" Width="129" Height='30' />
+                                <Button x:Name="Button_ClearPassword" Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource Resource_StackPanel_ClearPassword}" Width="30" Height="30" Canvas.Left="296" Canvas.Top="110" Click="Button_ClearPassword_Click"/>
                             </Canvas>
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_AdministratorsView" Height="1" Width="0">
-                        <DockPanel LastChildFill="True"  Margin="-2,-6">
-                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
+                        <DockPanel LastChildFill="True" Width="450" >
+                            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" DockPanel.Dock="Bottom" Margin="0,0,0,10">
+                                <Button x:Name="Button_AdministratorsSave_Ok" Content="{StaticResource Resource_StackPanel_AdministratorsSave_Ok}" Style="{StaticResource RD_ButtonStyle}" Command="{Binding Command}" CommandParameter="0"  Width="100" Height="30" />
+                                <Button x:Name="Button_AdministratorsSave_Cancel" Content="{StaticResource Resource_StackPanel_AdministratorsSave_Cancel}" Style="{StaticResource RD_ButtonStyle}"  Command="{Binding Command}" CommandParameter="1" Margin="20,0,0,0"  Width="100" Height="30" />
+                            </StackPanel>
+                            <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
                             <Canvas>
-                                <TextBlock Style="{StaticResource TextBlockStyle}"  FontSize="14" Text="当前语言" Canvas.Left="6" Canvas.Top="4"/>
-                                <ComboBox ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" Width="80" Canvas.Left="66" Canvas.Top="3" />
+                                <TextBlock Style="{StaticResource TextBlockStyle}"  FontSize="14" Text="当前语言" Canvas.Left="290" Canvas.Top="31"/>
+                                <ComboBox Style="{StaticResource RD_ComboBoxStyle}" ItemsSource="{Binding Languages}" SelectedItem="{Binding SelectedLanguage}" Width="79" Canvas.Left="351" Canvas.Top="30" />
 
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{StaticResource TextForeground}"  FontSize="12" Text="{StaticResource PopupWindow_SelectReagentMessage}" Canvas.Left="310" Canvas.Top="2" />
-                                <DataGrid 
-                                    Style="{StaticResource RD_DataGridBlackStyle}" 
-                                    ItemsSource="{Binding ReagentInformations}" 
-                                    SelectedItem="{Binding SelectedReagentInformation}"
-                                    AutoGenerateColumns="False"
-                                    Canvas.Left="310"  Width="130" Height="166" Canvas.Top="20">
-                                    <DataGrid.Columns>
-                                        <DataGridTextColumn MinWidth="60" Header="{DynamicResource SampleView_Reagent}"  Binding="{Binding Name}"/>
-                                        <DataGridTemplateColumn MinWidth="40"  Header="{DynamicResource PopupWindow_SelectReagent}">
-                                            <DataGridTemplateColumn.CellTemplate>
-                                                <DataTemplate>
-                                                    <CheckBox Style="{StaticResource RD_ElipseCheckBoxStyle}"  Height="18" IsChecked="{Binding IsSelected,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" Margin="0,1,0,0"/>
-                                                </DataTemplate>
-                                            </DataGridTemplateColumn.CellTemplate>
-                                        </DataGridTemplateColumn>
-                                    </DataGrid.Columns>
-                                </DataGrid>
-                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding AdditionReagentInformation}" Width="70" Height="22" Canvas.Left="310" Canvas.Top="189"/>
-                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding AddReagentInformation}" Width="25" Height="22" Canvas.Left="385" Canvas.Top="189">
+
+                                <TreeView x:Name="treeview1" ItemsSource="{Binding ReagentSeries}" Style="{StaticResource RD_TreeViewStyle}" ItemTemplate="{StaticResource RD_TreeViewItemTemplate}" Width="160" Height="198" Canvas.Left="5"/>
+
+                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding AdditionReagentInformation}" Width="70" Height="22" Canvas.Left="310" Canvas.Top="178"/>
+                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding AddReagentInformation}" Width="25" Height="22" Canvas.Left="385" Canvas.Top="178">
                                     <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Add}"/>
                                 </Button>
-                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding RemoveReagentInformation}" Width="25" Height="22" Canvas.Left="415" Canvas.Top="189">
+                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding RemoveReagentInformation}" Width="25" Height="22" Canvas.Left="415" Canvas.Top="178">
                                     <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Remove}"/>
                                 </Button>
                             </Canvas>

@@ -16,7 +16,7 @@
             <RotateTransform Angle="0"/>
             <TranslateTransform/>
         </TransformGroup>
-        <Path x:Key="Resources_Wizard" Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="40" Height="50"  />
+        <Path x:Key="Resources_Wizard" Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="35" Height="50"  />
         <system:Double x:Key="StrokeThickness" >2</system:Double>
         <PathGeometry x:Key="Tube" Figures="M7,2V4H8V18A4,4 0 0,0 12,22A4,4 0 0,0 16,18V4H17V2H7M11,16C10.4,16 10,15.6 10,15C10,14.4 10.4,14 11,14C11.6,14 12,14.4 12,15C12,15.6 11.6,16 11,16M13,12C12.4,12 12,11.6 12,11C12,10.4 12.4,10 13,10C13.6,10 14,10.4 14,11C14,11.6 13.6,12 13,12M14,7H10V4H14V7Z"/>
         <Style x:Key="TextBlock" TargetType="{x:Type TextBlock}">
@@ -30,16 +30,15 @@
             <Setter Property="Width" Value="25"/>
             <Setter Property="Stretch" Value="UniformToFill"/>
         </Style>
+
+        <DropShadowEffect x:Key="Resource_Effect_WizardButton" Direction="0" ShadowDepth="0" BlurRadius="10"/>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
                 <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
-                <Button Width="80" Height="140" Style="{StaticResource RD_MoonButtonStyle}" RenderTransform="{StaticResource Resource_Transform}"  Command="{Binding TurnPreviousView}" Canvas.Left="50" Canvas.Top="200" RenderTransformOrigin="0.5,0.5">
-                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="40" Height="50"  />
-                    <Button.Effect>
-                        <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10"/>
-                    </Button.Effect>
+                <Button Effect="{StaticResource Resource_Effect_WizardButton}" Width="80" Height="140" Style="{StaticResource RD_MoonButtonStyle}" RenderTransform="{StaticResource Resource_Transform}"  Command="{Binding TurnPreviousView}" Canvas.Left="50" Canvas.Top="200" RenderTransformOrigin="0.5,0.5">
+                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Fill" Width="35" Height="50"   />
                 </Button>
                 <!--<StackPanel Canvas.Left="340" Canvas.Top="100" Orientation="Horizontal" >
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
@@ -57,12 +56,7 @@
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard13,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
                     <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard14,Mode=OneWay}" Width="10" Margin="5,0,0,0"/>
                 </StackPanel>-->
-                <Button Width="80" Height="140"  Style="{StaticResource RD_MoonButtonStyle}" Command="{Binding TurnNextView}" Content="{StaticResource Resources_Wizard}"  Canvas.Top="200" Canvas.Left="820">
-                    <Button.Effect>
-                        <DropShadowEffect Direction="0" ShadowDepth="0" BlurRadius="10"/>
-                    </Button.Effect>
-
-                </Button>
+                <Button Effect="{StaticResource Resource_Effect_WizardButton}" Width="80" Height="140"  Style="{StaticResource RD_MoonButtonStyle}" Command="{Binding TurnNextView}" Content="{StaticResource Resources_Wizard}"  Canvas.Top="200" Canvas.Left="820"/>
                 <TabControl SelectedIndex="{Binding WizardIndex,Mode=OneWay}" Width="650" Height="430" Canvas.Left="150" Canvas.Top="40" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0">
                         <DockPanel LastChildFill="True" >

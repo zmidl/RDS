@@ -21,30 +21,23 @@ namespace RDS.ViewModels.ViewProperties
 			}
 		}
 
-		private SampleTubeState sampleState;
-		public SampleTubeState SampleState
+		private bool isLoaded;
+		public bool IsLoaded
 		{
-			get { return sampleState; }
+			get { return isLoaded; }
 			set
 			{
-				sampleState = value;
-				this.RaisePropertyChanged(nameof(SampleState));
-				switch(value)
-				{
-					case SampleTubeState.NoSampleTube: { this.SampleContentColor = new SolidColorBrush(Colors.WhiteSmoke); break; }
-					case SampleTubeState.Normal: { this.SampleContentColor = new SolidColorBrush(Colors.Brown); break; }
-					case SampleTubeState.Emergency: { this.SampleContentColor = new SolidColorBrush(Colors.Blue); break; }
-					case SampleTubeState.Sampling: { this.SampleContentColor = new SolidColorBrush(Colors.Green); break; }
-					case SampleTubeState.Sampled: { this.SampleContentColor = new SolidColorBrush(Colors.Gray); break; }
-					default: break;
-				}
+				isLoaded = value;
+				this.RaisePropertyChanged(nameof(IsLoaded));
+				if (value) this.SampleContentColor = new SolidColorBrush(Colors.WhiteSmoke);
+				else this.SampleContentColor = new SolidColorBrush(Colors.Gray);
 				this.RaisePropertyChanged(nameof(this.SampleContentColor));
 			}
 		}
 
 		public SolidColorBrush SampleContentColor { get; set; }
 
-		private bool isSampling;
+		private bool isSampling = false;
 		public bool IsSampling
 		{
 			get { return isSampling; }
@@ -57,23 +50,12 @@ namespace RDS.ViewModels.ViewProperties
 
 		public SampleTube() { }
 
-		public void SetSampleState(SampleTubeState sampleState)
-		{
-			this.SampleState = sampleState;
-			this.NotifyRaiseProperty();
-		}
+		
 
 		public SampleTube(string holeName)
 		{
 			this.HoleName = holeName;
-			this.SampleState = SampleTubeState.NoSampleTube;
-		}
 
-		public SampleTube(string holeName,SampleTubeState sampleState)
-		{
-			this.HoleName = holeName;
-			this.SampleState = sampleState;
-			this.IsSampling = false;
 		}
 	}
 }
