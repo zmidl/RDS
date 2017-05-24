@@ -10,6 +10,8 @@ namespace RDS.Models
 {
 	public class ReagentSeries:ViewModel
 	{
+		public int Level { get; set; } = 0;
+
 		public string Name { get; set; }
 
 		public ObservableCollection<ReagentItem> ReagentItems { get; set; } = new ObservableCollection<ReagentItem>();

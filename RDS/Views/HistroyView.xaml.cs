@@ -38,10 +38,5 @@ namespace RDS.Views
             this.DataGrid_ReportName.ItemsSource = this.TestData().AsDataView();
             this.DataGrid_ReportName.Columns[0].Width = 80;
         }
-
-        private void Label_ShowFirstDiagram_PreviewMouseUp(object sender, MouseButtonEventArgs e)
-        {
-            General.ExitView(this.CurrentContent, this, ((IExitView)new Monitor.DiagramView()));
-        }
     }
 }

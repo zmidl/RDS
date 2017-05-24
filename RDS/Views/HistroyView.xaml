@@ -20,29 +20,11 @@
         <Canvas Width="950" Height="500">
             <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
 
-            <DockPanel LastChildFill="True" Grid.Row="0" Canvas.Left="30" Canvas.Top="30" Width="890" Height="360">
-                <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBlackStyle}" Margin="10" Width="120" Height="350"  DockPanel.Dock="Left" CanUserAddRows="False"/>
-                <StackPanel Orientation="Vertical" DockPanel.Dock="Right" Width="150">
-                    <Label x:Name="Label_ShowFirstDiagram" Height="80" PreviewMouseUp="Label_ShowFirstDiagram_PreviewMouseUp">
-                        <Path Stretch="Fill"  Fill="{StaticResource TextForeground2}"  Data="M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z"  StrokeThickness="0" />
-                    </Label>
-                    <Label>
-                        <Path Height="80"  Stretch="Fill" Fill="#FF0075FF" 
-                              Data="M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z" StrokeThickness="0" />
-                    </Label>
-                    <Label>
-                        <Path Height="80"  Stretch="Fill" Fill="#FF0075FF" 
-                              Data="M17.45,15.18L22,7.31V19L22,21H2V3H4V15.54L9.5,6L16,9.78L20.24,2.45L21.97,3.45L16.74,12.5L10.23,8.75L4.31,19H6.57L10.96,11.44L17.45,15.18Z" StrokeThickness="0" />
-                    </Label>
-                    <Label>
-                        <Path Height="80"  Stretch="Fill" Fill="#FF0075FF" 
-                              Data="M16,11.78L20.24,4.45L21.97,5.45L16.74,14.5L10.23,10.75L5.46,19H22V21H2V3H4V17.54L9.5,8L16,11.78Z" StrokeThickness="0" />
-                    </Label>
-                </StackPanel>
-                <Canvas Width="400"/>
-            </DockPanel>
+
+            <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBlackStyle}" Margin="10"  Grid.Row="0" Canvas.Left="30" Canvas.Top="20" Width="870" Height="360"  DockPanel.Dock="Left" CanUserAddRows="False"/>
+      
             <StackPanel Grid.Row="1" Orientation="Horizontal" Canvas.Left="60" Canvas.Top="425.754">
-                <TextBlock Width="70" Text="{DynamicResource HistroyView_Name}" Style="{StaticResource TextBlockStyle}" FontSize="16" Margin="10,0,0,0" VerticalAlignment="Center"/>
+                <TextBlock Width="70" Text="{DynamicResource HistroyView_Name}" Style="{StaticResource TextBlockStyle}" Margin="10,0,0,0" VerticalAlignment="Center"/>
                 <TextBox Style="{StaticResource RD_TextBoxStyle}" Width="100" Height="30" Margin="2,0,0,0" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
 
                 <TextBlock Style="{StaticResource TextBlockStyle}" Width="50" Text="{DynamicResource HistroyView_Type}" Margin="30,0,0,0" VerticalAlignment="Center"/>

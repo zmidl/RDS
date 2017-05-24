@@ -11,7 +11,7 @@ namespace RDS.ViewModels
 {
 	public class PopupWindowViewModel : ViewModel
 	{
-		private string passwordMessage="请输入密码";
+		private string passwordMessage = "请输入密码";
 		public string PasswordMessage
 		{
 			get { return passwordMessage; }
@@ -40,9 +40,9 @@ namespace RDS.ViewModels
 
 		public string SelectedLanguage { get; set; }
 
-		public ObservableCollection<ReagentSeries> ReagentSeries { get; set; } = new ObservableCollection<Models.ReagentSeries>();
+		public ObservableCollection<ReagentSeries> ReagentSeries { get; set; } = new ObservableCollection<ReagentSeries>();
 
-		public ReagentSeries SelectedReagentItem { get; set; }
+		public object SelectedReagentItem { get; set; }
 
 		public List<string> UsedReagentItems { get; private set; }
 
@@ -85,9 +85,9 @@ namespace RDS.ViewModels
 
 		public int PopupTypeIndex { get; set; }
 
-		public RelayCommand RemoveReagentInformation { get; private set; }
+		public RelayCommand RemoveReagentItem { get; private set; }
 
-		public RelayCommand AddReagentInformation { get; private set; }
+		public RelayCommand AddReagentItem { get; private set; }
 
 		private Action[] Actions;
 
@@ -97,9 +97,9 @@ namespace RDS.ViewModels
 		{
 			this.Command = new RelayCommand(this.ExecuteCommand);
 
-			this.RemoveReagentInformation = new RelayCommand(this.ExecuteRemoveReagentInformation);
+			this.RemoveReagentItem = new RelayCommand(this.ExecuteRemoveReagentItem);
 
-			this.AddReagentInformation = new RelayCommand(this.ExecuteAddReagentInformation);
+			this.AddReagentItem = new RelayCommand(this.ExecuteAddReagentItem);
 
 			this.InitializeReagentInformations();
 
@@ -198,18 +198,19 @@ namespace RDS.ViewModels
 			General.ChangeLanguage(resourceDictionary);
 		}
 
-		public void ExecuteRemoveReagentInformation()
+		public void ExecuteRemoveReagentItem(object param)
 		{
-			if (this.SelectedReagentItem != null) this.ReagentSeries.Remove(this.SelectedReagentItem);
+			var itemName = param.ToString();
+			for (int i = 0; i < this.ReagentSeries.Count; i++)
+			{
+				var item = this.ReagentSeries[i].ReagentItems.FirstOrDefault(o => o.Name == itemName);
+				if (item != null) { this.ReagentSeries[i].ReagentItems.Remove(item); break; }
+			}
 		}
 
-		public void ExecuteAddReagentInformation()
+		public void ExecuteAddReagentItem(object param)
 		{
-			if (string.IsNullOrEmpty(this.AdditionReagentInformation) == false)
-			{
-				//this.ReagentSeries.Insert(0, new ReagentSeries(this.AdditionReagentInformation, false));
-				this.AdditionReagentInformation = string.Empty;
-			}
+
 		}
 
 		public void PopupWindow(PopupType popupType, string message, Action[] actions)

@@ -85,7 +85,6 @@ C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\FinalView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HistroyView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\InitializeSuppliesView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\MainView.baml
-C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\DiagramView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HelpView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\ReagentView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\ReportView.baml
@@ -98,7 +97,6 @@ C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\FinalView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HistroyView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\InitializeSuppliesView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\MainView.g.cs
-C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\DiagramView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HelpView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\MonitorView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\ReagentView.g.cs
@@ -134,6 +132,5 @@ C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\System.Windows.Interactivity.d
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Drawing.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Effects.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\Microsoft.Expression.Interactions.dll
-C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\LisFiles\Barcode_20170504.xml
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\Dlls\System.Data.SQLite.dll
 C:\zhaomin\sourcecode\RDS\RDS\bin\Debug\Apps\App.config

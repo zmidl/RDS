@@ -28,7 +28,7 @@ namespace RDS.ViewModels.Behaviors
 			if (e.RightButton == MouseButtonState.Pressed)
 			{
 				var property = typeof(System.Windows.Controls.DataGrid).GetField
-					($"_isDraggingSelection",
+					("_isDraggingSelection",
 					System.Reflection.BindingFlags.Instance | System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.IgnoreCase);
 				if (property != null) property.SetValue(this.AssociatedObject, false);
 				

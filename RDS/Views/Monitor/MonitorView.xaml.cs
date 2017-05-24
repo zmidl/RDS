@@ -224,17 +224,6 @@ namespace RDS.Views.Monitor
 			}
 		}
 
-		private void Rectangle_PreviewMouseUp_2(object sender, MouseButtonEventArgs e)
-		{
-			General.ExitView(this.currentContent, this, (IExitView)new ReportView());
-		}
-
-		private void SampleRack_MouseUp(object sender, MouseButtonEventArgs e)
-		{
-			sampleView.DataContext = this.ViewModel.SampleViewModel;
-			General.ExitView(this.currentContent, this, (IExitView)sampleView);
-		}
-
 		private void MyCheckBox_Checked(object sender, RoutedEventArgs e)
 		{
 			this.ViewModel.StartRemainingTimer();
@@ -247,7 +236,7 @@ namespace RDS.Views.Monitor
 
 		private void Button_Click(object sender, RoutedEventArgs e)
 		{
-			
+			this.ViewModel.FinishTask();
 		}
 	}
 }

@@ -15,13 +15,13 @@ namespace RDS.ViewModels.Behaviors
 		public static readonly DependencyProperty SampleRackProperty =
 			DependencyProperty.Register(nameof(SampleRackIndex), typeof(SampleRackIndex), typeof(SampleRackMouseUp), new PropertyMetadata(SampleRackIndex.RackA));
 
-		public SampleViewModel ViewModel
+		public object ViewModel
 		{
-			get { return (SampleViewModel)GetValue(ViewModelProperty); }
+			get { return GetValue(ViewModelProperty); }
 			set { SetValue(ViewModelProperty, value); }
 		}
 		public static readonly DependencyProperty ViewModelProperty =
-		   DependencyProperty.Register(nameof(ViewModel), typeof(SampleViewModel), typeof(SampleRackMouseUp), new PropertyMetadata(null));
+		   DependencyProperty.Register(nameof(ViewModel), typeof(object), typeof(SampleRackMouseUp), new PropertyMetadata(null));
 
 		protected override void OnAttached()
 		{
@@ -31,11 +31,17 @@ namespace RDS.ViewModels.Behaviors
 
 		private void AssociatedObject_MouseUp(object sender, System.Windows.Input.MouseButtonEventArgs e)
 		{
-			this.ViewModel.SetSampleRackState(new SampleRackStateArgs(this.SampleRackIndex, RDSCL.SampleRackState.PrepareSample));
-			this.ViewModel.CurrentSampleRackIndex = this.SampleRackIndex;
-			//this.ViewModel.GetLisTableFromFile();
-
-			//this.ViewModel.DatatableToEntity();
+			if (sender is RDSCL.RD_SampleRack)
+			{
+				var viewModel = (SampleViewModel)this.ViewModel;
+				viewModel.SetSampleRackState(new SampleRackStateArgs(this.SampleRackIndex, RDSCL.SampleRackState.PrepareSample));
+				viewModel.CurrentSampleRackIndex = this.SampleRackIndex;
+			}
+			else
+			{
+				var viewModel = (MonitorViewModel)this.ViewModel;
+				viewModel.ShowSampleView();
+			}
 		}
 
 		protected override void OnDetaching()

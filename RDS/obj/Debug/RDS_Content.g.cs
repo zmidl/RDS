@@ -8,7 +8,6 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/lisfiles/barcode_20170504.xml")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfc110u.dll")]
 [assembly: System.Windows.Resources.AssemblyAssociatedContentFileAttribute("apps/dlls/mfcm110.dll")]

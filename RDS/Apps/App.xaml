@@ -1070,7 +1070,8 @@
                                                 <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
                                             </Trigger>
                                             <Trigger Property="IsSelected" Value="true">
-
+                                                <Setter Property="Background" TargetName="Bd" Value="White"/>
+                                                <Setter Property="Foreground" Value="Red"/>
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>

@@ -8,6 +8,8 @@ namespace RDS.Models
 {
 	public class ReagentItem
 	{
+		public int Level { get; set; } = 1;
+
 		public string Name { get; set; } = string.Empty;
 
 		public bool IsUsed { get; set; } = false;

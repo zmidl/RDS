@@ -141,6 +141,11 @@ namespace RDS.ViewModels
 			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.ShowSampleView, null));
 		}
 
+		public void FinishTask()
+		{
+			this.OnViewChanged(new MonitorViewChangedArgs(ViewChangedOption.TaskStop, null));
+		}
+
 		public void SetSamplingResult(bool samplingResult)
 		{
 			this.SamplingResult = samplingResult;

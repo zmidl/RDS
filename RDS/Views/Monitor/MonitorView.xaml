@@ -8,6 +8,9 @@
              xmlns:common="clr-namespace:RDS.ViewModels.Common"
              xmlns:rdsc="clr-namespace:RDSCL;assembly=RDSCL"
              xmlns:local="clr-namespace:RDS.Views.Monitor" x:Class="RDS.Views.Monitor.MonitorView" 
+    xmlns:behavior="clr-namespace:RDS.ViewModels.Behaviors"
+             xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity" 
+             xmlns:ei="http://schemas.microsoft.com/expression/2010/interactions"
              mc:Ignorable="d"
              d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
@@ -26,7 +29,7 @@
         <Storyboard x:Key="TwinkleAnimation">
             <DoubleAnimation Storyboard.TargetProperty="Opacity" From="0.0" To="1.0" Duration="0:0:0.7" AutoReverse="True" />
         </Storyboard>
-        
+
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="1900" Height="1000">
@@ -45,29 +48,20 @@
                         </LinearGradientBrush>
                     </Rectangle.Fill>
                 </Rectangle>
-                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[0].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[0].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="200" Canvas.Top="30" />
-                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[1].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[1].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="250" Canvas.Top="30" />
-                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[2].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[2].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="300" Canvas.Top="30" />
-                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[3].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[3].Samples}" Panel.ZIndex="1" Width="48" MouseUp="SampleRack_MouseUp" Canvas.Left="350" Canvas.Top="30" />
 
-                <Canvas Canvas.Left="430" Canvas.Top="40" Width="230" Height="710">
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220"  Canvas.Left="5"/>
-                    <rdsc:TipRack_1000uL DataSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
-                    <rdsc:TipRack_1000uL DataSource="{Binding TipRacks[2].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
+                <Canvas  Canvas.Left="430" Canvas.Top="40" Width="230" Height="710">
+                    
+                    <rdsc:TipRack_300uL Effect="{StaticResource ModuleEffect}" ItemsSource="{Binding TipRacks[0].Tips}" Width="220"  Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL Effect="{StaticResource ModuleEffect}" DataSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL Effect="{StaticResource ModuleEffect}" DataSource="{Binding TipRacks[2].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
                     <rdsc:RD_CupRack x:Name="CupRack" IsTwinkle="{Binding CupRacks[0].IsTwinkle,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" DataSource="{Binding CupRacks[0]}" Width="220"  Canvas.Left="5"  Canvas.Top="490" Foreground="{x:Null}"/>
 
                 </Canvas>
 
                 <Canvas Canvas.Left="670" Canvas.Top="40" Width="230" Height="710">
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Effect="{StaticResource ModuleEffect}" Fill="White"/>
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="160" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <Rectangle Width="220" Height="151" RadiusX="9" RadiusY="9" Canvas.Left="5" Canvas.Top="320" Effect="{StaticResource ModuleEffect}" Fill="Black"/>
-                    <rdsc:TipRack_1000uL IsTwinkle="{Binding TipRacks[3].IsTwinkle}" DataSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
-                    <rdsc:TipRack_1000uL DataSource="{Binding TipRacks[4].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
-                    <rdsc:TipRack_1000uL DataSource="{Binding TipRacks[5].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL Effect="{StaticResource ModuleEffect}" IsTwinkle="{Binding TipRacks[3].IsTwinkle}" DataSource="{Binding TipRacks[1].Tips}" Width="220" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL Effect="{StaticResource ModuleEffect}" DataSource="{Binding TipRacks[4].Tips}" Width="220" Canvas.Top="160" Canvas.Left="5"/>
+                    <rdsc:TipRack_1000uL Effect="{StaticResource ModuleEffect}" DataSource="{Binding TipRacks[5].Tips}" Width="220" Canvas.Top="320" Canvas.Left="5"/>
                     <rdsc:RD_CupRack DataSource="{Binding CupRacks[1]}" Width="220"  Canvas.Left="5" Canvas.Top="490"/>
                 </Canvas>
 
@@ -88,7 +82,7 @@
 
                 <rdsc:RD_Reader  Effect="{StaticResource ReaderModuleEffect}"  DataSource="{Binding Reader}" Width="300" Canvas.Left="1330" Canvas.Top="160" />
                 <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
-               </Canvas>
+            </Canvas>
 
             <Path Stretch="UniformToFill" Width="50" Canvas.Top="35" Canvas.Left="120" Fill="WhiteSmoke" Data="{StaticResource Clock}"/>
             <TextBlock Canvas.Left="180" Text="{Binding RemainingTime,FallbackValue=00:00:00}" Foreground="{StaticResource TextForeground2}"  Width="160"  FontSize="40" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="34" />
@@ -116,17 +110,26 @@
                 <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="Gray" FontSize="28" />
             </Grid>
 
-            <Canvas x:Name="Canvas_TwinkleModule">
-                <StackPanel Orientation="Vertical" Width="200"  Canvas.Left="265" Canvas.Top="400">
-                    <TextBlock Foreground="White" HorizontalAlignment="Center" Text="请上样" FontSize="40"/>
-                    <Ellipse Stroke="White" StrokeThickness="8" Width="16" Height="16"  Margin="0,20,0,0"/>
-                    <Ellipse Stroke="White" StrokeThickness="8" Width="52" Height="52"  Margin="0,-33,0,0"/>
-                    <Path   Data="{StaticResource Hand}" Fill="White" Stretch="UniformToFill" Width="50" Margin="0,-5,0,0"/>
-                </StackPanel>
-                <Rectangle  StrokeThickness="5" StrokeDashArray="3" Canvas.Left="261" Canvas.Top="143" Width="216" Height="736" Stroke="White" RadiusY="10" RadiusX="10"  />
+            <Canvas Canvas.Left="265" Canvas.Top="150" Width="216" Height="736"  Background="#00000000">
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[0].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[0].Samples}" Panel.ZIndex="1" Width="48"  Canvas.Left="10" Canvas.Top="8" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[1].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[1].Samples}" Panel.ZIndex="1" Width="48"  Canvas.Left="60" Canvas.Top="8" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[2].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[2].Samples}" Panel.ZIndex="1" Width="48"  Canvas.Left="110" Canvas.Top="8" />
+                <rdsc:RD_SampleRack Effect="{StaticResource ModuleEffect}" SampleRackState="{Binding SampleViewModel.FourSampleRackDescriptions[3].SampleRackState}" Samples="{Binding SampleViewModel.FourSampleRackDescriptions[3].Samples}" Panel.ZIndex="1" Width="48"  Canvas.Left="160" Canvas.Top="8" />
 
+                <Canvas x:Name="Canvas_TwinkleModule" Panel.ZIndex="1">
+                    <StackPanel Orientation="Vertical" Width="220"  Canvas.Top="267">
+                        <TextBlock Foreground="White" HorizontalAlignment="Center" Text="请上样" FontSize="40"/>
+                        <Ellipse Stroke="White" StrokeThickness="8" Width="16" Height="16"  Margin="0,20,0,0"/>
+                        <Ellipse Stroke="White" StrokeThickness="8" Width="52" Height="52"  Margin="0,-33,0,0"/>
+                        <Path   Data="{StaticResource Hand}" Fill="White" Stretch="UniformToFill" Width="50" Margin="0,-5,0,0"  />
+                    </StackPanel>
+                    <Rectangle  StrokeThickness="5" StrokeDashArray="3" Canvas.Left="1" Width="216" Height="736" Stroke="White" RadiusY="10" RadiusX="10"  />
+                </Canvas>
+                <i:Interaction.Behaviors>
+                    <behavior:SampleRackMouseUp  ViewModel="{Binding Mode=OneWay}"/>
+                </i:Interaction.Behaviors>
             </Canvas>
-           
+
         </Canvas>
     </Viewbox>
 </UserControl>

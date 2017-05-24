@@ -11,18 +11,17 @@
         WindowStartupLocation="CenterScreen"
         Height="600" Width="900" ResizeMode="NoResize" AllowsTransparency="True" Background="#7FFFFFFF">
     <Window.Resources>
-        <HierarchicalDataTemplate x:Key="RD_TreeViewItemTemplate" ItemsSource="{Binding ReagentItems}">
-            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="2,0,0,0">
-                <TextBlock Foreground="{StaticResource TextForeground3}" Effect="{StaticResource TreeViewEffect}"  Text="{Binding Name}" />
-            </StackPanel>
+        <HierarchicalDataTemplate x:Key="RD_TreeViewItemTemplate"  ItemsSource="{Binding ReagentItems}">
+            <DockPanel LastChildFill="True" VerticalAlignment="Center" Margin="2,0,0,0" >
+                <TextBlock DockPanel.Dock="Left" VerticalAlignment="Center" Foreground="{StaticResource TextForeground3}" Effect="{StaticResource TreeViewEffect}"  Text="{Binding Name}"  />
+            </DockPanel>
             <HierarchicalDataTemplate.ItemTemplate >
                 <DataTemplate >
-                    <Border >
-                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Margin="10,0,0,0">
-                            <CheckBox Style="{StaticResource RD_ElipseCheckBoxStyle}" Margin="3" IsChecked="{Binding IsUsed}" />
-                            <TextBlock  Foreground="{StaticResource TextForeground}" VerticalAlignment="Center" Effect="{StaticResource TreeViewEffect}" Text="{Binding Name}" />
-                        </StackPanel>
-                    </Border>
+                    <DockPanel LastChildFill="True" VerticalAlignment="Center" Margin="10,0,0,0" >
+                        <CheckBox DockPanel.Dock="Left" Style="{StaticResource RD_ElipseCheckBoxStyle}" Margin="3" IsChecked="{Binding IsUsed}" />
+                        <Button Margin="0,2,10,2" Command="{Binding ViewModel.RemoveReagentItem, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:PopupWindow}}}" CommandParameter="{Binding Name}" Content="×" Width="18" DockPanel.Dock="Right" Style="{StaticResource RD_ButtonStyle }"/>
+                        <TextBlock DockPanel.Dock="Left"  Foreground="{StaticResource TextForeground}" VerticalAlignment="Center" Effect="{StaticResource TreeViewEffect}" Text="{Binding Name}" />
+                    </DockPanel>
                 </DataTemplate>
             </HierarchicalDataTemplate.ItemTemplate>
         </HierarchicalDataTemplate>
@@ -90,7 +89,7 @@
 
         <StackPanel x:Key="Resource_StackPanel_ClearPassword" Orientation="Horizontal">
             <Path Stretch="Uniform" Width="15" Data="{StaticResource  Eraser}" Fill="{Binding ElementName=Button_ClearPassword,Path=Foreground}"/>
-         </StackPanel>
+        </StackPanel>
     </Window.Resources>
     <Viewbox Height="600" Width="900" Stretch="Fill" >
         <Border BorderBrush="White" BorderThickness="2">
@@ -109,7 +108,9 @@
                         <DockPanel LastChildFill="True" Width="450" >
                             <Button DockPanel.Dock="Bottom" Style="{StaticResource RD_ButtonStyle}" Content="{DynamicResource App_Ok}" Command="{Binding Command}" CommandParameter="0"  Margin="0,0,0,10" Width="100" Height="30" />
                             <Line DockPanel.Dock="Bottom" Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="446" StrokeThickness="4" Margin="2,0,2,10" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" DockPanel.Dock="Top" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}" TextWrapping="Wrap"/>
+                            <Grid >
+                                <TextBlock Margin="20,0,20,0" Style="{StaticResource TextBlockStyle}"  HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Binding Message}" TextWrapping="Wrap"/>
+                            </Grid>
                         </DockPanel>
                     </TabItem>
                     <TabItem x:Name="TabItem_AdministratorsLogin" Height="1" Width="0">
@@ -140,15 +141,20 @@
 
                                 <TextBlock Style="{StaticResource TextBlockStyle}" Foreground="{StaticResource TextForeground}"  FontSize="12" Text="{StaticResource PopupWindow_SelectReagentMessage}" Canvas.Left="310" Canvas.Top="2" />
 
-                                <TreeView x:Name="treeview1" ItemsSource="{Binding ReagentSeries}" Style="{StaticResource RD_TreeViewStyle}" ItemTemplate="{StaticResource RD_TreeViewItemTemplate}" Width="160" Height="198" Canvas.Left="5"/>
+                                <TreeView x:Name="treeview1" ScrollViewer.VerticalScrollBarVisibility="Visible" HorizontalContentAlignment="Stretch" SelectedValuePath="{Binding SelectedReagentItem}" ItemsSource="{Binding ReagentSeries}" Style="{StaticResource RD_TreeViewStyle}" ItemTemplate="{StaticResource RD_TreeViewItemTemplate}" Width="200" Height="198" Canvas.Left="5" />
+                                <Button Width="18" Height="18" Style="{StaticResource RD_ButtonStyle}" Canvas.Left="232" Canvas.Top="158"/>
+                                <TextBox Width="300" Height="50" Style="{StaticResource RD_TextBoxStyle}" Canvas.Left="134" Canvas.Top="163" RenderTransformOrigin="0.5,0.5">
+                                    <TextBox.RenderTransform>
+                                        <TransformGroup>
+                                            <ScaleTransform ScaleX="0.4" ScaleY="0.4"/>
+                                            <SkewTransform/>
+                                            <RotateTransform/>
+                                            <TranslateTransform/>
+                                        </TransformGroup>
+                                    </TextBox.RenderTransform>
+                                </TextBox>
+                                <Button Width="18" Height="18" Style="{StaticResource RD_ButtonStyle}" Canvas.Left="412" Canvas.Top="158"/>
 
-                                <TextBox Style="{StaticResource RD_TextBoxStyle}" Text="{Binding AdditionReagentInformation}" Width="70" Height="22" Canvas.Left="310" Canvas.Top="178"/>
-                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding AddReagentInformation}" Width="25" Height="22" Canvas.Left="385" Canvas.Top="178">
-                                    <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Add}"/>
-                                </Button>
-                                <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding RemoveReagentInformation}" Width="25" Height="22" Canvas.Left="415" Canvas.Top="178">
-                                    <Path Stretch="Uniform" Width="12" Fill="{StaticResource TextForeground}" Data="{StaticResource Remove}"/>
-                                </Button>
                             </Canvas>
                         </DockPanel>
                     </TabItem>
