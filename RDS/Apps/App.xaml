@@ -1009,59 +1009,62 @@
                             <Setter Property="Template">
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type TreeViewItem}" >
-                                        <StackPanel Orientation="Vertical" Background="#FF4B4B4B">
-                                            <DockPanel x:Name="Bd" Height="25" LastChildFill="True"  SnapsToDevicePixels="true" >
-                                                <Rectangle Width="1">
+                                        <Grid>
+                                            <StackPanel Orientation="Vertical" Background="#FF4B4B4B">
+                                                <DockPanel x:Name="Bd" Height="25" LastChildFill="True"  SnapsToDevicePixels="true" >
+                                                    <Rectangle Width="1">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                                <GradientStop Color="#FF7E7E7E" Offset="0"/>
+                                                                <GradientStop Color="#FF4F4F4F" Offset="1"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                    <Border Background="#FF4F4F4F" Width="29">
+                                                        <CheckBox x:Name="Expander" Style="{StaticResource RD_ExpanderStyle}" Margin="4" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                    </Border>
+                                                    <Rectangle Width="1">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                                <GradientStop Color="#FF1F1F1F" Offset="1"/>
+                                                                <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                    <Rectangle Width="1">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                                <GradientStop Color="#FF7E7E7E" Offset="0"/>
+                                                                <GradientStop Color="#FF4F4F4F" Offset="1"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                    <Rectangle DockPanel.Dock="Right" Width="1">
+                                                        <Rectangle.Fill>
+                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
+                                                                <GradientStop Color="#FF1F1F1F" Offset="1"/>
+                                                                <GradientStop Color="#FF4F4F4F" Offset="0"/>
+                                                            </LinearGradientBrush>
+                                                        </Rectangle.Fill>
+                                                    </Rectangle>
+                                                    <Border Background="#FF4F4F4F">
+                                                        <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
+                                                    </Border>
+                                                </DockPanel>
+                                                <Rectangle Width="{TemplateBinding Width }" Height="2">
                                                     <Rectangle.Fill>
-                                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                            <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                                                            <GradientStop Color="#FF4F4F4F" Offset="1"/>
+                                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                                            <GradientStop Color="#FF4B4B4B" Offset="0"/>
+                                                            <GradientStop Color="#FF232323" Offset="0.517"/>
+                                                            <GradientStop Color="#FF747474" Offset="1"/>
+                                                            <GradientStop Color="#FF8D8D8D" Offset="0.774"/>
                                                         </LinearGradientBrush>
                                                     </Rectangle.Fill>
                                                 </Rectangle>
-                                                <Border Background="#FF4F4F4F" Width="29">
-                                                    <CheckBox x:Name="Expander" Style="{StaticResource RD_ExpanderStyle}" Margin="4" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
-                                                </Border>
-                                                <Rectangle Width="1">
-                                                    <Rectangle.Fill>
-                                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                            <GradientStop Color="#FF1F1F1F" Offset="1"/>
-                                                            <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                                                        </LinearGradientBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
-                                                <Rectangle Width="1">
-                                                    <Rectangle.Fill>
-                                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                            <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                                                            <GradientStop Color="#FF4F4F4F" Offset="1"/>
-                                                        </LinearGradientBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
-                                                <Rectangle DockPanel.Dock="Right" Width="1">
-                                                    <Rectangle.Fill>
-                                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                            <GradientStop Color="#FF1F1F1F" Offset="1"/>
-                                                            <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                                                        </LinearGradientBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
-                                                <Border Background="#FF4F4F4F">
-                                                    <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
-                                                </Border>
-                                            </DockPanel>
-                                            <Rectangle Width="{TemplateBinding Width }" Height="2">
-                                                <Rectangle.Fill>
-                                                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                        <GradientStop Color="#FF4B4B4B" Offset="0"/>
-                                                        <GradientStop Color="#FF232323" Offset="0.517"/>
-                                                        <GradientStop Color="#FF747474" Offset="1"/>
-                                                        <GradientStop Color="#FF8D8D8D" Offset="0.774"/>
-                                                    </LinearGradientBrush>
-                                                </Rectangle.Fill>
-                                            </Rectangle>
-                                            <ItemsPresenter x:Name="ItemsHost" Width="{TemplateBinding Width}" HorizontalAlignment="Stretch"/>
-                                        </StackPanel>
+                                                <ItemsPresenter x:Name="ItemsHost" Width="{TemplateBinding Width}" HorizontalAlignment="Stretch"/>
+                                            </StackPanel>
+                                            <Rectangle x:Name="Frame" HorizontalAlignment="Stretch" Margin="1" VerticalAlignment="Stretch" StrokeThickness="1" Stroke="Transparent"/>
+                                        </Grid>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsExpanded" Value="false">
                                                 <Setter Property="Visibility" TargetName="ItemsHost" Value="Collapsed"/>
@@ -1070,8 +1073,7 @@
                                                 <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
                                             </Trigger>
                                             <Trigger Property="IsSelected" Value="true">
-                                                <Setter Property="Background" TargetName="Bd" Value="White"/>
-                                                <Setter Property="Foreground" Value="Red"/>
+                                                <Setter Property="Stroke" TargetName="Frame" Value="White"/>
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>

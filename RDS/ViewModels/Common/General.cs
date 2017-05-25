@@ -64,8 +64,7 @@ namespace RDS.ViewModels.Common
 
 		public static string ReadConfiguration(string configurationKey)
 		{
-			var a = ConfigurationManager.AppSettings[configurationKey].ToString();
-			return a;
+			return ConfigurationManager.AppSettings[configurationKey].ToString();
 		}
 
 		public static bool WriteConfiguration(string configurationKey, string value)

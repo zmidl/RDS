@@ -22,27 +22,37 @@ namespace RDS.ViewModels
 			}
 		}
 
-
 		private readonly char separator = '-';
 
-		private string additionReagentInformation;
-		public string AdditionReagentInformation
+		public ObservableCollection<string> Languages { get; set; }
+
+		private string newReagentSerierName;
+		public string NewReagentSerierName
 		{
-			get { return additionReagentInformation; }
+			get { return newReagentSerierName; }
 			set
 			{
-				additionReagentInformation = value;
-				this.RaisePropertyChanged(nameof(AdditionReagentInformation));
+				newReagentSerierName = value;
+				this.RaisePropertyChanged(nameof(NewReagentSerierName));
 			}
 		}
 
-		public ObservableCollection<string> Languages { get; set; }
+		private string newReagentItemName;
+		public string NewReagentItemName
+		{
+			get { return newReagentItemName; }
+			set
+			{
+				newReagentItemName = value;
+				this.RaisePropertyChanged(nameof(NewReagentItemName));
+			}
+		}
+
+
 
 		public string SelectedLanguage { get; set; }
 
 		public ObservableCollection<ReagentSeries> ReagentSeries { get; set; } = new ObservableCollection<ReagentSeries>();
-
-		public object SelectedReagentItem { get; set; }
 
 		public List<string> UsedReagentItems { get; private set; }
 
@@ -85,9 +95,11 @@ namespace RDS.ViewModels
 
 		public int PopupTypeIndex { get; set; }
 
-		public RelayCommand RemoveReagentItem { get; private set; }
+		public RelayCommand RemoveReagentInformation { get; private set; }
 
 		public RelayCommand AddReagentItem { get; private set; }
+
+		public RelayCommand AddReagentSeries { get; private set; }
 
 		private Action[] Actions;
 
@@ -97,11 +109,13 @@ namespace RDS.ViewModels
 		{
 			this.Command = new RelayCommand(this.ExecuteCommand);
 
-			this.RemoveReagentItem = new RelayCommand(this.ExecuteRemoveReagentItem);
+			this.RemoveReagentInformation = new RelayCommand(this.ExecuteRemoveReagentInformation);
 
 			this.AddReagentItem = new RelayCommand(this.ExecuteAddReagentItem);
 
-			this.InitializeReagentInformations();
+			this.AddReagentSeries = new RelayCommand(this.ExecuteAddReagentSeries);
+
+			this.InitializeReagentInformation();
 
 			this.InitializeLanguages();
 
@@ -117,19 +131,21 @@ namespace RDS.ViewModels
 			};
 		}
 
-		private void InitializeReagentInformations()
+		private void InitializeReagentInformation()
 		{
-			this.UsedReagentItems = General.ReadConfiguration(Properties.Resources.SelectedReanents).Split(this.separator).ToList();
-			var reagentSeries = General.ReadConfiguration(Properties.Resources.ReagentSeries).Split(this.separator);
-			for (int i = 0; i < reagentSeries.Length; i++)
+			//this.UsedReagentItems = General.ReadConfiguration(Properties.Resources.SelectedReanents).Split(this.separator).ToList();
+			this.UsedReagentItems = General.ReadConfiguration("ReagentInformation").Split('-').ToList();
+			for (int i = 0; i < this.UsedReagentItems.Count; i++)
 			{
-				var reagentItemNames = General.ReadConfiguration(reagentSeries[i]).Split(this.separator);
+				var reagentItemsList = this.UsedReagentItems[i].Split('=').ToList();
 				var reagentItems = new ObservableCollection<ReagentItem>();
-				for (int j = 0; j < reagentItemNames.Length; j++)
+				for (int j = 1; j < reagentItemsList.Count; j++)
 				{
-					reagentItems.Add(new ReagentItem(reagentItemNames[j], this.UsedReagentItems.Exists(o => o == reagentItemNames[j])));
+					var item = reagentItemsList[j].Split(':');
+					var itemName = item[0];
+					reagentItems.Add(new ReagentItem(reagentItemsList[0], itemName, item[1] == "1" ? true : false));
 				}
-				this.ReagentSeries.Add(new ReagentSeries(reagentSeries[i], reagentItems));
+				this.ReagentSeries.Add(new ReagentSeries(reagentItemsList[0], reagentItems));
 			}
 		}
 
@@ -139,11 +155,6 @@ namespace RDS.ViewModels
 			this.Languages = new ObservableCollection<string>(languages);
 			var language = General.ReadConfiguration(Properties.Resources.Language);
 			this.SelectedLanguage = this.Languages.FirstOrDefault(o => o == language);
-		}
-
-		private void ReagentInformation_ViewChanged(object sender, object e)
-		{
-
 		}
 
 		public enum ViewChangedOption
@@ -192,25 +203,61 @@ namespace RDS.ViewModels
 			for (int i = 0; i < reagentItems.Count; i++) usedItems.AddRange(reagentItems[i].Where(o => o.IsUsed == true).Select(o => o.Name));
 			var usedItemsFormatString = string.Join(this.separator.ToString(), usedItems.ToArray());
 			General.WriteConfiguration(Properties.Resources.SelectedReanents, usedItemsFormatString);
+
+			this.SaveLanguage();
+		}
+
+		private void SaveLanguage()
+		{
 			General.WriteConfiguration(Properties.Resources.Language, this.SelectedLanguage);
 			var languagePath = General.ReadConfiguration(this.SelectedLanguage);
 			var resourceDictionary = System.Windows.Application.LoadComponent(new Uri(languagePath, UriKind.Relative)) as System.Windows.ResourceDictionary;
 			General.ChangeLanguage(resourceDictionary);
 		}
 
-		public void ExecuteRemoveReagentItem(object param)
+		private void SaveReagentInformation()
 		{
-			var itemName = param.ToString();
+			var result = new StringBuilder();
 			for (int i = 0; i < this.ReagentSeries.Count; i++)
 			{
-				var item = this.ReagentSeries[i].ReagentItems.FirstOrDefault(o => o.Name == itemName);
-				if (item != null) { this.ReagentSeries[i].ReagentItems.Remove(item); break; }
+				result.Append(this.ReagentSeries[i].Name);
+				for (int j = 0; j < this.ReagentSeries[i].ReagentItems.Count; j++)
+				{
+					result.AppendFormat("{0}:{1}");
+				}
 			}
 		}
 
-		public void ExecuteAddReagentItem(object param)
+		/// <summary>
+		/// remove one ReagentSeries or ReagentItem object   
+		/// </summary>
+		/// <param name="param">selected object</param>
+		public void ExecuteRemoveReagentInformation(object param)
 		{
+			if (param is ReagentSeries) this.ReagentSeries.Remove((ReagentSeries)param);
+			else if (param is ReagentItem)
+			{
+				var reagentItem = (ReagentItem)param;
+				var reagentSeries = this.ReagentSeries.FirstOrDefault(o => o.Name == reagentItem.ParentName);
+				reagentSeries.ReagentItems.Remove(reagentItem);
+			}
+		}
 
+		/// <summary>
+		/// add new ReagentItem
+		/// </summary>
+		/// <param name="param">parent object of the ReagentItem</param>
+		private void ExecuteAddReagentItem(object param)
+		{
+			var reagentSeries = (ReagentSeries)param;
+			reagentSeries.ReagentItems.Add(new ReagentItem(reagentSeries.Name, this.NewReagentItemName, false));
+			this.NewReagentItemName = string.Empty;
+		}
+
+		private void ExecuteAddReagentSeries()
+		{
+			this.ReagentSeries.Add(new ReagentSeries(this.NewReagentSerierName, new ObservableCollection<ReagentItem>()));
+			this.NewReagentSerierName = string.Empty;
 		}
 
 		public void PopupWindow(PopupType popupType, string message, Action[] actions)
