@@ -20,7 +20,7 @@ namespace RDS.ViewModels.ViewProperties
 					if (value <= this.alarmVolume && value > 0) this.IsTwinkle = true;
 					else this.IsTwinkle = false;
 
-					if (value > 0) this.Color = General.TextForeground3;
+					if (value > 0) this.Color = General.TextForeground4;
 					else this.Color = new SolidColorBrush(Colors.White);
 
 					this.RaisePropertyChanged(nameof(this.IsTwinkle));

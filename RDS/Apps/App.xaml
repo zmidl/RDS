@@ -90,6 +90,7 @@
             <PathGeometry x:Key="Cancel" Figures="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2C6.47,2 2,6.47 2,12C2,17.53 6.47,22 12,22C17.53,22 22,17.53 22,12C22,6.47 17.53,2 12,2M14.59,8L12,10.59L9.41,8L8,9.41L10.59,12L8,14.59L9.41,16L12,13.41L14.59,16L16,14.59L13.41,12L16,9.41L14.59,8Z"/>
             <PathGeometry x:Key="DoubleRight" Figures="M5.59,7.41L7,6L13,12L7,18L5.59,16.59L10.17,12L5.59,7.41M11.59,7.41L13,6L19,12L13,18L11.59,16.59L16.17,12L11.59,7.41Z"/>
             <PathGeometry x:Key="DoubleDown" Figures="M16.59,5.59L18,7L12,13L6,7L7.41,5.59L12,10.17L16.59,5.59M16.59,11.59L18,13L12,19L6,13L7.41,11.59L12,16.17L16.59,11.59Z"/>
+            <PathGeometry x:Key="DoubleLeft" Figures="M18.41,7.41L17,6L11,12L17,18L18.41,16.59L13.83,12L18.41,7.41M12.41,7.41L11,6L5,12L11,18L12.41,16.59L7.83,12L12.41,7.41Z"/>
             <PathGeometry x:Key="Eraser" Figures="M16.24,3.56L21.19,8.5C21.97,9.29 21.97,10.55 21.19,11.34L12,20.53C10.44,22.09 7.91,22.09 6.34,20.53L2.81,17C2.03,16.21 2.03,14.95 2.81,14.16L13.41,3.56C14.2,2.78 15.46,2.78 16.24,3.56M4.22,15.58L7.76,19.11C8.54,19.9 9.8,19.9 10.59,19.11L14.12,15.58L9.17,10.63L4.22,15.58Z"/>
             <PathGeometry x:Key="Hand" Figures="M10,2A2,2 0 0,1 12,4V8.5C12,8.5 14,8.25 14,9.25C14,9.25 16,9 16,10C16,10 18,9.75 18,10.75C18,10.75 20,10.5 20,11.5V15C20,16 17,21 17,22H9C9,22 7,15 4,13C4,13 3,7 8,12V4A2,2 0 0,1 10,2Z"/>
             <PathGeometry x:Key="Play" Figures="M12,20C7.59,20 4,16.41 4,12C4,7.59 7.59,4 12,4C16.41,4 20,7.59 20,12C20,16.41 16.41,20 12,20M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2M10,16.5L16,12L10,7.5V16.5Z"/>
@@ -617,7 +618,7 @@
 
             <Style x:Key="RD_TextBoxBrightStyle" TargetType="{x:Type TextBox}">
                 <Setter Property="CaretBrush" Value="{StaticResource TextForeground}"/>
-                <Setter Property="Foreground" Value="{StaticResource TextForeground}"/>
+                <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
                 <Setter Property="FontSize" Value="18"/>
                 <Setter Property="BorderThickness" Value="2"/>
                 <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
@@ -626,6 +627,8 @@
                 <Setter Property="AllowDrop" Value="true"/>
                 <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
                 <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type TextBox}">
@@ -659,7 +662,54 @@
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="RD_ExpanderStyle" TargetType="{x:Type CheckBox}">
+            <Style x:Key="RD_PasswordBoxBrightStyle" TargetType="{x:Type PasswordBox}">
+                <Setter Property="CaretBrush" Value="{StaticResource PressedForeground}"/>
+                <Setter Property="PasswordChar" Value="●"/>
+                <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
+                <Setter Property="BorderThickness" Value="1"/>
+                <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
+                <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+                <Setter Property="AllowDrop" Value="true"/>
+                <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
+                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
+                <Setter Property="HorizontalContentAlignment" Value="Center"/>
+                <Setter Property="VerticalContentAlignment" Value="Center"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type PasswordBox}">
+
+                            <Viewbox Stretch="Fill">
+                                <Border x:Name="border" Width="{TemplateBinding Width}" Height="{TemplateBinding Height}" SnapsToDevicePixels="true" BorderThickness="0,0,0,2" BorderBrush="{DynamicResource PressedForeground}" >
+                                    <ScrollViewer x:Name="PART_ContentHost" Margin="3" Focusable="false" HorizontalAlignment="Stretch" VerticalAlignment="Stretch" HorizontalContentAlignment="Center"/>
+                                </Border>
+                            </Viewbox>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="border" Property="BorderThickness" Value="0,0,0,3"/>
+                                </Trigger>
+                                <Trigger Property="IsKeyboardFocused" Value="true">
+
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+                <Style.Triggers>
+                    <MultiTrigger>
+                        <MultiTrigger.Conditions>
+                            <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
+                            <Condition Property="IsSelectionActive" Value="false"/>
+                        </MultiTrigger.Conditions>
+                        <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
+                    </MultiTrigger>
+                </Style.Triggers>
+            </Style>
+            
+            <Style x:Key="RD_ExpanderBrightStyle" TargetType="{x:Type CheckBox}">
                 <Style.Resources>
                     <RadialGradientBrush x:Key="MouseOver" Center="0.5,0.512" GradientOrigin="0.501,0.543">
                         <GradientStop Color="#7FAA8E65" Offset="0.972"/>
@@ -680,36 +730,35 @@
                 </Style.Resources>
                 <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
                 <Setter Property="Foreground" Value="{StaticResource TextForeground}"/>
-                <Setter Property="BorderBrush" Value="Black"/>
+                <Setter Property="BorderBrush" Value="{x:Null}"/>
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type CheckBox}">
                             <Viewbox>
-                                <Border x:Name="border" SnapsToDevicePixels="true" Background="{StaticResource DefaultBackground}" CornerRadius="5" BorderThickness="5" BorderBrush="{TemplateBinding BorderBrush}">
+                                <Border x:Name="border" SnapsToDevicePixels="true" Background="{StaticResource PressedForeground}" CornerRadius="5" BorderThickness="5" BorderBrush="{TemplateBinding BorderBrush}">
                                     <Grid x:Name="templateRoot" Width="100" Height="100" Background="Transparent" SnapsToDevicePixels="True" Clip="M50,00 A50,50 0,1,1 40,1">
-                                        <Path x:Name="Content" Margin="10" Data="{StaticResource DoubleRight}" Fill="{StaticResource TextForeground3 }" Stretch="Uniform"/>
+                                        <Path x:Name="Content" Margin="10" Data="{StaticResource DoubleRight}" Fill="White" Stretch="Uniform"/>
                                         <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                     </Grid>
                                 </Border>
                             </Viewbox>
                             <ControlTemplate.Triggers>
-
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter TargetName="border" Property="Background" Value="{StaticResource MouseOverBackground }"/>
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource TextForeground3}"/>
                                 </Trigger>
 
                                 <Trigger Property="IsPressed" Value="true">
-                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
+                                  
                                     <Setter TargetName="border" Property="Background" Value="{x:Null}"/>
                                 </Trigger>
                                 <Trigger Property="IsChecked" Value="true">
-                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
                                     <Setter TargetName="Content" Property="Data" Value="{StaticResource DoubleDown}"/>
-                                    <Setter TargetName="Content" Property="Fill" Value="{StaticResource TextForeground}"/>
+                                  
+                                 
                                 </Trigger>
                                 <Trigger Property="IsChecked" Value="{x:Null}">
                                     <Setter TargetName="Content" Property="Data" Value="{StaticResource DoubleRight}"/>
-                                    <Setter TargetName="Content" Property="Fill" Value="{StaticResource TextForeground3}"/>
+                               
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -717,9 +766,9 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="RD_TreeViewStyle" TargetType="{x:Type TreeView}">
-                <Setter Property="Background" Value="Gray"/>
-                <Setter Property="BorderBrush" Value="#d6c79b"/>
+            <Style x:Key="RD_TreeViewBrightStyle" TargetType="{x:Type TreeView}">
+                <Setter Property="Background" Value="#FFEAF5FF"/>
+                <Setter Property="BorderBrush" Value="{StaticResource TextForeground}"/>
                 <Setter Property="BorderThickness" Value="1"/>
                 <Setter Property="Padding" Value="0"/>
                 <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
@@ -739,60 +788,22 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type TreeViewItem}" >
                                         <Grid>
-                                            <StackPanel Orientation="Vertical" Background="#FF4B4B4B">
+                                            <StackPanel Orientation="Vertical" Background="White">
                                                 <DockPanel x:Name="Bd" Height="25" LastChildFill="True"  SnapsToDevicePixels="true" >
-                                                    <Rectangle Width="1">
-                                                        <Rectangle.Fill>
-                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                                <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                                                                <GradientStop Color="#FF4F4F4F" Offset="1"/>
-                                                            </LinearGradientBrush>
-                                                        </Rectangle.Fill>
-                                                    </Rectangle>
-                                                    <Border Background="#FF4F4F4F" Width="29">
-                                                        <CheckBox x:Name="Expander" Style="{StaticResource RD_ExpanderStyle}" Margin="4" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                                    <Rectangle Width="1" Fill="White"/>
+                                                    <Border Background="{StaticResource TextForeground4}" Width="29">
+                                                        <CheckBox x:Name="Expander" Style="{StaticResource RD_ExpanderBrightStyle}" Margin="4" IsChecked="{Binding IsExpanded, RelativeSource={RelativeSource TemplatedParent}}"/>
                                                     </Border>
-                                                    <Rectangle Width="1">
-                                                        <Rectangle.Fill>
-                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                                <GradientStop Color="#FF1F1F1F" Offset="1"/>
-                                                                <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                                                            </LinearGradientBrush>
-                                                        </Rectangle.Fill>
-                                                    </Rectangle>
-                                                    <Rectangle Width="1">
-                                                        <Rectangle.Fill>
-                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                                <GradientStop Color="#FF7E7E7E" Offset="0"/>
-                                                                <GradientStop Color="#FF4F4F4F" Offset="1"/>
-                                                            </LinearGradientBrush>
-                                                        </Rectangle.Fill>
-                                                    </Rectangle>
-                                                    <Rectangle DockPanel.Dock="Right" Width="1">
-                                                        <Rectangle.Fill>
-                                                            <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                                                <GradientStop Color="#FF1F1F1F" Offset="1"/>
-                                                                <GradientStop Color="#FF4F4F4F" Offset="0"/>
-                                                            </LinearGradientBrush>
-                                                        </Rectangle.Fill>
-                                                    </Rectangle>
-                                                    <Border Background="#FF4F4F4F">
+                                                    <Rectangle Width="1" Fill="White"/>
+                                                    <Rectangle DockPanel.Dock="Right" Width="1" Fill="White"/>
+                                                    <Border Background="{StaticResource TextForeground4}">
                                                         <ContentPresenter x:Name="PART_Header" ContentSource="Header" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}"/>
                                                     </Border>
                                                 </DockPanel>
-                                                <Rectangle Width="{TemplateBinding Width }" Height="2">
-                                                    <Rectangle.Fill>
-                                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                                            <GradientStop Color="#FF4B4B4B" Offset="0"/>
-                                                            <GradientStop Color="#FF232323" Offset="0.517"/>
-                                                            <GradientStop Color="#FF747474" Offset="1"/>
-                                                            <GradientStop Color="#FF8D8D8D" Offset="0.774"/>
-                                                        </LinearGradientBrush>
-                                                    </Rectangle.Fill>
-                                                </Rectangle>
+                                                <Rectangle Width="{TemplateBinding Width }" Height="1" Fill="White"/>
                                                 <ItemsPresenter x:Name="ItemsHost" Width="{TemplateBinding Width}" HorizontalAlignment="Stretch"/>
                                             </StackPanel>
-                                            <Rectangle x:Name="Frame" HorizontalAlignment="Stretch" Margin="1" VerticalAlignment="Stretch" StrokeThickness="1" Stroke="Transparent"/>
+                                            <Rectangle x:Name="Frame" HorizontalAlignment="Stretch" Margin="1,0,1,1" VerticalAlignment="Stretch" StrokeThickness="2" Stroke="Transparent"/>
                                         </Grid>
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsExpanded" Value="false">
@@ -802,7 +813,7 @@
                                                 <Setter Property="Visibility" TargetName="Expander" Value="Hidden"/>
                                             </Trigger>
                                             <Trigger Property="IsSelected" Value="true">
-                                                <Setter Property="Stroke" TargetName="Frame" Value="White"/>
+                                                <Setter Property="Stroke" TargetName="Frame" Value="{StaticResource PressedForeground}"/>
                                             </Trigger>
                                             <MultiTrigger>
                                                 <MultiTrigger.Conditions>
@@ -865,7 +876,7 @@
                 </Style.Triggers>
             </Style>
 
-            <Style x:Key="RD_ToggleButtonStyle" TargetType="{x:Type CheckBox}">
+            <Style x:Key="RD_ToggleButtonBrightStyle" TargetType="{x:Type CheckBox}">
                 <Style.Resources>
                     <RadialGradientBrush x:Key="MouseOver" Center="0.5,0.512" GradientOrigin="0.501,0.543">
                         <GradientStop Color="#7FAA8E65" Offset="0.972"/>
@@ -890,11 +901,12 @@
                 <Setter Property="Template">
                     <Setter.Value>
                         <ControlTemplate TargetType="{x:Type CheckBox}">
-                            <Viewbox Width="90" Height="22">
-                                <Border Width="90" CornerRadius="3" BorderThickness="1"  Background="{StaticResource RD_TextBoxBackground}" BorderBrush="{StaticResource RD_TextBoxBorderBrush}">
-                                    <Border x:Name="border" Width="18" Height="18" Margin="1" VerticalAlignment="Center" HorizontalAlignment="Right" SnapsToDevicePixels="true" Background="{StaticResource DefaultBackground}" BorderBrush="Black" CornerRadius="1" BorderThickness="1" >
+                            <Viewbox Width="130" Height="22">
+                             
+                                <Border Width="130" BorderThickness="0,0,0,1"  BorderBrush="{StaticResource PressedForeground}">
+                                    <Border x:Name="border" Width="18" Height="18" Margin="1" VerticalAlignment="Center" HorizontalAlignment="Right" SnapsToDevicePixels="true" Background="{StaticResource PressedForeground}" >
                                         <Grid x:Name="templateRoot" Background="Transparent" SnapsToDevicePixels="True" >
-                                            <Path x:Name="Content" Margin="3" Data="{StaticResource Add}" Fill="{StaticResource TextForeground3 }" Stretch="Uniform"/>
+                                            <Path x:Name="Content" Margin="3" Data="{StaticResource DoubleLeft}" Fill="White" Stretch="Uniform"/>
                                             <ContentPresenter x:Name="contentPresenter"  Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                         </Grid>
                                     </Border>
@@ -903,21 +915,17 @@
                             <ControlTemplate.Triggers>
 
                                 <Trigger Property="IsMouseOver" Value="true">
-                                    <Setter TargetName="border" Property="Background" Value="{StaticResource MouseOverBackground }"/>
+                                    <Setter TargetName="border" Property="Background" Value="{StaticResource TextForeground3 }"/>
                                 </Trigger>
 
                                 <Trigger Property="IsPressed" Value="true">
-                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
-                                    <Setter TargetName="border" Property="Background" Value="{x:Null}"/>
+                                 
                                 </Trigger>
                                 <Trigger Property="IsChecked" Value="true">
-                                    <Setter Property="Foreground" Value="{StaticResource PressedForeground}"/>
-                                    <Setter TargetName="Content" Property="Data" Value="{StaticResource Remove}"/>
-                                    <Setter TargetName="Content" Property="Fill" Value="{StaticResource TextForeground}"/>
+                                    <Setter TargetName="Content" Property="Data" Value="{StaticResource DoubleDown}"/>
                                 </Trigger>
                                 <Trigger Property="IsChecked" Value="{x:Null}">
-                                    <Setter TargetName="Content" Property="Data" Value="{StaticResource Add}"/>
-                                    <Setter TargetName="Content" Property="Fill" Value="{StaticResource TextForeground3}"/>
+                                    <Setter TargetName="Content" Property="Data" Value="{StaticResource DoubleLeft}"/>
                                 </Trigger>
                             </ControlTemplate.Triggers>
                         </ControlTemplate>
@@ -957,7 +965,7 @@
                                     </Grid.ColumnDefinitions>
                                     <Popup x:Name="PART_Popup" AllowsTransparency="true" Grid.ColumnSpan="2" IsOpen="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Margin="1" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Placement="Bottom">
                                         <Themes:SystemDropShadowChrome x:Name="shadow" Color="Transparent" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=templateRoot}">
-                                            <Border x:Name="dropDownBorder" Margin="1" BorderThickness="1" CornerRadius="3" BorderBrush="Black" Background="{StaticResource RD_TextBoxBackground}">
+                                            <Border x:Name="dropDownBorder" Background="{StaticResource TextForeground4}">
                                                 <ScrollViewer x:Name="DropDownScrollViewer" Margin="1">
                                                     <Grid x:Name="grid" RenderOptions.ClearTypeHint="Enabled">
                                                         <Canvas x:Name="canvas" HorizontalAlignment="Left" Height="0" VerticalAlignment="Top" Width="0">
@@ -970,10 +978,9 @@
                                         </Themes:SystemDropShadowChrome>
                                     </Popup>
 
-                                    <CheckBox x:Name="toggleButton" Margin="1"  Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource RD_ToggleButtonStyle}"/>
-                                    <TextBlock Foreground="{StaticResource TextForeground3}">
-                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
-
+                                    <CheckBox x:Name="toggleButton" Margin="1"  Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}" Style="{StaticResource RD_ToggleButtonBrightStyle}"/>
+                                    <TextBlock Foreground="{StaticResource PressedForeground}">
+                                        <ContentPresenter x:Name="contentPresenter" ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}" Content="{TemplateBinding SelectionBoxItem}" ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" IsHitTestVisible="false" Margin="{TemplateBinding Padding}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                     </TextBlock>
                                 </Grid>
                             </Viewbox>
@@ -1015,7 +1022,7 @@
                                 <Setter.Value>
                                     <ControlTemplate TargetType="{x:Type ComboBoxItem}">
                                         <Border x:Name="Bd" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" Padding="{TemplateBinding Padding}" SnapsToDevicePixels="true" CornerRadius="2">
-                                            <TextBlock Foreground="{StaticResource TextForeground2}">
+                                            <TextBlock Foreground="White">
                                             <ContentPresenter HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                                             </TextBlock>
                                         </Border>
@@ -1084,50 +1091,7 @@
                 </Setter>
             </Style>
 
-            <Style x:Key="RD_PasswordBoxStyle" TargetType="{x:Type PasswordBox}">
-                <Setter Property="CaretBrush" Value="{StaticResource TextForeground2}"/>
-                <Setter Property="PasswordChar" Value="●"/>
-                <Setter Property="Foreground" Value="{StaticResource TextForeground2}"/>
-                <Setter Property="BorderThickness" Value="1"/>
-                <Setter Property="KeyboardNavigation.TabNavigation" Value="None"/>
-                <Setter Property="HorizontalContentAlignment" Value="Left"/>
-                <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
-                <Setter Property="AllowDrop" Value="true"/>
-                <Setter Property="ScrollViewer.PanningMode" Value="VerticalFirst"/>
-                <Setter Property="Stylus.IsFlicksEnabled" Value="False"/>
-                <Setter Property="Template">
-                    <Setter.Value>
-                        <ControlTemplate TargetType="{x:Type PasswordBox}">
-
-                            <Viewbox Stretch="Fill">
-                                <Border x:Name="border" Width="100" Height="25" CornerRadius="3" Background="{StaticResource RD_TextBoxBackground}" BorderBrush="{StaticResource RD_TextBoxBorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="True" >
-                                    <ScrollViewer x:Name="PART_ContentHost" Margin="3" Focusable="false" HorizontalAlignment="Center" VerticalContentAlignment="Stretch"/>
-                                </Border>
-                            </Viewbox>
-                            <ControlTemplate.Triggers>
-                                <Trigger Property="IsEnabled" Value="false">
-                                    <Setter Property="Opacity" TargetName="border" Value="0.56"/>
-                                </Trigger>
-                                <Trigger Property="IsMouseOver" Value="true">
-
-                                </Trigger>
-                                <Trigger Property="IsKeyboardFocused" Value="true">
-
-                                </Trigger>
-                            </ControlTemplate.Triggers>
-                        </ControlTemplate>
-                    </Setter.Value>
-                </Setter>
-                <Style.Triggers>
-                    <MultiTrigger>
-                        <MultiTrigger.Conditions>
-                            <Condition Property="IsInactiveSelectionHighlightEnabled" Value="true"/>
-                            <Condition Property="IsSelectionActive" Value="false"/>
-                        </MultiTrigger.Conditions>
-                        <Setter Property="SelectionBrush" Value="{DynamicResource {x:Static SystemColors.InactiveSelectionHighlightBrushKey}}"/>
-                    </MultiTrigger>
-                </Style.Triggers>
-            </Style>
+            
 
         </ResourceDictionary>
     </Application.Resources>

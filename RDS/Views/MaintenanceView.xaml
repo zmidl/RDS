@@ -11,7 +11,7 @@
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
-                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+               
                 <TabControl x:Name="TabControl_MaintenanceWizard" SelectedIndex="{Binding WizardIndex}" Background="{x:Null}"  Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0" Background="{x:Null}" BorderBrush="{x:Null}">
                         <DockPanel LastChildFill="True" >
@@ -47,8 +47,7 @@
 
                 <Button x:Name="Button_ExitView" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Return}" Width="50" Height="50" Click="Button_ExitView_Click" Canvas.Left="80" Canvas.Top="414"/>
 
-                <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>
-            </Canvas>
+              </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

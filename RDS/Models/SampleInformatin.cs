@@ -19,7 +19,6 @@
 			}
 		}
 
-
 		public string Age { get; set; }//strAge="34"
 
 		public string Sex { get; set; }// strSex="男"

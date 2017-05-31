@@ -252,7 +252,7 @@
   <data name="SelectedReanents" xml:space="preserve">
     <value>SelectedReanents</value>
   </data>
-  <data name="Separator" xml:space="preserve">
+  <data name="Separator1" xml:space="preserve">
     <value>-</value>
   </data>
   <data name="StartupUri" xml:space="preserve">
@@ -272,5 +272,26 @@
   </data>
   <data name="TextForeground3" xml:space="preserve">
     <value>TextForeground3</value>
+  </data>
+  <data name="TextForeground4" xml:space="preserve">
+    <value>TextForeground4</value>
+  </data>
+  <data name="ReagentInformation" xml:space="preserve">
+    <value>ReagentInformation</value>
+  </data>
+  <data name="One" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="ReagentItemsFormat" xml:space="preserve">
+    <value>{0}:{1}</value>
+  </data>
+  <data name="Separator2" xml:space="preserve">
+    <value>=</value>
+  </data>
+  <data name="Separator3" xml:space="preserve">
+    <value>:</value>
+  </data>
+  <data name="Zero" xml:space="preserve">
+    <value>0</value>
   </data>
 </root>

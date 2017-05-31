@@ -340,6 +340,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 1 的本地化字符串。
+        /// </summary>
+        internal static string One {
+            get {
+                return ResourceManager.GetString("One", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Rds123 的本地化字符串。
         /// </summary>
         internal static string Password {
@@ -439,6 +448,24 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 ReagentInformation 的本地化字符串。
+        /// </summary>
+        internal static string ReagentInformation {
+            get {
+                return ResourceManager.GetString("ReagentInformation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 {0}:{1} 的本地化字符串。
+        /// </summary>
+        internal static string ReagentItemsFormat {
+            get {
+                return ResourceManager.GetString("ReagentItemsFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Reagents 的本地化字符串。
         /// </summary>
         internal static string Reagents {
@@ -477,9 +504,27 @@ namespace RDS.Properties {
         /// <summary>
         ///   查找类似 - 的本地化字符串。
         /// </summary>
-        internal static string Separator {
+        internal static string Separator1 {
             get {
-                return ResourceManager.GetString("Separator", resourceCulture);
+                return ResourceManager.GetString("Separator1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 = 的本地化字符串。
+        /// </summary>
+        internal static string Separator2 {
+            get {
+                return ResourceManager.GetString("Separator2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 : 的本地化字符串。
+        /// </summary>
+        internal static string Separator3 {
+            get {
+                return ResourceManager.GetString("Separator3", resourceCulture);
             }
         }
         
@@ -511,6 +556,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 TextForeground4 的本地化字符串。
+        /// </summary>
+        internal static string TextForeground4 {
+            get {
+                return ResourceManager.GetString("TextForeground4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 00:00:00 的本地化字符串。
         /// </summary>
         internal static string TimeOut {
@@ -525,6 +579,15 @@ namespace RDS.Properties {
         internal static string TwinkleAnimation {
             get {
                 return ResourceManager.GetString("TwinkleAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 0 的本地化字符串。
+        /// </summary>
+        internal static string Zero {
+            get {
+                return ResourceManager.GetString("Zero", resourceCulture);
             }
         }
     }

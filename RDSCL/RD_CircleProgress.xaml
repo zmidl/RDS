@@ -9,17 +9,17 @@
     <Viewbox Stretch="Fill">
         <Grid>
             <Canvas RenderTransformOrigin="0.5,0.5" HorizontalAlignment="Center" VerticalAlignment="Center" Width="120" Height="120" >
-                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="20.1696" Canvas.Top="9.76358" Stretch="Fill" Fill="#FFC0E5FF"  Opacity="100.0"/>
-                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="2.86816"  Canvas.Top="29.9581" Stretch="Fill"  Fill="White"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="5.03758e-006" Canvas.Top="57.9341" Stretch="Fill" Fill="#FF0074FF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="12.1203"  Canvas.Top="83.3163" Stretch="Fill"  Fill="#FF147FFF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="36.5459" Canvas.Top="98.138" Stretch="Fill" Fill="#FF328FFF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="64.6723" Canvas.Top="96.8411" Stretch="Fill"  Fill="#FF4D96FF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="87.6176" Canvas.Top="81.2783" Stretch="Fill" Fill="#FF5A9EFF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="98.165" Canvas.Top="54.414" Stretch="Fill" Fill="#FF70B1FF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="92.9838" Canvas.Top="26.9938" Stretch="Fill" Fill="#FF73B9FF" Opacity="100"/>
-                <Ellipse Width="21.835" Height="21.862" Canvas.Left="47.2783" Canvas.Top="0.5" Stretch="Fill" Fill="#FF9EDCFF" Opacity="100"/>
-                <Ellipse Width="22" Height="22" Canvas.Left="73" Canvas.Top="7" Stretch="Fill" Fill="#FF83C1FF" Opacity="100"/>
+               <Ellipse Width="21.835" Height="21.862"  Canvas.Left="2.86816"  Canvas.Top="29.9581" Stretch="Fill"  Fill="White"/>
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="5.03758e-006" Canvas.Top="57.9341" Stretch="Fill" Fill="#FF35AAF7" />
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="12.1203"  Canvas.Top="83.3163" Stretch="Fill"  Fill="#E535AAF7" />
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="36.5459" Canvas.Top="98.138" Stretch="Fill" Fill="#CC35AAF7"/>
+                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="64.6723" Canvas.Top="96.8411" Stretch="Fill"  Fill="#B235AAF7" />
+                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="87.6176" Canvas.Top="81.2783" Stretch="Fill" Fill="#9935AAF7" />
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="98.165" Canvas.Top="54.414" Stretch="Fill" Fill="#7F35AAF7" />
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="92.9838" Canvas.Top="26.9938" Stretch="Fill" Fill="#6635AAF7" />
+                <Ellipse Width="22" Height="22" Canvas.Left="73" Canvas.Top="7" Stretch="Fill" Fill="#4C35AAF7" />
+                <Ellipse Width="21.835" Height="21.862" Canvas.Left="47.2783" Canvas.Top="0.5" Stretch="Fill" Fill="#3335AAF7" />
+                <Ellipse Width="21.835" Height="21.862"  Canvas.Left="20.1696" Canvas.Top="9.76358" Stretch="Fill" Fill="#1935AAF7" />
                 <Canvas.RenderTransform>
                     <RotateTransform x:Name="SpinnerRotate"  Angle="0" />
                 </Canvas.RenderTransform>

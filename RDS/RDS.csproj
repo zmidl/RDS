@@ -275,20 +275,6 @@
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Apps\Images\Logo_Icon.ico" />
-    <Resource Include="Apps\Images\InitializeSuppliesView1.bmp" />
-    <Resource Include="Apps\Images\InitializeSuppliesView2.bmp" />
-    <Resource Include="Apps\Images\InitializeSuppliesView3.bmp" />
-    <Resource Include="Apps\Images\InitializeSuppliesView4.png" />
-    <Resource Include="Apps\Images\InitializeSuppliesView5.bmp" />
-    <Resource Include="Apps\Images\InitializeSuppliesView6.bmp" />
-    <Resource Include="Apps\Images\1.png" />
-    <Resource Include="Apps\Images\2.png" />
-    <Resource Include="Apps\Images\3.png" />
-    <Resource Include="Apps\Images\4.png" />
-    <Resource Include="Apps\Images\6.png" />
-    <Resource Include="Apps\Images\7.png" />
-    <Resource Include="Apps\Images\8.png" />
-    <Resource Include="Apps\Images\9.png" />
     <Resource Include="Apps\Images\WorkDesk.png" />
     <Resource Include="Apps\Images\10.png" />
     <Resource Include="Apps\Images\11.png" />

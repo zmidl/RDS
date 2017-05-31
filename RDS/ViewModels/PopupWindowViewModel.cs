@@ -22,8 +22,6 @@ namespace RDS.ViewModels
 			}
 		}
 
-		private readonly char separator = '-';
-
 		public ObservableCollection<string> Languages { get; set; }
 
 		private string newReagentSerierName;
@@ -133,16 +131,16 @@ namespace RDS.ViewModels
 
 		private void InitializeReagentInformation()
 		{
-			this.UsedReagentItems = General.ReadConfiguration("ReagentInformation").Split('-').ToList();
+			this.UsedReagentItems = General.ReadConfiguration(Properties.Resources.ReagentInformation).Split(Properties.Resources.Separator1.ToCharArray()[0]).ToList();
 			for (int i = 0; i < this.UsedReagentItems.Count; i++)
 			{
-				var reagentItemsList = this.UsedReagentItems[i].Split('=').ToList();
+				var reagentItemsList = this.UsedReagentItems[i].Split(Properties.Resources.Separator2.ToCharArray()[0]).ToList();
 				var reagentItems = new ObservableCollection<ReagentItem>();
 				for (int j = 1; j < reagentItemsList.Count; j++)
 				{
-					var item = reagentItemsList[j].Split(':');
+					var item = reagentItemsList[j].Split(Properties.Resources.Separator3.ToCharArray()[0]);
 					var itemName = item[0];
-					reagentItems.Add(new ReagentItem(reagentItemsList[0], itemName, item[1] == "1" ? true : false));
+					reagentItems.Add(new ReagentItem(reagentItemsList[0], itemName, item[1] == Properties.Resources.One ? true : false));
 				}
 				this.ReagentSeries.Add(new ReagentSeries(reagentItemsList[0], reagentItems));
 			}
@@ -150,7 +148,7 @@ namespace RDS.ViewModels
 
 		private void InitializeLanguages()
 		{
-			var languages = General.ReadConfiguration(Properties.Resources.Languages).Split(this.separator).ToList();
+			var languages = General.ReadConfiguration(Properties.Resources.Languages).Split(Properties.Resources.Separator1.ToCharArray()[0]).ToList();
 			this.Languages = new ObservableCollection<string>(languages);
 			var language = General.ReadConfiguration(Properties.Resources.Language);
 			this.SelectedLanguage = this.Languages.FirstOrDefault(o => o == language);
@@ -200,10 +198,11 @@ namespace RDS.ViewModels
 			var reagentItems = this.ReagentSeries.Select(o => o.ReagentItems).ToList();
 			var usedItems = new List<string>();
 			for (int i = 0; i < reagentItems.Count; i++) usedItems.AddRange(reagentItems[i].Where(o => o.IsUsed == true).Select(o => o.Name));
-			var usedItemsFormatString = string.Join(this.separator.ToString(), usedItems.ToArray());
+			var usedItemsFormatString = string.Join(Properties.Resources.Separator1, usedItems.ToArray());
 			General.WriteConfiguration(Properties.Resources.SelectedReanents, usedItemsFormatString);
 
 			this.SaveLanguage();
+			this.SaveReagentInformation();
 		}
 
 		private void SaveLanguage()
@@ -216,15 +215,28 @@ namespace RDS.ViewModels
 
 		private void SaveReagentInformation()
 		{
-			var result = new StringBuilder();
-			for (int i = 0; i < this.ReagentSeries.Count; i++)
+			var seriesCount = this.ReagentSeries.Count;
+			string[] result = new string[seriesCount];
+			StringBuilder[] seriesTemp = new StringBuilder[seriesCount];
+			for (int i = 0; i < seriesCount; i++)
 			{
-				result.Append(this.ReagentSeries[i].Name);
-				for (int j = 0; j < this.ReagentSeries[i].ReagentItems.Count; j++)
+				var currentSeries = this.ReagentSeries[i];
+				seriesTemp[i] = new StringBuilder();
+				seriesTemp[i].AppendFormat("{0}=", currentSeries.Name);
+				var items = new string[currentSeries.ReagentItems.Count];
+				for (int j = 0; j < currentSeries.ReagentItems.Count; j++)
 				{
-					result.AppendFormat("{0}:{1}");
+					var currentItem = currentSeries.ReagentItems[j];
+					items[j]=string.Format
+					(
+						Properties.Resources.ReagentItemsFormat, 
+						currentItem.Name,currentItem.IsUsed ? Properties.Resources.One: Properties.Resources.Zero
+					);
 				}
+				seriesTemp[i].Append(string.Join(Properties.Resources.Separator2, items));
+				result[i] = seriesTemp[i].ToString();
 			}
+			General.WriteConfiguration(Properties.Resources.ReagentInformation, string.Join(Properties.Resources.Separator1, result));
 		}
 
 		/// <summary>

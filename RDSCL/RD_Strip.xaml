@@ -14,11 +14,9 @@
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="650">
                                 <Canvas Width="90" Height="650">
-                                    <Path x:Name="Path_Frame" Fill="#FF35AAF7" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z" 
-                                          StrokeDashArray="{Binding FrameStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                          StrokeThickness="4" StrokeDashCap="Round" />
+                                    <Path x:Name="Path_Frame" Fill="#FF35AAF7" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z"  />
                                 </Canvas>
-                                <StackPanel x:Name="StackPanel_Body" Visibility="{Binding Path=BodyVisibility, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Orientation="Vertical" Canvas.Left="11" Canvas.Top="40">
+                                <StackPanel x:Name="StackPanel_Body" Orientation="Vertical" Canvas.Left="11" Canvas.Top="40">
                                     <local:RD_Hole x:Name="SingleTube1" Width="68" Height="68" Margin="0,20,0,0" ContentColor="{Binding Cells[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                     <local:RD_Hole x:Name="SingleTube2" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                     <local:RD_Hole x:Name="SingleTube3" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[2].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>

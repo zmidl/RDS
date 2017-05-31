@@ -12,6 +12,8 @@ namespace RDS.ViewModels.Common
 	{
 		public static SolidColorBrush TextForeground3 { get { return (General.FindResource(Properties.Resources.TextForeground3) as SolidColorBrush); } }
 
+		public static SolidColorBrush TextForeground4 { get { return (General.FindResource(Properties.Resources.TextForeground4) as SolidColorBrush); } }
+
 		private static MainWindow mainWindow;
 
 		private static PopupWindow popupWindow;
