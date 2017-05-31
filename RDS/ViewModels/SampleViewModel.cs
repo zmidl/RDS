@@ -143,7 +143,7 @@ namespace RDS.ViewModels
 				string dateTime = string.Empty;
 
 #if DEBUG
-				dateTime = "20170504";
+				dateTime = "20170524";
 #else
 				dateTime=DateTime.Now.ToString(Properties.Resources.LisFileNameFormat);
 #endif

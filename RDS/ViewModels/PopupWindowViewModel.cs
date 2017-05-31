@@ -133,7 +133,6 @@ namespace RDS.ViewModels
 
 		private void InitializeReagentInformation()
 		{
-			//this.UsedReagentItems = General.ReadConfiguration(Properties.Resources.SelectedReanents).Split(this.separator).ToList();
 			this.UsedReagentItems = General.ReadConfiguration("ReagentInformation").Split('-').ToList();
 			for (int i = 0; i < this.UsedReagentItems.Count; i++)
 			{

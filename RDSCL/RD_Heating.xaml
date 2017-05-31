@@ -35,41 +35,19 @@
                             
                             <Storyboard x:Key="FlushAnimation">
                                 <DoubleAnimation Storyboard.TargetName="Path_WarmAlarm" Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="Forever" />
-                                <DoubleAnimation Storyboard.TargetName="Rectangle_Frame" Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="Forever" />
+                               
                             </Storyboard>
                         </ControlTemplate.Resources>
                         <Viewbox Stretch="Fill">
                             <Canvas Width="642" Height="780" >
-                                <Rectangle  Width="642" Height="780" RadiusX="20" RadiusY="20">
-                                    <Rectangle.Fill>
-                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#4C999999" Offset="0"/>
-                                            <GradientStop Color="#4CE0E0E0" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Rectangle.Fill>
-                                </Rectangle>
+                                <Rectangle  Width="642" Height="780" RadiusX="20" RadiusY="20" Fill="#FF65B2FF" Opacity="0.4"/>
                                 <StackPanel Canvas.Left="70" Canvas.Top="50" Height="680" Width="370" Orientation="Horizontal">
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[0].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}"/>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[1].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[2].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" CurrentState="{Binding DataSource.Strips[3].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Cells="{Binding DataSource.Strips[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Margin="2,0,0,0" />
                                 </StackPanel>
-
                                 <Rectangle x:Name="ReagentContent" Fill="{Binding DataSource.OlefinBox.Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}}" Canvas.Left="473" Canvas.Top="170" Width="94" Height="444" RadiusX="4" RadiusY="4" />
-                                <Rectangle x:Name="ReagentFrame" Fill="{StaticResource ContentColorMask}" Canvas.Left="465" Canvas.Top="170" Width="110" Height="460" StrokeThickness="8" RadiusX="10" RadiusY="10" >
-                                    <Rectangle.Stroke>
-                                        <LinearGradientBrush EndPoint="1,0.5" StartPoint="0,0.5">
-                                            <GradientStop Color="Black" Offset="0"/>
-                                            <GradientStop Color="White" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Rectangle.Stroke>
-                                    <!--<Rectangle.Triggers>
-                                        <EventTrigger RoutedEvent="Rectangle.Loaded" >
-                                            <BeginStoryboard  Storyboard="{StaticResource TwinkleAnimation}"/>
-                                        </EventTrigger>
-                                    </Rectangle.Triggers>-->
-                                </Rectangle>
-                              
                                 <Canvas x:Name="PopupForm" Visibility="Hidden" >
                                     <Path Canvas.Left="480" Canvas.Top="140"  Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 50,-50 150,-50"/>
                                     <TextBlock Canvas.Left="530"  Text="{Binding DataSource.Temperature,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}, StringFormat=\{0\}℃}"  Style="{StaticResource TextBlock}" Foreground="{StaticResource PressedForeground}"/>
@@ -78,14 +56,13 @@
                                     <TextBlock Canvas.Left="580" Canvas.Top="210" Text="{Binding DataSource.OlefinBox.Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Heating}}, StringFormat=\{0\}%}"  Style="{StaticResource TextBlock}"/>
                                 </Canvas>
 
-                                <Rectangle x:Name="Rectangle_Frame" Width="642" Height="780" RadiusX="20" RadiusY="20" Fill="#4CE2862B">
-                                    <Rectangle.Triggers>
-                                        <EventTrigger RoutedEvent="Rectangle.Loaded" >
+                                <Path x:Name="Path_WarmAlarm" Data="{StaticResource AlertCircleOutline}" Canvas.Right="50" Canvas.Bottom="20" Stretch="UniformToFill" Width="100" Fill="Red" >
+                                    <Path.Triggers>
+                                        <EventTrigger RoutedEvent="Path.Loaded" >
                                             <BeginStoryboard  Storyboard="{StaticResource FlushAnimation}"/>
                                         </EventTrigger>
-                                    </Rectangle.Triggers>
-                                </Rectangle>
-                                <Path x:Name="Path_WarmAlarm" Data="{StaticResource AlertCircleOutline}" Canvas.Right="50" Canvas.Bottom="20" Stretch="UniformToFill" Width="100" Fill="Red" />
+                                    </Path.Triggers>
+                                </Path>
                             </Canvas>
                         </Viewbox>
                         <ControlTemplate.Triggers>
@@ -93,11 +70,11 @@
                                 <Setter TargetName="PopupForm" Property="Visibility" Value="Visible"/>
                             </Trigger>
                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=DataSource.IsWarmAlarm}" Value="True">
-                                <Setter  Property="Visibility"  TargetName="Rectangle_Frame" Value="Visible" />
+                               
                                 <Setter  Property="Visibility"  TargetName="Path_WarmAlarm" Value="Visible" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=DataSource.IsWarmAlarm}" Value="False">
-                                <Setter  Property="Visibility"  TargetName="Rectangle_Frame" Value="Hidden" />
+                               
                                 <Setter  Property="Visibility"  TargetName="Path_WarmAlarm" Value="Hidden" />
                             </DataTrigger>
                         </ControlTemplate.Triggers>

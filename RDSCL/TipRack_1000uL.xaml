@@ -17,24 +17,12 @@
             <GradientStop Color="#FF939393" Offset="0.364"/>
             <GradientStop Color="#FFB8B4B4" Offset="0.703"/>
         </LinearGradientBrush>
-        
-        <LinearGradientBrush x:Key="Content" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#33444444" Offset="1"/>
-            <GradientStop Color="#194D4D4D"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="Excircle" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="White" Offset="0.712"/>
-        </LinearGradientBrush>
-
-        <!--<SolidColorBrush x:Key="Excircle" Color="Transparent"/>-->
 
         <Style x:Key="EllipseStyle" TargetType="{x:Type Ellipse}">
             <Setter Property="Width" Value="18"/>
             <Setter Property="Height" Value="18"/>
             <Setter Property="Margin" Value="4,2,0,0"/>
-            <Setter Property="Stroke" Value="{StaticResource Excircle}"/>
+        
         </Style>
     </UserControl.Resources>
     <UserControl.Style>
@@ -44,7 +32,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill"  >
                             <Canvas Width="290" Height="200">
-                                <Rectangle StrokeThickness="2" RadiusX="10" RadiusY="10" Stroke="#FF444444" Width="290" Height="200" Fill="{StaticResource BackgroundFill}"/>
+                                <Rectangle StrokeThickness="2" RadiusX="10" RadiusY="10"  Width="290" Height="200" Fill="#FF35AAF7"/>
                                 <StackPanel Orientation="Vertical">
                                     <StackPanel Orientation="Horizontal" Margin="12,12,0,0">
                                        <Ellipse Style="{StaticResource EllipseStyle}" Fill="{Binding DataSource[0].TipContentColor,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:TipRack_1000uL}}}" />

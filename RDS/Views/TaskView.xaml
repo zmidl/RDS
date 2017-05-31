@@ -7,20 +7,20 @@
              mc:Ignorable="d" 
             d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-        <StackPanel x:Key="StackPanel_Content_Task" Orientation="Vertical" Height="{Binding ElementName=Button_NewExperiment,Path=Height}" Width="70" Margin="15,22,0,0">
-            <Path Width="40" Height="40" Stretch="Uniform" Fill="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Margin="0,-2,0,0" Data="{StaticResource Experiment}"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0" Text="{DynamicResource TaskView_BeginExperiment}" Foreground="{Binding ElementName=Button_NewExperiment,Path=Foreground}"  VerticalAlignment="Center" FontSize="10"/>
+        <StackPanel x:Key="StackPanel_Content_Task" Orientation="Vertical" Height="{Binding ElementName=Button_NewExperiment,Path=Height}" Margin="6,2,0,0" >
+            <Path Width="16" Stretch="Uniform" Fill="{Binding ElementName=Button_NewExperiment,Path=Foreground}" Data="{StaticResource Experiment}"/>
+            <TextBlock HorizontalAlignment="Center" Text="{DynamicResource TaskView_BeginExperiment}" Foreground="{Binding ElementName=Button_NewExperiment,Path=Foreground}"  VerticalAlignment="Center" FontSize="3"/>
         </StackPanel>
 
-        <StackPanel x:Key="StackPanel_Content_Maintenance" Orientation="Vertical" Height="{Binding ElementName=Button_NewExperiment,Path=Height}" Width="70" Margin="15,22,0,0">
-            <Path Width="40" Height="40" Stretch="Uniform" Fill="{Binding ElementName=Button_Maintenance,Path=Foreground}" Margin="0,-2,0,0" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z"/>
-            <TextBlock HorizontalAlignment="Center" Margin="0,8,0,0" Text="{DynamicResource TaskView_BeginMaintain}" Foreground="{Binding ElementName=Button_Maintenance,Path=Foreground}"  VerticalAlignment="Center" FontSize="10"/>
+        <StackPanel x:Key="StackPanel_Content_Maintenance" Orientation="Vertical" Height="{Binding ElementName=Button_NewExperiment,Path=Height}" Margin="5,3.5,0,0" >
+            <Path Width="16" Stretch="Uniform" Fill="{Binding ElementName=Button_Maintenance,Path=Foreground}" Data="M19.36,2.72L20.78,4.14L15.06,9.85C16.13,11.39 16.28,13.24 15.38,14.44L9.06,8.12C10.26,7.22 12.11,7.37 13.65,8.44L19.36,2.72M5.93,17.57C3.92,15.56 2.69,13.16 2.35,10.92L7.23,8.83L14.67,16.27L12.58,21.15C10.34,20.81 7.94,19.58 5.93,17.57Z"/>
+            <TextBlock HorizontalAlignment="Center"  Text="{DynamicResource TaskView_BeginMaintain}" Foreground="{Binding ElementName=Button_Maintenance,Path=Foreground}"  VerticalAlignment="Center" FontSize="3"/>
         </StackPanel>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="950" Height="500" >
-            <Button x:Name="Button_NewExperiment" Content="{StaticResource StackPanel_Content_Task}" Style="{StaticResource RD_EllipseButtonStyle}" FontSize="30" Width="250" Canvas.Left="180" Canvas.Top="130" Click="Button_NewExperiment_Click"/>
-            <Button x:Name="Button_Maintenance" Content="{StaticResource StackPanel_Content_Maintenance}"  Style="{StaticResource RD_EllipseButtonStyle}"  FontSize="30" Width="250"  Canvas.Right="180" Canvas.Top="130" Click="Button_Maintenance_Click"/>
+            <Button x:Name="Button_NewExperiment" Content="{StaticResource StackPanel_Content_Task}" Style="{StaticResource RD_EllipseButtonStyle2}" FontSize="30" Width="250" Canvas.Left="180" Canvas.Top="130" Click="Button_NewExperiment_Click"/>
+            <Button x:Name="Button_Maintenance" Content="{StaticResource StackPanel_Content_Maintenance}"  Style="{StaticResource RD_EllipseButtonStyle2}"  FontSize="30" Width="250"  Canvas.Right="180" Canvas.Top="130" Click="Button_Maintenance_Click"/>
         </Canvas>
     </Viewbox>
 </UserControl>

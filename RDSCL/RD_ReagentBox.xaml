@@ -35,9 +35,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="28" Height="130">
-                                <Path Data="{StaticResource ReagentBoxFrame}" Stroke="{StaticResource ReagentBoxFrameStroke}" StrokeThickness="2" Fill="#FFB4B4B4"/>
-                                <Rectangle x:Name="ReagentContent" Height="100" Width="18" Canvas.Left="5" Canvas.Top="14" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"/>
-                                <Rectangle Height="100" Width="18" Canvas.Left="5" Canvas.Top="14" Fill="{StaticResource ContentColorMask}" Stroke="{StaticResource ReagentBoxContentStroke}" StrokeThickness='2'/>
+                                <Path x:Name="ReagentContent" Data="{StaticResource ReagentBoxFrame}" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentBox}}}"/>
                             </Canvas>
                         </Viewbox>
                     </ControlTemplate>

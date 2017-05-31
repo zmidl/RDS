@@ -18,25 +18,22 @@
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="950" Height="500">
-            <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
-
-
-            <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBlackStyle}" Margin="10"  Grid.Row="0" Canvas.Left="30" Canvas.Top="20" Width="870" Height="360"  DockPanel.Dock="Left" CanUserAddRows="False"/>
+            <DataGrid  x:Name="DataGrid_ReportName" Style="{StaticResource RD_DataGridBrightStyle}" Margin="10"  Grid.Row="0" Canvas.Left="20" Canvas.Top="10" Width="890" Height="390"  DockPanel.Dock="Left" CanUserAddRows="False"/>
       
-            <StackPanel Grid.Row="1" Orientation="Horizontal" Canvas.Left="60" Canvas.Top="425.754">
+            <StackPanel Grid.Row="1" Orientation="Horizontal" Canvas.Left="60" Canvas.Top="450">
                 <TextBlock Width="70" Text="{DynamicResource HistroyView_Name}" Style="{StaticResource TextBlockStyle}" Margin="10,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Style="{StaticResource RD_TextBoxStyle}" Width="100" Height="30" Margin="2,0,0,0" VerticalContentAlignment="Center" VerticalAlignment="Center"/>
+                <TextBox Style="{StaticResource RD_TextBoxBrightStyle}" Width="100" Height="30" Margin="2,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
                 <TextBlock Style="{StaticResource TextBlockStyle}" Width="50" Text="{DynamicResource HistroyView_Type}" Margin="30,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Style="{StaticResource RD_TextBoxStyle}" Width="100" Height="30" Margin="2,0,0,0"  />
+                <TextBox Style="{StaticResource RD_TextBoxBrightStyle}" Width="100" Height="30" Margin="2,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
 
                 <TextBlock Width="50" Text="{DynamicResource HistroyView_Date}" Style="{StaticResource TextBlockStyle}" Margin="30,0,0,0" VerticalAlignment="Center"/>
-                <TextBox Style="{StaticResource RD_TextBoxStyle}" Width="100" Height="30" Margin="2,0,0,0" />
+                <TextBox Style="{StaticResource RD_TextBoxBrightStyle}" Width="100" Height="30" Margin="2,0,0,0" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" />
                 <Button x:Name="Button_Search" Style="{StaticResource RD_ButtonStyle}" Width="100" Height="30" Content="{StaticResource Resource_StackPanel_Strecth}" Margin="50,0,0,0"  Click="Button_SearchReport_Click"/>
                 <Button x:Name="Button_Import" Style="{StaticResource RD_ButtonStyle}" Width="100" Height="30" Content="{StaticResource Resource_StackPanel_Import}" Margin="10,0,0,0" />
                 
             </StackPanel>
-            <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" StrokeThickness="4" Canvas.Left="30" Canvas.Bottom="100"/>
+            <Line Style="{StaticResource LineStyle}" X1="0" X2="890" StrokeThickness="1" Canvas.Left="30" Canvas.Bottom="70"/>
         </Canvas>
     </Viewbox>
 </UserControl>

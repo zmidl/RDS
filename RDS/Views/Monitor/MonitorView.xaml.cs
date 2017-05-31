@@ -101,15 +101,15 @@ namespace RDS.Views.Monitor
 
 			if (e.Index == $"MixtureState1")
 			{
-				string connectionString = string.Format
-					(
-						ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
-						System.IO.Directory.GetCurrentDirectory()
-					);
+				//string connectionString = string.Format
+				//	(
+				//		ConfigurationManager.AppSettings[Properties.Resources.DatabaseConnectionString].ToString(),
+				//		System.IO.Directory.GetCurrentDirectory()
+				//	);
 
-				SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
-				System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
-				MessageBox.Show(dt.Rows[0][1].ToString());
+				//SQLiteHelper sqlManager = new SQLiteHelper(connectionString);
+				//System.Data.DataTable dt = sqlManager.GetResultTable("select * from RdBarcodeUsages");
+				//MessageBox.Show(dt.Rows[0][1].ToString());
 
 
 				this.ViewModel.SetSamplingResult(true);

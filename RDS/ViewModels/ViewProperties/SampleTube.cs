@@ -21,21 +21,21 @@ namespace RDS.ViewModels.ViewProperties
 			}
 		}
 
-		private bool isLoaded;
-		public bool IsLoaded
+		private bool? isLoaded;
+		public bool? IsLoaded
 		{
 			get { return isLoaded; }
 			set
 			{
 				isLoaded = value;
 				this.RaisePropertyChanged(nameof(IsLoaded));
-				if (value) this.SampleContentColor = new SolidColorBrush(Colors.WhiteSmoke);
-				else this.SampleContentColor = new SolidColorBrush(Colors.Gray);
+				if (value==true) this.SampleContentColor = General.TextForeground3;
+				else this.SampleContentColor = new SolidColorBrush(Colors.White);
 				this.RaisePropertyChanged(nameof(this.SampleContentColor));
 			}
 		}
 
-		public SolidColorBrush SampleContentColor { get; set; }
+		public SolidColorBrush SampleContentColor { get; set; }=new SolidColorBrush(Colors.White);
 
 		private bool isSampling = false;
 		public bool IsSampling
@@ -55,7 +55,6 @@ namespace RDS.ViewModels.ViewProperties
 		public SampleTube(string holeName)
 		{
 			this.HoleName = holeName;
-
 		}
 	}
 }

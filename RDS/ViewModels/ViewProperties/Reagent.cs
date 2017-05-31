@@ -20,8 +20,8 @@ namespace RDS.ViewModels.ViewProperties
 					if (value <= this.alarmVolume && value > 0) this.IsTwinkle = true;
 					else this.IsTwinkle = false;
 
-					if (value > 0) this.Color = new SolidColorBrush(Colors.White);
-					else this.Color = new SolidColorBrush(Colors.Gray);
+					if (value > 0) this.Color = General.TextForeground3;
+					else this.Color = new SolidColorBrush(Colors.White);
 
 					this.RaisePropertyChanged(nameof(this.IsTwinkle));
 					this.RaisePropertyChanged(nameof(this.Color));
@@ -32,6 +32,8 @@ namespace RDS.ViewModels.ViewProperties
 		public bool IsTwinkle { get; set; }
 
 		public SolidColorBrush Color { get; set; }
+
+		public string Name { get; set; }
 
 		public Reagent(int volume = 0, int alarmVolume = 0)
 		{

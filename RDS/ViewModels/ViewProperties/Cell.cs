@@ -18,8 +18,8 @@ namespace RDS.ViewModels.ViewProperties
 			{
 				isLoaded = value;
 				this.RaisePropertyChanged(nameof(IsLoaded));
-				if (value) this.Color = new SolidColorBrush(Colors.White);
-				else this.Color = new SolidColorBrush(Colors.Gray);
+				if (value) this.Color = General.TextForeground3;
+				else this.Color = new SolidColorBrush(Colors.White);
 				this.RaisePropertyChanged(nameof(this.Color));
 			}
 		}

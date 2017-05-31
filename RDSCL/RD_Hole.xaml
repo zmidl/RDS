@@ -21,10 +21,8 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Grid>
-                                <Ellipse Width="120" Height="120" StrokeThickness="10" Stroke="{Binding ExcircleColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Hole}}}" />
                                 <Canvas x:Name="ReagentContent" Width="120" Height="120">
                                     <Ellipse Canvas.Left="10" Canvas.Top="10" Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
-                                    <Ellipse Canvas.Left="10" Canvas.Top="10" Width="100" Height="100" Panel.ZIndex="0" Fill="{Binding ContentColorMask, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type UserControl}}}"/>
                                 </Canvas>
                             </Grid>
                         </Viewbox>

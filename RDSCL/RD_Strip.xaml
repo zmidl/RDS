@@ -6,19 +6,6 @@
              xmlns:local="clr-namespace:RDSCL"
              mc:Ignorable="d" 
             d:DesignHeight="650" d:DesignWidth="90" >
-    <UserControl.Resources>
-
-        <LinearGradientBrush x:Key="Content" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF444444" Offset="1"/>
-            <GradientStop Color="#337C7C7C" Offset="0.801"/>
-            <GradientStop Color="#19FFFFFF"/>
-        </LinearGradientBrush>
-
-        <LinearGradientBrush x:Key="Excircle" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="White" Offset="0.712"/>
-        </LinearGradientBrush>
-    </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Template">
@@ -27,31 +14,24 @@
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="650">
                                 <Canvas Width="90" Height="650">
-                                    <Path x:Name="Path_Frame" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z" 
+                                    <Path x:Name="Path_Frame" Fill="#FF35AAF7" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z" 
                                           StrokeDashArray="{Binding FrameStyle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                          StrokeThickness="4" StrokeDashCap="Round" Stroke="#FF292929" >
-                                        <Path.Fill>
-                                            <LinearGradientBrush EndPoint="1.244,0.514" StartPoint="-0.244,0.513">
-                                                <GradientStop Color="#FFA6A6A6" Offset="1"/>
-                                                <GradientStop Color="#FFE8E8E8"/>
-                                            </LinearGradientBrush>
-                                        </Path.Fill>
-                                    </Path>
+                                          StrokeThickness="4" StrokeDashCap="Round" />
                                 </Canvas>
                                 <StackPanel x:Name="StackPanel_Body" Visibility="{Binding Path=BodyVisibility, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Orientation="Vertical" Canvas.Left="11" Canvas.Top="40">
-                                    <local:RD_Hole x:Name="SingleTube1" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,20,0,0" ContentColor="{Binding Cells[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
-                                    <local:RD_Hole x:Name="SingleTube2" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
-                                    <local:RD_Hole x:Name="SingleTube3" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[2].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
-                                    <local:RD_Hole x:Name="SingleTube4" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[3].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
-                                    <local:RD_Hole x:Name="SingleTube5" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[4].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
-                                    <local:RD_Hole x:Name="SingleTube6" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[5].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube1" Width="68" Height="68" Margin="0,20,0,0" ContentColor="{Binding Cells[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube2" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube3" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[2].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube4" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[3].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube5" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[4].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
+                                    <local:RD_Hole x:Name="SingleTube6" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[5].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                 </StackPanel>
 
                                 <Grid Width="90" Height="90"  Canvas.Top="-50" >
                                     <TextBlock x:Name="TextBlock_Number"  
                                                Visibility="{Binding NumberVisibility,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
                                     Text="{Binding Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                    Foreground="{StaticResource TextForeground2}" 
+                                    Foreground="{StaticResource TextForeground4}" 
                                     FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" />
 
                                 </Grid>

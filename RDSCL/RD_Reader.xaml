@@ -15,17 +15,7 @@
             <Setter Property="FontSize" Value="60"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
-        
-        <LinearGradientBrush x:Key="Content" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="#FF444444" Offset="1"/>
-            <GradientStop Color="#337C7C7C" Offset="0.801"/>
-            <GradientStop Color="#19FFFFFF"/>
-        </LinearGradientBrush>
 
-        <LinearGradientBrush x:Key="Excircle" EndPoint="0.5,1" StartPoint="0.5,0">
-            <GradientStop Color="Black" Offset="0"/>
-            <GradientStop Color="White" Offset="0.712"/>
-        </LinearGradientBrush>
     </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
@@ -35,37 +25,28 @@
                         <ControlTemplate.Resources>
                             <Storyboard x:Key="FlushAnimation">
                                 <DoubleAnimation Storyboard.TargetName="Path_WarmAlarm" Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="Forever" />
-                                <DoubleAnimation Storyboard.TargetName="Rectangle_Frame" Storyboard.TargetProperty="Opacity" From="1.0" To="0.0" Duration="0:0:0.5" AutoReverse="True" RepeatBehavior="Forever" />
                             </Storyboard>
                         </ControlTemplate.Resources>
                        
                         <Viewbox Stretch="Fill">
                             <Canvas Width="900" Height="780" >
-                                <Rectangle Canvas.Left="-250" Canvas.Top="-320" Width="1200" Height="1300" RadiusX="20" RadiusY="20">
-                                    <Rectangle.Fill>
-                                        <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                                            <GradientStop Color="#4C999999" Offset="0"/>
-                                            <GradientStop Color="#4CE0E0E0" Offset="1"/>
-                                        </LinearGradientBrush>
-                                    </Rectangle.Fill>
-                                </Rectangle>
+                                <Rectangle Canvas.Left="-250" Canvas.Top="-320" Width="1200" Height="1300" RadiusX="20" RadiusY="20" Fill="#FF65B2FF" Opacity="0.4"/>
                                 <StackPanel Canvas.Left="50" Canvas.Top="50" Orientation="Horizontal">
                                     <StackPanel Orientation="Vertical" Margin="0,30,0,0">
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}"  ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" IsTwinkle="{Binding DataSource.EnzymeBottles[0].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[1].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Margin="0,25,0,0"/>
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[2].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Margin="0,25,0,0"/>
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[3].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Margin="0,25,0,0"/>
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[4].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Margin="0,25,0,0"/>
-                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[5].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" IsTwinkle="{Binding DataSource.EnzymeBottles[0].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole IsTwinkle="{Binding DataSource.EnzymeBottles[1].IsTwinkle,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" ContentColor="{Binding DataSource.EnzymeBottles[1].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole IsTwinkle="{Binding DataSource.EnzymeBottles[2].IsTwinkle,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}"  ContentColor="{Binding DataSource.EnzymeBottles[2].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[3].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[4].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
+                                        <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[5].Color,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
                                     </StackPanel>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" CurrentState="{Binding DataSource.Strips[0].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Margin="50,0,0,0"/>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" CurrentState="{Binding DataSource.Strips[1].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Margin="30,0,0,0"/>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[2].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" CurrentState="{Binding DataSource.Strips[2].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Cells="{Binding DataSource.Strips[2].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Margin="30,0,0,0"/>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[3].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" CurrentState="{Binding DataSource.Strips[3].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Cells="{Binding DataSource.Strips[3].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Margin="30,0,0,0" />
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[4].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" CurrentState="{Binding DataSource.Strips[4].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Cells="{Binding DataSource.Strips[4].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Margin="150,0,0,0" />
-
                                 </StackPanel>
-                                <Rectangle x:Name="Rectangle_Frame" Canvas.Left="-30" Canvas.Top="-30" Width="950" Height="880" StrokeDashArray="3" Stroke="{x:Null}" StrokeThickness="20" RadiusX="30" RadiusY="30" Fill="#4CE2862B"/>
+                              
                                 <Path x:Name="Path_WarmAlarm" Data="{StaticResource AlertCircleOutline}" Canvas.Left="430" Canvas.Bottom="-40" Stretch="UniformToFill" Width="100" Fill="Red" >
                                     <Path.Triggers>
                                         <EventTrigger RoutedEvent="Path.Loaded" >
@@ -104,11 +85,11 @@
                                 <Setter TargetName="PopupForm" Property="Visibility" Value="Visible"/>
                             </Trigger>
                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=DataSource.IsWarmAlarm}" Value="True">
-                                <Setter  Property="Visibility"  TargetName="Rectangle_Frame" Value="Visible" />
+                                
                                 <Setter  Property="Visibility"  TargetName="Path_WarmAlarm" Value="Visible" />
                             </DataTrigger>
                             <DataTrigger Binding="{Binding RelativeSource={RelativeSource Self},Path=DataSource.IsWarmAlarm}" Value="False">
-                                <Setter  Property="Visibility"  TargetName="Rectangle_Frame" Value="Hidden" />
+                                
                                 <Setter  Property="Visibility"  TargetName="Path_WarmAlarm" Value="Hidden" />
                             </DataTrigger>
 

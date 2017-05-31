@@ -19,7 +19,10 @@ namespace RDS.Views
 		private Callback callback;
 
 		[DllImport(ShareDLL_PATH)]
-		extern static int Register([MarshalAs(UnmanagedType.LPWStr)]string pwszName, [MarshalAs(UnmanagedType.FunctionPtr)]Callback ReciveDataCallback, [MarshalAs(UnmanagedType.SysInt)]IntPtr pParam);
+		extern static int Register(
+			[MarshalAs(UnmanagedType.LPWStr)]string pwszName,
+			[MarshalAs(UnmanagedType.FunctionPtr)]Callback ReciveDataCallback, 
+			[MarshalAs(UnmanagedType.SysInt)]IntPtr pParam);
 
 		private TaskView taskView = new TaskView();
 

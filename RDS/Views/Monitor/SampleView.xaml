@@ -27,7 +27,7 @@
 
         <DataTemplate x:Key="DataGridTemplateHeader_Emergency">
             <Button Style="{StaticResource RD_ButtonStyle}" Command="{Binding ViewModel.SetMultipleEmergency, Mode=OneWay, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:SampleView}}}"  Width="34" Height="23" >
-                <TextBlock Text="{DynamicResource SampleView_Emergency}" Foreground="{StaticResource TextForeground2}" VerticalAlignment="Center"/>
+                <TextBlock Text="{DynamicResource SampleView_Emergency}" Foreground="White" VerticalAlignment="Center"/>
             </Button>
         </DataTemplate>
 
@@ -45,18 +45,18 @@
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
-                <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
+              
                 <Button x:Name="Button_Exit" Style="{StaticResource RD_ButtonStyle}" Command="{Binding ExitSampleView}" Content="返回" Width="100" Height="28" Canvas.Left="800" Canvas.Top="442"/>
 
                 <DataGrid 
                     x:Name="ucDataGrid" 
-                    Style="{StaticResource RD_DataGridBlackStyle}"
+                    Style="{StaticResource RD_DataGridBrightStyle}"
                     AllowDrop="True" ItemsSource="{Binding CurrentSampleInformations}"
                     SelectionMode="Extended"
                     VerticalScrollBarVisibility="Hidden" HorizontalScrollBarVisibility="Hidden"
                     AutoGenerateColumns="False"
-                    Width="735" Height="436" 
-                    Canvas.Left="40" Canvas.Top="32">
+                    Width="740" Height="450" 
+                    Canvas.Left="36" Canvas.Top="20">
                     <DataGrid.Columns>
                         <DataGridTextColumn MinWidth="45" Header="{DynamicResource SampleView_HoleSite}" EditingElementStyle="{StaticResource DataGridColumn0Editing}"  Binding="{Binding HoleName}"/>
                         <DataGridTextColumn MinWidth="90" Header="{DynamicResource SampleView_BarCode}" EditingElementStyle="{StaticResource DataGridColumn0Editing}" Binding="{Binding Barcode}" />

@@ -4,11 +4,14 @@ using System.Windows;
 using RDS.Views;
 using System.Configuration;
 using System.Collections.Generic;
+using System.Windows.Media;
 
 namespace RDS.ViewModels.Common
 {
 	static class General
 	{
+		public static SolidColorBrush TextForeground3 { get { return (General.FindResource(Properties.Resources.TextForeground3) as SolidColorBrush); } }
+
 		private static MainWindow mainWindow;
 
 		private static PopupWindow popupWindow;
@@ -44,9 +47,9 @@ namespace RDS.ViewModels.Common
 			return General.mainWindow.FindResource(resourceKey).ToString();
 		}
 
-		public static ResourceDictionary FindResource(string resourceKey)
+		public static object FindResource(string resourceKey)
 		{
-			return General.mainWindow.FindResource(resourceKey) as ResourceDictionary;
+			return General.mainWindow.FindResource(resourceKey);
 		}
 
 		public static void PopupWindow(PopupType popupType, string message, Action[] actions)

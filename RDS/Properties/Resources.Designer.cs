@@ -430,6 +430,15 @@ namespace RDS.Properties {
         }
         
         /// <summary>
+        ///   查找类似 PressedForeground 的本地化字符串。
+        /// </summary>
+        internal static string PressedForeground {
+            get {
+                return ResourceManager.GetString("PressedForeground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 Reagents 的本地化字符串。
         /// </summary>
         internal static string Reagents {
@@ -489,6 +498,15 @@ namespace RDS.Properties {
         internal static string TaskFinish {
             get {
                 return ResourceManager.GetString("TaskFinish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 TextForeground3 的本地化字符串。
+        /// </summary>
+        internal static string TextForeground3 {
+            get {
+                return ResourceManager.GetString("TextForeground3", resourceCulture);
             }
         }
         

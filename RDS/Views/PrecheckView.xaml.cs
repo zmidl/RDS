@@ -66,7 +66,15 @@ namespace RDS.Views
 				this.CheckBox_Fourth.IsChecked == true &&
 				this.CheckBox_Fifth.IsChecked == true)
 			{
-				General.ExitView(this.PreviousContent, this, ((IExitView)new InitializeSuppliesView()));
+				Monitor.MonitorView monitorView = new Monitor.MonitorView();
+				General.PopupWindow(ViewModels.PopupType.ShowCircleProgress, string.Empty, null);
+
+				Task task2 = new Task(() =>
+				{
+					Thread.Sleep(500);
+					this.Dispatcher.BeginInvoke(System.Windows.Threading.DispatcherPriority.Normal, new Action(() => { this.Content = monitorView; General.HideCircleProgress(); }));
+				});
+				task2.Start();
 			}
         }
 

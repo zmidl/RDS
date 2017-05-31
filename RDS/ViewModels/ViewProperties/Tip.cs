@@ -14,8 +14,8 @@ namespace RDS.ViewModels.ViewProperties
 			{
 				isLoaded = value;
 				this.RaisePropertyChanged(nameof(IsLoaded));
-				if (value) this.TipContentColor = new SolidColorBrush(Colors.White);
-				else this.TipContentColor = new SolidColorBrush(Colors.Gray);
+				if (value) this.TipContentColor = General.TextForeground3;
+				else this.TipContentColor = new SolidColorBrush(Colors.White);
 				this.RaisePropertyChanged(nameof(this.TipContentColor));
 			}
 		}

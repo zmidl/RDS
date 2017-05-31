@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>RDS</RootNamespace>
     <AssemblyName>RDS</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -141,7 +141,6 @@
     <Compile Include="ViewModels\ViewProperties\Tip.cs" />
     <Compile Include="ViewModels\ViewProperties\TipRack.cs" />
     <Compile Include="ViewModels\ViewProperties\Heating.cs" />
-    <Compile Include="ViewModels\InitializeSuppliesViewModel.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\MonitorViewModel.cs" />
     <Compile Include="ViewModels\SampleViewModel.cs" />
@@ -150,9 +149,6 @@
     </Compile>
     <Compile Include="Views\HistroyView.xaml.cs">
       <DependentUpon>HistroyView.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="Views\InitializeSuppliesView.xaml.cs">
-      <DependentUpon>InitializeSuppliesView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
@@ -203,10 +199,6 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\HistroyView.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Views\InitializeSuppliesView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -279,7 +271,9 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
-    <Resource Include="Apps\LisFiles\Barcode_20170524.xml" />
+    <Resource Include="Apps\LisFiles\Barcode_20170524.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Apps\Images\Logo_Icon.ico" />
     <Resource Include="Apps\Images\InitializeSuppliesView1.bmp" />
     <Resource Include="Apps\Images\InitializeSuppliesView2.bmp" />
@@ -352,6 +346,7 @@
     <Content Include="Apps\Database\Rds.db">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <None Include="App.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

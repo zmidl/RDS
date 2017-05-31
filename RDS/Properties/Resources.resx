@@ -267,4 +267,10 @@
   <data name="TwinkleAnimation" xml:space="preserve">
     <value>TwinkleAnimation</value>
   </data>
+  <data name="PressedForeground" xml:space="preserve">
+    <value>PressedForeground</value>
+  </data>
+  <data name="TextForeground3" xml:space="preserve">
+    <value>TextForeground3</value>
+  </data>
 </root>

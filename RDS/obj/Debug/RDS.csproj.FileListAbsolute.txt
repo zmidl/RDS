@@ -83,7 +83,6 @@ C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Apps\Languages\zh-CN.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Apps\Styles\TextBlockStyle.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\FinalView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HistroyView.baml
-C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\InitializeSuppliesView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\MainView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HelpView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\ReagentView.baml
@@ -95,7 +94,6 @@ C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\TaskView.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Apps\App.baml
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\FinalView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HistroyView.g.cs
-C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\InitializeSuppliesView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\MainView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\HelpView.g.cs
 C:\zhaomin\sourcecode\RDS\RDS\obj\Debug\Views\Monitor\MonitorView.g.cs

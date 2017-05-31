@@ -52,25 +52,6 @@ namespace RDSCL
 
 		private static void Callback_IsTwinkle(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
-			//var rD_Hole = (RD_Hole)d;
-
-			//if (rD_Hole.storyboard == null) rD_Hole.storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
-
-			//var twinkleModule = (Canvas)rD_Hole.Template.FindName(Properties.Resources.ReagentContent, rD_Hole);
-
-			//if ((bool)e.NewValue == true)
-			//{
-			//	rD_Hole.storyboard.RepeatBehavior = new RepeatBehavior(1);
-
-			//	rD_Hole.storyboard.Completed += (sender, eventArgs) =>
-			//	{
-			//		if (rD_Hole.IsTwinkle) rD_Hole.storyboard.Begin(twinkleModule);
-			//	};
-			//	rD_Hole.storyboard.Begin(twinkleModule);
-			//}
-
-
-			
 			var rD_Hole = (RD_Hole)d;
 
 			var storyboard = rD_Hole.Resources[Properties.Resources.TwinkleAnimation] as Storyboard;
