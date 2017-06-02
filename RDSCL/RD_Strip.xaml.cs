@@ -94,11 +94,12 @@ namespace RDSCL
 				var currentState = (bool)e.NewValue;
 				var frame = strip.Template.FindName("Path_Frame",strip) as Path;
 				var blue = strip.FindResource("BlueColor") as SolidColorBrush;
-				var wathetColor = strip.FindResource("WathetColor") as SolidColorBrush;
+				var wathetColor = strip.FindResource("WathetColor2") as SolidColorBrush;
+				var body = strip.Template.FindName("StackPanel_Body", strip) as Panel;
 				switch (currentState)
 				{
-					case true: { frame.Fill=blue; strip.NumberVisibility = Visibility.Visible; break; }
-					case false: { frame.Fill = wathetColor; strip.NumberVisibility = Visibility.Hidden; break; }
+					case true: { frame.Fill=blue;body.Visibility = Visibility.Visible; strip.NumberVisibility = Visibility.Visible; break; }
+					case false: { frame.Fill = wathetColor; body.Visibility = Visibility.Hidden; strip.NumberVisibility = Visibility.Hidden; break; }
 					default: { break; }
 				}
 			}

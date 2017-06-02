@@ -16,7 +16,9 @@
             <SolidColorBrush x:Key="BlueColor" Color="#FF35AAF7"/>
             <SolidColorBrush x:Key="GrayColor" Color="#FFD8D8D8"/>
             <SolidColorBrush x:Key="GreenColor" Color="#FF97C300"/>
-            <SolidColorBrush x:Key="WathetColor" Color="#6665B2FF"/>
+            <SolidColorBrush x:Key="WathetColor" Color="#FFA1D0FF"/>
+            <SolidColorBrush x:Key="WathetColor2" Color="#FFD6ECFF"/>
+            <SolidColorBrush x:Key="WathetColor3" Color="#FFEAF5FF"/>
             <SolidColorBrush x:Key="TextForeground4" Color="#FFA1D0FF"/>
            
             <LinearGradientBrush x:Key="RD_TextBoxBorderBrush" EndPoint="0.5,1.003" StartPoint="0.5,0.087">
@@ -391,13 +393,13 @@
                             <Style.Triggers>
                                 <!--隔行换色-->
                                 <Trigger Property="AlternationIndex" Value="0" >
-                                    <Setter Property="Background" Value="#FFD6ECFF" />
+                                    <Setter Property="Background" Value="{StaticResource WathetColor2}" />
                                     <Setter Property="Foreground" Value="{StaticResource BlueColor}"/>
                                     <Setter Property="FontSize" Value="12"/>
                                 </Trigger>
 
                                 <Trigger Property="AlternationIndex" Value="1" >
-                                    <Setter Property="Background" Value="#FFEAF5FF" />
+                                    <Setter Property="Background" Value="{StaticResource WathetColor3}" />
                                     <Setter Property="Foreground" Value="{StaticResource BlueColor}"/>
                                     <Setter Property="FontSize" Value="12"/>
                                 </Trigger>

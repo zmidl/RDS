@@ -26,10 +26,10 @@
                                     <local:RD_Hole x:Name="SingleTube6" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[5].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                 </StackPanel>
 
-                                <Grid Width="90" Height="720"  Canvas.Top="-50" >
+                                <Grid Width="90" Height="740"  Canvas.Top="-50" >
                                     <TextBlock x:Name="TextBlock_Number" Visibility="{Binding NumberVisibility,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Text="{Binding Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Foreground="{StaticResource GreenColor}"  FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" />
-                                    <Path x:Name="Path_From" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="40" Data="{StaticResource Upload}" Fill="{StaticResource GreenColor}"/>
-                                    <Path x:Name="Path_To" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="40" Data="{StaticResource Download}" Fill="{StaticResource GreenColor}"/>
+                                    <Path x:Name="Path_From" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="50" Data="{StaticResource Download}" Fill="{StaticResource GreenColor}"/>
+                                    <Path x:Name="Path_To" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="50" Data="{StaticResource Upload}" Fill="{StaticResource GreenColor}"/>
                                 </Grid>
                             </Canvas>
                         </Viewbox>

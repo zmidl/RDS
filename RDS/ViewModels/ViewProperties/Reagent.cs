@@ -20,7 +20,15 @@ namespace RDS.ViewModels.ViewProperties
 					if (value <= this.alarmVolume && value > 0) this.IsTwinkle = true;
 					else this.IsTwinkle = false;
 
-					if (value > 0) this.Color = General.TextForeground4;
+					if (value > 0)
+					{
+						switch (this.reagentType)
+						{
+							case ReagentType.Normal: { this.Color = General.TextForeground4; break; }
+							case ReagentType.Olefin:
+							case ReagentType.Enzyme: { this.Color = General.GreenColor ; break; }
+						}
+					}
 					else this.Color = new SolidColorBrush(Colors.White);
 
 					this.RaisePropertyChanged(nameof(this.IsTwinkle));
@@ -29,16 +37,26 @@ namespace RDS.ViewModels.ViewProperties
 			}
 		}
 
+		private ReagentType reagentType;
+
 		public bool IsTwinkle { get; set; }
 
 		public SolidColorBrush Color { get; set; }
 
 		public string Name { get; set; }
 
-		public Reagent(int volume = 0, int alarmVolume = 0)
+		public Reagent(ReagentType reagentType, int volume = 0, int alarmVolume = 0)
 		{
+			this.reagentType = reagentType;
 			this.Volume = volume;
 			this.alarmVolume = alarmVolume;
 		}
+	}
+
+	public enum ReagentType
+	{
+		Normal = 0,
+		Olefin = 1,
+		Enzyme = 2
 	}
 }
