@@ -7,21 +7,20 @@
              d:DesignHeight="1000" d:DesignWidth="1900">
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
-            <Rectangle Style="{StaticResource RectangleContainerStyle}"/>
-            <DockPanel Width="900" Height="460">
-                <Button Style="{StaticResource RD_ButtonStyle}"  Command="{Binding CloseHatch}" Content="{StaticResource App_Ok}" DockPanel.Dock="Bottom" Margin="380,0,370,20" Width="150" Height="40"/>
-                <Line Stroke="{StaticResource HorizontalLineFill}" X1="0" X2="890" Margin="5,0,5,20" StrokeThickness="4"  DockPanel.Dock="Bottom"/>
+            <DockPanel >
+                <Button Style="{StaticResource RD_ButtonBrightStyle}"  Command="{Binding CloseHatch}" Content="{StaticResource App_Ok}" DockPanel.Dock="Bottom" Margin="380,0,370,20" Width="150" Height="40"/>
+                <Line Style="{StaticResource LineStyle}" X1="0" X2="950" Margin="5,0,5,20" DockPanel.Dock="Bottom"/>
                 <TabControl SelectedIndex="{Binding WizardIndex}" Background="{x:Null}" BorderBrush="{x:Null}">
                     <TabItem Height="0" Width="1">
-                        <DockPanel DockPanel.Dock="Top"  >
-                            <Image Source="/RDS;component/Apps/Images/14.png" Margin="50,0,0,0" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message1}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/14.png" DockPanel.Dock="Top" Margin="0,50,0,0" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message1}" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem Height="0" Width="1">
-                        <DockPanel DockPanel.Dock="Top"  >
-                            <Image Source="/RDS;component/Apps/Images/15.png" Margin="50,0,0,0" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message2}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/15.png" Margin="0,50,0,0" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource FinalView_Message2}" FontSize="30" TextWrapping="Wrap"  />
                         </DockPanel>
                     </TabItem>
                 </TabControl>

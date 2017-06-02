@@ -25,7 +25,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="120" Height="1800" >
-                                <Rectangle Opacity="0.4" Width="120" Height="1800" StrokeThickness="5" RadiusX="20" RadiusY="20" Stroke="#FF444444" Fill="#FF65B2FF"/>
+                                <Rectangle Opacity="0.4" Width="120" Height="1800" StrokeThickness="5" RadiusX="20" RadiusY="20" Stroke="#FF444444" Fill="{StaticResource WathetColor}"/>
 
                                 <Canvas x:Name="Canvas_Rack" Visibility="{Binding RackVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" Width="120" Height="1800">
                                     <Rectangle Width="120" Height="1800" StrokeThickness="5" RadiusX="20" RadiusY="20" Stroke="#FF444444"  Fill="#FF35AAF7"/>

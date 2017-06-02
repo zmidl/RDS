@@ -24,17 +24,20 @@ namespace RDS.Views
 
 		private void ViewModel_ViewChanged(object sender, object e)
 		{
-			this.Content = new FinalView();
-		}
-
-		private void Button_ExitView_Click(object sender, RoutedEventArgs e)
-		{
-			((IExitView)this).ExitView();
-		}
-
-		private void Button_WizardPrevious_Click(object sender, RoutedEventArgs e)
-		{
-			if (this.TabControl_MaintenanceWizard.SelectedIndex > 0) this.TabControl_MaintenanceWizard.SelectedIndex--;
+			switch (((MaintenanceViewModel.MaintenanceViewChangedArgs)e).Option)
+			{
+				case MaintenanceViewModel.ViewChangedOption.ExitMaintenanceView:
+				{
+					((IExitView)this).ExitView();
+					break;
+				}
+				case MaintenanceViewModel.ViewChangedOption.EnterFinalView:
+				{
+					this.Content = new FinalView();
+					break;
+				}
+				default:break;
+			}
 		}
 	}
 }

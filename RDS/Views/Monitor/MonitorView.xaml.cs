@@ -97,8 +97,6 @@ namespace RDS.Views.Monitor
 		int v = 0;
 		private void MainWindow_GlobalNotify(object sender, GlobalNotifyArgs e)
 		{
-			
-
 			if (e.Index == $"MixtureState1")
 			{
 				//string connectionString = string.Format
@@ -161,10 +159,12 @@ namespace RDS.Views.Monitor
 			else if (e.Index == $"SampleState3")
 			{
 				this.ViewModel.SetSampleState(1, 1, false);
+				this.ViewModel.StripMoving(1, 23);
 			}
 			else if (e.Index == $"SampleState4")
 			{
 				this.ViewModel.SetSampleState(2, 1, false);
+				this.ViewModel.StripMoved(1, 23);
 			}
 			else if (e.Index == $"Enzyme+")
 			{

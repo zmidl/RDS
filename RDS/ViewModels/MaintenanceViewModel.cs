@@ -9,7 +9,7 @@ namespace RDS.ViewModels
 {
 	public class MaintenanceViewModel : ViewModel
 	{
-		private readonly int WizardSize = 2;
+		private readonly int WizardSize = 3;
 
 		private int wizardIndex;
 		public int WizardIndex
@@ -24,10 +24,6 @@ namespace RDS.ViewModels
 			}
 		}
 
-		public bool Wizard1 { get { return this.wizardIndex == 0 ? true : false; } }
-		public bool Wizard2 { get { return this.wizardIndex == 1 ? true : false; } }
-		public bool Wizard3 { get { return this.wizardIndex == 2 ? true : false; } }
-
 		public RelayCommand TurnNextView { get; private set; }
 		public RelayCommand TurnPreviousView { get; private set; }
 
@@ -37,25 +33,32 @@ namespace RDS.ViewModels
 			this.TurnPreviousView = new RelayCommand(this.ExecuteTurnPreviousView);
 		}
 
+		public enum ViewChangedOption
+		{
+			ExitMaintenanceView = 0,
+			EnterFinalView = 1
+		}
+
+		public class MaintenanceViewChangedArgs : EventArgs
+		{
+			public ViewChangedOption Option { get; set; }
+			public object Value { get; set; }
+
+			public MaintenanceViewChangedArgs(ViewChangedOption option, object value)
+			{
+				this.Option = option;
+				this.Value = value;
+			}
+		}
 
 		private void ExecuteTurnNextView()
 		{
-			if (this.WizardIndex++ == this.WizardSize) { this.OnViewChanged(null); };
-			this.RaiseWizards();
+			if (this.WizardIndex++ == this.WizardSize) this.OnViewChanged(new MaintenanceViewChangedArgs(ViewChangedOption.EnterFinalView, null));
 		}
 
 		private void ExecuteTurnPreviousView()
 		{
-			this.WizardIndex--;
-			this.RaiseWizards();
-		}
-
-		private void RaiseWizards()
-		{
-			this.RaisePropertyChanged(nameof(this.Wizard1));
-			this.RaisePropertyChanged(nameof(this.Wizard2));
-			this.RaisePropertyChanged(nameof(this.Wizard3));
-
+			if (this.WizardIndex-- == 0) this.OnViewChanged(new MaintenanceViewChangedArgs(ViewChangedOption.ExitMaintenanceView, null));
 		}
 	}
 }

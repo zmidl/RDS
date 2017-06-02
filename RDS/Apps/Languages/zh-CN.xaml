@@ -50,6 +50,9 @@
     <system:String x:Key="InitializeSuppliesView_Message12">此处放置矿物油</system:String>
     <system:String x:Key="InitializeSuppliesView_Message13">此处放置洗涤液</system:String>
     <system:String x:Key="MonitorView_RemainingTime">剩余时间</system:String>
+    <system:String x:Key="MonitorView_Start">开始任务</system:String>
+    <system:String x:Key="MonitorView_Compelte">结束任务</system:String>
+    <system:String x:Key="MonitorView_Sampling">请上样</system:String>
     <system:String x:Key="MaintenanceView_Message1">请按照配方配对一定比例的清洁液与清水</system:String>
     <system:String x:Key="MaintenanceView_Message2">用 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
     <system:String x:Key="MaintenanceView_Message3">用清水擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>

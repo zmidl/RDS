@@ -6,48 +6,42 @@
              mc:Ignorable="d" 
            d:DesignHeight="1000" d:DesignWidth="1900">
     <UserControl.Resources>
-        <Path x:Key="Return" Fill="{StaticResource PressedForeground}" Data="{StaticResource Replay}" Stretch="Uniform" Width="60" Height="60" Margin="18,16,0,0" StrokeThickness="2"/>
+        <Path x:Key="Resources_Path_Previouse" Fill="{Binding ElementName=Button_Previouse,Path=Foreground}" Data="{StaticResource Previouse}"  Stretch="Uniform" Width="20" Height="20" Margin="3,4,0,0"/>
+        <Path x:Key="Resources_Path_Next" Fill="{Binding ElementName=Button_Next,Path=Foreground}" Data="{StaticResource Next}"  Stretch="Uniform" Width="20" Height="20" Margin="5,4,0,0"/>
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Grid Width="950" Height="500">
             <Canvas>
-               
-                <TabControl x:Name="TabControl_MaintenanceWizard" SelectedIndex="{Binding WizardIndex}" Background="{x:Null}"  Width="800" Height="350" Canvas.Left="80" Canvas.Top="30" BorderBrush="{x:Null}">
+                <TabControl x:Name="TabControl_MaintenanceWizard" SelectedIndex="{Binding WizardIndex}" Background="{x:Null}"  Width="680" Height="300" Canvas.Left="138" Canvas.Top="80" BorderBrush="{x:Null}">
                     <TabItem Height="1" Width="0" Background="{x:Null}" BorderBrush="{x:Null}">
-                        <DockPanel LastChildFill="True" >
-                            <Image Source="/RDS;component/Apps/Images/12.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right"  HorizontalAlignment="Stretch"/>
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/15.png" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
+                        </DockPanel>
+                    </TabItem>
+                    <TabItem Height="1" Width="0" Background="{x:Null}" BorderBrush="{x:Null}">
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/12.png" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message1}" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <DockPanel LastChildFill="True" >
-                            <Image Source="/RDS;component/Apps/Images/10.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message2}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/10.png" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message2}" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0">
-                        <DockPanel LastChildFill="True" >
-                            <Image Source="/RDS;component/Apps/Images/11.png" DockPanel.Dock="Left" HorizontalAlignment="Stretch" Stretch="Uniform" Height="340" />
-                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message3}" FontSize="30" TextWrapping="Wrap" DockPanel.Dock="Right" VerticalAlignment="Center" HorizontalAlignment="Stretch"/>
+                        <DockPanel LastChildFill="True" HorizontalAlignment="Center">
+                            <Image Source="/RDS;component/Apps/Images/11.png" DockPanel.Dock="Top" HorizontalAlignment="Stretch" Stretch="Uniform" Height="200" />
+                            <TextBlock Style="{StaticResource TextBlockStyle}" Text="{DynamicResource MaintenanceView_Message3}" FontSize="30" TextWrapping="Wrap"  HorizontalAlignment="Stretch"/>
                         </DockPanel>
                     </TabItem>
                     <TabItem Height="1" Width="0"/>
                 </TabControl>
-                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnPreviousView}"  Canvas.Left="390" Canvas.Top="414">
-                    <Path Fill="{StaticResource PressedForeground}" Data="M15.41,16.58L10.83,12L15.41,7.41L14,6L8,12L14,18L15.41,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="20,25,0,0"/>
-                </Button>
-                <StackPanel Canvas.Left="450" Canvas.Top="428" Orientation="Horizontal" >
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard1,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard2,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                    <CheckBox Style="{StaticResource RD_ElipseRadioButtonStyle}" IsEnabled="False" IsChecked="{Binding Wizard3,Mode=OneWay}" Width="20" Margin="10,0,0,0"/>
-                </StackPanel>
-                <Button Width="50" Height="50" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding TurnNextView}" Canvas.Right="340" Canvas.Top="414">
-                    <Path Fill="{StaticResource PressedForeground}" Data="M8.59,16.58L13.17,12L8.59,7.41L10,6L16,12L10,18L8.59,16.58Z"  Stretch="Uniform" Width="50" Height="50" Margin="25,25,0,0"/>
-                </Button>
-
-                <Button x:Name="Button_ExitView" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Return}" Width="50" Height="50" Click="Button_ExitView_Click" Canvas.Left="80" Canvas.Top="414"/>
-
-              </Canvas>
+                <Button x:Name="Button_Previouse" Width="100" Height="100" Style="{StaticResource RD_EllipseButtonStyle2}" Command="{Binding TurnPreviousView}"  Canvas.Left="25" Canvas.Top="216" Content="{StaticResource Resources_Path_Previouse}"/>
+                <Button x:Name="Button_Next" Width="100" Height="100" Style="{StaticResource RD_EllipseButtonStyle2}" Command="{Binding TurnNextView}" Canvas.Top="216" Canvas.Left="830" Content="{StaticResource Resources_Path_Next}"/>
+            </Canvas>
         </Grid>
     </Viewbox>
 </UserControl>

@@ -6,6 +6,9 @@
              xmlns:local="clr-namespace:RDSCL"
              mc:Ignorable="d" 
             d:DesignHeight="650" d:DesignWidth="90" >
+    <UserControl.Resources>
+     
+    </UserControl.Resources>
     <UserControl.Style>
         <Style TargetType="UserControl">
             <Setter Property="Template">
@@ -13,9 +16,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="650">
-                                <Canvas Width="90" Height="650">
-                                    <Path x:Name="Path_Frame" Fill="#FF35AAF7" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z"  />
-                                </Canvas>
+                                <Path x:Name="Path_Frame" Data="M 2,2 L 20,2 A 5,7 0 1 0 70,2 L88,2 88,650 70,650 A 5,7 0 1 0 20,650 L 20,650 L2,650z"  />
                                 <StackPanel x:Name="StackPanel_Body" Orientation="Vertical" Canvas.Left="11" Canvas.Top="40">
                                     <local:RD_Hole x:Name="SingleTube1" Width="68" Height="68" Margin="0,20,0,0" ContentColor="{Binding Cells[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                     <local:RD_Hole x:Name="SingleTube2" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
@@ -25,13 +26,10 @@
                                     <local:RD_Hole x:Name="SingleTube6" Width="68" Height="68" Margin="0,25,0,0" ContentColor="{Binding Cells[5].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}"/>
                                 </StackPanel>
 
-                                <Grid Width="90" Height="90"  Canvas.Top="-50" >
-                                    <TextBlock x:Name="TextBlock_Number"  
-                                               Visibility="{Binding NumberVisibility,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                    Text="{Binding Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" 
-                                    Foreground="{StaticResource TextForeground4}" 
-                                    FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" />
-
+                                <Grid Width="90" Height="720"  Canvas.Top="-50" >
+                                    <TextBlock x:Name="TextBlock_Number" Visibility="{Binding NumberVisibility,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Text="{Binding Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Strip}}}" Foreground="{StaticResource GreenColor}"  FontSize="60"  FontWeight="Bold"  HorizontalAlignment="Center" />
+                                    <Path x:Name="Path_From" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="40" Data="{StaticResource Upload}" Fill="{StaticResource GreenColor}"/>
+                                    <Path x:Name="Path_To" Visibility="Hidden" VerticalAlignment="Bottom" Stretch="Uniform" Width="40" Data="{StaticResource Download}" Fill="{StaticResource GreenColor}"/>
                                 </Grid>
                             </Canvas>
                         </Viewbox>

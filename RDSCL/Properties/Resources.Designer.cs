@@ -61,6 +61,24 @@ namespace RDSCL.Properties {
         }
         
         /// <summary>
+        ///   查找类似 Path_From 的本地化字符串。
+        /// </summary>
+        internal static string Path_From {
+            get {
+                return ResourceManager.GetString("Path_From", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 Path_To 的本地化字符串。
+        /// </summary>
+        internal static string Path_To {
+            get {
+                return ResourceManager.GetString("Path_To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 ReagentContent 的本地化字符串。
         /// </summary>
         internal static string ReagentContent {

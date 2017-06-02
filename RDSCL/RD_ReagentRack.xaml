@@ -29,7 +29,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="90" Height="530">
-                                <Rectangle RadiusX="10" RadiusY="10" Width="90" Height="524" Canvas.Top="10" Fill="#FF35AAF7" Opacity="0.8"/>
+                                <Rectangle RadiusX="10" RadiusY="10" Width="90" Height="524" Canvas.Top="10" Fill="{StaticResource BlueColor}"/>
 
                                 <local:RD_Hole x:Name="RD_MBBottle1" ContentColor="{Binding DataSource.MBBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="38" Canvas.Left="-4" Canvas.Top="20"/>
                                 <local:RD_Hole x:Name="RD_MBBottle2" ContentColor="{Binding DataSource.MBBottles[1].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_ReagentRack}}}" Width="38" Canvas.Left="40" Canvas.Top="20"/>

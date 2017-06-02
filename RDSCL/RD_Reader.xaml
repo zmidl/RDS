@@ -11,7 +11,7 @@
         <system:Double x:Key="StrokeThickness" >10</system:Double>
         
         <Style x:Key="TextBlock" TargetType="{x:Type TextBlock}">
-            <Setter Property="Foreground" Value="{StaticResource TextForeground2}"/>
+            <Setter Property="Foreground" Value="{StaticResource BlueColor}"/>
             <Setter Property="FontSize" Value="60"/>
             <Setter Property="FontWeight" Value="Bold"/>
         </Style>
@@ -30,7 +30,7 @@
                        
                         <Viewbox Stretch="Fill">
                             <Canvas Width="900" Height="780" >
-                                <Rectangle Canvas.Left="-250" Canvas.Top="-320" Width="1200" Height="1300" RadiusX="20" RadiusY="20" Fill="#FF65B2FF" Opacity="0.4"/>
+                                <Rectangle Canvas.Left="-250" Canvas.Top="-320" Width="1200" Height="1300" RadiusX="20" RadiusY="20" Stroke="{StaticResource BlueColor}" StrokeThickness="2"/>
                                 <StackPanel Canvas.Left="50" Canvas.Top="50" Orientation="Horizontal">
                                     <StackPanel Orientation="Vertical" Margin="0,30,0,0">
                                         <local:RD_Hole ContentColor="{Binding DataSource.EnzymeBottles[0].Color, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" IsTwinkle="{Binding DataSource.EnzymeBottles[0].IsTwinkle, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}}" Width="68" Margin="0,25,0,0"/>
@@ -56,25 +56,25 @@
                                 </Path>
 
                                 <Canvas x:Name="PopupForm" Visibility="Hidden">
-                                    <Path Canvas.Left="-100" Canvas.Top="-50" Stroke="{StaticResource PressedForeground}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 180,0 250,100"/>
-                                    <TextBlock Canvas.Left="-100" Canvas.Top="-130" Text="{Binding DataSource.Temperature,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}℃}"  Style="{StaticResource TextBlock}" Foreground="{StaticResource PressedForeground}"/>
+                                    <Path Canvas.Left="-100" Canvas.Top="-50" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 180,0 250,100"/>
+                                    <TextBlock Canvas.Left="-100" Canvas.Top="-130" Text="{Binding DataSource.Temperature,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}℃}"  Style="{StaticResource TextBlock}" Foreground="{StaticResource BlueColor}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="100" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="100" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="20" Text="{Binding DataSource.EnzymeBottles[0].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}"  Style="{StaticResource TextBlock}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="200" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="200" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="120" Text="{Binding DataSource.EnzymeBottles[1].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}"  Style="{StaticResource TextBlock}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="300" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="300" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="220" Text="{Binding DataSource.EnzymeBottles[2].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}" Style="{StaticResource TextBlock}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="400" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="400" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="320" Text="{Binding DataSource.EnzymeBottles[3].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}" Style="{StaticResource TextBlock}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="500" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="500" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="420" Text="{Binding DataSource.EnzymeBottles[4].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}" Style="{StaticResource TextBlock}"/>
 
-                                    <Path Canvas.Left="-50" Canvas.Top="600" Stroke="{StaticResource TextForeground2}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
+                                    <Path Canvas.Left="-50" Canvas.Top="600" Stroke="{StaticResource BlueColor}" StrokeThickness="{StaticResource StrokeThickness}" Data="M0,0 L 100,0 130,30"/>
                                     <TextBlock Canvas.Left="-50" Canvas.Top="520" Text="{Binding DataSource.EnzymeBottles[5].Volume,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Reader}}, StringFormat=\{0\}%}" Style="{StaticResource TextBlock}"/>
 
                                 </Canvas>

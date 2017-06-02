@@ -43,6 +43,9 @@
     <system:String x:Key="InitializeSuppliesView_Message12">Here is the mineral oil</system:String>
     <system:String x:Key="InitializeSuppliesView_Message13">Here is the washing liquid</system:String>
     <system:String x:Key="MonitorView_RemainingTime">remaining time</system:String>
+    <system:String x:Key="MonitorView_Start">Start Task</system:String>
+    <system:String x:Key="MonitorView_Compelte">Compelte</system:String>
+    <system:String x:Key="MonitorView_Sampling">Sampling</system:String>
     <system:String x:Key="MaintenanceView_Message1">abc</system:String>
     <system:String x:Key="MaintenanceView_Message2">pliase use 84 溶液擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>
     <system:String x:Key="MaintenanceView_Message3">pliase use 清水擦拭试剂架、擦拭样本架、擦 拭耗材放置区、擦拭 65℃温浴模块、擦拭震荡模块、擦拭吸 磁模块、擦拭荧光读数模块。</system:String>

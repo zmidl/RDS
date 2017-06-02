@@ -33,7 +33,7 @@
     <Viewbox Stretch="Fill" >
         <Grid Width="1900" Height="1000">
             <DockPanel Width="1900" Height="1000" LastChildFill="True">
-                <Canvas  x:Name="StackPanel_Head" Background="{StaticResource PressedForeground}" Height="80"  DockPanel.Dock="Top">
+                <Canvas  x:Name="StackPanel_Head" Background="{StaticResource BlueColor}" Height="80"  DockPanel.Dock="Top">
                     <Image Stretch="UniformToFill" Height="70" Canvas.Top="5" Canvas.Left="30" Source="/RDS;component/Apps/Images/RdLogo.png" />
                     <Button  x:Name="Button_Exit" Style="{StaticResource RD_EllipseButtonStyle}" Content="{StaticResource Path_Exit}" Command="{Binding ExitApp}" Width="55" Height="55" Canvas.Right="20" Canvas.Top="10"  FontSize="100" />
                     <Button  x:Name="Button_Minimize" Style="{StaticResource RD_EllipseButtonStyle}" Command="{Binding ShowCricleProgress}" Content="{StaticResource Path_Minimize}" Width="55" Height="55" Canvas.Right="100" Canvas.Top="10"  FontSize="100" Click="Button_Minimize_Click" />

@@ -246,12 +246,21 @@ namespace RDS.ViewModels
 			}
 		}
 
-		public void CarryStrip(int from, int to)
+		public void StripMoved(int from, int to)
 		{
 			var pointFrom = this.GetStripLocation(from);
 			var pointTo = this.GetStripLocation(to);
 			this.StripGroups[pointTo.Item1][pointTo.Item2] = this.StripGroups[pointFrom.Item1][pointFrom.Item2];
+			this.StripGroups[pointTo.Item1][pointTo.Item2].IsMoving = false;
 			this.StripGroups[pointFrom.Item1][pointFrom.Item2] = new Strip();
+		}
+
+		public void StripMoving(int from,int to)
+		{
+			var pointFrom = this.GetStripLocation(from);
+			var pointTo = this.GetStripLocation(to);
+			this.StripGroups[pointFrom.Item1][pointFrom.Item2].IsMoving = true;
+			this.StripGroups[pointTo.Item1][pointTo.Item2].IsMoving = true;
 		}
 
 		private Tuple<int, int> GetStripLocation(int index)

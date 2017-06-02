@@ -53,20 +53,58 @@ namespace RDSCL
 		public static readonly DependencyProperty CurrentStateProperty =
 			DependencyProperty.Register(nameof(CurrentState), typeof(bool?), typeof(RD_Strip), new PropertyMetadata(null, new PropertyChangedCallback(Callback_CurrentState)));
 
+		public bool IsMoving
+		{
+			get { return (bool)GetValue(IsMovingProperty); }
+			set { SetValue(IsMovingProperty, value); }
+		}
+		public static readonly DependencyProperty IsMovingProperty =
+			DependencyProperty.Register(nameof(IsMoving), typeof(bool), typeof(RD_Strip), new PropertyMetadata(false,new PropertyChangedCallback(Callback_IsMoving)));
+
+		private static void Callback_IsMoving(DependencyObject d,DependencyPropertyChangedEventArgs e)
+		{
+			var strip = (RD_Strip)d;
+			var from = (Path)strip.Template.FindName(Properties.Resources.Path_From, strip);
+			var to = (Path)strip.Template.FindName(Properties.Resources.Path_To, strip);
+			if (((bool)e.NewValue) == true)
+			{
+				if (strip.CurrentState == true)
+				{
+					from.Visibility = Visibility.Visible;
+					to.Visibility = Visibility.Hidden;
+				}
+				else
+				{
+					from.Visibility = Visibility.Hidden;
+					to.Visibility = Visibility.Visible;
+				}
+			}
+			else
+			{
+				from.Visibility = Visibility.Hidden;
+				to.Visibility = Visibility.Hidden;
+			}
+		}
+
 		private static void Callback_CurrentState(DependencyObject d, DependencyPropertyChangedEventArgs e)
 		{
 			if (e.NewValue != null)
 			{
 				var strip = d as RD_Strip;
 				var currentState = (bool)e.NewValue;
+				var frame = strip.Template.FindName("Path_Frame",strip) as Path;
+				var blue = strip.FindResource("BlueColor") as SolidColorBrush;
+				var wathetColor = strip.FindResource("WathetColor") as SolidColorBrush;
 				switch (currentState)
 				{
-					case true: { strip.Visibility = Visibility.Visible; strip.Opacity = 1.0; strip.NumberVisibility = Visibility.Visible; break; }
-					case false: { strip.Visibility = Visibility.Visible; strip.Opacity = 0.4; strip.NumberVisibility = Visibility.Hidden; break; }
+					case true: { frame.Fill=blue; strip.NumberVisibility = Visibility.Visible; break; }
+					case false: { frame.Fill = wathetColor; strip.NumberVisibility = Visibility.Hidden; break; }
 					default: { break; }
 				}
 			}
 		}
+
+
 
 		public RD_Strip()
 		{

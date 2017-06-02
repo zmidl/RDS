@@ -13,7 +13,7 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="490" Height="780" >
-                                <Rectangle  Width="490" Height="780" RadiusX="20" RadiusY="20" Fill="#FF65B2FF" Opacity="0.4"/>
+                                <Rectangle  Width="490" Height="780" RadiusX="20" RadiusY="20" Stroke="{StaticResource BlueColor}" StrokeThickness="2"/>
                                 <StackPanel Canvas.Left="50" Canvas.Top="50" Height="680" Width="395" Orientation="Horizontal">
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[0].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[0].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[0].Cells, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}"/>
                                     <local:RD_Strip Width="90" Number="{Binding DataSource.Strips[1].Number,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" CurrentState="{Binding DataSource.Strips[1].IsLoaded, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Cells="{Binding DataSource.Strips[1].Cells,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_Mag}}}" Margin="10,0,0,0" />

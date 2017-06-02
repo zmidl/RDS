@@ -16,9 +16,9 @@
     <UserControl.Resources>
         <StackPanel x:Key="Resources_StackPanel_IsTaskStart" Orientation="Horizontal">
             <Path Stretch="Fill" Fill="White" Width="50" Height="30" Data="{StaticResource PlayOrPause}"/>
-            <TextBlock Margin="10,0,0,0" Foreground="White" FontSize="30" Text="Task start"/>
+            <TextBlock Margin="10,0,0,0" Foreground="White" FontSize="30" Text="{DynamicResource MonitorView_Start}"/>
         </StackPanel>
-        <TextBlock x:Key="TextBlock_Content_Emergency" Text="{StaticResource Button_Emergency}" FontSize="32"  Foreground="{StaticResource PressedForeground}" Canvas.Top="8" Canvas.Left="80" />
+        <TextBlock x:Key="TextBlock_Content_Emergency" Text="{StaticResource Button_Emergency}" FontSize="32"  Foreground="{StaticResource BlueColor}" Canvas.Top="8" Canvas.Left="80" />
         <ImageBrush x:Key="WorkDeskBackgroundImage" ImageSource="/RDS;component/Apps/Images/WorkDesk.png"/>
 
         <DropShadowEffect x:Key="ModuleEffect" BlurRadius="5" ShadowDepth="5" Color="#FF707070"/>
@@ -37,10 +37,9 @@
     </UserControl.Resources>
     <Viewbox Stretch="Fill" >
         <Canvas Width="1900" Height="1000">
-
-            <Canvas Width="1750" Height="800" Canvas.Left="70" Canvas.Bottom="80"  >
-                <Rectangle Width="1750" Height="800" RadiusX="20" RadiusY="20" />
-
+            <Line Style="{StaticResource LineStyle}" Canvas.Left="50" Canvas.Top="120" X1="0" X2="1800" />
+            <Line Style="{StaticResource LineStyle}" Canvas.Left="50" Canvas.Bottom="85" X1="0" X2="1800" />
+            <Canvas Width="1750" Height="800" Canvas.Left="70" Canvas.Bottom="70">
                 <Canvas  Canvas.Left="450" Canvas.Top="40" Width="230" Height="710">
 
                     <rdsc:TipRack_300uL ItemsSource="{Binding TipRacks[0].Tips}" Width="220"  Canvas.Left="5"/>
@@ -72,15 +71,15 @@
                 <!--<zmcl:UcDegitalBoard Width="250" Value="{Binding TimeCount}" Canvas.Left="-30" Canvas.Top="73.5"/>-->
             </Canvas>
 
-            <Path Stretch="UniformToFill" Width="80" Canvas.Top="25.5" Canvas.Left="120" Fill="{StaticResource TextForeground3}"  Data="{StaticResource Clock}"/>
-            <TextBlock Canvas.Left="220" Text="{Binding RemainingTime,FallbackValue=00:00:00}"  Foreground="{StaticResource TextForeground3}"  Width="280" FontSize="70" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="20" />
+            <Path Stretch="UniformToFill" Width="80" Canvas.Top="25.5" Canvas.Left="120" Fill="{StaticResource GreenColor}"  Data="{StaticResource Clock}"/>
+            <TextBlock Canvas.Left="220" Text="{Binding RemainingTime,FallbackValue=00:00:00}"  Foreground="{StaticResource GreenColor}"  Width="280" FontSize="70" TextWrapping="WrapWithOverflow" HorizontalAlignment="Center"  Canvas.Top="20" />
 
-            <!--<Path Stretch="UniformToFill" Width="50" Canvas.Top="36.33" Canvas.Left="1290"  Fill="{StaticResource TextForeground}" Data="{StaticResource Emergency}"/>-->
-            <Button Style="{StaticResource RD_ButtonStyle}" Width="200" Height="70" Canvas.Top="25" Canvas.Right="580" Content="Compelte" FontSize="30" Click="Button_Click" />
-            <Button Style="{StaticResource RD_ButtonStyle}"  Content="{DynamicResource Button_Emergency}" Command="{Binding Emergency}" FontSize="30" Width="200" Height="70" Canvas.Top="25" Canvas.Right="360"/>
-            <Button Style="{StaticResource RD_ButtonStyle}" Content="{StaticResource Resources_StackPanel_IsTaskStart}" Width="260" Height="70" Canvas.Left="524" Canvas.Top="25"/>
-            <Grid Width="1900" Canvas.Bottom="40">
-                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="{StaticResource TextForeground4}" FontSize="28" />
+            <!--<Path Stretch="UniformToFill" Width="50" Canvas.Top="36.33" Canvas.Left="1290"  Fill="{StaticResource GrayColor}" Data="{StaticResource Emergency}"/>-->
+            <Button Style="{StaticResource RD_ButtonBrightStyle}" Width="200" Height="70" Canvas.Top="25" Canvas.Right="580" Content="{DynamicResource MonitorView_Compelte}" FontSize="30" Click="Button_Click" />
+            <Button Style="{StaticResource RD_ButtonBrightStyle}"  Content="{DynamicResource Button_Emergency}" Command="{Binding Emergency}" FontSize="30" Width="200" Height="70" Canvas.Top="25" Canvas.Right="360"/>
+            <Button Style="{StaticResource RD_ButtonBrightStyle}" Content="{StaticResource Resources_StackPanel_IsTaskStart}" Width="260" Height="70" Canvas.Left="524" Canvas.Top="25"/>
+            <Grid Width="1900" Canvas.Bottom="30">
+                <TextBlock HorizontalAlignment="Center" Text="{DynamicResource MonitorView_CorporateName}" Foreground="{StaticResource BlueColor}" FontSize="28" />
             </Grid>
 
             <Canvas Canvas.Left="285" Canvas.Top="150" Width="216" Height="736"  Background="#00000000">
@@ -91,12 +90,12 @@
 
                 <Canvas x:Name="Canvas_TwinkleModule" Panel.ZIndex="1">
                     <StackPanel Orientation="Vertical" Width="220"  Canvas.Top="267">
-                        <TextBlock Foreground="{StaticResource TextForeground3}" HorizontalAlignment="Center" Text="请上样" FontSize="40"/>
-                        <Ellipse Stroke="{StaticResource TextForeground3}" StrokeThickness="8" Width="16" Height="16"  Margin="0,20,0,0"/>
-                        <Ellipse Stroke="{StaticResource TextForeground3}" StrokeThickness="8" Width="52" Height="52"  Margin="0,-33,0,0"/>
-                        <Path   Data="{StaticResource Hand}" Fill="{StaticResource TextForeground3}" Stretch="UniformToFill" Width="50" Margin="0,-5,0,0"  />
+                        <TextBlock Foreground="{StaticResource BlueColor}" HorizontalAlignment="Center" Text="{DynamicResource MonitorView_Sampling}" FontSize="40"/>
+                        <Ellipse Stroke="{StaticResource BlueColor}" StrokeThickness="8" Width="16" Height="16"  Margin="0,20,0,0"/>
+                        <Ellipse Stroke="{StaticResource BlueColor}" StrokeThickness="8" Width="52" Height="52"  Margin="0,-33,0,0"/>
+                        <Path   Data="{StaticResource Hand}" Fill="{StaticResource BlueColor}" Stretch="UniformToFill" Width="50" Margin="0,-5,0,0"  />
                     </StackPanel>
-                    <Rectangle  StrokeThickness="5" StrokeDashArray="3" Canvas.Left="1" Width="216" Height="736" Stroke="{StaticResource TextForeground3}" RadiusY="10" RadiusX="10"  />
+                    <Rectangle  StrokeThickness="5" StrokeDashArray="3" Canvas.Left="1" Width="216" Height="736" Stroke="{StaticResource GreenColor}" RadiusY="10" RadiusX="10"  />
                 </Canvas>
                 <i:Interaction.Behaviors>
                     <behavior:SampleRackMouseUp  ViewModel="{Binding Mode=OneWay}"/>
