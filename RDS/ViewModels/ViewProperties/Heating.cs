@@ -36,7 +36,7 @@ namespace RDS.ViewModels.ViewProperties
 				this.Strips.Add(new Strip(0,false));
 			}
 
-			this.OlefinBox = new Reagent(ReagentType.Normal, 0,5);
+			this.OlefinBox = new Reagent(string.Empty, 0,5);
 		}
 	}
 }

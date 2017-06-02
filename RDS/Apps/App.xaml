@@ -19,8 +19,7 @@
             <SolidColorBrush x:Key="WathetColor" Color="#FFA1D0FF"/>
             <SolidColorBrush x:Key="WathetColor2" Color="#FFD6ECFF"/>
             <SolidColorBrush x:Key="WathetColor3" Color="#FFEAF5FF"/>
-            <SolidColorBrush x:Key="TextForeground4" Color="#FFA1D0FF"/>
-           
+
             <LinearGradientBrush x:Key="RD_TextBoxBorderBrush" EndPoint="0.5,1.003" StartPoint="0.5,0.087">
                 <GradientStop Color="Black" Offset="0"/>
                 <GradientStop Color="#FF727272" Offset="1"/>

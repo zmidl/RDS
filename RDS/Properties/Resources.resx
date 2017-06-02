@@ -273,8 +273,8 @@
   <data name="GreenColor" xml:space="preserve">
     <value>GreenColor</value>
   </data>
-  <data name="TextForeground4" xml:space="preserve">
-    <value>TextForeground4</value>
+  <data name="WathetColor" xml:space="preserve">
+    <value>WathetColor</value>
   </data>
   <data name="ReagentInformation" xml:space="preserve">
     <value>ReagentInformation</value>

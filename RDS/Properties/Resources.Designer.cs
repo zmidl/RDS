@@ -556,15 +556,6 @@ namespace RDS.Properties {
         }
         
         /// <summary>
-        ///   查找类似 TextForeground4 的本地化字符串。
-        /// </summary>
-        internal static string TextForeground4 {
-            get {
-                return ResourceManager.GetString("TextForeground4", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   查找类似 00:00:00 的本地化字符串。
         /// </summary>
         internal static string TimeOut {
@@ -579,6 +570,15 @@ namespace RDS.Properties {
         internal static string TwinkleAnimation {
             get {
                 return ResourceManager.GetString("TwinkleAnimation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找类似 WathetColor 的本地化字符串。
+        /// </summary>
+        internal static string WathetColor {
+            get {
+                return ResourceManager.GetString("WathetColor", resourceCulture);
             }
         }
         

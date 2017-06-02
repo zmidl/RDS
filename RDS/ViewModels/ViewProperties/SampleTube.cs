@@ -29,7 +29,7 @@ namespace RDS.ViewModels.ViewProperties
 			{
 				isLoaded = value;
 				this.RaisePropertyChanged(nameof(IsLoaded));
-				if (value==true) this.SampleContentColor = General.GreenColor;
+				if (value==true) this.SampleContentColor = General.WathetColor;
 				else this.SampleContentColor = new SolidColorBrush(Colors.White);
 				this.RaisePropertyChanged(nameof(this.SampleContentColor));
 			}

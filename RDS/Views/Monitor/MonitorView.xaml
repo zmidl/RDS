@@ -95,8 +95,7 @@
                         <Ellipse Stroke="{StaticResource BlueColor}" StrokeThickness="8" Width="52" Height="52"  Margin="0,-33,0,0"/>
                         <Path   Data="{StaticResource Hand}" Fill="{StaticResource BlueColor}" Stretch="UniformToFill" Width="50" Margin="0,-5,0,0"  />
                     </StackPanel>
-                    <Rectangle  StrokeThickness="5" StrokeDashArray="3" Canvas.Left="1" Width="216" Height="736" Stroke="{StaticResource GreenColor}" RadiusY="10" RadiusX="10"  />
-                </Canvas>
+                  </Canvas>
                 <i:Interaction.Behaviors>
                     <behavior:SampleRackMouseUp  ViewModel="{Binding Mode=OneWay}"/>
                 </i:Interaction.Behaviors>

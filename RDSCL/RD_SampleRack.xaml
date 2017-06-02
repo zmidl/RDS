@@ -25,10 +25,10 @@
                     <ControlTemplate TargetType="UserControl">
                         <Viewbox Stretch="Fill">
                             <Canvas Width="120" Height="1800" >
-                                <Rectangle  Width="120" Height="1800" RadiusX="20" RadiusY="20"  Fill="{StaticResource WathetColor2}"/>
+                                <Rectangle  Width="120" Height="1800" RadiusX="20" RadiusY="20" StrokeThickness="2" StrokeDashArray="5" Stroke="{StaticResource BlueColor}" Fill="{StaticResource WathetColor3}"/>
 
                                 <Canvas x:Name="Canvas_Rack" Visibility="{Binding RackVisibility, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" Width="120" Height="1800">
-                                    <Rectangle Width="120" Height="1800"  RadiusX="20" RadiusY="20" Fill="#FF35AAF7"/>
+                                    <Rectangle Width="120" Height="1800"  RadiusX="20" RadiusY="20" Fill="{StaticResource BlueColor}"/>
                                     <StackPanel Orientation="Vertical" Height="1700" Canvas.Left="30" Canvas.Top="0">
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,120,0,0" ContentColor="{Binding Samples[0].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />
                                         <local:RD_Hole ExcircleColor="{StaticResource Excircle}" ContentColorMask="{StaticResource Content}" Width="60" Height="60" Margin="0,20,0,0" ContentColor="{Binding Samples[1].SampleContentColor, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" IsTwinkle="{Binding Samples[1].IsSampling, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type local:RD_SampleRack}}}" />

@@ -12,7 +12,7 @@ namespace RDS.ViewModels.Common
 	{
 		public static SolidColorBrush GreenColor { get { return (General.FindResource(Properties.Resources.GreenColor) as SolidColorBrush); } }
 
-		public static SolidColorBrush TextForeground4 { get { return (General.FindResource(Properties.Resources.TextForeground4) as SolidColorBrush); } }
+		public static SolidColorBrush WathetColor { get { return (General.FindResource(Properties.Resources.WathetColor) as SolidColorBrush); } }
 
 		private static MainWindow mainWindow;
 

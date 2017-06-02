@@ -34,7 +34,7 @@ namespace RDS.ViewModels.ViewProperties
 		{
 			for (int i = 0; i < Reader.STRIPS_COUNT; i++) this.Strips.Add(new Strip(0, false));
 
-			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new Reagent(ReagentType.Normal, 0,5));
+			for (int i = 0; i < this.EnzymeBottlesCount; i++) this.EnzymeBottles.Add(new Reagent("Z", 0,5));
 		}
 	}
 }
